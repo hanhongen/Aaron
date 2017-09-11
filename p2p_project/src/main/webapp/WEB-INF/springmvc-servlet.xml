@@ -10,7 +10,9 @@
 	http://www.springframework.org/schema/mvc
 	http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
 
-	<context:component-scan base-package="com.dmg"></context:component-scan>
+	<context:component-scan base-package="com.dmg.controller" use-default-filters="false">
+	 <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/> 
+	</context:component-scan>
 	
 	<mvc:annotation-driven></mvc:annotation-driven>
 	<mvc:resources location="/frontStyle/js/" mapping="/frontStyle/js/**"/>
@@ -21,33 +23,11 @@
 	<mvc:resources location="/backStyle/css/" mapping="/backStyle/css/**"/>
 	<mvc:resources location="/backStyle/images/" mapping="/backStyle/images/**"/>
 
-<!-- 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"> -->
-<!-- 	  <property name="prefix" value="/WEB-INF/frontJsp/"></property> -->
-<!-- 	  <property name="suffix" value=".jsp"></property> -->
-<!-- 	</bean> -->
 	
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 	  <property name="prefix" value="/"></property>
 	  <property name="suffix" value=".jsp"></property>
 	</bean>
-	
-	<!-- 多视图实验配置 -->
-<!-- <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">   -->
-<!--     <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>   -->
-<!--     <property name="viewNames" value="*jsp"/> -->
-<!--     <property name="contentType" value="text/html;charset=UTF-8"/>   -->
-<!--     <property name="prefix" value="/frontJsp/"/>   -->
-<!--     <property name="suffix" value=""/>   -->
-<!--     <property name="order" value="1"></property> -->
-<!-- </bean>   -->
-  <!-- 多视图实验配置 -->
-<!-- <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">   -->
-<!--     <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>   -->
-<!--     <property name="viewNames" value="*jsp"/> -->
-<!--     <property name="contentType" value="text/html;charset=UTF-8"/>   -->
-<!--     <property name="prefix" value="/backJsp/"/>   -->
-<!--     <property name="suffix" value=""/>   -->
-<!--     <property name="order" value="2"></property> -->
-<!-- </bean>   -->
+
 	
 </beans>

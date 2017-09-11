@@ -190,10 +190,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <a href="#"><i class="fa fa-check-square-o nav_icon"></i>会员管理<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="/p2p_project/backJsp/forms.jsp">账号管理</a>
+                                    <a href="/p2p_project/member/listMember">账号管理</a>
                                 </li>
                                 <li>
-                                    <a href="/p2p_project/backJsp/validation.jsp">绑卡管理</a>
+                                    <a href="/p2p_project/member/login">绑卡管理</a>
                                 </li>
                                  <li>
                                     <a href="/p2p_project/backJsp/validation.jsp">付息计划</a>
