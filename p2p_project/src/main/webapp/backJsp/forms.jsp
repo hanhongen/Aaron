@@ -15,9 +15,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- Custom CSS -->
 <link href="/p2p_project/backStyle/css/style.css" rel='stylesheet' type='text/css' />
 <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/font-awesome.4.6.0.css"> 
+<!-- 日期控件 -->
+<link rel="stylesheet" type="text/css" href="/p2p_project/backStyle/css/bootstrap-datetimepicker.min.css"> 
 <!-- jQuery -->
 <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
-
+<!-- 日期控件 -->
+<script src="/p2p_project/backStyle/js/bootstrap-datetimepicker.min.js"></script>
+<script src="/p2p_project/backStyle/js/bootstrap-datetimepicker.fr.js"></script>
+<script src="/p2p_project/backStyle/js/bootstrap-datetimepicker.zh-CN.js"></script>
 <!---//webfonts--->  
 <!-- Bootstrap Core JavaScript -->
 <script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
@@ -271,7 +276,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <td style="width:110px;padding-left:30px">邀请码：</td>
                         <td style="width:180px"><input type="text"  name="invitationcode" class="form-control" placeholder="邀请码" value=""></td>
                         <td style="width:110px;padding-left:30px">注册时间：</td>
-                        <td style="width:180px"><input type="date"  name="createDate" class="form-control time" placeholder="注册时间" readonly="readonly" value=""></td>
+                        <td style="width:180px"><input type="text"  name="createDate" class="form-control time" placeholder="注册时间" readonly="readonly" value=""></td>
                         <td class="pull-right" style="padding-right:10px"><button type="submit" class="btn btn-primary btn-sm">查询</button></td>
                         <td><button type="button" class="btn btn-primary btn-sm" onclick="$('#form1').find(':input').not(':button, :submit, :reset').val('').removeAttr('checked').removeAttr('selected');">重置</button></td>
                         </tr>     
@@ -319,5 +324,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- Metis Menu Plugin JavaScript -->
 <script src="/p2p_project/backStyle/js/metisMenu.min.js"></script>
 <script src="/p2p_project/backStyle/js/custom.js"></script>
+<script type="text/javascript">
+$('.time').datetimepicker({
+	format : 'yyyy-mm-dd',
+	language: 'zh-CN',
+	minView: 2,
+    todayBtn: 1
+}).on('changeDate', function(ev) {
+	$('.time').datetimepicker('hide');
+});
+
+</script>
 </body>
 </html>
