@@ -69,7 +69,7 @@
 					</dd>
 				</dl>
 				<div class="community">
-					<a href="" target="_blank" rel="nofollow" class="fc_white">关于我们</a>
+					<a href="/p2p_project/backJsp/indexback.jsp" target="_blank" rel="nofollow" class="fc_white">进入后台</a>
 				</div>
 			</div>
 		</div>
