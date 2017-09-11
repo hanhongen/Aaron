@@ -24,36 +24,35 @@
 			<div class="fl tel">
 				<em class="fs_14 mr_5 tel_ico">客服热线</em> <i class="aril">400-688-8888</i>
 				<span class="iphone"><i></i> <a href="" target="_blank">手机客户端</a>
-					<div class="webdown"></div> </span> <span class="hover_sina"> <a
+					</span> <span class="hover_sina"> <a
 					href="" target="_blank"></a>
 				</span> <span class="hover_weixin toptk">
-					<div class="tk"></div>
 				</span>
 			</div>
 			<div class="fr login clearfix">
 
 				<div class='login_bt'>
-					<a href="#" id="login" rel="nofollow" title="登录" class="fff">登录</a>
-					<a href="/p2p_project/user/register" rel="nofollow" title="注册"
+					<a href="/p2p_project/frontJsp/login.jsp" rel="nofollow"  class="fff">登录</a>
+					<a href="/p2p_project/frontJsp/register.jsp" rel="nofollow"
 						class="fff">注册</a>
 				</div>
 
 				<dl>
 					<dt>
-						<a href="" title="账户中心" rel="nofollow" class="txnone"
+						<a href="" rel="nofollow" class="txnone"
 							style="color: #ffffff">账户中心</a>
 					</dt>
 					<dd>
-						<a href="" rel="nofollow" title="充值">充值</a>
+						<a href="" rel="nofollow" >充值</a>
 					</dd>
 					<dd>
-						<a href="" rel="nofollow" title="提现">提现</a>
+						<a href="" rel="nofollow">提现</a>
 					</dd>
 					<dd>
-						<a href="" rel="nofollow" title="我的投资">我的投资</a>
+						<a href="" rel="nofollow">我的投资</a>
 					</dd>
 					<dd>
-						<a href="" target="_blank" rel="nofollow" title="我的借款">我的借款</a>
+						<a href="" target="_blank" rel="nofollow">我的借款</a>
 					</dd>
 				</dl>
 				<div class="community">
@@ -71,8 +70,8 @@
 			<div class="fr righ">
 				<ul class="nav clearfix">
 					<li><a rel="nofollow" href="/p2p_project/frontJsp/index.jsp"
-						title="首页" class="one">首页</a></li>
-					<li class="two"><a href="" title="我要投资" class="two"
+						class="one">首页</a></li>
+					<li class="two"><a href="" class="two"
 						id="cp_two">我要投资</a>
 						<dl class="cp_two">
 							<dd>
@@ -88,15 +87,13 @@
 								<a href="">股权基金</a>
 							</dd>
 						</dl></li>
-					<li class="rela"><a href="" title="我要借款" class="one">盈+商学院</a>
+					<li class="rela"><a href="" class="one">盈+商学院</a>
 					</li>
-					<li class="rela"><a href="" title="我要借款" class="one">我的加法库</a>
+					<li class="rela"><a href="" class="one">我的加法库</a>
 					</li>
 					<li class="rela"><a href="/p2p_project/frontJsp/about.jsp"
-						title="新手导航" class="one">关于我们 </a></li>
-					<!-- <li style="margin-right:0;">
-                    <a href="" target="_blank" title="社区" class="one">社区 </a>
-                </li> -->
+						 class="one">关于我们 </a></li>
+					
 				</ul>
 			</div>
 		</div>
@@ -145,41 +142,7 @@
         animation:1000 //动画时间
     });
 </script>
-	<!--banner-->
-	<div class="index_main w1180 front">
-		<div id="d1" class="login_front" style="display: block;">
-			<p class="fs_24 t">安全、稳健、高收益</p>
-			<p class="fs_24 bold m">新注册用户更享好礼</p>
-			<a class="btn_orange" href="/p2p_project/user/register" rel=""
-				title="免费注册">免费注册</a> <a href="#" id="login1" class="orange" rel=""
-				title="马上登录">马上登录</a>
-		</div>
-		<div id="d2" class="login_front" style="display: none;">
-			<center>
-				<h3>登陆</h3>
-				<form action="">
-					账号：<input type="text" name="uname"><br>
-					<br> 密码：<input type="password" name="password"><br>
-					<br> <input type="submit" value="登  陆">&nbsp; <input
-						type="reset" value="重  置">
-				</form>
-
-			</center>
-		</div>
-	</div>
-	<script type="text/javascript">
-	  $(function(){
-		  $("#login").click(function(){
-			  $("#d1").toggle();
-			  $("#d2").toggle();
-		  });
-		  $("#login1").click(function(){
-			  $("#d1").toggle();
-			  $("#d2").toggle();
-		  });
-	  });
-	</script>
-
+	
 
 	<div class="subnav">
 		<ul>
@@ -189,15 +152,9 @@
 		</ul>
 	</div>
 
-
-
-
-
 	<div class="about-us-wrap">
 		<div class="about-us cf mod">
 
-			<!--about-us start-->
-			<!--about-us-sidebar start-->
 			<div class="about-us-sidebar">
 				<img src="/p2p_project/frontStyle/images/sidebar.png">
 				<div id="PP_NavLabel" class="list-nav-label" style="top: 161px;"></div>

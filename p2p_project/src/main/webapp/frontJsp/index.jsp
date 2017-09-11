@@ -36,36 +36,35 @@
 			<div class="fl tel">
 				<em class="fs_14 mr_5 tel_ico">客服热线</em> <i class="aril">400-688-8888</i>
 				<span class="iphone"><i></i> <a href="" target="_blank">手机客户端</a>
-					<div class="webdown"></div> </span> <span class="hover_sina"> <a
+					 </span> <span class="hover_sina"> <a
 					href="" target="_blank"></a>
 				</span> <span class="hover_weixin toptk">
-					<div class="tk"></div>
 				</span>
 			</div>
 			<div class="fr login clearfix">
 
 				<div class='login_bt'>
 					<a href="/p2p_project/frontJsp/login.jsp" id="login" rel="nofollow"
-						title="登录" class="fff">登录</a> <a href="/p2p_project/frontJsp/register.jsp"
-						rel="nofollow" title="注册" class="fff">注册</a>
+						class="fff">登录</a> <a href="/p2p_project/frontJsp/register.jsp"
+						rel="nofollow" class="fff">注册</a>
 				</div>
 
 				<dl>
 					<dt>
-						<a href="" title="账户中心" rel="nofollow" class="txnone"
+						<a href="" rel="nofollow" class="txnone"
 							style="color: #ffffff">账户中心</a>
 					</dt>
 					<dd>
-						<a href="" rel="nofollow" title="充值">充值</a>
+						<a href="" rel="nofollow" >充值</a>
 					</dd>
 					<dd>
-						<a href="" rel="nofollow" title="提现">提现</a>
+						<a href="" rel="nofollow" >提现</a>
 					</dd>
 					<dd>
-						<a href="" rel="nofollow" title="我的投资">我的投资</a>
+						<a href="" rel="nofollow" >我的投资</a>
 					</dd>
 					<dd>
-						<a href="" target="_blank" rel="nofollow" title="我的借款">我的借款</a>
+						<a href="" target="_blank" rel="nofollow">我的借款</a>
 					</dd>
 				</dl>
 				<div class="community">
@@ -82,8 +81,8 @@
 				src="/p2p_project/frontStyle/images/logo.jpg" height="52" alt="" /></a>
 			<div class="fr righ">
 				<ul class="nav clearfix">
-					<li><a rel="nofollow" href="" title="首页" class="one">首页</a></li>
-					<li class="two"><a href="" title="我要投资" class="two"
+					<li><a rel="nofollow" href="" class="one">首页</a></li>
+					<li class="two"><a href="" class="two"
 						id="cp_two">我要投资</a>
 						<dl class="cp_two">
 							<dd>
@@ -99,15 +98,12 @@
 								<a href="">股权基金</a>
 							</dd>
 						</dl></li>
-					<li class="rela"><a href="" title="我要借款" class="one">盈+商学院</a>
+					<li class="rela"><a href="" class="one">盈+商学院</a>
 					</li>
-					<li class="rela"><a href="" title="我要借款" class="one">我的加法库</a>
+					<li class="rela"><a href="" class="one">我的加法库</a>
 					</li>
 					<li class="rela"><a href="/p2p_project/frontJsp/about.jsp"
-						title="新手导航" class="one">关于我们 </a></li>
-					<!-- <li style="margin-right:0;">
-                    <a href="" target="_blank" title="社区" class="one">社区 </a>
-                </li> -->
+						 class="one">关于我们 </a></li>
 				</ul>
 			</div>
 		</div>
@@ -216,15 +212,7 @@
 							</div>
 							<div class="lineas clearfix">
 								<span class="fl c_a">109,407</span> <span class="fr c_b">
-									<em>万元成交</em> <span class="tkOut tkOut_b"> <i
-										class="ico_all size15 img_icon s_wen"><img
-											src="/p2p_project/images/zmcfwenhao.png"></i>
-										<div class="tkIn indexTkIn hidden" id="dianjiba">
-											<span class="jian" style="left: 80px;"></span> <span
-												class="tknr indexTknr"
-												style="font-size: 12px; line-height: 18px; height: 38px; width: 150px; text-indent: 0;">当月成交金额包含债权金额和债权转让金额</span>
-										</div>
-								</span>
+									<em>万元成交</em> 
 								</span>
 							</div>
 						</div>

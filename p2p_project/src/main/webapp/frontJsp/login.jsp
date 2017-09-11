@@ -12,8 +12,6 @@
 	href="https://ppmoneycnt.b0.upaiyun.com/static/v4.01/css/release-commons_38d5ebd.css?v=201512161721">
 <script type="text/javascript"
 	src="https://ppmoneycnt.b0.upaiyun.com/static/v4.01/js/jquery/1.7.2/jquery_7a71356.js?v=201512161721"></script>
-<script type="text/javascript"
-	src="https://ppmoneycnt.b0.upaiyun.com/static/v4.01/js/common/common_7b4e346.js?v=201512161721"></script>
 <link
 	href="https://ppmoneycnt.b0.upaiyun.com/static/v4.01/css/login/login_e18909b.css?v=201512161721"
 	rel="stylesheet" type="text/css" />
@@ -37,36 +35,35 @@
 			<div class="fl tel">
 				<em class="fs_14 mr_5 tel_ico">客服热线</em> <i class="aril">400-688-8888</i>
 				<span class="iphone"><i></i> <a href="" target="_blank">手机客户端</a>
-					<div class="webdown"></div> </span> <span class="hover_sina"> <a
+					 </span> <span class="hover_sina"> <a
 					href="" target="_blank"></a>
 				</span> <span class="hover_weixin toptk">
-					<div class="tk"></div>
 				</span>
 			</div>
 			<div class="fr login clearfix">
 
 				<div class='login_bt'>
-					<a href="#" id="login" rel="nofollow" title="登录" class="fff">登录</a>
-					<a href="/p2p_project/user/register" rel="nofollow" title="注册"
+					<a href="#" id="/p2p_project/frontJsp/login.jsp" rel="nofollow" class="fff">登录</a>
+					<a href="/p2p_project/frontJsp/register.jsp" rel="nofollow"
 						class="fff">注册</a>
 				</div>
 
 				<dl>
 					<dt>
-						<a href="" title="账户中心" rel="nofollow" class="txnone"
+						<a href="" rel="nofollow" class="txnone"
 							style="color: #ffffff">账户中心</a>
 					</dt>
 					<dd>
-						<a href="" rel="nofollow" title="充值">充值</a>
+						<a href="" rel="nofollow" >充值</a>
 					</dd>
 					<dd>
-						<a href="" rel="nofollow" title="提现">提现</a>
+						<a href="" rel="nofollow" >提现</a>
 					</dd>
 					<dd>
-						<a href="" rel="nofollow" title="我的投资">我的投资</a>
+						<a href="" rel="nofollow" >我的投资</a>
 					</dd>
 					<dd>
-						<a href="" target="_blank" rel="nofollow" title="我的借款">我的借款</a>
+						<a href="" target="_blank" rel="nofollow" >我的借款</a>
 					</dd>
 				</dl>
 				<div class="community">
@@ -83,8 +80,8 @@
 			<div class="fr righ">
 				<ul class="nav clearfix">
 					<li><a rel="nofollow" href="/p2p_project/frontJsp/index.jsp"
-						title="首页" class="one">首页</a></li>
-					<li class="two"><a href="" title="我要投资" class="two"
+						 class="one">首页</a></li>
+					<li class="two"><a href="" class="two"
 						id="cp_two">我要投资</a>
 						<dl class="cp_two">
 							<dd>
@@ -100,15 +97,13 @@
 								<a href="">股权基金</a>
 							</dd>
 						</dl></li>
-					<li class="rela"><a href="" title="我要借款" class="one">盈+商学院</a>
+					<li class="rela"><a href="" class="one">盈+商学院</a>
 					</li>
-					<li class="rela"><a href="" title="我要借款" class="one">我的加法库</a>
+					<li class="rela"><a href="" class="one">我的加法库</a>
 					</li>
 					<li class="rela"><a href="/p2p_project/frontJsp/about.jsp"
-						title="新手导航" class="one">关于我们 </a></li>
-					<!-- <li style="margin-right:0;">
-                    <a href="" target="_blank" title="社区" class="one">社区 </a>
-                </li> -->
+						class="one">关于我们 </a></li>
+					
 				</ul>
 			</div>
 		</div>
@@ -121,9 +116,9 @@
 			<div class="login-box">
 				<div class="login-hd">
 					<h1>
-						登录<span class="ff-arial">sssss</span>
+						登录<span class="ff-arial"></span>
 					</h1>
-					<a href="/register/">免费注册</a>
+					<a href="/p2p_project/frontJsp/register.jsp">免费注册</a>
 				</div>
 				<form id="formLogin" class="login-bd" action="/login/" method="post">
 					<input type="hidden" name="returnUrl" value="/customer" />
@@ -143,8 +138,7 @@
 							placeholder="验证码" /> <img src="" id="safeImg" /><label
 							id="change">换一张</label>
 					</div>
-					<a class="forget-pass" href="/CustomerAuth/ForgetPassword"
-						title="忘记密码了">忘记密码?</a>
+					<a class="forget-pass" href="/p2p_project/frontJsp/forget.jsp">忘记密码?</a>
 					<button class="submit" type="submit" id="sendLogin" data-piwik>登
 						录</button>
 					<div class="warning" name="login-warning"></div>
@@ -170,21 +164,7 @@
 		</div>
 	</div>
 	<!--end-->
-	<script type="text/javascript"
-		src="https://ppmoneycnt.b0.upaiyun.com/static/v4.01/js/sea_c494287.js?v=201512161721"
-		id="seajsnode"></script>
-	<script type="text/javascript"
-		src="https://ppmoneycnt.b0.upaiyun.com/static/v4.01/js/sea-config_c8ac77c.js?v=201512161721"></script>
-	<script type="text/javascript">
-    var showCode = 'False'.toLowerCase() == "true";
-    var firstErrorMsg = '';
-    var $warningTips = $(".login-box .warning");
-    firstErrorMsg && $warningTips.show().html(firstErrorMsg);
-
-    seajs.use(['login/login_98660bd'], function () {
-
-    });
-</script>
+	
 	<div class="g-ft">
 		<div class="copyright">
 			<a href="/info/about" title="关于我们" rel="nofollow">关于我们</a>| <a
