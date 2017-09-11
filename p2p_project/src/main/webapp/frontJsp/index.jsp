@@ -17,18 +17,23 @@
 	<div class="niwdoawi_top mw_1180">
 		<div class="header w1190 clearfix">
 			<div class="fl tel">
-				<em class="fs_14 mr_5 tel_ico">客服热线</em><i class="aril">400-688-8888</i>
-				<span class="iphone"><i></i> <a href="" target="_blank">手机客户端</a>
-					<div class="webdown"></div> </span> <span class="hover_sina"> <a
-					href="" target="_blank"></a>
-				</span> <span class="hover_weixin toptk">
+				<em class="fs_14 mr_5 tel_ico">客服热线</em>
+				<i class="aril">400-688-8888</i>
+				<span class="iphone"><i></i> 
+				  <a href="" target="_blank">手机客户端</a>
+					<div class="webdown"></div> 
+				</span> 
+				<span class="hover_sina"> 
+					<a href="" target="_blank"></a>
+				</span> 
+				<span class="hover_weixin toptk">
 					<div class="tk"></div>
 				</span>
 			</div>
 			<div class="fr login clearfix">
 
 				<div class='login_bt'>
-					<a href="" rel="nofollow" title="登录" class="fff">登录</a> 
+					<a href="#" id="login" rel="nofollow" title="登录" class="fff">登录</a> 
 					<a href="/p2p_project/user/register" rel="nofollow" title="注册" class="fff">注册</a>
 				</div>
 
@@ -139,21 +144,35 @@
     });
 </script>
 	<!--banner-->
-	<div id="d1" class="index_main w1180 front">
-		<div class="login_front">
+	<div class="index_main w1180 front">
+		<div id="d1" class="login_front" style="display: block;">
 			<p class="fs_24 t">安全、稳健、高收益</p>
 			<p class="fs_24 bold m">新注册用户更享好礼</p>
 			<a class="btn_orange" href="/p2p_project/user/register" rel="" title="免费注册">免费注册</a> 
-			<a href="" id="login" class="orange" rel="" title="马上登录">马上登录</a>
+			<a href="#" id="login1" class="orange" rel="" title="马上登录">马上登录</a>
 		</div>
 		<div id="d2" class="login_front" style="display: none;">
-		   
+		   <center>
+		     <h3>登陆</h3>
+		     <form action="">
+		       账号：<input type="text" name="uname"><br><br>
+		     密码：<input type="password" name="password"><br><br>
+		     <input type="submit" value="登  陆">&nbsp;
+		     <input type="reset" value="重  置">
+		     </form>
+		     
+		   </center>
 		</div>
 	</div>
 	<script type="text/javascript">
 	  $(function(){
 		  $("#login").click(function(){
-			  
+			  $("#d1").toggle();
+			  $("#d2").toggle();
+		  });
+		  $("#login1").click(function(){
+			  $("#d1").toggle();
+			  $("#d2").toggle();
 		  });
 	  });
 	</script>
@@ -734,14 +753,22 @@
 			<li id="back" class="toolbar-item" style="visibility: visible;">
 				<!-- <img src="images/55.png"> -->
 				<div class="item-tip-c item-tip-back">
-					<div class="item-box">
+					<div  class="item-box">
 						<div class="item-tip" style="line-height: 18px;">返回顶部</div>
+						  <script type="text/javascript">
+						  $(function(){
+							  $("#back").click(function(){
+								  $('body,html').animate({scrollTop:0},500);
+								   return false;
+								  });
+						  });
+
+						  </script>
 					</div>
 				</div> <i class="iconfont icon"></i>
 			</li>
 		</ul>
 	</div>
-
 
 
 
