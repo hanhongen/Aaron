@@ -5,7 +5,7 @@
 
 <html>
 <head>
-<title>Modern an Admin Panel Category Flat Bootstarp Resposive Website Template | Forms :: w3layouts</title>
+<title>账号详情</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Modern Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
@@ -284,27 +284,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </form>
                         <table class="table table-bordered tablebox">
                           <tr class="text-center" bgcolor="#f7f7f7">
-                          <td>序号</td>
-                          <td>手机号</td>
                           <td>用户名</td>
-                          <td>姓名</td>
+                          <td>手机号</td>
+                          <td>真实姓名</td>
                           <td>身份证</td>
                           <td>邀请码</td>
+                          <td>被邀请码</td>
                           <td>注册时间</td>
-                          <td>操作</td>
                           </tr>
                           <c:forEach items="${listMember }" var="lm" varStatus="stat">
                           <tr class="text-center">
-                            <td>${stat.index+1 }</td>
-                            <td>${lm.mobile_phone }</td>
                             <td>${lm.name }</td>
+                            <td>${lm.mobile_phone }</td>
                             <td>${lm.member_name }</td>
                             <td>${lm.identity }</td>
                             <td>${lm.invitationcode }</td>
+                            <td>${lm.invitedcode }</td>
                             <td>${lm.create_date }</td>
-                            <td>
-                            	<a class="btn btn-primary btn-sm" href="/p2p_project/member/listMember/{lm.id}">账号详情</a>
-                            </td>
                           </tr>
                           </c:forEach>
 			</table>
