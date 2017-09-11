@@ -7,14 +7,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/user")
 public class UserController {
 
+	//前台首页
 	@RequestMapping("/index")
 	public String index() {
 		return "frontJsp/index";
 	}
 	
+	//后台首页
 	@RequestMapping("/indexback")
 	public String indexback() {
 		return "backJsp/indexback";
+	}
+	
+	//注册
+	@RequestMapping("/register")
+	public String register() {
+		return "frontJsp/register";
 	}
 	
 }

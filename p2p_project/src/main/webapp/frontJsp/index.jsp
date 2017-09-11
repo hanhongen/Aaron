@@ -28,8 +28,8 @@
 			<div class="fr login clearfix">
 
 				<div class='login_bt'>
-					<a href="" rel="nofollow" title="登录" class="fff">登录</a> <a href=""
-						rel="nofollow" title="注册" class="fff">注册</a>
+					<a href="" rel="nofollow" title="登录" class="fff">登录</a> 
+					<a href="/p2p_project/user/register" rel="nofollow" title="注册" class="fff">注册</a>
 				</div>
 
 				<dl>
@@ -139,14 +139,24 @@
     });
 </script>
 	<!--banner-->
-	<div class="index_main w1180 front">
+	<div id="d1" class="index_main w1180 front">
 		<div class="login_front">
 			<p class="fs_24 t">安全、稳健、高收益</p>
 			<p class="fs_24 bold m">新注册用户更享好礼</p>
-			<a class="btn_orange" href="" rel="" title="免费注册">免费注册</a> <a href=""
-				class="orange" rel="" title="马上登录">马上登录</a>
+			<a class="btn_orange" href="/p2p_project/user/register" rel="" title="免费注册">免费注册</a> 
+			<a href="" id="login" class="orange" rel="" title="马上登录">马上登录</a>
+		</div>
+		<div id="d2" class="login_front" style="display: none;">
+		   
 		</div>
 	</div>
+	<script type="text/javascript">
+	  $(function(){
+		  $("#login").click(function(){
+			  
+		  });
+	  });
+	</script>
 
 	<div class="cp_main_buddhald">
 		<div class="clearfix w1180 mb_20 cp_xiugai_ye15820">
