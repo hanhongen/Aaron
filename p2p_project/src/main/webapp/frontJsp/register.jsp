@@ -6,19 +6,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
-<link rel="stylesheet"
-	href="https://ppmoneycnt.b0.upaiyun.com/static/v4.01/css/release-commons_38d5ebd.css?v=201512161721">
-<link rel="stylesheet"
-	href="https://ppmoneycnt.b0.upaiyun.com/static/v4.01/iconfont/iconfont_0386360.css?v=201512161721" />
-<script type="text/javascript"
-	src="https://ppmoneycnt.b0.upaiyun.com/static/v4.01/js/jquery/1.7.2/jquery_7a71356.js?v=201512161721"></script>
-<script
-	src="https://ppmoneycnt.b0.upaiyun.com/static/v4.01/js/plugins/ppmoney.plugins_04539e8.js?v=201512161721"></script>
 
+<link rel="stylesheet" href="https://ppmoneycnt.b0.upaiyun.com/static/v4.01/css/release-commons_38d5ebd.css?v=201512161721">
+    <link rel="stylesheet" href="https://ppmoneycnt.b0.upaiyun.com/static/v4.01/iconfont/iconfont_0386360.css?v=201512161721" />
+    <link rel="stylesheet" href="https://ppmoneycnt.b0.upaiyun.com/static/v4.01/css/center_8d38577.css?v=201512161721" />
+    <link rel="stylesheet" href="https://ppmoneycnt.b0.upaiyun.com/static/v4.01/css/plugins/dialog_5b7bef5.css?v=201512161721" />
+    <script type="text/javascript" src="https://ppmoneycnt.b0.upaiyun.com/static/v4.01/js/jquery/1.7.2/jquery_7a71356.js?v=201512161721"></script>
+<script src="https://ppmoneycnt.b0.upaiyun.com/static/v4.01/js/plugins/ppmoney.plugins_04539e8.js?v=201512161721"></script>
+    <script src="https://special.ppmoney.com/sensorsdata/sensorsdata_product.js"></script>
+    <script type="text/javascript" src="https://ppmoneycnt.b0.upaiyun.com/static/v4.01/js/common/common_7b4e346.js?v=201512161721"></script>
 
-<link
-	href="https://ppmoneycnt.b0.upaiyun.com/static/v4.01/css/register/register_819a98f.css?v=201512161721"
-	rel="stylesheet" type="text/css" />
+    <link href="https://ppmoneycnt.b0.upaiyun.com/static/v4.01/css/register/register_819a98f.css?v=201512161721" rel="stylesheet" type="text/css" />
 
 
 
