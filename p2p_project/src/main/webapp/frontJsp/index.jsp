@@ -6,35 +6,48 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
-<link href="/p2p_project/frontStyle/css/style.css" rel="stylesheet" type="text/css">
+<link href="/p2p_project/frontStyle/css/style.css" rel="stylesheet"
+	type="text/css">
 <link rel="stylesheet" type="text/css"
 	href="/p2p_project/frontStyle/css/font-style.css">
-<script type="text/javascript" src="/p2p_project/frontStyle/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript"
+	src="/p2p_project/frontStyle/js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="/p2p_project/frontStyle/js/all.js"></script>
+
+
+<link rel="stylesheet"
+	href="https://ppmoneycnt.b0.upaiyun.com/static/v4.01/css/release-commons_38d5ebd.css?v=201512161721">
+<script type="text/javascript"
+	src="https://ppmoneycnt.b0.upaiyun.com/static/v4.01/js/common/common_7b4e346.js?v=201512161721"></script>
+<link
+	href="https://ppmoneycnt.b0.upaiyun.com/static/v4.01/css/login/login_e18909b.css?v=201512161721"
+	rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+#div {
+	position: relative;
+}
+</style>
 </head>
 <body class="index_niwo holiday_bg">
 
 	<div class="niwdoawi_top mw_1180">
 		<div class="header w1190 clearfix">
 			<div class="fl tel">
-				<em class="fs_14 mr_5 tel_ico">客服热线</em>
-				<i class="aril">400-688-8888</i>
-				<span class="iphone"><i></i> 
-				  <a href="" target="_blank">手机客户端</a>
-					<div class="webdown"></div> 
-				</span> 
-				<span class="hover_sina"> 
-					<a href="" target="_blank"></a>
-				</span> 
-				<span class="hover_weixin toptk">
+				<em class="fs_14 mr_5 tel_ico">客服热线</em> <i class="aril">400-688-8888</i>
+				<span class="iphone"><i></i> <a href="" target="_blank">手机客户端</a>
+					<div class="webdown"></div> </span> <span class="hover_sina"> <a
+					href="" target="_blank"></a>
+				</span> <span class="hover_weixin toptk">
 					<div class="tk"></div>
 				</span>
 			</div>
 			<div class="fr login clearfix">
 
 				<div class='login_bt'>
-					<a href="#" id="login" rel="nofollow" title="登录" class="fff">登录</a> 
-					<a href="/p2p_project/user/register" rel="nofollow" title="注册" class="fff">注册</a>
+					<a href="/p2p_project/frontJsp/login.jsp" id="login" rel="nofollow"
+						title="登录" class="fff">登录</a> <a href="/p2p_project/frontJsp/register.jsp"
+						rel="nofollow" title="注册" class="fff">注册</a>
 				</div>
 
 				<dl>
@@ -74,24 +87,24 @@
 						id="cp_two">我要投资</a>
 						<dl class="cp_two">
 							<dd>
-								<a href="">嘉财有道</a>
+								<a href="">固收类理财</a>
 							</dd>
 							<dd>
-								<a href="">新手专区</a>
+								<a href="">私募资金</a>
 							</dd>
 							<dd>
-								<a href="">新标专区</a>
+								<a href="">海外配置</a>
 							</dd>
 							<dd>
-								<a href="">转让专区</a>
+								<a href="">股权基金</a>
 							</dd>
 						</dl></li>
-					<li class="rela"><a href="" title="我要借款" class="one">我要借款</a>
+					<li class="rela"><a href="" title="我要借款" class="one">盈+商学院</a>
 					</li>
-					<li class="rela"><a href="" title="我要借款" class="one">下载中心</a>
+					<li class="rela"><a href="" title="我要借款" class="one">我的加法库</a>
 					</li>
-					<li class="rela"><a href="" title="新手导航" class="one">关于我们
-					</a></li>
+					<li class="rela"><a href="/p2p_project/frontJsp/about.jsp"
+						title="新手导航" class="one">关于我们 </a></li>
 					<!-- <li style="margin-right:0;">
                     <a href="" target="_blank" title="社区" class="one">社区 </a>
                 </li> -->
@@ -143,39 +156,23 @@
         animation:1000 //动画时间
     });
 </script>
-	<!--banner-->
-	<div class="index_main w1180 front">
-		<div id="d1" class="login_front" style="display: block;">
-			<p class="fs_24 t">安全、稳健、高收益</p>
-			<p class="fs_24 bold m">新注册用户更享好礼</p>
-			<a class="btn_orange" href="/p2p_project/user/register" rel="" title="免费注册">免费注册</a> 
-			<a href="#" id="login1" class="orange" rel="" title="马上登录">马上登录</a>
-		</div>
-		<div id="d2" class="login_front" style="display: none;">
-		   <center>
-		     <h3>登陆</h3>
-		     <form action="">
-		       账号：<input type="text" name="uname"><br><br>
-		     密码：<input type="password" name="password"><br><br>
-		     <input type="submit" value="登  陆">&nbsp;
-		     <input type="reset" value="重  置">
-		     </form>
-		     
-		   </center>
-		</div>
-	</div>
+
+
+	<script type="text/javascript"
+		src="https://ppmoneycnt.b0.upaiyun.com/static/v4.01/js/sea_c494287.js?v=201512161721"
+		id="seajsnode"></script>
+	<script type="text/javascript"
+		src="https://ppmoneycnt.b0.upaiyun.com/static/v4.01/js/sea-config_c8ac77c.js?v=201512161721"></script>
 	<script type="text/javascript">
-	  $(function(){
-		  $("#login").click(function(){
-			  $("#d1").toggle();
-			  $("#d2").toggle();
-		  });
-		  $("#login1").click(function(){
-			  $("#d1").toggle();
-			  $("#d2").toggle();
-		  });
-	  });
-	</script>
+    var showCode = 'False'.toLowerCase() == "true";
+    var firstErrorMsg = '';
+    var $warningTips = $(".login-box .warning");
+    firstErrorMsg && $warningTips.show().html(firstErrorMsg);
+
+    seajs.use(['login/login_98660bd'], function () {
+
+    });
+</script>
 
 	<div class="cp_main_buddhald">
 		<div class="clearfix w1180 mb_20 cp_xiugai_ye15820">
@@ -659,8 +656,8 @@
 							<img src="/p2p_project/frontStyle/images/zmcfhfzxcnm.png">
 						</div>
 						<div class="fl" style="margin-top: 25px;">
-							<img src="/p2p_project/frontStyle/images/zmcfhfapp.png"><br /> <img
-								src="/p2p_project/frontStyle/images/zmcfhfapaap.png"
+							<img src="/p2p_project/frontStyle/images/zmcfhfapp.png"><br />
+							<img src="/p2p_project/frontStyle/images/zmcfhfapaap.png"
 								style="margin-top: 10px;">
 						</div>
 					</div>
@@ -707,7 +704,7 @@
 
 
 	<div class="g-toolbar">
-		<a class="g-toolbar-partner" href="" target="_blank" title=""></a>
+
 		<ul class="g-toolbar-nav">
 			<li class="toolbar-item">
 				<!-- <img src="images/11.png"> -->
@@ -753,9 +750,9 @@
 			<li id="back" class="toolbar-item" style="visibility: visible;">
 				<!-- <img src="images/55.png"> -->
 				<div class="item-tip-c item-tip-back">
-					<div  class="item-box">
+					<div class="item-box">
 						<div class="item-tip" style="line-height: 18px;">返回顶部</div>
-						  <script type="text/javascript">
+						<script type="text/javascript">
 						  $(function(){
 							  $("#back").click(function(){
 								  $('body,html').animate({scrollTop:0},500);
@@ -916,7 +913,8 @@
 							<li><a href="" target="" title="" rel="nofollow"><img
 									src="/p2p_project/frontStyle/images/zmcf_wbcp.png"> </a></li>
 							<li><a href="" target="_blank" title="PPmoney微信"
-								rel="nofollow"><img src="/p2p_project/frontStyle/images/zmcf_wxcp.png"></a></li>
+								rel="nofollow"><img
+									src="/p2p_project/frontStyle/images/zmcf_wxcp.png"></a></li>
 							<li><a href="" target="_blank" title="在线客服" rel="nofollow"><img
 									src="/p2p_project/frontStyle/images/zmcf_qqcp.png"></a></li>
 						</ul>

@@ -19,10 +19,5 @@ public class UserController {
 		return "backJsp/indexback";
 	}
 	
-	//зЂВс
-	@RequestMapping("/register")
-	public String register() {
-		return "frontJsp/register";
-	}
 	
 }
