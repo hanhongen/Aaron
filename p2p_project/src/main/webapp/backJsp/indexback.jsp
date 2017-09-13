@@ -199,7 +199,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <a href="/p2p_project/subject/listSubject">付息计划</a>
                                 </li>
                                  <li>
-                                    <a href="/p2p_project/backJsp/validation.jsp">充值管理</a>
+                                    <a href="/p2p_project/member_deposit_record/listMember_deposit_record">充值管理</a>
                                 </li>
                                  <li>
                                     <a href="/p2p_project/backJsp/validation.jsp">提现管理</a>
