@@ -25,6 +25,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link rel="stylesheet" href="css/bootstrap.min.css" />	
 	<script type="text/javascript" src="js/jquery.min.js" ></script> 
 	<script type="text/javascript" src="js/bootstrap.js" ></script>
+	<script type="text/javascript">
+	</script>
+	<style type="text/css">
+	 .form-control{
+	   width:300px;
+	</style>
 </head>
 <body>
 <div id="wrapper">
@@ -257,9 +263,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </nav>
         <div id="page-wrapper">
         <div class="graphs">
-	   <div class="widget_head">Media</div><!--开头-->
+	   <div class="widget_head">公告管理</div><!--开头-->
 	   	 <table class="table table-striped">
-   <caption style="font-size:35px">公告管理</caption>
+	   	<span input-group-addon>请输入</span>&nbsp;&nbsp;&nbsp;<input type="button" value="搜索" >
+	  <input type="text" class="form-control" placeholder="公告标题"/>
+  <%--  <caption style="font-size:35px"></caption> --%>
    <thead>
       <tr>
          <th>序号</th>
