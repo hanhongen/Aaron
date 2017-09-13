@@ -54,6 +54,4 @@ public class Push_notice {  //¹«¸æ±í
 	public void setUpdate_date(String update_date) {
 		this.update_date = update_date;
 	}
-	
-	
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
@@ -21,6 +22,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!---//webfonts--->  
 <!-- Bootstrap Core JavaScript -->
 <script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
+<link rel="stylesheet" href="css/bootstrap.min.css" />	
+	<script type="text/javascript" src="js/jquery.min.js" ></script> 
+	<script type="text/javascript" src="js/bootstrap.js" ></script>
 </head>
 <body>
 <div id="wrapper">
@@ -254,7 +258,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div id="page-wrapper">
         <div class="graphs">
 	   <div class="widget_head">Media</div><!--开头-->
-	   	 
+	   	 <table class="table table-striped">
+   <caption style="font-size:35px">公告管理</caption>
+   <thead>
+      <tr>
+         <th>序号</th>
+         <th>类别</th>
+         <th>公告标题</th>
+         <th>添加时间</th>
+         <th>操作</th>
+      </tr>
+   </thead>
+   <tbody>
+     <%--   <c:forEach items="" var="" varStatus="stat">
+             <tr>
+			<td>${stat.index+1}</td>
+			<td></td>
+				<td></td>
+			<td><a href="">删除</a>||<a href="">编辑</a></td>
+			</tr>
+	    </c:forEach> --%>
+   </tbody>
+   </table>
     <!-- /#wrapper -->
 <!-- Nav CSS -->
 <link href="/p2p_project/backStyle/css/custom.css" rel="stylesheet">
