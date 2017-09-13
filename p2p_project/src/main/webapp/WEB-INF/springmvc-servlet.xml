@@ -23,7 +23,7 @@
 	<mvc:resources location="/backStyle/css/" mapping="/backStyle/css/**"/>
 	<mvc:resources location="/backStyle/images/" mapping="/backStyle/images/**"/>
 
-	
+
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 	  <property name="prefix" value="/"></property>
 	  <property name="suffix" value=".jsp"></property>
