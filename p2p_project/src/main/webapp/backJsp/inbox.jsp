@@ -291,6 +291,7 @@ function open1(){
     <tr>
       
   <th>序号</th>
+       <th>封面图片</th>
         <th>名称</th>
         <th>上级类别</th>
         <th>简介</th>
@@ -304,14 +305,17 @@ function open1(){
      <td class="center">
             <span class="label-success label label-default">${status.index+1}</span>
         </td>
+        <td class="center">${list.cphoto}</td>
         <td class="center">${list.name }</td>
         <td class="center">${list.suptype}</td>
         <td class="center">${list.info}</td>
         <td class="center">${list.sort}</td>
         <td class="center">${list.addtime}</td>
         <td class="center">
+          <a class="btn btn-info" href="#">
+                Edit
+            </a>
             <a class="btn btn-danger" href="#">
-                <i class="glyphicon glyphicon-trash icon-white"></i>
                 Delete
             </a>
         </td>
