@@ -5,7 +5,7 @@
 
 <html>
 <head>
-<title>Modern an Admin Panel Category Flat Bootstarp Resposive Website Template | Forms :: w3layouts</title>
+<title>付息计划</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Modern Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
@@ -16,14 +16,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- Custom CSS -->
 <link href="/p2p_project/backStyle/css/style.css" rel='stylesheet' type='text/css' />
 <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/font-awesome.4.6.0.css"> 
-<!-- 日期控件 -->
-<link rel="stylesheet" type="text/css" href="/p2p_project/backStyle/css/bootstrap-datetimepicker.min.css"> 
 <!-- jQuery -->
 <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
-<!-- 日期控件 -->
-<script src="/p2p_project/backStyle/js/bootstrap-datetimepicker.min.js"></script>
-<script src="/p2p_project/backStyle/js/bootstrap-datetimepicker.fr.js"></script>
-<script src="/p2p_project/backStyle/js/bootstrap-datetimepicker.zh-CN.js"></script>
+
 <!---//webfonts--->  
 <!-- Bootstrap Core JavaScript -->
 <script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
@@ -131,9 +126,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </form>
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
-                                    <ul class="nav" id="side-menu">
+                                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href=""><i class="fa fa-dashboard fa-fw nav_icon"></i>回到首页</a>
+                             <a href=""><i class="fa fa-dashboard fa-fw nav_icon"></i>回到首页</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-laptop nav_icon"></i>理财产品<span class="fa arrow"></span></a>
@@ -257,27 +252,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <!-- /.navbar-static-side -->
         </nav>
+        
+        
         <div id="page-wrapper">
-        <div class="graphs">
-	     <div class="xs">
-  	 <!-- --------------------------------------------------------------------------------------------------------------------------- -->       
+        <div class="col-md-12 graphs">
+	   <div class="xs">
+  	    <!-- --------------------------------------------------------------------------------------------------------------------------- -->       
 			 <div class="box-right-main">
-                        <h2><span class="glyphicon glyphicon-play" style="margin-right:5px"></span>账号管理</h2>
+                        <h2><span class="glyphicon glyphicon-play" style="margin-right:5px"></span>付息计划</h2>
                       <div class="tablelist">
                       	<form action="/winplus/sysmember/index" method="post" id="form1">
                         <table class="table tabletop">
                         <tr>
-                        <td style="width:110px;padding-left:30px">用户名：</td>
-                        <td style="width:180px"><input type="text" class="form-control" name="name" placeholder="用户名" value=""></td>
-                        <td style="width:110px;padding-left:30px">手机号：</td>
-                        <td style="width:180px"><input type="text"  name="mobilePhone" class="form-control" placeholder="手机号" value=""></td>
-                        <td style="width:110px;padding-left:30px">姓名：</td>
-                        <td style="width:180px"><input type="text"  name="memberName" class="form-control" placeholder="姓名" value=""></td>
-                        <td style="width:110px;padding-left:30px">邀请码：</td>
-                        <td style="width:180px"><input type="text"  name="invitationcode" class="form-control" placeholder="邀请码" value=""></td>
-                        <td style="width:110px;padding-left:30px">注册时间：</td>
-                        <td style="width:180px"><input type="text"  name="createDate" class="form-control time" placeholder="注册时间" readonly="readonly" value=""></td>
-                        <td class="pull-right" style="padding-right:10px"><button type="submit" class="btn btn-primary btn-sm">查询</button></td>
+                        <td style="width:110px;padding-left:30px">名称：</td>
+                        <td style="width:180px"><input type="text" class="form-control" name="name" placeholder="标的名称" value=""></td>
+                        <td style="width:110px;padding-left:30px">状态：</td>
+                        <td style="width:180px"><input type="text"  name="type" class="form-control" placeholder="标的状态" value=""></td>
+                        <td style="width:110px;padding-left:30px">类型：</td>
+                        <td style="width:180px"><input type="text"  name="status" class="form-control" placeholder="标的类型" value=""></td>
                         <td><button type="button" class="btn btn-primary btn-sm" onclick="$('#form1').find(':input').not(':button, :submit, :reset').val('').removeAttr('checked').removeAttr('selected');">重置</button></td>
                         </tr>     
                         </table>
@@ -285,36 +277,38 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <table class="table table-bordered tablebox">
                           <tr class="text-center" bgcolor="#f7f7f7">
                           <td>序号</td>
-                          <td>手机号</td>
-                          <td>用户名</td>
-                          <td>姓名</td>
-                          <td>身份证</td>
-                          <td>邀请码</td>
-                          <td>注册时间</td>
-                          <td>操作</td>
+                          <td>合同编号</td>
+                          <td>标的类别</td>
+                          <td>标的名称</td>
+                          <td>标的总金额</td>
+                          <td>起投金额</td>
+                          <td>已投人数</td>
+                          <td>标的期限</td>
+                          <td>年化收益</td>
+                          <td>标的状态</td>
+                          <td>可体验金购买</td>
                           </tr>
-                          <c:forEach items="${listMember }" var="lm" varStatus="stat">
+                          <c:forEach items="${listSubject }" var="ls" varStatus="stat">
                           <tr class="text-center">
                             <td>${stat.index+1 }</td>
-                            <td>${lm.mobile_phone }</td>
-                            <td>${lm.name }</td>
-                            <td>${lm.member_name }</td>
-                            <td>${lm.identity }</td>
-                            <td>${lm.invitationcode }</td>
-                            <td>${lm.create_date }</td>
-                            <td>
-                            	<a class="btn btn-primary btn-sm" href="/p2p_project/member/listMemberId/${lm.id}">账号详情</a>
-                            </td>
+                            <td>${ls.serial_no }</td>
+                            <td>${ls.type }</td>
+                            <td>${ls.name }</td>
+                            <td>${ls.amount}</td>
+                            <td>${ls.floor_amount }</td>
+                            <td>${ls.bought }</td>
+                            <td>${ls.period }</td>
+                            <td>${ls.year_rate }</td><!-- 这里需要计算年化收益 -->
+                            <td>${ls.status }</td>
+                            <td>${ls.exper_status }</td>
                           </tr>
                           </c:forEach>
 			</table>
   	 <!-- --------------------------------------------------------------------------------------------------------------------------- -->   
-
-  </div>
-  <div class="copy_layout">
+    <div class="copy_layout">
       <p>Copyright Â© 2015 Modern. All Rights Reserved | Design by  </p>
-  </div>
-  </div>
+   </div>
+   </div>
       </div>
       <!-- /#page-wrapper -->
    </div>
@@ -324,16 +318,5 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- Metis Menu Plugin JavaScript -->
 <script src="/p2p_project/backStyle/js/metisMenu.min.js"></script>
 <script src="/p2p_project/backStyle/js/custom.js"></script>
-<script type="text/javascript">
-$('.time').datetimepicker({
-	format : 'yyyy-mm-dd',
-	language: 'zh-CN',
-	minView: 2,
-    todayBtn: 1
-}).on('changeDate', function(ev) {
-	$('.time').datetimepicker('hide');
-});
-
-</script>
 </body>
 </html>

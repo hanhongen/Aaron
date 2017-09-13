@@ -19,6 +19,8 @@ public class Member_bankcards {  //(成员银联表)
 	private String create_date;  //创建时间
 	private String update_date;  //修改时间
 	private String cardaddress;  //开户银行所在地'
+
+
 	@Id
 	@GeneratedValue
 	public int getId() {
@@ -34,8 +36,9 @@ public class Member_bankcards {  //(成员银联表)
 		this.type = type;
 	}
 	
-	@ManyToOne()
-	@JoinColumn(name="member_id")
+	@ManyToOne
+	//name的值为member表的外键
+	@JoinColumn(name="member_id")//外键在该表维护
 	public Member getMember() {
 		return member;
 	}

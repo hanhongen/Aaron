@@ -16,5 +16,10 @@ public class MemberService {
 	public List<Member> listMember(){
 		return memberDao.listMember();
 	}
+	//根据id查询个人账号详情
+	public List<Member> listMemberId(int id){
+		List<Member> list = memberDao.listMemberId(id);
+		return list;
+	}
 	
 }

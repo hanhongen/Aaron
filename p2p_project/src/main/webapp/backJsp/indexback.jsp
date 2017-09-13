@@ -193,10 +193,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <a href="/p2p_project/member/listMember">账号管理</a>
                                 </li>
                                 <li>
-                                    <a href="/p2p_project/member/login">绑卡管理</a>
+                                    <a href="/p2p_project/member_bankcards/listMember_Bankcards">绑卡管理</a>
                                 </li>
                                  <li>
-                                    <a href="/p2p_project/backJsp/validation.jsp">付息计划</a>
+                                    <a href="/p2p_project/subject/listSubject">付息计划</a>
                                 </li>
                                  <li>
                                     <a href="/p2p_project/backJsp/validation.jsp">充值管理</a>

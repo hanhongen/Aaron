@@ -262,26 +262,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	     <div class="xs">
   	 <!-- --------------------------------------------------------------------------------------------------------------------------- -->       
 			 <div class="box-right-main">
-                        <h2><span class="glyphicon glyphicon-play" style="margin-right:5px"></span>账号管理</h2>
+                        <h2><span class="glyphicon glyphicon-play" style="margin-right:5px"></span>个人账号详情</h2>
                       <div class="tablelist">
-                      	<form action="/winplus/sysmember/index" method="post" id="form1">
-                        <table class="table tabletop">
-                        <tr>
-                        <td style="width:110px;padding-left:30px">用户名：</td>
-                        <td style="width:180px"><input type="text" class="form-control" name="name" placeholder="用户名" value=""></td>
-                        <td style="width:110px;padding-left:30px">手机号：</td>
-                        <td style="width:180px"><input type="text"  name="mobilePhone" class="form-control" placeholder="手机号" value=""></td>
-                        <td style="width:110px;padding-left:30px">姓名：</td>
-                        <td style="width:180px"><input type="text"  name="memberName" class="form-control" placeholder="姓名" value=""></td>
-                        <td style="width:110px;padding-left:30px">邀请码：</td>
-                        <td style="width:180px"><input type="text"  name="invitationcode" class="form-control" placeholder="邀请码" value=""></td>
-                        <td style="width:110px;padding-left:30px">注册时间：</td>
-                        <td style="width:180px"><input type="text"  name="createDate" class="form-control time" placeholder="注册时间" readonly="readonly" value=""></td>
-                        <td class="pull-right" style="padding-right:10px"><button type="submit" class="btn btn-primary btn-sm">查询</button></td>
-                        <td><button type="button" class="btn btn-primary btn-sm" onclick="$('#form1').find(':input').not(':button, :submit, :reset').val('').removeAttr('checked').removeAttr('selected');">重置</button></td>
-                        </tr>     
-                        </table>
-                        </form>
                         <table class="table table-bordered tablebox">
                           <tr class="text-center" bgcolor="#f7f7f7">
                           <td>用户名</td>
@@ -292,7 +274,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                           <td>被邀请码</td>
                           <td>注册时间</td>
                           </tr>
-                          <c:forEach items="${listMember }" var="lm" varStatus="stat">
+                          <c:forEach items="${listMemberId }" var="lm" varStatus="stat">
                           <tr class="text-center">
                             <td>${lm.name }</td>
                             <td>${lm.mobile_phone }</td>
