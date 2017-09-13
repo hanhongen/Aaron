@@ -119,7 +119,7 @@
 		<div class="reg-cont-wrap">
 			<div class="contain ex-reg">
 				<div class="reg-wrap register-page">
-					<form action="" method="post" class="reg-form">
+					<form action="/p2p_project/user/register" method="post" class="reg-form">
 						
 						<div class="register-hd">
 							<p>免费注册账户</p>

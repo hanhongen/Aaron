@@ -22,12 +22,6 @@
 <link
 	href="https://ppmoneycnt.b0.upaiyun.com/static/v4.01/css/login/login_e18909b.css?v=201512161721"
 	rel="stylesheet" type="text/css" />
-
-<style type="text/css">
-#div {
-	position: relative;
-}
-</style>
 </head>
 <body class="index_niwo holiday_bg">
 
