@@ -5,7 +5,7 @@
 
 <html>
 <head>
-<title>Modern an Admin Panel Category Flat Bootstarp Resposive Website Template | Media :: w3layouts</title>
+<title>充值管理</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Modern Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
@@ -22,9 +22,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!---//webfonts--->  
 <!-- Bootstrap Core JavaScript -->
 <script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
-<link rel="stylesheet" href="css/bootstrap.min.css" />	
-	<script type="text/javascript" src="js/jquery.min.js" ></script> 
-	<script type="text/javascript" src="js/bootstrap.js" ></script>
 </head>
 <body>
 <div id="wrapper">
@@ -37,7 +34,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/p2p_project/backJsp/indexback.jsp">YJ Finance</a>
+               <a class="navbar-brand" href="/p2p_project/backJsp/indexback.jsp">YJ Finance</a>
             </div>
             <!-- /.navbar-header -->
             <ul class="nav navbar-nav navbar-right">
@@ -129,9 +126,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </form>
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
-                                    <ul class="nav" id="side-menu">
+                                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href=""><i class="fa fa-dashboard fa-fw nav_icon"></i>回到首页</a>
+                             <a href=""><i class="fa fa-dashboard fa-fw nav_icon"></i>回到首页</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-laptop nav_icon"></i>理财产品<span class="fa arrow"></span></a>
@@ -255,36 +252,77 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <!-- /.navbar-static-side -->
         </nav>
+        
+        
         <div id="page-wrapper">
-        <div class="graphs">
-	   <div class="widget_head">Media</div><!--开头-->
-	   	 <table class="table table-striped">
-   <caption style="font-size:35px">公告管理</caption>
-   <thead>
-      <tr>
-         <th>序号</th>
-         <th>类别</th>
-         <th>公告标题</th>
-         <th>添加时间</th>
-         <th>操作</th>
-      </tr>
-   </thead>
-   <tbody>
-     <%--   <c:forEach items="" var="" varStatus="stat">
-             <tr>
-			<td>${stat.index+1}</td>
-			<td></td>
-				<td></td>
-			<td><a href="">删除</a>||<a href="">编辑</a></td>
-			</tr>
-	    </c:forEach> --%>
-   </tbody>
-   </table>
+        <div class="col-md-12 graphs">
+	   <div class="xs">
+  	    <!-- --------------------------------------------------------------------------------------------------------------------------- -->       
+			 <div class="box-right-main">
+                        <h2><span class="glyphicon glyphicon-play" style="margin-right:5px"></span>充值管理</h2>
+                      <div class="tablelist">
+                      	<form action="/winplus/sysmember/index" method="post" id="form1">
+                        <table class="table tabletop">
+                        <tr>
+                        <td style="width:110px;padding-left:30px">订单编号：</td>
+                        <td style="width:180px"><input type="text" class="form-control" name="" placeholder="订单编号" value=""></td>
+                        <td style="width:110px;padding-left:30px">手机号：</td>
+                        <td style="width:180px"><input type="text"  name="" class="form-control" placeholder="手机号" value=""></td>
+                        <td style="width:110px;padding-left:30px">订单状态：</td>
+                        <td style="width:180px"><input type="text"  name="" class="form-control" placeholder="订单状态" value=""></td>
+                        <td style="width:110px;padding-left:30px">富友订单：</td>
+                        <td style="width:180px"><input type="text"  name="" class="form-control" placeholder="富友订单" value=""></td>
+                        <td style="width:110px;padding-left:30px">订单时间：</td>
+                        <td style="width:180px"><input type="text"  name="" class="form-control" placeholder="订单时间" value=""></td>
+                        <td><button type="button" class="btn btn-primary btn-sm" onclick="$('#form1').find(':input').not(':button, :submit, :reset').val('').removeAttr('checked').removeAttr('selected');">重置</button></td>
+                        <td><button type="button" class="btn btn-primary btn-sm" onclick="fun();">刷新订单数据</button></td>
+                        </tr>     
+                        </table>
+                        </form>
+                        <table class="table table-bordered tablebox">
+                          <tr class="text-center" bgcolor="#f7f7f7">
+                          <td>序号</td>
+                          <td>订单编号</td>
+                          <td>手机号</td>
+                          <td>订单金额</td>
+                          <td>订单状态</td>
+                          <td>充值渠道</td>
+                          <td>富友手机充值订单</td>
+                          <td>订单时间</td>
+                          <td>操作</td>
+                          </tr>
+                          <c:forEach items="${listmdr }" var="lm" varStatus="stat">
+                          <tr class="text-center">
+                            <td>${stat.index+1 }</td>
+                            <td>${lm.seril_number }</td>
+                            <td>${lm.member.mobile_phone }</td>
+                            <td>${lm.amount }</td>
+                            <td>${lm.status}</td>
+                            <td>${lm.pay_channel_name }</td>
+                            <td>${lm.pay_channel_order_no }</td>
+                            <td>${lm.create_date }</td>
+                            <td>操作</td>
+                          </tr>
+                          </c:forEach>
+			</table>
+  	 <!-- --------------------------------------------------------------------------------------------------------------------------- -->   
+    <div class="copy_layout">
+      <p>Copyright Â© 2015 Modern. All Rights Reserved | Design by  </p>
+   </div>
+   </div>
+      </div>
+      <!-- /#page-wrapper -->
+   </div>
     <!-- /#wrapper -->
 <!-- Nav CSS -->
 <link href="/p2p_project/backStyle/css/custom.css" rel="stylesheet">
 <!-- Metis Menu Plugin JavaScript -->
 <script src="/p2p_project/backStyle/js/metisMenu.min.js"></script>
 <script src="/p2p_project/backStyle/js/custom.js"></script>
+<script type="text/javascript">
+function fun(){
+		window.location.reload();//刷新页面
+}
+</script>
 </body>
 </html>

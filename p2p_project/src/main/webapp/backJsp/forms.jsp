@@ -303,7 +303,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <td>${lm.invitationcode }</td>
                             <td>${lm.create_date }</td>
                             <td>
-                            	<a class="btn btn-primary btn-sm" href="/p2p_project/member/listMember/{lm.id}">账号详情</a>
+                            	<a class="btn btn-primary btn-sm" href="/p2p_project/member/listMemberId/${lm.id}">账号详情</a>
                             </td>
                           </tr>
                           </c:forEach>

@@ -1,8 +1,13 @@
 package com.dmg.bean;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -20,7 +25,7 @@ public class Users {  //用户表
 	private int identity;   //身份
 	private String create_date;  //创建时间
 	private String update_date;  // 修改时间
-	
+
 	@Id
 	@GeneratedValue
 	public int getId() {

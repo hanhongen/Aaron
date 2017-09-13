@@ -20,7 +20,6 @@ public class MemberController {
 	//查询所有账号信息
 	@RequestMapping("/listMember")
 	public String listMember(Model model){
-		System.out.println("c");
 			List<Member> listMember = memberService.listMember();
 			model.addAttribute("listMember", listMember);
 			return "backJsp/forms";
@@ -28,9 +27,11 @@ public class MemberController {
 	//根据id查询个人账号信息
 	@RequestMapping("/listMemberId/{id}")
 	public String listMemberId(Model model,@PathVariable("id")int id){
-		List<Member> listMember = memberService.listMember();
-		model.addAttribute("listMember", listMember);
-		return "backJsp/forms";
+		System.out.println("id:"+id);
+		List<Member> listMemberId = memberService.listMemberId(id);
+		System.out.println("toString:"+listMemberId.size());
+		model.addAttribute("listMemberId", listMemberId);
+		return "backJsp/accountInfo";
 	}
 
 }
