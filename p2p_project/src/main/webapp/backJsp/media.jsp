@@ -278,14 +278,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       </tr>
    </thead>
    <tbody>
-     <%--   <c:forEach items="" var="" varStatus="stat">
+     <c:forEach items="${push_notices}" var="p" varStatus="stat">
              <tr>
 			<td>${stat.index+1}</td>
-			<td></td>
-				<td></td>
-			<td><a href="">删除</a>||<a href="">编辑</a></td>
+			<td>p.title</td>
+			<td>p.content</td>
+			<td>p.status</td>
+			<td>p.create_date</td>
+			<td><button type="button" class="btn btn-primary">删除</button>||<button type="button" class="btn btn-primary">编辑</button></td>
 			</tr>
-	    </c:forEach> --%>
+	    </c:forEach> 
    </tbody>
    </table>
     <!-- /#wrapper -->
