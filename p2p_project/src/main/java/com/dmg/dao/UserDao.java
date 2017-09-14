@@ -22,4 +22,11 @@ public class UserDao {
 		Session session=getsession();
 		session.save(users);
 	}
+	
+	public Users getUsers(String mobile_phone,String password) {
+		Session session=getsession();
+		String hql="from Users where mobile_phone="+mobile_phone+" and password="+password;
+		Users user=(Users) session.createQuery(hql).list();
+		return user;
+	}
 }

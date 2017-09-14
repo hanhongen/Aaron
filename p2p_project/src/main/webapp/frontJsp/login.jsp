@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -28,8 +29,11 @@
 <script type="text/javascript"
 	src="/p2p_project/frontStyle/js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="/p2p_project/frontStyle/js/all.js"></script>
-<body>
 
+<body>
+<c:if test="${!empty msg}">
+  alert(${msg});
+</c:if>
 	<div class="niwdoawi_top mw_1180">
 		<div class="header w1190 clearfix">
 			<div class="fl tel">
@@ -43,7 +47,7 @@
 			<div class="fr login clearfix">
 
 				<div class='login_bt'>
-					<a href="#" id="/p2p_project/frontJsp/login.jsp" rel="nofollow" class="fff">登录</a>
+					<a href="/p2p_project/frontJsp/login.jsp" rel="nofollow" class="fff">登录</a>
 					<a href="/p2p_project/frontJsp/register.jsp" rel="nofollow"
 						class="fff">注册</a>
 				</div>
@@ -120,24 +124,35 @@
 					</h1>
 					<a href="/p2p_project/frontJsp/register.jsp">免费注册</a>
 				</div>
-				<form id="formLogin" class="login-bd" action="/login/" method="post">
+				<form id="formLogin" class="login-bd" action="/p2p_project/user/login" method="post">
 					<input type="hidden" name="returnUrl" value="/customer" />
 
 
 					<div class="login-item">
-						<input class="textbox" type="text" id="Phone" maxlength="50"
-							name="Phone" placeholder="手机号" />
+						<input class="textbox" type="text" id="Phone" 
+							name="mobile_phone" required placeholder="手机号"/>
+							<p id="s1"></p>
 					</div>
 					<div class="login-item">
-						<input class="textbox" type="password" id="Password"
-							maxlength="50" name="Password" placeholder="登录密码" />
-
+						<input class="textbox" required type="password" id="Password"
+							maxlength="50" name="password" placeholder="登录密码" />
 					</div>
-					<div class="login-item login-item-code ">
-						<input id="RandCode" class="textbox" maxlength="5" name="RandCode"
-							placeholder="验证码" /> <img src="" id="safeImg" /><label
-							id="change">换一张</label>
-					</div>
+					<script type="text/javascript">
+					  $(function(){
+						
+						  var reg=/^1[0-9]\d{9}$/;
+						  $("#Phone").blur(function(){
+							  var num=$(this).val();
+							  if(num.length!=11){
+								  $("#s1").html("请输入正确的手机号码");
+								  return false;
+							  }else{
+								  $("#s1").html("");
+								  return true;
+							  }
+						  });
+					  });
+					</script>
 					<a class="forget-pass" href="/p2p_project/frontJsp/forget.jsp">忘记密码?</a>
 					<button class="submit" type="submit" id="sendLogin" data-piwik>登
 						录</button>

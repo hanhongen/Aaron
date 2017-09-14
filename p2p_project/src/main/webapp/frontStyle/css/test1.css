@@ -1,0 +1,270 @@
+body {
+    background-color: #fff;
+    font-family: '微软雅黑', Arial, YaHei, tahoma, "Hiragino Sans GB", '宋体'
+}
+
+.proMain {
+    width: 970px;
+    margin: 30px auto 0
+}
+.register {
+    margin-top: 60px;
+    background: white;
+    padding-bottom: 70px
+}
+
+.register .title {
+    height: 40px;
+    margin-bottom: 40px
+}
+
+.register .title div {
+    float: left;
+    text-align: center
+}
+
+.register .title .left {
+    width: 42%
+}
+
+.register .title .mid {
+    width: 16%;
+    font-size: 24px;
+    color: #949494
+}
+
+.register .title .right {
+    width: 42%
+}
+
+.register .item {
+    height: 45px;
+    margin-bottom: 10px
+}
+
+.register .item .rLabel {
+    width: 40%;
+    float: left;
+    text-align: right;
+    padding-top: 6px
+}
+
+.register .item .rInput {
+    width: 59%;
+    margin-left: 1%;
+    float: left;
+    padding-left: 20px
+}
+
+.register .item .rInput input.textInput {
+    width: 250px;
+    padding-left: 10px;
+    display: inline;
+    height: 38px
+}
+
+.register .item .rInput .registerRule {
+    width: initial
+}
+
+.register .item .rInput #picCode {
+    width: 110px
+}
+
+.register .item .rInput #vCode {
+    width: 110px
+}
+
+.register .item .rInput .vCodeBtn {
+    background: #917739;
+    color: white;
+    margin-top: -3px;
+    margin-left: 10px;
+    text-align: center;
+    width: 130px;
+    height: 38px
+}
+
+.register .item .rInput .vCodeBtn:hover {
+    background: #bc860f
+}
+
+.register .item .rInput .extroInfo {
+    color: #a1a1a1;
+    position: relative;
+    top: -8px
+}
+
+.register .item .rInput label {
+    cursor: pointer
+}
+
+.register .item .rInput label #registerRule {
+    position: relative;
+    top: 2px;
+    margin-right: 10px
+}
+
+.register .item .rInput .registBtn {
+    background: #917739;
+    color: white;
+    font-size: 16px;
+    margin-right: 20px;
+    padding: 8px 92px
+}
+
+.register .item .rInput .registBtn:hover {
+    background: #bc860f
+}
+
+.register .item .rInput .changeToLogin {
+    background: #f0f0f0;
+    padding: 8px 20px
+}
+
+.register .item .rInput .errorInfo {
+    margin-left: 20px;
+    color: #fd7a1a;
+    display: none
+}
+
+.register .item .rInput img {
+    height: 38px;
+    width: 135px;
+    margin-top: -4px
+}
+
+.register .item .rInput .ruleError {
+    margin-left: 20px;
+    color: #917739;
+    display: none
+}
+
+.register .item .rInput a {
+    color: #d59710
+}
+
+.register .item .loginChoose {
+    padding-left: 64px;
+    padding-top: 16px
+}
+
+.register .extro {
+    height: 25px
+}
+
+.register .centerTitle {
+    text-align: center;
+    padding-top: 50px;
+    line-height: 28px
+}
+
+.register .centerTitle .bigTitle {
+    font-size: 24px
+}
+
+.register .centerTitle .desc {
+    color: #a2a2a2
+}
+
+.register .centerTitle .userName {
+    font-size: 18px;
+    padding-left: 10px
+}
+
+.register .centerTitle button {
+    background: #917739;
+    color: white;
+    font-size: 22px;
+    padding: 8px 24px;
+    margin-right: 20px;
+    margin-left: 20px
+}
+
+.register .centerTitle button:hover {
+    background: #bc860f
+}
+
+
+.productDetailCnt .row_1 .detailIcon {
+    background-position: 0 0
+}
+
+.productDetailCnt .row_2 .detailIcon {
+    background-position: -120px 0
+}
+
+.productDetailCnt .row_3 .detailIcon {
+    background-position: -240px 0
+}
+
+.productDetailCnt .row_4 .detailIcon {
+    background-position: -360px 0
+}
+
+.productDetailCnt .row_5 .detailIcon {
+    background-position: -480px 0
+}
+
+.productDetailCnt .row_1 .media-body, .productDetailCnt .row_3 .media-body, .productDetailCnt .row_5 .media-body {
+    margin-right: 12px
+}
+
+.productDetailCnt .row_2 .media-body, .productDetailCnt .row_4 .media-body {
+    margin-left: 12px
+}
+
+.productDetailCnt .listItem p {
+    font-size: 14px;
+    color: #999;
+    line-height: 1.5
+}
+
+.productDetailCnt .tipRow, .projectDetailBox .tipRow {
+    padding: 20px 0
+}
+
+.hwpzNav ul li a:hover, .hwpzNav ul li a.active {
+    color: #9e843f;
+}
+
+.hwpzNav ul li.first a {
+    background: url(../images/ico1.jpg) no-repeat left center;
+}
+
+.hwpzNav ul li.second a {
+    background: url(../images/ico2.jpg) no-repeat left center;
+    padding-left: 44px;
+}
+
+.hwpzNav ul li.three a {
+    background: url(../images/ico3.jpg) no-repeat left center;
+}
+
+.hwpzNav ul li.four a {
+    background: url(../images/ico4.jpg) no-repeat left center;
+}
+
+.hwpzNav ul li.first a:hover, .hwpzNav ul li.first a.active {
+    background: url(../images/hico1.jpg) no-repeat left center;
+}
+
+.hwpzNav ul li.second a:hover, .hwpzNav ul li.second a.active {
+    background: url(../images/hico2.jpg) no-repeat left center;
+}
+
+.hwpzNav ul li.three a:hover, .hwpzNav ul li.three a.active {
+    background: url(../images/hico3.jpg) no-repeat left center;
+}
+
+.hwpzNav ul li.four a:hover, .hwpzNav ul li.four a.active {
+    background: url(../images/hico4.jpg) no-repeat left center;
+}
+
+.form-control:focus {
+    border-color: #917739;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(204, 51, 51, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(204, 51, 51, 0.6)
+}
+

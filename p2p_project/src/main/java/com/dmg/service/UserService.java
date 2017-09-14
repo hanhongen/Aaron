@@ -18,4 +18,8 @@ public class UserService {
 	public void save(Users users) {
 		userDao.save(users);
 	}
+	
+	public Users getUsers(String mobile_phone,String password) {
+		return userDao.getUsers(mobile_phone,password);
+	}
 }
