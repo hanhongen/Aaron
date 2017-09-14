@@ -202,10 +202,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <a href="/p2p_project/member_deposit_record/listMember_deposit_record">充值管理</a>
                                 </li>
                                  <li>
-                                    <a href="/p2p_project/backJsp/validation.jsp">提现管理</a>
+                                    <a href="/p2p_project/member_withdraw_record/listMember_withdraw_record">提现管理</a>
                                 </li>
                                  <li>
-                                    <a href="/p2p_project/backJsp/validation.jsp">邀请奖励</a>
+                                    <a href="/p2p_project/award_records/listAward_records">邀请奖励</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

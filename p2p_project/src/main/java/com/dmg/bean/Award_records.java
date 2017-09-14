@@ -3,19 +3,30 @@ package com.dmg.bean;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table
 public class Award_records {  //奖励记录表
-
+	
 	private int id;  //id
 	private int invitingid;  //邀请人ID	
 	private int byinvitingid;  //被邀人ID
 	private int type;  //奖励类型(0:注册奖励,1:投资奖励)
 	private int isaward;  //奖励状态(0:未奖励 1:已奖励)
 	private String addtime; //添加时间
+	private Member member;
 	
+	@ManyToOne
+	@JoinColumn(name="member_id")
+	public Member getMember() {
+		return member;
+	}
+	public void setMember(Member member) {
+		this.member = member;
+	}
 	@Id
 	@GeneratedValue
 	public int getId() {

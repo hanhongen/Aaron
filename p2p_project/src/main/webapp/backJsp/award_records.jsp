@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
@@ -254,62 +255,70 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div id="page-wrapper">
         <div class="col-md-12 graphs">
 	   <div class="xs">
-  	    <h3>Validation</h3>
-  	    <div class="well1 white">
-        <form class="form-floating ng-pristine ng-invalid ng-invalid-required ng-valid-email ng-valid-url ng-valid-pattern" novalidate="novalidate" ng-submit="submit()">
-          <fieldset>
-            <div class="form-group">
-              <label class="control-label">Required</label>
-              <input type="text" class="form-control1 ng-invalid ng-invalid-required ng-touched" ng-model="model.name" required="">
-            </div>
-            <div class="form-group">
-              <label class="control-label">Email</label>
-              <input type="email" class="form-control1 ng-invalid ng-valid-email ng-invalid-required ng-touched" ng-model="model.email" required="">
-            </div>
-            <div class="form-group">
-              <label class="control-label">Password</label>
-              <input type="password" class="form-control1 ng-invalid ng-invalid-required ng-touched" ng-model="model.password" required="">
-            </div>
-            <div class="form-group">
-              <label class="control-label">Url</label>
-              <input type="url" class="form-control1 ng-invalid ng-valid-url ng-invalid-required ng-touched" ng-model="model.url" required="">
-            </div>
-            <div class="form-group">
-              <label class="control-label">Number</label>
-              <input type="text" class="form-control1 ng-invalid ng-invalid-required ng-valid-pattern ng-touched" ng-model="model.number" ng-pattern="/[0-9]/" required="">
-              <p class="help-block hint-block">Numeric values from 0-***</p>
-            </div>
-            <div class="form-group">
-              <label class="control-label normal">Date</label>
-              <input type="date" class="form-control1 ng-invalid ng-invalid-required" ng-model="model.date" required="">
-            </div>
-            <div class="form-group">
-              <div class="checkbox1">
-                <label>
-                  <input type="checkbox" ng-model="model.winner" required="" class="ng-invalid ng-invalid-required">
-                  Are you a winner?
-                </label>
-              </div>
-            </div>
-            <div class="form-group filled">
-              <label class="control-label">Select</label>
-              <select class="form-control1 ng-invalid ng-invalid-required" ng-model="model.select" required=""><option value="? undefined:undefined ?"></option>
-                <option value="Select a pirate">Select a pirate</option>
-                <option value="Monkey D. Luffy">Monkey D. Luffy</option>
-                <option value="Roronoa Zoro">Roronoa Zoro</option>
-                <option value="Tony Tony Chopper">Tony Tony Chopper</option>
-                <option value="Nico Robin">Nico Robin</option>
-                <option value="Bon Clay">Bon Clay</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <button type="submit" class="btn btn-primary">Submit</button>
-              <button type="reset" class="btn btn-default">Reset</button>
-            </div>
-          </fieldset>
-        </form>
-      </div>
-    </div>
+  	     	    <!-- --------------------------------------------------------------------------------------------------------------------------- -->       
+			 <div class="box-right-main">
+                        <h2><span class="glyphicon glyphicon-play" style="margin-right:5px"></span>提现管理</h2>
+                      <div class="tablelist">
+                      	<form action="/winplus/sysmember/index" method="post" id="form1">
+                        <table class="table tabletop">
+                        <tr>
+                        <td style="width:110px;padding-left:30px">姓名：</td>
+                        <td style="width:180px"><input type="text" class="form-control" name="" placeholder="姓名" value=""></td>
+                        <td style="width:110px;padding-left:30px">手机号：</td>
+                        <td style="width:180px"><input type="text"  name="" class="form-control" placeholder="手机号" value=""></td>
+                        <td style="width:110px;padding-left:30px">绑卡卡号：</td>
+                        <td style="width:180px"><input type="text"  name="" class="form-control" placeholder="绑卡卡号" value=""></td>
+                        <td style="width:110px;padding-left:30px">状态：</td>
+                        <td style="width:180px"><input type="text"  name="" class="form-control" placeholder="状态" value=""></td>
+                        <td style="width:110px;padding-left:30px">提现时间：</td>
+                        <td style="width:180px"><input type="text"  name="" class="form-control" placeholder="提现时间" value=""></td>
+                        <td><button type="button" class="btn btn-primary btn-sm" onclick="$('#form1').find(':input').not(':button, :submit, :reset').val('').removeAttr('checked').removeAttr('selected');">重置</button></td>
+                        <td><button type="button" class="btn btn-primary btn-sm" onclick="fun();">刷新订单数据</button></td>
+                        </tr>     
+                        </table>
+                        </form>
+                        <table class="table table-bordered tablebox">
+                          <tr class="text-center" bgcolor="#f7f7f7">
+                          <td>序号</td>
+                          <td>手机号</td>
+                          <td>姓名</td>
+                          <td>邀请码</td>
+                          <td>被邀请码</td>
+                          <td>投资金额</td>
+                          <td>是否已注册奖励</td>
+                          <td>是否已投资奖励</td>
+                          <td>注册时间</td>
+                          <td>操作</td>
+                          </tr>
+                          <c:forEach items="${listar }" var="lm" varStatus="stat">
+                          <c:forEach items="${lists }" var="ls">
+                          <tr class="text-center">
+                            <td>${stat.index+1 }</td>
+                            <td>${lm.member.mobile_phone }</td>
+                            <td>${lm.member.member_name }</td>
+                            <td>${lm.member.invitationcode }</td>
+                            <td>${lm.member.invitedcode}</td>
+                            <td><!-- 判断用户表id和主题表借款人id是否一致 -->
+                            <c:if test="${lm.member.id == ls.borrowerid }">
+                            	${ls.amount }
+                            </c:if>
+                            ${ls.amount }
+                            </td>
+                            <td>
+                            <c:if test="${lm.type == 0}">是</c:if>
+                            <c:if test="${lm.type == 1}">否</c:if>
+                            </td>
+                            <td>
+                            <c:if test="${lm.type == 1}">是</c:if>
+                            <c:if test="${lm.type == 0}">否</c:if>
+                            </td>
+                            <td>${lm.addtime }</td>
+                            <td><a href="#">账号详情</a></td>
+                          </tr>
+                          </c:forEach>
+                          </c:forEach>
+			</table>
+  	 <!-- --------------------------------------------------------------------------------------------------------------------------- -->   
     <div class="copy_layout">
       <p>Copyright Â© 2015 Modern. All Rights Reserved | Design by  </p>
    </div>
@@ -325,3 +334,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="/p2p_project/backStyle/js/custom.js"></script>
 </body>
 </html>
+<!--             <div class="form-group"> -->
+<!--               <label class="control-label normal">Date</label> -->
+<!--               <input type="date" class="form-control1 ng-invalid ng-invalid-required" ng-model="model.date" required=""> -->
+<!--             </div> -->
+          
+<!--             <div class="form-group"> -->
+<!--               <button type="submit" class="btn btn-primary">Submit</button> -->
+<!--               <button type="reset" class="btn btn-default">Reset</button> -->
+<!--             </div> -->
