@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
@@ -21,6 +22,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!---//webfonts--->  
 <!-- Bootstrap Core JavaScript -->
 <script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
+<link rel="stylesheet" href="css/bootstrap.min.css" />	
+	<script type="text/javascript" src="js/jquery.min.js" ></script> 
+	<script type="text/javascript" src="js/bootstrap.js" ></script>
+	<script type="text/javascript">
+	</script>
+	<style type="text/css">
+	 .form-control{
+	   width:300px;
+	</style>
 </head>
 <body>
 <div id="wrapper">
@@ -253,8 +263,33 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </nav>
         <div id="page-wrapper">
         <div class="graphs">
-	   <div class="widget_head">Media</div><!--开头-->
-	   	 
+	   <div class="widget_head">公告管理</div><!--开头-->
+	   	 <table class="table table-striped">
+	   	<span input-group-addon>请输入</span>&nbsp;&nbsp;&nbsp;<input type="button" value="搜索" >
+	  <input type="text" class="form-control" placeholder="公告标题"/>
+  <%--  <caption style="font-size:35px"></caption> --%>
+   <thead>
+      <tr>
+         <th>序号</th>
+         <th>类别</th>
+         <th>公告标题</th>
+         <th>添加时间</th>
+         <th>操作</th>
+      </tr>
+   </thead>
+   <tbody>
+     <c:forEach items="${push_notices}" var="p" varStatus="stat">
+             <tr>
+			<td>${stat.index+1}</td>
+			<td>p.title</td>
+			<td>p.content</td>
+			<td>p.status</td>
+			<td>p.create_date</td>
+			<td><button type="button" class="btn btn-primary">删除</button>||<button type="button" class="btn btn-primary">编辑</button></td>
+			</tr>
+	    </c:forEach> 
+   </tbody>
+   </table>
     <!-- /#wrapper -->
 <!-- Nav CSS -->
 <link href="/p2p_project/backStyle/css/custom.css" rel="stylesheet">

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -48,6 +49,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link href='/p2p_project/backStyle/css/uploadify.css' rel='stylesheet'>
     <link href='/p2p_project/backStyle/css/animate.min.css' rel='stylesheet'>
     <link rel="shortcut icon" href="/p2p_project/backStyle/img/favicon.ico">
+
+<script type="text/javascript">
+function open1(){
+	var diag = new Dialog();
+	diag.Width = 400;
+	diag.Height = 400;
+	diag.Title = "添加新闻分类的窗口";
+	diag.URL = "/p2p_project/backJsp/news.jsp";
+	diag.show();
+}
+</script>
 </head>
 <body>
 
@@ -237,42 +249,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <span class="icon-bar"></span>
             </button>
             
-            <a class="navbar-brand" href="index.html"> <img alt="Charisma Logo" src="/p2p_project/backStyle/img/logo20.png" class="hidden-xs"/>
+           <a class="navbar-brand" href="index.html">  <img alt="Charisma Logo" src="/p2p_project/backStyle/images/logo20.png" class="hidden-xs"/>
                 <span>hello</span></a>
-
-
 
            <!--用户开始-->
             <div class="btn-group pull-right">
+            <button class="btn btn-default dropdown-toggle" onclick="open1();">
+                    <i class="glyphicon glyphicon-user"></i><span class="hidden-sm hidden-xs">添加</span>
+                     </button>
                 <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                     <i class="glyphicon glyphicon-user"></i><span class="hidden-sm hidden-xs">用户名称</span>
                     <span class="caret"></span>
                 </button>
-                
                 <ul class="dropdown-menu">
                     <li class="divider"></li>
-                     <a href="地址">切换用户</a>
-                </ul>
-            </div>
-            
-
-            <!-- 色彩布局 -->
-            <div class="btn-group pull-right theme-container animated tada">
-                <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                    <i class="glyphicon glyphicon-tint"></i><span
-                        class="hidden-sm hidden-xs">切换主题布局颜色</span>
-                    <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" id="themes">
-                    <li><a data-value="classic" href="#"><i class="whitespace"></i>白色</a></li>
-                    <li><a data-value="cerulean" href="#"><i class="whitespace"></i>蓝色</a></li>
-                    <li><a data-value="cyborg" href="#"><i class="whitespace"></i>黑色</a></li>
-                     <li><a data-value="united" href="#"><i class="whitespace"></i>粉色</a></li>
-                     <li><a data-value="slate" href="#"><i class="whitespace"></i>灰色</a></li>
-                       <li><a data-value="spacelab" href="#"><i class="whitespace"></i>重色</a></li>
-                    <li><a data-value="simplex" href="#"><i class="whitespace"></i>左白色</a></li>
-                    <li><a data-value="darkly" href="#"><i class="whitespace"></i>布局大</a></li>
-                    <li><a data-value="lumen" href="#"><i class="whitespace"></i> 布局小</a></li>
+                     <a href="/p2p_project/frontJsp/login.jsp">切换用户</a>
                 </ul>
             </div>
 
@@ -298,255 +289,38 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<table class="table table-striped table-bordered bootstrap-datatable datatable responsive">
     <thead>
     <tr>
-        <th>Username</th>
-        <th>Date registered</th>
-        <th>Role</th>
-        <th>Status</th>
-        <th>Actions</th>
+      
+  <th>序号</th>
+       <th>封面图片</th>
+        <th>名称</th>
+        <th>上级类别</th>
+        <th>简介</th>
+        <th>排序</th>
+        <th>添加时间</th>
+        <th>操作</th>
     </tr>
     </thead>
-    <tr>
-        <td>Chris Jack</td>
-        <td class="center">2012/01/01</td>
-        <td class="center">Member</td>
-        <td class="center">
-            <span class="label-success label label-default">Active</span>
+    <c:forEach items="${list}" var="list" varStatus="status">
+     <tr>
+     <td class="center">
+            <span class="label-success label label-default">${status.index+1}</span>
         </td>
+        <td class="center">${list.cphoto}</td>
+        <td class="center">${list.name }</td>
+        <td class="center">${list.suptype}</td>
+        <td class="center">${list.info}</td>
+        <td class="center">${list.sort}</td>
+        <td class="center">${list.addtime}</td>
         <td class="center">
-            <a class="btn btn-success" href="#">
-                <i class="glyphicon glyphicon-zoom-in icon-white"></i>
-                View
-            </a>
-            <a class="btn btn-info" href="#">
-                <i class="glyphicon glyphicon-edit icon-white"></i>
+          <a class="btn btn-info" href="#">
                 Edit
             </a>
             <a class="btn btn-danger" href="#">
-                <i class="glyphicon glyphicon-trash icon-white"></i>
                 Delete
             </a>
         </td>
     </tr>
-    <tr>
-        <td>Jack Chris</td>
-        <td class="center">2012/01/01</td>
-        <td class="center">Member</td>
-        <td class="center">
-            <span class="label-success label label-default">Active</span>
-        </td>
-        <td class="center">
-            <a class="btn btn-success" href="#">
-                <i class="glyphicon glyphicon-zoom-in icon-white"></i>
-                View
-            </a>
-            <a class="btn btn-info" href="#">
-                <i class="glyphicon glyphicon-edit icon-white"></i>
-                Edit
-            </a>
-            <a class="btn btn-danger" href="#">
-                <i class="glyphicon glyphicon-trash icon-white"></i>
-                Delete
-            </a>
-        </td>
-    </tr>
-    <tr>
-        <td>Muhammad Usman</td>
-        <td class="center">2012/01/01</td>
-        <td class="center">Member</td>
-        <td class="center">
-            <span class="label-success label label-default">Active</span>
-        </td>
-        <td class="center">
-            <a class="btn btn-success" href="#">
-                <i class="glyphicon glyphicon-zoom-in icon-white"></i>
-                View
-            </a>
-            <a class="btn btn-info" href="#">
-                <i class="glyphicon glyphicon-edit icon-white"></i>
-                Edit
-            </a>
-            <a class="btn btn-danger" href="#">
-                <i class="glyphicon glyphicon-trash icon-white"></i>
-                Delete
-            </a>
-        </td>
-    </tr>
-    <tr>
-        <td>Sheikh Heera</td>
-        <td class="center">2012/02/01</td>
-        <td class="center">Staff</td>
-        <td class="center">
-            <span class="label-default label label-danger">Banned</span>
-        </td>
-        <td class="center">
-            <a class="btn btn-success" href="#">
-                <i class="glyphicon glyphicon-zoom-in icon-white"></i>
-                View
-            </a>
-            <a class="btn btn-info" href="#">
-                <i class="glyphicon glyphicon-edit icon-white"></i>
-                Edit
-            </a>
-            <a class="btn btn-danger" href="#">
-                <i class="glyphicon glyphicon-trash icon-white"></i>
-                Delete
-            </a>
-        </td>
-    </tr>
-    <tr>
-        <td>Helen Garner</td>
-        <td class="center">2012/02/01</td>
-        <td class="center">Staff</td>
-        <td class="center">
-            <span class="label-default label label-danger">Banned</span>
-        </td>
-        <td class="center">
-            <a class="btn btn-success" href="#">
-                <i class="glyphicon glyphicon-zoom-in icon-white"></i>
-                View
-            </a>
-            <a class="btn btn-info" href="#">
-                <i class="glyphicon glyphicon-edit icon-white"></i>
-                Edit
-            </a>
-            <a class="btn btn-danger" href="#">
-                <i class="glyphicon glyphicon-trash icon-white"></i>
-                Delete
-            </a>
-        </td>
-    </tr>
-    <tr>
-        <td>Saruar Ahmed</td>
-        <td class="center">2012/03/01</td>
-        <td class="center">Member</td>
-        <td class="center">
-            <span class="label-warning label label-default">Pending</span>
-        </td>
-        <td class="center">
-            <a class="btn btn-success" href="#">
-                <i class="glyphicon glyphicon-zoom-in icon-white"></i>
-                View
-            </a>
-            <a class="btn btn-info" href="#">
-                <i class="glyphicon glyphicon-edit icon-white"></i>
-                Edit
-            </a>
-            <a class="btn btn-danger" href="#">
-                <i class="glyphicon glyphicon-trash icon-white"></i>
-                Delete
-            </a>
-        </td>
-    </tr>
-    <tr>
-        <td>Ahemd Saruar</td>
-        <td class="center">2012/03/01</td>
-        <td class="center">Member</td>
-        <td class="center">
-            <span class="label-warning label label-default">Pending</span>
-        </td>
-        <td class="center">
-            <a class="btn btn-success" href="#">
-                <i class="glyphicon glyphicon-zoom-in icon-white"></i>
-                View
-            </a>
-            <a class="btn btn-info" href="#">
-                <i class="glyphicon glyphicon-edit icon-white"></i>
-                Edit
-            </a>
-            <a class="btn btn-danger" href="#">
-                <i class="glyphicon glyphicon-trash icon-white"></i>
-                Delete
-            </a>
-        </td>
-    </tr>
-    <tr>
-        <td>Habib Rizwan</td>
-        <td class="center">2012/01/21</td>
-        <td class="center">Staff</td>
-        <td class="center">
-            <span class="label-success label label-default">Active</span>
-        </td>
-        <td class="center">
-            <a class="btn btn-success" href="#">
-                <i class="glyphicon glyphicon-zoom-in icon-white"></i>
-                View
-            </a>
-            <a class="btn btn-info" href="#">
-                <i class="glyphicon glyphicon-edit icon-white"></i>
-                Edit
-            </a>
-            <a class="btn btn-danger" href="#">
-                <i class="glyphicon glyphicon-trash icon-white"></i>
-                Delete
-            </a>
-        </td>
-    </tr>
-    <tr>
-        <td>Rizwan Habib</td>
-        <td class="center">2012/01/21</td>
-        <td class="center">Staff</td>
-        <td class="center">
-            <span class="label-success label label-default">Active</span>
-        </td>
-        <td class="center">
-            <a class="btn btn-success" href="#">
-                <i class="glyphicon glyphicon-zoom-in icon-white"></i>
-                View
-            </a>
-            <a class="btn btn-info" href="#">
-                <i class="glyphicon glyphicon-edit icon-white"></i>
-                Edit
-            </a>
-            <a class="btn btn-danger" href="#">
-                <i class="glyphicon glyphicon-trash icon-white"></i>
-                Delete
-            </a>
-        </td>
-    </tr>
-    <tr>
-        <td>Amrin Sana</td>
-        <td class="center">2012/08/23</td>
-        <td class="center">Staff</td>
-        <td class="center">
-            <span class="label-default label label-danger">Banned</span>
-        </td>
-        <td class="center">
-            <a class="btn btn-success" href="#">
-                <i class="glyphicon glyphicon-zoom-in icon-white"></i>
-                View
-            </a>
-            <a class="btn btn-info" href="#">
-                <i class="glyphicon glyphicon-edit icon-white"></i>
-                Edit
-            </a>
-            <a class="btn btn-danger" href="#">
-                <i class="glyphicon glyphicon-trash icon-white"></i>
-                Delete
-            </a>
-        </td>
-    </tr>
-    <tr>
-        <td>Sana Amrin</td>
-        <td class="center">2012/08/23</td>
-        <td class="center">Staff</td>
-        <td class="center">
-            <span class="label-default label label-danger">Banned</span>
-        </td>
-        <td class="center">
-            <a class="btn btn-success" href="#">
-                <i class="glyphicon glyphicon-zoom-in icon-white"></i>
-                View
-            </a>
-            <a class="btn btn-info" href="#">
-                <i class="glyphicon glyphicon-edit icon-white"></i>
-                Edit
-            </a>
-            <a class="btn btn-danger" href="#">
-                <i class="glyphicon glyphicon-trash icon-white"></i>
-                Delete
-            </a>
-        </td>
-    </tr>
+    </c:forEach>
     
  </tbody>
     </table>
@@ -597,5 +371,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="/p2p_project/backStyle/js/jquery.uploadify-3.1.min.js"></script>
 <script src="/p2p_project/backStyle/js/jquery.history.js"></script>
 <script src="/p2p_project/backStyle/js/charisma.js"></script>
+<script type="text/javascript" src="/p2p_project/backStyle/js/zDrag.js"></script>
+<script type="text/javascript" src="/p2p_project/backStyle/js/zDialog.js"></script>
+
 </body>
 </html>
