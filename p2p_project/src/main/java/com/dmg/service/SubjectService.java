@@ -1,6 +1,7 @@
 package com.dmg.service;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.transaction.Transactional;
 
@@ -21,8 +22,8 @@ public class SubjectService {
      * 标的期限 年化收益 标的状态 可体验金购买
 	 * @return
 	 */
-	public List<Subject> listSubject(){
-		List<Subject> list = subjectDao.listSubject();
+	public List<Subject> listSubject(Map map){
+		List<Subject> list = subjectDao.listSubject(map);
 		return list;
 	}
 

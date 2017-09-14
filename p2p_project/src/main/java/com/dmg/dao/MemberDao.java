@@ -1,6 +1,7 @@
 package com.dmg.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.taglibs.standard.lang.jstl.test.beans.PublicInterface2;
 import org.hibernate.Session;
@@ -19,9 +20,10 @@ public class MemberDao {
 	}
 	
 	//查询所有账号
-	public List<Member> listMember(){
-		String hql = "from Member";
+	public List<Member> listMember(Map map){
+		String hql = "from Member where 0=0 ";
 		Session session = getSession();
+		hql=listMemberLike(map, hql);
 		List<Member> list = session.createQuery(hql).list();
 		for (Member member : list) {
 			System.out.println("<------------------------------------------------------------------------------->");
@@ -34,6 +36,26 @@ public class MemberDao {
 			System.out.println("<------------------------------------------------------------------------------->");
 		}
 		return list;
+	}
+	//账号管理模糊查询
+	public String listMemberLike(Map map,String hql){
+		String namem = (String)map.get("namem");
+		String mobilePhonem = (String)map.get("mobilePhonem");
+		String memberNamem = (String)map.get("memberNamem");
+		String invitationcodem = (String)map.get("invitationcodem");
+		String create_datem = (String)map.get("create_datem");
+		if (namem!=null && !namem.equals("")) {//用户名
+			hql+=" and name like '%"+namem+"%'";
+		}else if (mobilePhonem!=null && !mobilePhonem.equals("")) {//手机号
+			hql+=" and mobile_phone like '%"+mobilePhonem+"%'";
+		}else if (memberNamem!=null && !memberNamem.equals("")) {//姓名
+			hql+=" and member_name like '%"+memberNamem+"%'";
+		}else if (invitationcodem!=null && !invitationcodem.equals("")) {//邀请码
+			hql+=" and invitationcode like '%"+invitationcodem+"%'";
+		}else if (create_datem!=null && !create_datem.equals("")) {//注册时间
+			hql+=" and create_date like '%"+create_datem+"%'";
+		}
+		return hql;
 	}
 	
 	//根据id查询个人账号详情

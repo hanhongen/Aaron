@@ -1,6 +1,7 @@
 package com.dmg.service;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.transaction.Transactional;
 
@@ -21,8 +22,8 @@ public class Member_withdraw_recordService {
      * 序号 手机号 姓名 身份证 提现金额 提现银行 提现卡号 提现开户行地址 提现状态 提现时间 账号详细
 	 * @return
 	 */
-	public List<Member_withdraw_record> listMember_withdraw_record(){
-		List<Member_withdraw_record> listmwr = member_withdraw_recordDao.listMember_withdraw_record();
+	public List<Member_withdraw_record> listMember_withdraw_record(Map map){
+		List<Member_withdraw_record> listmwr = member_withdraw_recordDao.listMember_withdraw_record(map);
 		return listmwr;
 	}
 }

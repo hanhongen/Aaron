@@ -182,24 +182,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                          <!-- ----------------------------------------------------- -->
                          <li>
                             <a href="#"><i class="fa fa-check-square-o nav_icon"></i>会员管理<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
+                           <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="/p2p_project/backJsp/forms.jsp">账号管理</a>
+                                    <a href="/p2p_project/member/listMember">账号管理</a>
                                 </li>
                                 <li>
-                                    <a href="/p2p_project/backJsp/validation.jsp">绑卡管理</a>
+                                    <a href="/p2p_project/member_bankcards/listMember_Bankcards">绑卡管理</a>
                                 </li>
                                  <li>
-                                    <a href="/p2p_project/backJsp/validation.jsp">付息计划</a>
+                                    <a href="/p2p_project/subject/listSubject">付息计划</a>
                                 </li>
                                  <li>
-                                    <a href="/p2p_project/backJsp/validation.jsp">充值管理</a>
+                                    <a href="/p2p_project/member_deposit_record/listMember_deposit_record">充值管理</a>
                                 </li>
                                  <li>
-                                    <a href="/p2p_project/backJsp/validation.jsp">提现管理</a>
+                                    <a href="/p2p_project/member_withdraw_record/listMember_withdraw_record">提现管理</a>
                                 </li>
                                  <li>
-                                    <a href="/p2p_project/backJsp/validation.jsp">邀请奖励</a>
+                                    <a href="/p2p_project/award_records/listAward_records">邀请奖励</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -261,15 +261,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			 <div class="box-right-main">
                         <h2><span class="glyphicon glyphicon-play" style="margin-right:5px"></span>付息计划</h2>
                       <div class="tablelist">
-                      	<form action="/winplus/sysmember/index" method="post" id="form1">
+                      	<form action="/p2p_project/subject/listSubject" method="post" id="form1">
                         <table class="table tabletop">
                         <tr>
                         <td style="width:110px;padding-left:30px">名称：</td>
-                        <td style="width:180px"><input type="text" class="form-control" name="name" placeholder="标的名称" value=""></td>
+                        <td style="width:180px"><input type="text" name="sname" class="form-control" placeholder="标的名称" value="${sname }"></td>
                         <td style="width:110px;padding-left:30px">状态：</td>
-                        <td style="width:180px"><input type="text"  name="type" class="form-control" placeholder="标的状态" value=""></td>
+                        <td style="width:180px"><input type="text"  name="stype" class="form-control" placeholder="标的状态" value="${stype }"></td>
                         <td style="width:110px;padding-left:30px">类型：</td>
-                        <td style="width:180px"><input type="text"  name="status" class="form-control" placeholder="标的类型" value=""></td>
+                        <td style="width:180px"><input type="text"  name="sstatus" class="form-control" placeholder="标的类型" value="${sstatus }"></td>
+                        <td class="pull-right" style="padding-right:10px">
+                        <button type="submit" class="btn btn-primary btn-sm">查询</button>
+                        </td>
                         <td><button type="button" class="btn btn-primary btn-sm" onclick="$('#form1').find(':input').not(':button, :submit, :reset').val('').removeAttr('checked').removeAttr('selected');">重置</button></td>
                         </tr>     
                         </table>
