@@ -12,6 +12,7 @@ public class Push_notice {  //公告表
 	private int id;  //id
 	private String title;  // 标题
 	private String content;  //内容
+	private String category;//公告类别
 	private int status;  //公告状态
 	private String create_date;  //创建时间
 	private String update_date;  //修改时间
@@ -20,6 +21,12 @@ public class Push_notice {  //公告表
 	@GeneratedValue
 	public int getId() {
 		return id;
+	}
+	public String getCategory() {
+		return category;
+	}
+	public void setCategory(String category) {
+		this.category = category;
 	}
 	public void setId(int id) {
 		this.id = id;

@@ -50,8 +50,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script type="text/javascript">
 function open1(){
 	var diag = new Dialog();
-	diag.Width = 400;
-	diag.Height = 400;
+	diag.Width = 800;
+	diag.Height = 600;
 	diag.Title = "添加新闻分类的窗口";
 	diag.URL = "/p2p_project/backJsp/news.jsp";
 	diag.show();
@@ -314,7 +314,7 @@ function open1(){
      <td class="center">
             <span class="label-success label label-default">${status.index+1}</span>
         </td>
-        <td class="center">${list.cphoto}</td>
+        <td class="center"><img width="200px" height="100px" src="/p2p_project/upload/${list.cphoto}"></td>
         <td class="center">${list.name }</td>
         <td class="center">${list.suptype}</td>
         <td class="center">${list.info}</td>

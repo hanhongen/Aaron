@@ -6,6 +6,9 @@
 <html>
 <head>
 <title>Modern an Admin Panel Category Flat Bootstarp Resposive Website Template | Media :: w3layouts</title>
+<script type="text/javascript" src="/p2p_project/backStyle/js/jquery.min.js"></script>
+
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Modern Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
@@ -32,6 +35,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	   width:300px;
 	</style>
 </head>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#save").click(function(){
+	document.forms[0].action="/p2p_project/test/pushadd";
+	document.forms[0].submit();	
+	});
+});	
+</script>
 <body>
 <div id="wrapper">
      <!-- Navigation -->
@@ -263,33 +274,45 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </nav>
         <div id="page-wrapper">
         <div class="graphs">
+     
 	   <div class="widget_head">公告管理</div><!--开头-->
-	   	 <table class="table table-striped">
-	   	<span input-group-addon>请输入</span>&nbsp;&nbsp;&nbsp;<input type="button" value="搜索" >
+	   <form method="post" id="forms">
+	   <table class="table table-striped">
+	   <span input-group-addon>请输入</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" value="搜索" >
 	  <input type="text" class="form-control" placeholder="公告标题"/>
+	  <button type="button" class="btn btn-primary" id="save">新增</button>
   <%--  <caption style="font-size:35px"></caption> --%>
    <thead>
       <tr>
          <th>序号</th>
          <th>类别</th>
          <th>公告标题</th>
-         <th>添加时间</th>
+         <th>创建时间</th>
+         <th>公告状态</th>
          <th>操作</th>
       </tr>
    </thead>
    <tbody>
      <c:forEach items="${push_notices}" var="p" varStatus="stat">
-             <tr>
-			<td>${stat.index+1}</td>
-			<td>p.title</td>
-			<td>p.content</td>
-			<td>p.status</td>
-			<td>p.create_date</td>
-			<td><button type="button" class="btn btn-primary">删除</button>||<button type="button" class="btn btn-primary">编辑</button></td>
+            <tr>
+			<td style="font-size:18px;">${stat.index+1}</td>
+			<td style="font-size:18px;">${p.category}</td>
+			<td style="font-size:18px;">${p.title}</td>
+			<td style="font-size:18px;">${p.create_date}</td>
+			<td>
+			  <c:if test="${p.status==0}">
+			  已上架
+			  </c:if>
+			  <c:if test="${p.status==1}">
+			  已下架
+			  </c:if>
+			</td>
+			<td><button type="button" class="btn btn-primary" onclick="">删除</button>||<button type="button" class="btn btn-primary">编辑</button></td>
 			</tr>
 	    </c:forEach> 
    </tbody>
    </table>
+   </form>
     <!-- /#wrapper -->
 <!-- Nav CSS -->
 <link href="/p2p_project/backStyle/css/custom.css" rel="stylesheet">
