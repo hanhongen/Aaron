@@ -261,15 +261,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			 <div class="box-right-main">
                         <h2><span class="glyphicon glyphicon-play" style="margin-right:5px"></span>付息计划</h2>
                       <div class="tablelist">
-                      	<form action="/winplus/sysmember/index" method="post" id="form1">
+                      	<form action="/p2p_project/subject/listSubject" method="post" id="form1">
                         <table class="table tabletop">
                         <tr>
                         <td style="width:110px;padding-left:30px">名称：</td>
-                        <td style="width:180px"><input type="text" class="form-control" name="name" placeholder="标的名称" value=""></td>
+                        <td style="width:180px"><input type="text" name="sname" class="form-control" placeholder="标的名称" value="${sname }"></td>
                         <td style="width:110px;padding-left:30px">状态：</td>
-                        <td style="width:180px"><input type="text"  name="type" class="form-control" placeholder="标的状态" value=""></td>
+                        <td style="width:180px"><input type="text"  name="stype" class="form-control" placeholder="标的状态" value="${stype }"></td>
                         <td style="width:110px;padding-left:30px">类型：</td>
-                        <td style="width:180px"><input type="text"  name="status" class="form-control" placeholder="标的类型" value=""></td>
+                        <td style="width:180px"><input type="text"  name="sstatus" class="form-control" placeholder="标的类型" value="${sstatus }"></td>
+                        <td class="pull-right" style="padding-right:10px">
+                        <button type="submit" class="btn btn-primary btn-sm">查询</button>
+                        </td>
                         <td><button type="button" class="btn btn-primary btn-sm" onclick="$('#form1').find(':input').not(':button, :submit, :reset').val('').removeAttr('checked').removeAttr('selected');">重置</button></td>
                         </tr>     
                         </table>

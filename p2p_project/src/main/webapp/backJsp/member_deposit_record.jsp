@@ -261,19 +261,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			 <div class="box-right-main">
                         <h2><span class="glyphicon glyphicon-play" style="margin-right:5px"></span>充值管理</h2>
                       <div class="tablelist">
-                      	<form action="/winplus/sysmember/index" method="post" id="form1">
+                      	<form action="/p2p_project/member_deposit_record/listMember_deposit_record" method="post" id="form1">
                         <table class="table tabletop">
                         <tr>
                         <td style="width:110px;padding-left:30px">订单编号：</td>
-                        <td style="width:180px"><input type="text" class="form-control" name="" placeholder="订单编号" value=""></td>
+                        <td style="width:180px"><input type="text" name="snumber" class="form-control" placeholder="订单编号" value="${snumber }"></td>
                         <td style="width:110px;padding-left:30px">手机号：</td>
-                        <td style="width:180px"><input type="text"  name="" class="form-control" placeholder="手机号" value=""></td>
+                        <td style="width:180px"><input type="text"  name="phone" class="form-control" placeholder="手机号" value="${phone }"></td>
                         <td style="width:110px;padding-left:30px">订单状态：</td>
-                        <td style="width:180px"><input type="text"  name="" class="form-control" placeholder="订单状态" value=""></td>
+                        <td style="width:180px"><input type="text"  name="status" class="form-control" placeholder="0待付款1已付款" value="${status }"></td>
                         <td style="width:110px;padding-left:30px">富友订单：</td>
-                        <td style="width:180px"><input type="text"  name="" class="form-control" placeholder="富友订单" value=""></td>
+                        <td style="width:180px"><input type="text"  name="fynumber" class="form-control" placeholder="富友订单" value="${fynumber }"></td>
                         <td style="width:110px;padding-left:30px">订单时间：</td>
-                        <td style="width:180px"><input type="text"  name="" class="form-control" placeholder="订单时间" value=""></td>
+                        <td style="width:180px">
+                        <div class="form-group" style="width: 150px"><!-- 时间样式 -->
+                        <input type="date" class="form-control time" ng-model="model.date" name="create_datem">
+                        </div>
+                        </td>
+                         <td class="pull-right" style="padding-right:10px">
+                        <button type="submit" class="btn btn-primary btn-sm">查询</button>
+                        </td>
                         <td><button type="button" class="btn btn-primary btn-sm" onclick="$('#form1').find(':input').not(':button, :submit, :reset').val('').removeAttr('checked').removeAttr('selected');">重置</button></td>
                         <td><button type="button" class="btn btn-primary btn-sm" onclick="fun();">刷新订单数据</button></td>
                         </tr>     
@@ -297,7 +304,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <td>${lm.seril_number }</td>
                             <td>${lm.member.mobile_phone }</td>
                             <td>${lm.amount }</td>
-                            <td>${lm.status}</td>
+                            <td>
+                            <c:if test="${lm.status == 1}">已付款</c:if>
+                            <c:if test="${lm.status == 0}">待付款</c:if>
+                            </td>
                             <td>${lm.pay_channel_name }</td>
                             <td>${lm.pay_channel_order_no }</td>
                             <td>${lm.create_date }</td>

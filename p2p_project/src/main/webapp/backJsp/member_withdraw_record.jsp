@@ -261,19 +261,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			 <div class="box-right-main">
                         <h2><span class="glyphicon glyphicon-play" style="margin-right:5px"></span>提现管理</h2>
                       <div class="tablelist">
-                      	<form action="/winplus/sysmember/index" method="post" id="form1">
+                      	<form action="/p2p_project/member_withdraw_record/listMember_withdraw_record" method="post" id="form1">
                         <table class="table tabletop">
                         <tr>
                         <td style="width:110px;padding-left:30px">姓名：</td>
-                        <td style="width:180px"><input type="text" class="form-control" name="" placeholder="姓名" value=""></td>
+                        <td style="width:180px"><input type="text" name="mname" class="form-control" placeholder="姓名" value="${mname }"></td>
                         <td style="width:110px;padding-left:30px">手机号：</td>
-                        <td style="width:180px"><input type="text"  name="" class="form-control" placeholder="手机号" value=""></td>
+                        <td style="width:180px"><input type="text"  name="mphone" class="form-control" placeholder="手机号" value="${mphone }"></td>
                         <td style="width:110px;padding-left:30px">绑卡卡号：</td>
-                        <td style="width:180px"><input type="text"  name="" class="form-control" placeholder="绑卡卡号" value=""></td>
+                        <td style="width:180px"><input type="text"  name="mcard" class="form-control" placeholder="绑卡卡号" value="${mcard }"></td>
                         <td style="width:110px;padding-left:30px">状态：</td>
-                        <td style="width:180px"><input type="text"  name="" class="form-control" placeholder="状态" value=""></td>
+                        <td style="width:180px"><input type="text"  name="mstatus" class="form-control" placeholder="状态" value="${mstatus }"></td>
                         <td style="width:110px;padding-left:30px">提现时间：</td>
-                        <td style="width:180px"><input type="text"  name="" class="form-control" placeholder="提现时间" value=""></td>
+                        <td style="width:180px">
+                        <div class="form-group" style="width: 150px"><!-- 时间样式 -->
+                        <input type="date" class="form-control time" ng-model="model.date" name="create_datem">
+                        </div>
+                        </td>
+                         <td class="pull-right" style="padding-right:10px">
+                        <button type="submit" class="btn btn-primary btn-sm">查询</button>
+                        </td>
                         <td><button type="button" class="btn btn-primary btn-sm" onclick="$('#form1').find(':input').not(':button, :submit, :reset').val('').removeAttr('checked').removeAttr('selected');">重置</button></td>
                         <td><button type="button" class="btn btn-primary btn-sm" onclick="fun();">刷新订单数据</button></td>
                         </tr>     
@@ -296,14 +303,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                           <c:forEach items="${listmwr }" var="lm" varStatus="stat">
                           <tr class="text-center">
                             <td>${stat.index+1 }</td>
-                            <td>${lm.member.mobile_Phone }</td>
+                            <td>${lm.member.mobile_phone }</td>
                             <td>${lm.member.member_name }</td>
                             <td>${lm.member.identity }</td>
                             <td>${lm.amount}</td>
                             <td>${lm.bank_name }</td>
                             <td>${lm.bank_card }</td>
                             <td>${lm.cardaddress }</td>
-                            <td>${lm.status }</td>
+                            <td>
+                            <c:if test="${lm.status == 0 }">待审核</c:if>
+                            <c:if test="${lm.status == 1 }">已打款</c:if>
+                            <c:if test="${lm.status == 2 }">打款中</c:if>
+                            <c:if test="${lm.status == 3 }">打款失败</c:if>
+                            </td>
                             <td>${lm.create_date }</td>
                             <td><a href="#">账号详情</a></td>
                           </tr>

@@ -1,6 +1,7 @@
 package com.dmg.service;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.transaction.Transactional;
 
@@ -20,8 +21,8 @@ public class Member_deposit_recordSevice {
      * 序号 订单编号 手机号 订单金额 订单状态 充值渠道 富友手机充值订单 订单时间
 	 * @return
 	 */
-	public List<Member_deposit_record> listMember_deposit_record(){
-		List<Member_deposit_record> list= member_deposit_recordDao.listMember_deposit_record();
+	public List<Member_deposit_record> listMember_deposit_record(Map map){
+		List<Member_deposit_record> list= member_deposit_recordDao.listMember_deposit_record(map);
 		return list;
 	}
 }

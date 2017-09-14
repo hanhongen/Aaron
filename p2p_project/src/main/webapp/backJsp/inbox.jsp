@@ -1,14 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
 <!DOCTYPE HTML>
 <html>
 <head>
-
-    <meta name="description" content="Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.">
-    <meta name="author" content="Muhammad Usman">
-    
-    	
+<meta name="description" content="Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.">
+<meta name="author" content="Muhammad Usman"> 	
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords"

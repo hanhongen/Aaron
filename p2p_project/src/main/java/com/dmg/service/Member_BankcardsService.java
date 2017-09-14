@@ -1,6 +1,7 @@
 package com.dmg.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,8 +21,8 @@ public class Member_BankcardsService {
      * 序号 手机号 绑卡人姓名 绑卡身份证 绑卡类型 绑卡卡号 绑卡地址 状态 添加时间 。
 	 * @return
 	 */
-	public List<Member_bankcards> listMember_bankcards(){
-		List<Member_bankcards> listmb = member_BankcardsDao.listMember_bankcards();
+	public List<Member_bankcards> listMember_bankcards(Map map){
+		List<Member_bankcards> listmb = member_BankcardsDao.listMember_bankcards(map);
 		return listmb;
 	}
 	//用户表
