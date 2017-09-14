@@ -15,10 +15,17 @@ public class Award_records {  //奖励记录表
 	private int invitingid;  //邀请人ID	
 	private int byinvitingid;  //被邀人ID
 	private int type;  //奖励类型(0:注册奖励,1:投资奖励)
+	private int amount;//充值金额
 	private int isaward;  //奖励状态(0:未奖励 1:已奖励)
 	private String addtime; //添加时间
 	private Member member;
 	
+	public int getAmount() {
+		return amount;
+	}
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
 	@ManyToOne
 	@JoinColumn(name="member_id")
 	public Member getMember() {

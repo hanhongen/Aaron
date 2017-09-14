@@ -257,7 +257,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	   <div class="xs">
   	     	    <!-- --------------------------------------------------------------------------------------------------------------------------- -->       
 			 <div class="box-right-main">
-                        <h2><span class="glyphicon glyphicon-play" style="margin-right:5px"></span>提现管理</h2>
+                        <h2><span class="glyphicon glyphicon-play" style="margin-right:5px"></span>邀请奖励</h2>
                       <div class="tablelist">
                       	<form action="/winplus/sysmember/index" method="post" id="form1">
                         <table class="table tabletop">
@@ -291,18 +291,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                           <td>操作</td>
                           </tr>
                           <c:forEach items="${listar }" var="lm" varStatus="stat">
-                          <c:forEach items="${lists }" var="ls">
+<%--                           <c:forEach items="${lists }" var="ls"> --%>
                           <tr class="text-center">
                             <td>${stat.index+1 }</td>
                             <td>${lm.member.mobile_phone }</td>
                             <td>${lm.member.member_name }</td>
                             <td>${lm.member.invitationcode }</td>
                             <td>${lm.member.invitedcode}</td>
-                            <td><!-- 判断用户表id和主题表借款人id是否一致 -->
-                            <c:if test="${lm.member.id == ls.borrowerid }">
-                            	${ls.amount }
-                            </c:if>
-                            ${ls.amount }
+                            <td><!-- 判断用户表id和账户表id是否一致 -->
+<%--                             <c:if test="${lm.member.id == ls.member.id }"> --%>
+<%--                             	${ls.invest_amoun } --%>
+<%--                             </c:if> --%>
+                            ${lm.amount }
                             </td>
                             <td>
                             <c:if test="${lm.type == 0}">是</c:if>
@@ -313,9 +313,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <c:if test="${lm.type == 0}">否</c:if>
                             </td>
                             <td>${lm.addtime }</td>
-                            <td><a href="#">账号详情</a></td>
+                            <td>
+                            <c:if test="${lm.type == 0}">注册已奖励</c:if>
+                            <c:if test="${lm.type == 1}">投资已奖励</c:if>
+                            <a href="#">查看奖励记录</a>
+                            </td>
                           </tr>
-                          </c:forEach>
+<%--                           </c:forEach> --%>
                           </c:forEach>
 			</table>
   	 <!-- --------------------------------------------------------------------------------------------------------------------------- -->   
