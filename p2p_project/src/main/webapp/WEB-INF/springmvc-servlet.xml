@@ -22,12 +22,19 @@
 	<mvc:resources location="/backStyle/js/" mapping="/backStyle/js/**"/>
 	<mvc:resources location="/backStyle/css/" mapping="/backStyle/css/**"/>
 	<mvc:resources location="/backStyle/images/" mapping="/backStyle/images/**"/>
+	<mvc:resources location="/upload/" mapping="/upload/**"/>
 
 
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 	  <property name="prefix" value="/"></property>
 	  <property name="suffix" value=".jsp"></property>
 	</bean>
+<!-- 文件解析器 -->
+ <bean id="multipartResolver"  
+    class="org.springframework.web.multipart.commons.CommonsMultipartResolver">  
+    <property name="maxUploadSize" value="1073741824" />     
+    <property name="defaultEncoding" value="UTF-8" />  
+    <property name="resolveLazily" value="true" />  
+</bean>  
 
-	
 </beans>

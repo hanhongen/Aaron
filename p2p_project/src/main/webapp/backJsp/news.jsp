@@ -4,37 +4,73 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>dsadsasdasda</title>
 </head>
-<script type="text/javascript" src="/p2p_project/backStyle/js/zDrag.js"></script>
-<script type="text/javascript" src="/p2p_project/backStyle/js/zDialog.js"></script>
+<script type="text/javascript" src="/p2p_project/backStyle/js/jquery.min.js"></script>
 <script type="text/javascript">
 function fun2(){
 	parentDialog.close();
 }
 </script>
 <body>
-<div id="forlogin">
-      <table width="100%" border="0" align="center" cellpadding="4" cellspacing="4" bordercolor="#666666">
+<form action="/p2p_project/news_type/news_typesave"  method="post" enctype="multipart/form-data" >
+<table width="100%" border="0" align="center" cellpadding="4" cellspacing="4" bordercolor="#666666">
+<br><br><br>
+     <tr>
+     <td>
+     名称:<input type="text" name="name">
+     </td>
+     <td>
+     简介:<input type="text"  name="info">
+     </td>
+ <td>内容:<input type="text" name="text"></td>    
+     </tr>
+        
         <tr>
-          <td colspan="2" bgcolor="#eeeeee">这儿是弹出窗口中的表单</td>
-        </tr>
-        <tr>
-          <td width="150" align="right">你的QQ：</td>
-          <td><input type="text" id="qq" /></td>
-        </tr>
-        <tr>
-          <td width="150" align="right">你的E-mail：</td>
-          <td><input type="text" id="mail" /></td>
-        </tr>
-        <tr>
-          <td align="right">你从哪儿获知本程序的？</td>
-          <td><input type="text" id="track"  /></td>
-        </tr>
-        <tr>
-          <td colspan="2" align="left" style="padding-left:160px;"><input type="button" onClick="fun3()" value="再弹" class="buttonStyle" /> <input onClick="fun2()" class="buttonStyle" type="button" value="关闭" /></td>
+     <td>
+     页面类型:<input type="text" name="pagetype">
+     </td>
+  
+ <td>封面图片:<input type="file" name="file" ></td>    
+     </tr>
+
+     <tr>
+     <td>
+     链接:<input type="text" name="link">
+     </td>
+     <td>
+     备注:<input type="text"  name="note">
+     </td>
+ <td>排序:<input type="number" name="sort"></td>    
+     </tr>
+
+    <tr>
+     <td>
+     页面seo标题:<input type="text" name="seotitle">
+     </td>
+     <td>
+     seo关键字:<input type="text"  name="seokey">
+     </td>
+ <td>seo描述:<input type="text" name="seodes"></td>    
+     </tr>
+     <tr>
+     <td>
+     修改人ID:<input type="number" name="updid">
+     </td>
+     <td>
+    添加人ID:<input type="number"  name="addid">
+    </td>
+       <td>
+     上级类别:<input type="number"  name="suptype">
+     </td>
+     </tr>
+
+        <tr  align="center">
+          <td><input type="submit"   value="保存"/>&nbsp;&nbsp;&nbsp; 
+          <input onClick="fun2()"  type="button" value="关闭" /></td>
         </tr>
       </table>
-</div>
+    
+      </form>
 </body>
 </html>
