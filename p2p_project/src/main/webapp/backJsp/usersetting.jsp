@@ -256,9 +256,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<td>用户名</td>
 								<td>手机号码</td>
 								<td>账号状态</td>
+								<td>删除标志</td>
 								<td>身 份</td>
 								<td>注册时间</td>
-								<td>修改时间</td>
+								<!--<td>修改时间</td>-->
 								<td>操 作</td>
 							</tr>
 							<c:forEach items="${list }" var="u" varStatus="stat">
@@ -266,16 +267,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<td>${stat.index+1}</td>
 									<td>${u.user_name }</td>
 									<td>${u.mobile_phone }</td>
-									<td><c:if test="${u.status==2}">删除</c:if>
+									<td><c:if test="${u.status==2}"><font color="red">删除</font></c:if>
 									<c:if test="${u.status==1}">正常</c:if> <c:if
 											test="${u.status==0}">禁用</c:if></td>
+											
+									<td><c:if test="${u.del_flag==1}"><font color="red">以删除</font></c:if>
+									  <c:if test="${u.del_flag==0}">未删除</c:if>
+									 </td>
 									<td><c:if test="${u.identity==0}">超级管理员</c:if> <c:if
 											test="${u.identity==1}">普通管理员</c:if> <c:if
 											test="${u.identity==2}">普通用户</c:if></td>
 									<td>${u.create_date }</td>
-									<td>${u.update_date }</td>
-									<td><a href="/p2p_project/usersetting/bfupdate/${u.id}">修改</a> | 
+									<!-- <td>${u.update_date }</td> -->
+									<td>
+									<c:if test="${u.del_flag==1}">修改</c:if>
+									<c:if test="${u.del_flag!=1}">
+									<a href="/p2p_project/usersetting/bfupdate/${u.id}">修改</a></c:if> |
+									<c:if test="${u.del_flag==1}">删除</c:if>
+									<c:if test="${u.del_flag!=1}">
 									    <a href="/p2p_project/usersetting/delete/${u.id}" onclick="confirm('确认删除  ${u.user_name} 吗？')">删除</a></td>
+									</c:if>
 								</tr>
 							</c:forEach>
 						</table>

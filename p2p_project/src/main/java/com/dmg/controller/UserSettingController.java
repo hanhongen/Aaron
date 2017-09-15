@@ -61,7 +61,10 @@ public class UserSettingController {
 	//É¾³ý
 	@RequestMapping("/delete/{id}")
 	public String delete(@PathVariable("id")int id) {
-		userSetttingService.delete(id);
+		Users user=userSetttingService.getUserById(id);
+		user.setDel_flag(1);
+		user.setStatus(2);
+		userSetttingService.update(user);
 		return "redirect:/usersetting/showuser";
 	}
 	
