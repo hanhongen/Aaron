@@ -7,19 +7,6 @@
 <title>Insert title here</title>
 
 
-<link rel="stylesheet" href="https://ppmoneycnt.b0.upaiyun.com/static/v4.01/css/release-commons_38d5ebd.css?v=201512161721">
-    <link rel="stylesheet" href="https://ppmoneycnt.b0.upaiyun.com/static/v4.01/iconfont/iconfont_0386360.css?v=201512161721" />
-    <link rel="stylesheet" href="https://ppmoneycnt.b0.upaiyun.com/static/v4.01/css/center_8d38577.css?v=201512161721" />
-    <link rel="stylesheet" href="https://ppmoneycnt.b0.upaiyun.com/static/v4.01/css/plugins/dialog_5b7bef5.css?v=201512161721" />
-    <script type="text/javascript" src="https://ppmoneycnt.b0.upaiyun.com/static/v4.01/js/jquery/1.7.2/jquery_7a71356.js?v=201512161721"></script>
-<script src="https://ppmoneycnt.b0.upaiyun.com/static/v4.01/js/plugins/ppmoney.plugins_04539e8.js?v=201512161721"></script>
-    <script src="https://special.ppmoney.com/sensorsdata/sensorsdata_product.js"></script>
-    <script type="text/javascript" src="https://ppmoneycnt.b0.upaiyun.com/static/v4.01/js/common/common_7b4e346.js?v=201512161721"></script>
-
-    <link href="https://ppmoneycnt.b0.upaiyun.com/static/v4.01/css/register/register_819a98f.css?v=201512161721" rel="stylesheet" type="text/css" />
-
-
-
 <link href="/p2p_project/frontStyle/css/style.css" rel="stylesheet"
 	type="text/css">
 <link href="/p2p_project/frontStyle/css/gywm.css" rel="stylesheet"
@@ -31,10 +18,24 @@
 <script type="text/javascript"
 	src="/p2p_project/frontStyle/js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="/p2p_project/frontStyle/js/all.js"></script>
+
+
+
+<link href="http://pro.ying158.com/resources/web/images/icon.ico" type="image/x-icon" rel="shortcut icon">
+
+<link href="/p2p_project/frontStyle/css/iconfont.css" rel="stylesheet" type="text/css">
+<link href="/p2p_project/frontStyle/css/common.css" rel="stylesheet">
+<link href="/p2p_project/frontStyle/css/test1.css" rel="stylesheet">
+
+<script src="/p2p_project/frontStyle/js/hm.js"></script>
+<script type="text/javascript" src="/p2p_project/frontStyle/js/layer.js"></script>
+<link rel="stylesheet" href="/p2p_project/frontStyle/js/layer.css" id="layui_layer_skinlayercss">
+<script src="/p2p_project/frontJsp/js/echarts.js"></script>
+
 </head>
 <body>
 
-
+<!-- 头部开始 -->
 	<div class="niwdoawi_top mw_1180">
 		<div class="header w1190 clearfix">
 			<div class="fl tel">
@@ -113,159 +114,151 @@
 			</div>
 		</div>
 	</div>
+<!--   头部结束    -->
 
 
-	<div class="contain-wrap">
-		<div class="reg-cont-wrap">
-			<div class="contain ex-reg">
-				<div class="reg-wrap register-page">
-					<form action="/p2p_project/user/register" method="post" class="reg-form">
-						
-						<div class="register-hd">
-							<p>免费注册账户</p>
-							<div class="login-ms">
-								<span>已有账户?</span> <a href="/p2p_project/frontJsp/login.jsp" class="in">登录</a>
-							</div>
-						</div>
 
-						<div class="phone">
-							<div class="labelText">
-								<span class="reg-icon iconfont">&#xe68b;</span> <input
-									class="txt-area" type="text" name="Phone" placeholder="手机号码">
-							</div>
-							<div class="pwd_grade"></div>
-						</div>
-						<div class="pwd">
-							<div class="labelText">
-								<span class="reg-icon iconfont">&#xe68c;</span> <input
-									id="Password" class="txt-area" type="password" name="Password"
-									placeholder="登录密码">
-							</div>
-							<p class="thin p-t5">建议密码由8位以上数字、字母和特殊字符组成。</p>
-							<div class="pwd_grade"></div>
-							<div id="check-level" class="hide check-level"></div>
-						</div>
-						<div class="pwd2">
-							<div class="labelText">
-								<label for="">确认密码</label> <input id="VerifyPassword"
-									class="txt-area" type="password" name="VerifyPassword">
-							</div>
-						</div>
-						<div id="div_neeteasy"></div>
-						<input id="neteasyCode" type="hidden" />
-						<div id="neteasyTip" class="pwd_grade p-t5"></div>
-						<div class="recommend">
-							<p class="in" id="recoArrow">
-								<span class="iconfont">&#xe690;</span><span>推荐人手机号码（选填）</span>
-							</p>
-							<div id="recoInfo" class="reco-info labelText">
-								<span class="reg-icon iconfont">&#xe68d;</span> <input
-									class="txt-area" type="text" name="RecommendPhone"
-									placeholder="推荐人手机号码（选填）">
-							</div>
-							<div class="pwd_grade"></div>
-						</div>
-						<div class="btn-box">
-							<input type="checkbox" checked="checked" name="readRegisterLaw"
-								class="readRegisterLaw" id="isRegisterLaw" /> <span>我已阅读并同意<a
-								href="javascript:void(0)" id="registerLawX" title="阅读服务条款协议"
-								class="in"> 《服务条款协议》</a></span> <input id="sendRegister" class="btn"
-								type="submit" value="确认" data-piwik>
-						</div>
-						<input name="pwdSafeLevel" type="hidden" id="pwdSafeLevel" /> <span
-							class="reg-warning"></span> <input id="firstErrorMsg"
-							type="hidden" value="" />
-					</form>
-				</div>
-				<div class="guarantee"></div>
+ 
+	<div class="row register">
+	<form action="/p2p_project/user/register" method="post">
+		<div class="title">
+			<div class="left">
+				<hr>
+			</div>
+			<div class="mid">
+				新用户注册
+			</div>
+			<div class="right">
+				<hr>
 			</div>
 		</div>
+        <div class="item">
+            <div class="rLabel">
+                用户名
+            </div>
+            <div class="rInput">
+                <input type="text" placeholder="请输入用户名" id="userName" name="user_name" required class="form-control textInput youname">（需用实名注册）
+            </div>
+        </div>
+		<div class="item">
+			<div class="rLabel">
+				手机号
+			</div>
+			<div class="rInput">
+				<input type="text" placeholder="请输入手机号"  required id="phone" name="mobile_phone" class="form-control textInput phone"><span id="s1"></span>
+			</div>
+			
+		</div>
+		
+		<div class="item">
+			<div class="rLabel">
+				登录密码
+			</div>
+			<div class="rInput">
+				<input type="password" required placeholder="请输入密码" id="password1" name="password" class="form-control textInput password"><span class="errorInfo"></span>（数字和字母组合，不少于6位）
+			</div>
+		</div>
+		<div class="item">
+			<div class="rLabel">
+				确认密码
+			</div>
+			<div class="rInput">
+				<input type="password" required placeholder="请再输入密码" onclick="fun1();" id="password2" name="password2" class="form-control textInput password2"><span id="span1"></span>
+			</div>
+			<script type="text/javascript">
+			</script>	
+		</div>
+        <div class="item">
+            <div class="rLabel">
+                理财师邀请码
+            </div>
+            <div class="rInput">
+                <input type="text" placeholder="选填" id="invitationCode" name="invitationCode" class="form-control textInput invitationCode">（填写理财师邀请码，将会有更多惊喜）
+            </div>
+        </div>
+		<div class="item">
+			<div class="rLabel">
+				QQ号码
+			</div>
+			<div class="rInput">
+				<input type="text" placeholder="选填" id="qq" name="qq" class="form-control textInput qqAccount">
+			</div>
+		</div>
+		<div class="item extro">
+			<div class="rLabel">
+				&nbsp;
+			</div>
+			<div class="rInput">
+				<span class="extroInfo">请用户提供QQ号码，方便客服联系</span>
+			</div>
+		</div>
+		<div class="item">
+			<div class="rLabel">
+				&nbsp;
+			</div>
+			<div class="rInput">
+				<label>
+					<input type="checkbox" id="registerRule" class="registerRule" checked="checked"><span>我已阅读并同意<a href="javascript:showAgreement();">《本网站服务协议》</a></span>
+				</label>
+				<span class="ruleError">请先阅读并同意网站服务协议</span>
+			</div>
+		</div>
+		<div class="item">
+			<div class="rLabel">
+				&nbsp;
+			</div>
+			<div class="rInput">
+				<input type="submit" value="立即注册" class="btn registBtn submit">
+			</div>
+		</div>
+		<div class="item">
+			<div class="rLabel">
+				&nbsp;
+			</div>
+			<div class="rInput loginChoose">
+				我已经注册，现在就<a href="/p2p_project/frontJsp/login.jsp">登录</a>
+			</div>
+		</div>
+		</form>
 	</div>
-	<script type="text/javascript"
-		src="https://ppmoneycnt.b0.upaiyun.com/static/v4.01/js/sea_c494287.js?v=201512161721"
-		id="seajsnode"></script>
-	<script type="text/javascript"
-		src="https://ppmoneycnt.b0.upaiyun.com/static/v4.01/js/sea-config_c8ac77c.js?v=201512161721"></script>
-	<script src="https://static.geetest.com/static/tools/gt.js"></script>
-	<script src="https://special.ppmoney.com/lib/126captcha.load.min.js"></script>
-	<script type="text/javascript"
-		src="https://ppmoneycnt.b0.upaiyun.com/static/v4.01/js/register/neteasyCaptcha_eb34505.js?v=201512161721"></script>
-	<script type="text/javascript">
-    var isGeet = 'False' === 'True' ? true : false;
-    var isNeteasy = true  ;
-    if (isNeteasy) {
-        neteasyCaptchaModel.init('div_neeteasy', '', 'neteasyCode', null, null);
-    }
+	
+<script type="text/javascript" src="/p2p_project/frontStyle/js/regis.js"></script>
 
-    if (isGeet) {
-        var handlerPopup = function (captchaObj) {
-
-            captchaObj.appendTo("#div_id_embed");
-
-            captchaObj.onSuccess(function () {
-                $('#geeterCode').val("pass");
-                $('#geeterGrade').hide();
-            })
-
-            captchaObj.onRefresh(function () {
-                $('#geeterCode').val("");
-                $('#geeterGrade').hide();
-            })
-        };
-
-        $.ajax({
-            url: "/AuthCode/GetValidateCode",
-            type: "get",
-            dataType: 'JSONP',
-            success: function (result) {
-                var data = JSON.parse(result);
-                initGeetest({
-                    gt: data.gt,
-                    challenge: data.challenge,
-                    product: "float",
-                    offline: !data.success
-                }, handlerPopup);
-            }
-        })
-    }
-
-
-    seajs.use(['register/stepOne_774e547'], function (register) {
-        register.stepOne();//开始注册
-    });
+<script type="text/javascript">
+$(function(){
+	var flag=false;
+	  var reg=/^1[0-9]\d{9}$/;
+	  $("#phone").blur(function(){
+		  var num=$(this).val();
+		  if(num.length!=11){
+			  $("#s1").html("  (请输入正确的手机号码)");
+			  return flag;
+		  }else{
+			  $("#s1").html("");
+			  flag=true;
+			  return true;
+		  }
+	  });
+	  
+	  $("#password2").blur(function(){
+		  var pwd2=$(this).val();
+		  var pwd1=$("#password1").val();
+		  if(pwd1 != pwd2){
+			  $("#span1").html("  (两次密码不一致！)");
+			  return flag;
+		  }else{
+			  flag=true;
+			  return true;
+		  }
+	  });
+	  
+ });
 
 </script>
 
 
-	<script type="text/javascript">
-    $('#registerLawX').click(function () {
-        $.ajax({
-            url: '/Agreement/ViewTemplate',
-            type: 'post',
-            data: {
-                agreemantType: 100002001,
-                projectId: 0,
-                projectType: 0
-            },
-            dataType: 'json',
-            success: function (data) {
-                if (data.State === 1) {
-                    PPmoney.dialog.iframe({
-                        title: "注册条款",
-                        url: data.Data.RedirectUrl,
-                        id: "registerLaw123",
-                        width: 800,
-                        height: 400,
-                        scroll: true
-                    });
-                }
-            },
-            error: function (data) { }
-        });
-    })
-</script>
 
-
+<!--    底部结束    -->
 	<div class="g-ft">
 		<div class="copyright">
 			<a href="/info/about" title="关于我们" rel="nofollow">关于我们</a>| <a
@@ -280,9 +273,5 @@
 				</pre>
 		</div>
 	</div>
-
-
-
-
 </body>
 </html>

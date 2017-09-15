@@ -27,8 +27,6 @@ public class Subject {  //主题表
 	private String raise_end;  //募集结束
 	private int refund_way;  //还款方式
 	private int safeguard_way;  //保障方式
-	private String start_date;  //开始日期
-	private String eng_date;  //结束日期
 	private double year_rate;  //年化率',
 	private String comment;  //产品速览
 	private Subject_folder subject_folder;  //文件夹Id
@@ -140,18 +138,7 @@ public class Subject {  //主题表
 	public void setSafeguard_way(int safeguard_way) {
 		this.safeguard_way = safeguard_way;
 	}
-	public String getStart_date() {
-		return start_date;
-	}
-	public void setStart_date(String start_date) {
-		this.start_date = start_date;
-	}
-	public String getEng_date() {
-		return eng_date;
-	}
-	public void setEng_date(String eng_date) {
-		this.eng_date = eng_date;
-	}
+
 	public double getYear_rate() {
 		return year_rate;
 	}

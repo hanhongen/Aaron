@@ -7,12 +7,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.dmg.bean.Push_notice;
 import com.dmg.service.Push_notice_service;
@@ -53,10 +56,10 @@ public class Push_Controller {
 	 
 	//É¾³ý
 	@RequestMapping("/test3/{id}")
-     public String test3(@PathVariable("id") int id){
-		push_notice_service.delete(id);
+    public String delete(@PathVariable("id")int id){
+		this.push_notice_service.delete(id);
 		return "redirect:/test/test1";
-	}
+    }
 	
 	@RequestMapping("/test4/{id}")
 	public String test4(@PathVariable("id") int id,Model model){
@@ -69,5 +72,22 @@ public class Push_Controller {
 	public String test5(Push_notice push_notice){
 		  push_notice_service.update(push_notice);
 		  return "redirect:/test/test1";
+	} 
+	
+	
+	@RequestMapping("/updod/{id}")
+	public String select(@PathVariable("id")int id,Model model){
+		    Push_notice push_notice=push_notice_service.getbypid(id);
+		    model.addAttribute("push_notice",push_notice);
+			    return "backJsp/update";
 	}
+	
+	@RequestMapping("/updates")
+	public String udpate(Push_notice push_notice){
+		SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		push_notice.setUpdate_date(dateFormat.format(new Date()));
+		push_notice_service.update(push_notice);
+		return "redirect:/test/test1";
+	}
+	
 }

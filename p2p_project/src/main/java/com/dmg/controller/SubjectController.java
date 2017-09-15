@@ -12,14 +12,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.dmg.bean.Subject;
 import com.dmg.service.SubjectService;
+
 //¸¶Ï¢¼Æ»®
 @Controller
 @RequestMapping("/subject")
 public class SubjectController {
 	@Autowired
 	private SubjectService subjectService;
-	
+
 	@RequestMapping("/listSubject")
+
+
 	public String listSubject(Model model,
 			@RequestParam(required=false)String sname,
 			@RequestParam(required=false)String stype,
@@ -38,7 +41,7 @@ public class SubjectController {
 			+ ", type=" + subject.getType() + ", status=" + subject.getStatus() + ", floor_amount=" + subject.getFloor_amount() + ", amount=" + subject.getAmount()
 			+ ", first_id=" + subject.getFirst_id() + ", parent_id=" + subject.getParent_id() + ", period=" + subject.getPeriod() + ", purpose=" + subject.getPurpose()
 			+ ", raise_start=" + subject.getRaise_start() + ", raise_end=" + subject.getRaise_end() + ", refund_way=" + subject.getRefund_way()
-			+ ", safeguard_way=" + subject.getSafeguard_way() + ", start_date=" + subject.getStart_date() + ", eng_date=" + subject.getEng_date()
+			+ ", safeguard_way=" + subject.getSafeguard_way() 
 			+ ", year_rate=" + subject.getYear_rate() + ", comment=" + subject.getComment() + ", subject_folder=" + subject.getSubject_folder()
 			+ ", delflag=" + subject.getDelflag() + ", update_date=" + subject.getUpdate_date() + ", create_date=" + subject.getCreate_date()
 			+ ", borrowername=" + subject.getBorrowername() + ", borrowerid=" + subject.getBorrowerid() + ", bought=" + subject.getBought()
@@ -46,6 +49,7 @@ public class SubjectController {
 			+ subject.getExper_status() + "]");
 			System.out.println("<------------------------------------------------------------------------------->");
 		}
+
 		model.addAttribute("listSubject", listSubject);
 		
 		model.addAttribute("sname", sname);
@@ -54,5 +58,5 @@ public class SubjectController {
 		
 		return "backJsp/subject";
 	}
-	
+
 }
