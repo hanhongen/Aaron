@@ -1,6 +1,7 @@
 package com.dmg.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -29,7 +30,7 @@ public class Push_notice_service {
 	 public Push_notice getbypid(int id){
 		return push_notice_dao.getbypid(id);
 	 }
-	 public List<Push_notice> listpush(){
-		return push_notice_dao.listpush();
+	 public List<Push_notice> listpush(Map map){
+		return push_notice_dao.listpush(map);
 	 }
 }

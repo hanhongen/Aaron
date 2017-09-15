@@ -1,39 +1,46 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
 <head>
-<title>Modern an Admin Panel Category Flat Bootstarp Resposive Website Template | Media :: w3layouts</title>
-<script type="text/javascript" src="/p2p_project/backStyle/js/jquery.min.js"></script>
+<title>Modern an Admin Panel Category Flat Bootstarp Resposive
+	Website Template | Media :: w3layouts</title>
+<script type="text/javascript"
+	src="/p2p_project/backStyle/js/jquery.min.js"></script>
 
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Modern Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+<meta name="keywords"
+	content="Modern Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
- <!-- Bootstrap Core CSS -->
-<link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/bootstrap-3.3.4.css">
+<!-- Bootstrap Core CSS -->
+<link rel="stylesheet" type="text/css"
+	href="http://www.jq22.com/jquery/bootstrap-3.3.4.css">
 <!-- Custom CSS -->
-<link href="/p2p_project/backStyle/css/style.css" rel='stylesheet' type='text/css' />
-<link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/font-awesome.4.6.0.css"> 
+<link href="/p2p_project/backStyle/css/style.css" rel='stylesheet'
+	type='text/css' />
+<link rel="stylesheet" type="text/css"
+	href="http://www.jq22.com/jquery/font-awesome.4.6.0.css">
 <!-- jQuery -->
 <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
 
-<!---//webfonts--->  
+<!---//webfonts--->
 <!-- Bootstrap Core JavaScript -->
 <script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
-<link rel="stylesheet" href="css/bootstrap.min.css" />	
-	<script type="text/javascript" src="js/jquery.min.js" ></script> 
-	<script type="text/javascript" src="js/bootstrap.js" ></script>
-	<script type="text/javascript">
+<link rel="stylesheet" href="css/bootstrap.min.css" />
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript">
 	</script>
-	<style type="text/css">
-	 .form-control{
-	   width:300px;
-	</style>
+<style type="text/css">
+.form-control {
+	width: 300px;
+}
+</style>
 </head>
 <script type="text/javascript">
 $(document).ready(function(){
@@ -41,32 +48,41 @@ $(document).ready(function(){
 	document.forms[0].action="/p2p_project/test/pushadd";
 	document.forms[0].submit();	
 	});
+	$("#btn1").click(function(){
+		$("#forms").attr("action","/p2p_project/test/test1");
+		$("#forms").submit();	
+	});
 });	
 </script>
 <body>
-<div id="wrapper">
-     <!-- Navigation -->
-        <nav class="top1 navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/p2p_project/backJsp/indexback.jsp">YJ Finance</a>
-            </div>
-            <!-- /.navbar-header -->
-            <ul class="nav navbar-nav navbar-right">
-				<li class="dropdown">
-	        		<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-comments-o"></i><span class="badge">4</span></a>
-	        		<ul class="dropdown-menu">
-						<li class="dropdown-menu-header">
-							<strong>Messages</strong>
-							<div class="progress thin">
-							  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-							    <span class="sr-only">40% Complete (success)</span>
-							  </div>
+	<div id="wrapper">
+		<!-- Navigation -->
+		<nav class="top1 navbar navbar-default navbar-static-top"
+			role="navigation" style="margin-bottom: 0">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse"
+				data-target=".navbar-collapse">
+				<span class="sr-only">Toggle navigation</span> 
+				<span class="icon-bar"></span> 
+				<span class="icon-bar"></span> 
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="/p2p_project/backJsp/indexback.jsp">YJ Finance</a>
+		</div>
+		<!-- /.navbar-header -->
+		<ul class="nav navbar-nav navbar-right">
+			<li class="dropdown"><a href="#" class="dropdown-toggle"
+				data-toggle="dropdown" aria-expanded="false"><i
+					class="fa fa-comments-o"></i><span class="badge">4</span></a>
+				<ul class="dropdown-menu">
+					<li class="dropdown-menu-header">
+					<strong>Messages</strong>
+						<div class="progress thin">
+							<div class="progress-bar progress-bar-success" role="progressbar"
+								aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"
+								style="width: 40%">
+								<span class="sr-only">40% Complete (success)</span>
+							</div>
 							</div>
 						</li>
 						<li class="avatar">
@@ -272,52 +288,49 @@ $(document).ready(function(){
             </div>
             <!-- /.navbar-static-side -->
         </nav>
-        <div id="page-wrapper">
-        <div class="graphs">
-     
-	   <div class="widget_head">公告管理</div><!--开头-->
-	   <form method="post" id="forms">
-	   <table class="table table-striped">
-	   <span input-group-addon>请输入</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" value="搜索" >
-	  <input type="text" class="form-control" placeholder="公告标题"/>
-	  <button type="button" class="btn btn-primary" id="save">新增</button>
-  <%--  <caption style="font-size:35px"></caption> --%>
-   <thead>
-      <tr>
-         <th>序号</th>
-         <th>类别</th>
-         <th>公告标题</th>
-         <th>创建时间</th>
-         <th>公告状态</th>
-         <th>操作</th>
-      </tr>
-   </thead>
-   <tbody>
-     <c:forEach items="${push_notices}" var="p" varStatus="stat">
-            <tr>
-			<td style="font-size:18px;">${stat.index+1}</td>
-			<td style="font-size:18px;">${p.category}</td>
-			<td style="font-size:18px;">${p.title}</td>
-			<td style="font-size:18px;">${p.create_date}</td>
-			<td>
-			  <c:if test="${p.status==0}">
-			  已上架
-			  </c:if>
-			  <c:if test="${p.status==1}">
-			  已下架
-			  </c:if>
-			</td>
-			<td><button type="button" class="btn btn-primary" onclick="">删除</button>||<button type="button" class="btn btn-primary">编辑</button></td>
-			</tr>
-	    </c:forEach> 
-   </tbody>
-   </table>
-   </form>
-    <!-- /#wrapper -->
-<!-- Nav CSS -->
-<link href="/p2p_project/backStyle/css/custom.css" rel="stylesheet">
-<!-- Metis Menu Plugin JavaScript -->
-<script src="/p2p_project/backStyle/js/metisMenu.min.js"></script>
-<script src="/p2p_project/backStyle/js/custom.js"></script>
+		<div id="page-wrapper">
+			<div class="graphs">
+				<div class="widget_head">公告管理</div>
+				<!--开头-->
+				<form method="post" id="forms">
+					<table class="table table-striped">
+						<span input-group-addon>请输入查询标题</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<input type="button" value="搜索" id="btn1" />
+						<input type="text" class="form-control" placeholder="公告标题" name="name" value="${name}" />
+						<button type="button" class="btn btn-primary" id="save">新增</button>
+						<%--  <caption style="font-size:35px"></caption> --%>
+						<thead>
+							<tr>
+								<th>序号</th>
+								<th>类别</th>
+								<th>公告标题</th>
+								<th>创建时间</th>
+								<th>公告状态</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach items="${push_notices}" var="p" varStatus="stat">
+								<tr>
+									<td style="font-size: 18px;">${stat.index+1}</td>
+									<td style="font-size: 18px;">${p.category}</td>
+									<td style="font-size: 18px;">${p.title}</td>
+									<td style="font-size: 18px;">${p.create_date}</td>
+									<td><c:if test="${p.status==0}">已上架 </c:if> 
+									<c:if test="${p.status==1}">已下架</c:if></td>
+									<td><button type="button" class="btn btn-primary"
+											onclick="">删除</button>||
+										<button type="button" class="btn btn-primary">编辑</button></td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+				</form>
+				<!-- /#wrapper -->
+				<!-- Nav CSS -->
+				<link href="/p2p_project/backStyle/css/custom.css" rel="stylesheet">
+				<!-- Metis Menu Plugin JavaScript -->
+				<script src="/p2p_project/backStyle/js/metisMenu.min.js"></script>
+				<script src="/p2p_project/backStyle/js/custom.js"></script>
 </body>
 </html>

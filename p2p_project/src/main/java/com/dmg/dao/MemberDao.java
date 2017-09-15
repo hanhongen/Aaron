@@ -75,6 +75,8 @@ public class MemberDao {
 		}
 		return list;
 	}
+	
+	
 	//»ñµÃMemberµÄid
 	public Member getMemberId(int id){
 		Session session = getSession();
