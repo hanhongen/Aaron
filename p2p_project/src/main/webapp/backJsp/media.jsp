@@ -36,11 +36,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script type="text/javascript" src="js/bootstrap.js"></script>
 <script type="text/javascript">
 	</script>
-<style type="text/css">
-.form-control {
-	width: 300px;
-}
-</style>
+	<style type="text/css">
+	.form-control {
+		width: 300px;
+	}
+	</style>
 </head>
 <script type="text/javascript">
 $(document).ready(function(){
@@ -52,7 +52,22 @@ $(document).ready(function(){
 		$("#forms").attr("action","/p2p_project/test/test1");
 		$("#forms").submit();	
 	});
+	
+/* 	$("#update").click(function(){
+		document.forms[0].action="/p2p_project/test/updod";
+		document.forms[0].submit();	
+	}); */
+	
 });	
+function updateod(id){
+	$("#forms").attr("action","/p2p_project/test/updod/"+id);
+	$("#forms").submit();	
+}
+
+function delenotic(id){
+	$("#forms").attr("action","/p2p_project/test/test3/"+id);
+	$("#forms").submit();	
+}
 </script>
 <body>
 	<div id="wrapper">
@@ -258,8 +273,8 @@ $(document).ready(function(){
 			  已下架
 			  </c:if></td>
 									<td><button type="button" class="btn btn-primary"
-											onclick="">删除</button>||
-										<button type="button" class="btn btn-primary">编辑</button></td>
+								id="btn2" onclick="delenotic(${p.id})">删除</button>||
+							<button type="button" class="btn btn-primary" id="update" onclick="updateod(${p.id})">编辑</button></td>
 								</tr>
 							</c:forEach>
 						</tbody>
