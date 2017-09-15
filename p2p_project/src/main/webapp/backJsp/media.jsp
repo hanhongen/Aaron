@@ -36,11 +36,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script type="text/javascript" src="js/bootstrap.js"></script>
 <script type="text/javascript">
 	</script>
-<style type="text/css">
-.form-control {
-	width: 300px;
-}
-</style>
+	<style type="text/css">
+	.form-control {
+		width: 300px;
+	}
+	</style>
 </head>
 <script type="text/javascript">
 $(document).ready(function(){
@@ -52,7 +52,22 @@ $(document).ready(function(){
 		$("#forms").attr("action","/p2p_project/test/test1");
 		$("#forms").submit();	
 	});
+	
+/* 	$("#update").click(function(){
+		document.forms[0].action="/p2p_project/test/updod";
+		document.forms[0].submit();	
+	}); */
+	
 });	
+function updateod(id){
+	$("#forms").attr("action","/p2p_project/test/updod/"+id);
+	$("#forms").submit();	
+}
+
+function delenotic(id){
+	$("#forms").attr("action","/p2p_project/test/test3/"+id);
+	$("#forms").submit();	
+}
 </script>
 <body>
 	<div id="wrapper">
@@ -62,12 +77,12 @@ $(document).ready(function(){
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse"
 				data-target=".navbar-collapse">
-				<span class="sr-only">Toggle navigation</span> <span
-					class="icon-bar"></span> <span class="icon-bar"></span> <span
-					class="icon-bar"></span>
+				<span class="sr-only">Toggle navigation</span> 
+				<span class="icon-bar"></span> 
+				<span class="icon-bar"></span> 
+				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="/p2p_project/backJsp/indexback.jsp">YJ
-				Finance</a>
+			<a class="navbar-brand" href="/p2p_project/backJsp/indexback.jsp">YJ Finance</a>
 		</div>
 		<!-- /.navbar-header -->
 		<ul class="nav navbar-nav navbar-right">
@@ -75,12 +90,14 @@ $(document).ready(function(){
 				data-toggle="dropdown" aria-expanded="false"><i
 					class="fa fa-comments-o"></i><span class="badge">4</span></a>
 				<ul class="dropdown-menu">
-					<li class="dropdown-menu-header"><strong>Messages</strong>
+					<li class="dropdown-menu-header">
+					<strong>Messages</strong>
 						<div class="progress thin">
 							<div class="progress-bar progress-bar-success" role="progressbar"
 								aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"
 								style="width: 40%">
 								<span class="sr-only">40% Complete (success)</span>
+							</div>
 							</div>
 						</li>
 						<li class="avatar">
@@ -286,7 +303,6 @@ $(document).ready(function(){
             </div>
             <!-- /.navbar-static-side -->
         </nav>
-       
 		<div id="page-wrapper">
 			<div class="graphs">
 				<div class="widget_head">公告管理</div>
@@ -295,8 +311,7 @@ $(document).ready(function(){
 					<table class="table table-striped">
 						<span input-group-addon>请输入查询标题</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						<input type="button" value="搜索" id="btn1" />
-						<input type="text" class="form-control" placeholder="公告标题"
-							name="name" value="${name}" />
+						<input type="text" class="form-control" placeholder="公告标题" name="name" value="${name}" />
 						<button type="button" class="btn btn-primary" id="save">新增</button>
 						<%--  <caption style="font-size:35px"></caption> --%>
 						<thead>
@@ -316,15 +331,11 @@ $(document).ready(function(){
 									<td style="font-size: 18px;">${p.category}</td>
 									<td style="font-size: 18px;">${p.title}</td>
 									<td style="font-size: 18px;">${p.create_date}</td>
-									<td><c:if test="${p.status==0}">
-
-			  已上架
-			  </c:if> <c:if test="${p.status==1}">
-			  已下架
-			  </c:if></td>
+									<td><c:if test="${p.status==0}">已上架 </c:if> 
+									<c:if test="${p.status==1}">已下架</c:if></td>
 									<td><button type="button" class="btn btn-primary"
-											onclick="">删除</button>||
-										<button type="button" class="btn btn-primary">编辑</button></td>
+								id="btn2" onclick="delenotic(${p.id})">删除</button>||
+							<button type="button" class="btn btn-primary" id="update" onclick="updateod(${p.id})">编辑</button></td>
 								</tr>
 							</c:forEach>
 						</tbody>

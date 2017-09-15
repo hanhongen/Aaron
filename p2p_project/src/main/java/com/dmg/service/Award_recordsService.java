@@ -30,4 +30,16 @@ public class Award_recordsService {
 		}
 		return list;
 	}
+	
+	//ÑûÇëÈË
+		public List<Award_records> listinvitingid(int invitingid){
+			List<Award_records> list = award_recordsDao.listinvitingid(invitingid);
+			return list;
+		}
+	//±»ÑûÇëÈË
+		public List<Award_records> listbyinvitingid(int byinvitingid){
+			List<Award_records> list = award_recordsDao.listbyinvitingid(byinvitingid);
+			return list;
+		}
+	
 }

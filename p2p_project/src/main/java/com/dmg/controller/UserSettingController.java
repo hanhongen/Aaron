@@ -55,7 +55,7 @@ public class UserSettingController {
 		List<User_role> list=userSetttingService.listRole();
 		model.addAttribute("list", list);
 		model.addAttribute("user", user);
-		return "backJsp/update";
+		return "backJsp/updateuser";
 	}
 	
 	//É¾³ý

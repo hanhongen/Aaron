@@ -5,20 +5,25 @@
 
 <html>
 <head>
-<title>Modern an Admin Panel Category Flat Bootstarp Resposive Website Template | Validation :: w3layouts</title>
+<title>Modern an Admin Panel Category Flat Bootstarp Resposive Website Template | Forms :: w3layouts</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Modern Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script> -->
  <!-- Bootstrap Core CSS -->
 <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/bootstrap-3.3.4.css">
 <!-- Custom CSS -->
 <link href="/p2p_project/backStyle/css/style.css" rel='stylesheet' type='text/css' />
 <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/font-awesome.4.6.0.css"> 
+<!-- 日期控件 -->
+<link rel="stylesheet" type="text/css" href="/p2p_project/backStyle/css/bootstrap-datetimepicker.min.css"> 
 <!-- jQuery -->
 <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
-
+<!-- 日期控件 -->
+<script src="/p2p_project/backStyle/js/bootstrap-datetimepicker.min.js"></script>
+<script src="/p2p_project/backStyle/js/bootstrap-datetimepicker.fr.js"></script>
+<script src="/p2p_project/backStyle/js/bootstrap-datetimepicker.zh-CN.js"></script>
 <!---//webfonts--->  
 <!-- Bootstrap Core JavaScript -->
 <script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
@@ -126,9 +131,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </form>
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
-                                     <ul class="nav" id="side-menu">
+                                    <ul class="nav" id="side-menu">
                         <li>
-                             <a href=""><i class="fa fa-dashboard fa-fw nav_icon"></i>回到首页</a>
+                            <a href=""><i class="fa fa-dashboard fa-fw nav_icon"></i>回到首页</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-laptop nav_icon"></i>理财产品<span class="fa arrow"></span></a>
@@ -182,7 +187,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                          <!-- ----------------------------------------------------- -->
                          <li>
                             <a href="#"><i class="fa fa-check-square-o nav_icon"></i>会员管理<span class="fa arrow"></span></a>
-                             <ul class="nav nav-second-level">
+                            <ul class="nav nav-second-level">
                                 <li>
                                     <a href="/p2p_project/member/listMember">账号管理</a>
                                 </li>
@@ -252,101 +257,73 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <!-- /.navbar-static-side -->
         </nav>
-        <div id="page-wrapper">
-        <div class="col-md-12 graphs">
-	   <div class="xs">
-  	     	    <!-- --------------------------------------------------------------------------------------------------------------------------- -->       
-			 <div class="box-right-main">
-                        <h2><span class="glyphicon glyphicon-play" style="margin-right:5px"></span>邀请奖励</h2>
-                      <div class="tablelist">
-<!--                       	<form action="/p2p_project/award_records/listAward_records" method="post" id="form1"> -->
-<!--                         <table class="table tabletop"> -->
-<!--                         <tr> -->
-<!--                         <td style="width:110px;padding-left:30px">姓名：</td> -->
-<!--                         <td style="width:180px"><input type="text" name="name" class="form-control" placeholder="姓名" value=""></td> -->
-<!--                         <td style="width:110px;padding-left:30px">手机号：</td> -->
-<!--                         <td style="width:180px"><input type="text"  name="phone" class="form-control" placeholder="手机号" value=""></td> -->
-<!--                         <td style="width:110px;padding-left:30px">绑卡卡号：</td> -->
-<!--                         <td style="width:180px"><input type="text"  name="card" class="form-control" placeholder="绑卡卡号" value=""></td> -->
-<!--                         <td style="width:110px;padding-left:30px">状态：</td> -->
-<!--                         <td style="width:180px"><input type="text"  name="status" class="form-control" placeholder="状态" value=""></td> -->
-<!--                         <td style="width:110px;padding-left:30px">提现时间：</td> -->
-<!--                         <td style="width:180px"> -->
-<!--                         <div class="form-group" style="width: 150px">时间样式 -->
-<!--                         <input type="date" class="form-control time" ng-model="model.date" name="create_datem"> -->
-<!--                         </div> -->
-<!--                         </td> -->
-<!--                         <td class="pull-right" style="padding-right:10px"> -->
-<!--                         <button type="submit" class="btn btn-primary btn-sm">查询</button> -->
-<!--                         </td> -->
-<!--                         <td><button type="button" class="btn btn-primary btn-sm" onclick="$('#form1').find(':input').not(':button, :submit, :reset').val('').removeAttr('checked').removeAttr('selected');">重置</button></td> -->
-<!--                         <td><button type="button" class="btn btn-primary btn-sm" onclick="fun();">刷新订单数据</button></td> -->
-<!--                         </tr>      -->
-<!--                         </table> -->
-<!--                         </form> -->
-                        <table class="table table-bordered tablebox">
-                          <tr class="text-center" bgcolor="#f7f7f7">
-                          <td>序号</td>
-                          <td>手机号</td>
-                          <td>姓名</td>
-                          <td>邀请码</td>
-                          <td>被邀请码</td>
-                          <td>投资金额</td>
-                          <td>是否已注册奖励</td>
-                          <td>是否已投资奖励</td>
-                          <td>注册时间</td>
-                          <td>操作</td>
-                          </tr>
-                          <c:forEach items="${listar }" var="lm" varStatus="stat">
-<%--                           <c:forEach items="${lists }" var="ls"> --%>
-                          <tr class="text-center">
-                            <td>${stat.index+1 }</td>
-                            <td>${lm.member.mobile_phone }</td>
-                            <td>${lm.member.member_name }</td>
-                            <td>${lm.member.invitationcode }</td>
-                            <td>${lm.member.invitedcode}</td>
-                            <td>${lm.amount }</td>
-                            <td>
-                            <c:if test="${lm.type == 0}">是</c:if>
-                            <c:if test="${lm.type == 1}">否</c:if>
-                            </td>
-                            <td>
-                            <c:if test="${lm.type == 1}">是</c:if>
-                            <c:if test="${lm.type == 0}">否</c:if>
-                            </td>
-                            <td>${lm.addtime }</td>
-                            <td>
-                            <c:if test="${lm.type == 0}">注册已奖励</c:if>
-                            <c:if test="${lm.type == 1}">投资已奖励</c:if>
-                            <c:if test="${lm.type == 2}">暂无奖励</c:if>
-                            <a href="/p2p_project/award_records/listiy/${lm.invitingid }/${lm.byinvitingid }">查看奖励记录</a>
-                            </td>
-                          </tr>
-<%--                           </c:forEach> --%>
-                          </c:forEach>
-			</table>
+       
   	 <!-- --------------------------------------------------------------------------------------------------------------------------- -->   
-    <div class="copy_layout">
-      <p>Copyright Â© 2015 Modern. All Rights Reserved | Design by  </p>
-   </div>
-   </div>
-      </div>
-      <!-- /#page-wrapper -->
-   </div>
-    <!-- /#wrapper -->
-<!-- Nav CSS -->
-<link href="/p2p_project/backStyle/css/custom.css" rel="stylesheet">
-<!-- Metis Menu Plugin JavaScript -->
-<script src="/p2p_project/backStyle/js/metisMenu.min.js"></script>
-<script src="/p2p_project/backStyle/js/custom.js"></script>
+<div id="page-wrapper">
+			<div class="graphs">
+				<div class="widget_head">
+					<div class="box-right-main">
+						<h2>
+							<span class="glyphicon glyphicon-play" style="margin-right: 5px"></span>修改用户信息
+						</h2>
+					</div>
+				</div>
+				<!--开头-->
+				
+				<div class="tablelist">
+					<form name="form1" action="/p2p_project/usersetting/addUser" id="form1" method="post">
+						<table class="table  tablebox">
+						<input type="hidden" name="id" value="${user.id}">
+							<tr class="text-center" bgcolor="#f7f7f7">
+								<td>姓    名：<input type="text" name="user_name" value="${user.user_name}"></td>
+						    <tr class="text-center" bgcolor="#f7f7f7">
+								<td>
+								   密    码：<input type="text" id="password" name="password" value="${user.password }">
+								</td>
+							</tr>
+							
+							<tr class="text-center" bgcolor="#f7f7f7">
+								<td>手机号：<input type="text" name="mobile_phone" value="${user.mobile_phone }"></td>
+							</tr>
+							<tr class="text-center" bgcolor="#f7f7f7">
+								<td>
+								  角    色：<select id="identity" name="identity" style="width: 150px;height: 25px">
+								    <option value="-1"/>请选择角色
+									<c:forEach items="${list }" var="r">
+									  <option value="${r.id}"/>${r.cname}
+									</c:forEach>
+								  </select>
+								</td>
+								
+								
+								<tr class="text-center" bgcolor="#f7f7f7">
+								<td>状   态：
+								  <input type="radio" name="status" value="0" ${user.status==0?"checked":""}>禁用&nbsp;
+								  <input type="radio" name="status" value="1" ${user.status==1?"checked":""}>正常
+								</td>
+							</tr>
+							
+							</tr>
+							<tr class="text-center" bgcolor="#f7f7f7">
+							  <td>&nbsp;
+							    <input type="submit" value="提   交">&nbsp;&nbsp;
+							    
+							    <input type="button" id="btn1" value="返  回">&nbsp;
+							  </td>
+							</tr>
+						</table>
+					</form>
+				</div>
+			</div>
+		</div>
+		
+	
+
+
+		<!-- Nav CSS -->
+		<link href="/p2p_project/backStyle/css/custom.css" rel="stylesheet">
+		<!-- Metis Menu Plugin JavaScript -->
+		<script src="/p2p_project/backStyle/js/metisMenu.min.js"></script>
+		<script src="/p2p_project/backStyle/js/custom.js"></script>
 </body>
 </html>
-<!--             <div class="form-group"> -->
-<!--               <label class="control-label normal">Date</label> -->
-<!--               <input type="date" class="form-control1 ng-invalid ng-invalid-required" ng-model="model.date" required=""> -->
-<!--             </div> -->
-          
-<!--             <div class="form-group"> -->
-<!--               <button type="submit" class="btn btn-primary">Submit</button> -->
-<!--               <button type="reset" class="btn btn-default">Reset</button> -->
-<!--             </div> -->

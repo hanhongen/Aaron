@@ -25,7 +25,7 @@ public class Push_notice_service {
 	 }
 	 public void delete(int id){
 		 Push_notice push_notice=push_notice_dao.getbypid(id);
-		 push_notice_dao.delete(push_notice);
+		 push_notice_dao.delete(id);
 	 }
 	 public Push_notice getbypid(int id){
 		return push_notice_dao.getbypid(id);
