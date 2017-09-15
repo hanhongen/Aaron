@@ -302,14 +302,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <td>${lm.member.mobile_phone }</td>
                             <td>${lm.member.member_name }</td>
                             <td>${lm.member.identity }</td>
-                            <td>${lm.type}</td>
+                            <td>${lm.type} </td>
                             <td>${lm.card_no }</td>
                             <td>${lm.cardaddress }</td>
-                            <td>${lm.delflag }</td>
+                            <td>
+                            <c:if test="${lm.delflag == 0}"><strong>已绑定</strong></c:if>
+                            <c:if test="${lm.delflag == 2}"><nobr style="color:#952020">已删除</nobr></c:if>
+                            </td>
                             <td>${lm.create_date }</td>
                             <td>
-                            <c:if test="${lm.delflag==0 }">该账号已绑卡,如解绑请点击<a href="">解绑账号</a></c:if>
-                            <c:if test="${lm.delflag==1 }"><nobr style="color: red">该账号未绑卡,绑卡请点击</nobr><a href="">绑定银行卡</a></c:if>
+                            <c:if test="${lm.delflag==0 }">该账号已绑卡,如解绑请点击<a href="/p2p_project/member_bankcards/updateflag/${lm.id}" onclick="return confirm('确认解绑用户${lm.member.member_name}的银行卡？');">解绑银行卡</a></c:if>
+                            <c:if test="${lm.delflag==2 }"><nobr style="color: red">不能操作</nobr></c:if>
                             </td>
                           </tr>
                           </c:forEach>

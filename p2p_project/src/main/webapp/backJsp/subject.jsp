@@ -290,6 +290,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                           <td>年化收益</td>
                           <td>标的状态</td>
                           <td>可体验金购买</td>
+                          <td>操作</td>
                           </tr>
                           <c:forEach items="${listSubject }" var="ls" varStatus="stat">
                           <tr class="text-center">
@@ -302,8 +303,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <td>${ls.bought }</td>
                             <td>${ls.period }</td>
                             <td>${ls.year_rate }</td><!-- 这里需要计算年化收益 -->
-                            <td>${ls.status }</td>
-                            <td>${ls.exper_status }</td>
+                            <td>
+                            <c:if test="${ls.status ==0}">未开始</c:if>
+                            <c:if test="${ls.status ==1}">募集中</c:if>
+                            <c:if test="${ls.status ==2}">已结束</c:if>
+                            </td>
+                            <td>
+                            <c:if test="${ls.exper_status ==1}">是</c:if>
+                            <c:if test="${ls.exper_status ==0}">否</c:if>
+                            </td>
+                            <td>
+                            <c:if test="${ls.exper_status ==1}">
+                             <button type="button" class="btn btn-primary btn-sm">体验金付息</button>
+                             <button type="button" class="btn btn-primary btn-sm">付息列表</button>
+                            </c:if>
+                            <c:if test="${ls.exper_status ==0}">
+                            <button type="submit" class="btn btn-primary btn-sm">付息列表</button>
+                            </c:if>
+                            </td>
                           </tr>
                           </c:forEach>
 			</table>

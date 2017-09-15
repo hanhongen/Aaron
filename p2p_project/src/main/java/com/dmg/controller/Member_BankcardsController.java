@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -15,7 +16,7 @@ import com.dmg.bean.Member_bankcards;
 import com.dmg.service.Member_BankcardsService;
 //绑卡管理
 @Controller
-@RequestMapping("member_bankcards")
+@RequestMapping("/member_bankcards")
 public class Member_BankcardsController {
 	@Autowired
 	private Member_BankcardsService member_BankcardsService;
@@ -24,7 +25,7 @@ public class Member_BankcardsController {
      * 序号 手机号 绑卡人姓名 绑卡身份证 绑卡类型 绑卡卡号 绑卡地址 状态 添加时间 。
 	 * @return
 	 */
-	@RequestMapping("/listMember_Bankcards")
+	@RequestMapping("/listMember_Bankcards")//查询、模糊查询
 	public String listMember_Bankcards(Model model,
 			@RequestParam(required=false)String phone,
 			@RequestParam(required=false)String cardname,
@@ -48,6 +49,12 @@ public class Member_BankcardsController {
 		model.addAttribute("cardno", cardno);
 		
 		return "backJsp/member_bankcards";
+	}
+	@RequestMapping("/updateflag/{id}")//逻辑删除,解绑银行卡
+	public String updateflag(@PathVariable("id")int id){
+		System.out.println("ID:"+id);
+		member_BankcardsService.updateDelFlag(id);
+		return "redirect:/member_bankcards/listMember_Bankcards";
 	}
 	
 }

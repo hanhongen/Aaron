@@ -3,6 +3,7 @@ package com.dmg.dao;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.catalina.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,7 @@ public class Member_BankcardsDao {
 		List<Member_bankcards> list = session.createQuery(hql).list();
 		return list;
 	}
-	
+	//模糊查询
 	public String listMember_bankcardslike(Map map,String hql){
 		String phone = (String)map.get("phone");
 		String cardname = (String)map.get("cardname");
@@ -57,6 +58,21 @@ public class Member_BankcardsDao {
 		Session session = getSession();
 		List<Member> list = session.createQuery(hql).list();
 		return list;
+	}
+	
+	//获得Member_bankcards对象
+	public Member_bankcards getMember_bankcardsById(int id){
+		Session session = getSession();
+		Member_bankcards mb = (Member_bankcards)session.get(Member_bankcards.class, id);
+		return mb;
+	}
+	
+	//修改逻辑删除状态 0正常使用  2已逻辑删除
+	public void updateDelFlag(Member_bankcards mb){
+		//String hql = "update Member_bankcards m set m.delflag=2 where m.id="+id;
+		Session session = getSession();
+		mb.setDelflag(2);
+		session.update(mb);
 	}
 	
 }

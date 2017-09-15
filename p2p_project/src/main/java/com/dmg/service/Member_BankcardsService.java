@@ -30,5 +30,9 @@ public class Member_BankcardsService {
 		List<Member> listm = member_BankcardsDao.listMember();
 		return listm;
 	}
-	
+	//ÐÞ¸ÄÂß¼­É¾³ý×´Ì¬ 0Õý³£Ê¹ÓÃ  2ÒÑÂß¼­É¾³ý
+	public void updateDelFlag(int id){
+		Member_bankcards mb = member_BankcardsDao.getMember_bankcardsById(id);
+		member_BankcardsDao.updateDelFlag(mb);
+	}
 }
