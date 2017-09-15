@@ -1,11 +1,14 @@
 package com.dmg.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.dmg.bean.Subject;
 import com.dmg.service.SubjectService;
@@ -17,8 +20,17 @@ public class SubjectController {
 	private SubjectService subjectService;
 	
 	@RequestMapping("/listSubject")
-	public String listSubject(Model model){
-		List<Subject> listSubject = subjectService.listSubject();
+	public String listSubject(Model model,
+			@RequestParam(required=false)String sname,
+			@RequestParam(required=false)String stype,
+			@RequestParam(required=false)String sstatus){
+		
+		Map map = new HashMap<>();
+		map.put("sname", sname);
+		map.put("stype", stype);
+		map.put("sstatus", sstatus);
+		
+		List<Subject> listSubject = subjectService.listSubject(map);
 		for (Subject subject : listSubject) {
 			System.out.println("<------------------------------------------------------------------------------->");
 			System.out.println("SubjectController:");
@@ -35,6 +47,11 @@ public class SubjectController {
 			System.out.println("<------------------------------------------------------------------------------->");
 		}
 		model.addAttribute("listSubject", listSubject);
+		
+		model.addAttribute("sname", sname);
+		model.addAttribute("stype", stype);
+		model.addAttribute("sstatus", sstatus);
+		
 		return "backJsp/subject";
 	}
 	

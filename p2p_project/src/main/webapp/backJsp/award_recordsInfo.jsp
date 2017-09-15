@@ -1,22 +1,29 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html>
 <head>
-<title>Modern an Admin Panel Category Flat Bootstarp Resposive Website Template | Basic_tables :: w3layouts</title>
+<title>Modern an Admin Panel Category Flat Bootstarp Resposive Website Template | Forms :: w3layouts</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Modern Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script> -->
  <!-- Bootstrap Core CSS -->
 <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/bootstrap-3.3.4.css">
 <!-- Custom CSS -->
 <link href="/p2p_project/backStyle/css/style.css" rel='stylesheet' type='text/css' />
 <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/font-awesome.4.6.0.css"> 
+<!-- 日期控件 -->
+<link rel="stylesheet" type="text/css" href="/p2p_project/backStyle/css/bootstrap-datetimepicker.min.css"> 
 <!-- jQuery -->
 <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
-
+<!-- 日期控件 -->
+<script src="/p2p_project/backStyle/js/bootstrap-datetimepicker.min.js"></script>
+<script src="/p2p_project/backStyle/js/bootstrap-datetimepicker.fr.js"></script>
+<script src="/p2p_project/backStyle/js/bootstrap-datetimepicker.zh-CN.js"></script>
 <!---//webfonts--->  
 <!-- Bootstrap Core JavaScript -->
 <script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
@@ -126,7 +133,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="sidebar-nav navbar-collapse">
                                     <ul class="nav" id="side-menu">
                         <li>
-                             <a href=""><i class="fa fa-dashboard fa-fw nav_icon"></i>回到首页</a>
+                            <a href=""><i class="fa fa-dashboard fa-fw nav_icon"></i>回到首页</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-laptop nav_icon"></i>理财产品<span class="fa arrow"></span></a>
@@ -180,7 +187,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                          <!-- ----------------------------------------------------- -->
                          <li>
                             <a href="#"><i class="fa fa-check-square-o nav_icon"></i>会员管理<span class="fa arrow"></span></a>
-                             <ul class="nav nav-second-level">
+                            <ul class="nav nav-second-level">
                                 <li>
                                     <a href="/p2p_project/member/listMember">账号管理</a>
                                 </li>
@@ -251,276 +258,68 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <!-- /.navbar-static-side -->
         </nav>
         <div id="page-wrapper">
-        <div class="col-md-12 graphs">
-	   <div class="xs">
-  	 <h3>Basic Tables</h3>
-  	<div class="bs-example4" data-example-id="contextual-table">
-    <table class="table">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Column heading</th>
-          <th>Column heading</th>
-          <th>Column heading</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="active">
-          <th scope="row">1</th>
-          <td>Column content</td>
-          <td>Column content</td>
-          <td>Column content</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Column content</td>
-          <td>Column content</td>
-          <td>Column content</td>
-        </tr>
-        <tr class="success">
-          <th scope="row">3</th>
-          <td>Column content</td>
-          <td>Column content</td>
-          <td>Column content</td>
-        </tr>
-        <tr>
-          <th scope="row">4</th>
-          <td>Column content</td>
-          <td>Column content</td>
-          <td>Column content</td>
-        </tr>
-        <tr class="info">
-          <th scope="row">5</th>
-          <td>Column content</td>
-          <td>Column content</td>
-          <td>Column content</td>
-        </tr>
-        <tr>
-          <th scope="row">6</th>
-          <td>Column content</td>
-          <td>Column content</td>
-          <td>Column content</td>
-        </tr>
-        <tr class="warning">
-          <th scope="row">7</th>
-          <td>Column content</td>
-          <td>Column content</td>
-          <td>Column content</td>
-        </tr>
-        <tr>
-          <th scope="row">8</th>
-          <td>Column content</td>
-          <td>Column content</td>
-          <td>Column content</td>
-        </tr>
-        <tr class="danger">
-          <th scope="row">9</th>
-          <td>Column content</td>
-          <td>Column content</td>
-          <td>Column content</td>
-        </tr>
-      </tbody>
-    </table>
-   </div>
-   <div class="panel-body1">
-   <table class="table">
-     <thead>
-        <tr>
-          <th>#</th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Username</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Larry</td>
-          <td>the Bird</td>
-          <td>@twitter</td>
-        </tr>
-      </tbody>
-    </table>
-    </div>
-    <div class="panel panel-warning" data-widget="{&quot;draggable&quot;: &quot;false&quot;}" data-widget-static="">
-				<div class="panel-body no-padding">
-					<table class="table table-striped">
-						<thead>
-							<tr class="warning">
-								<th>#</th>
-								<th>First Name</th>
-								<th>Last Name</th>
-								<th>Username</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>1</td>
-								<td>Mark</td>
-								<td>Otto</td>
-								<td>@mdo</td>
-							</tr>
-							<tr>
-								<td>2</td>
-								<td>Jacob</td>
-								<td>Thornton</td>
-								<td>@fat</td>
-							</tr>
-							<tr>
-								<td>3</td>
-								<td>Larry</td>
-								<td>the Bird</td>
-								<td>@twitter</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-	</div>
-	<div class="panel panel-warning" data-widget="{&quot;draggable&quot;: &quot;false&quot;}" data-widget-static="">
-				<div class="panel-heading">
-					<h2>Warning Table</h2>
-					<div class="panel-ctrls" data-actions-container="" data-action-collapse="{&quot;target&quot;: &quot;.panel-body&quot;}"><span class="button-icon has-bg"><i class="ti ti-angle-down"></i></span></div>
-				</div>
-				<div class="panel-body no-padding" style="display: block;">
-					<table class="table table-striped">
-						<thead>
-							<tr class="warning">
-								<th>#</th>
-								<th>First Name</th>
-								<th>Last Name</th>
-								<th>Username</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>1</td>
-								<td>Mark</td>
-								<td>Otto</td>
-								<td>@mdo</td>
-							</tr>
-							<tr>
-								<td>2</td>
-								<td>Jacob</td>
-								<td>Thornton</td>
-								<td>@fat</td>
-							</tr>
-							<tr>
-								<td>3</td>
-								<td>Larry</td>
-								<td>the Bird</td>
-								<td>@twitter</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-			</div>
-	<div class="bs-example4" data-example-id="simple-responsive-table">
-    <div class="table-responsive">
-      <table class="table">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Table heading</th>
-            <th>Table heading</th>
-            <th>Table heading</th>
-            <th>Table heading</th>
-            <th>Table heading</th>
-            <th>Table heading</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Table cell</td>
-            <td>Table cell</td>
-            <td>Table cell</td>
-            <td>Table cell</td>
-            <td>Table cell</td>
-            <td>Table cell</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Table cell</td>
-            <td>Table cell</td>
-            <td>Table cell</td>
-            <td>Table cell</td>
-            <td>Table cell</td>
-            <td>Table cell</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Table cell</td>
-            <td>Table cell</td>
-            <td>Table cell</td>
-            <td>Table cell</td>
-            <td>Table cell</td>
-            <td>Table cell</td>
-          </tr>
-        </tbody>
-      </table>
-    </div><!-- /.table-responsive -->
-    <div class="table-responsive">
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Table heading</th>
-            <th>Table heading</th>
-            <th>Table heading</th>
-            <th>Table heading</th>
-            <th>Table heading</th>
-            <th>Table heading</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Table cell</td>
-            <td>Table cell</td>
-            <td>Table cell</td>
-            <td>Table cell</td>
-            <td>Table cell</td>
-            <td>Table cell</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Table cell</td>
-            <td>Table cell</td>
-            <td>Table cell</td>
-            <td>Table cell</td>
-            <td>Table cell</td>
-            <td>Table cell</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Table cell</td>
-            <td>Table cell</td>
-            <td>Table cell</td>
-            <td>Table cell</td>
-            <td>Table cell</td>
-            <td>Table cell</td>
-          </tr>
-        </tbody>
-      </table>
-    </div><!-- /.table-responsive -->
-  </div>
+        <div class="graphs">
+	     <div class="xs">
+  	 <!-- --------------------------------------------------------------------------------------------------------------------------- -->       
+			 <div class="box-right-main">
+                        <h2><span class="glyphicon glyphicon-user" style="margin-right:5px"></span>个人奖励信息</h2>
+                      <div class="tablelist">
+                      	<form action="/p2p_project/member/listMember" method="post" id="form1">
+                        <table class="table tabletop">
+                        <tr>
+                        <td style="width:110px;padding-left:30px">姓名：</td>
+                        <td style="width:180px"><input type="text" name="" class="form-control" placeholder="用户名" value="${namem }"></td>
+                        <td style="width:110px;padding-left:30px">手机号：</td>
+                        <td style="width:180px"><input type="text"  name="" class="form-control" placeholder="手机号" value="${mobilePhonem }"></td>
+                        <td style="width:110px;padding-left:30px">邀请码：</td>
+                        <td style="width:180px"><input type="text"  name="" class="form-control" placeholder="姓名" value="${memberNamem }"></td>
+                        <td style="width:110px;padding-left:30px">是否已注册奖励：</td>
+                        <td style="width:180px"><input type="text"  name="" class="form-control" placeholder="是否已注册奖励" value="${invitationcodem }"></td>
+                        <td style="width:110px;padding-left:30px">是否已投资奖励：</td>
+                        <td style="width:180px"><input type="text"  name="" class="form-control" placeholder="是否已投资奖励" value="${invitationcodem }"></td>
+                        <td class="pull-right" style="padding-right:10px">
+                        <button type="submit" class="btn btn-primary btn-sm">查询</button>
+                        </td>
+                        <td>
+                        <button type="button" class="btn btn-primary btn-sm" onclick="$('#form1').find(':input').not(':button, :submit, :reset').val('').removeAttr('checked').removeAttr('selected');">重置</button>
+                        </td>
+                        </tr>     
+                        </table>
+                        </form>
+                         <table class="table table-bordered tablebox">
+                          <tr class="text-center" bgcolor="#f7f7f7">
+                          <td>序号</td>
+                          <td>邀请人手机号</td>
+                          <td>被邀请人手机号</td>
+                          <td>奖励类型</td>
+                          <td>奖励金额</td>
+                          <td>奖励时间</td>
+                          <td>邀请码</td>
+                          </tr>
+                          <c:forEach items="${listi }" var="li" varStatus="stat">
+                          <c:forEach items="${listy }" var="ly">
+                          <tr class="text-center">
+                            <td>${stat.index+1 }</td>
+                            <td>${li.member.mobile_phone }</td>
+                            <td>${ly.member.mobile_phone }</td>
+                            <td>
+                            <c:if test="${li.type == 0}">注册奖励</c:if>
+                            <c:if test="${li.type == 1}">投资奖励</c:if>
+                            </td>
+                            <td>${li.amount }</td>
+                            <td>${li.addtime }</td>
+                            <td>${li.member.invitationcode }</td>
+                          </tr>
+                          </c:forEach>
+                          </c:forEach>
+			</table>
+  	 <!-- --------------------------------------------------------------------------------------------------------------------------- -->   
+
   </div>
   <div class="copy_layout">
       <p>Copyright Â© 2015 Modern. All Rights Reserved | Design by  </p>
   </div>
-   </div>
+  </div>
       </div>
       <!-- /#page-wrapper -->
    </div>

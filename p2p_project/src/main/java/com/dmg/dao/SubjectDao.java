@@ -1,6 +1,7 @@
 package com.dmg.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -23,9 +24,10 @@ public class SubjectDao {
      * 标的期限 年化收益 标的状态 可体验金购买
 	 * @return
 	 */
-	public List<Subject> listSubject(){
-		String hql = "from Subject";
+	public List<Subject> listSubject(Map map){
+		String hql = "from Subject where 0=0 ";
 		Session session = getSession();
+		hql=listSubjectlike(map, hql);
 		List<Subject> list = session.createQuery(hql).list();
 		for (Subject subject : list) {
 			System.out.println("<------------------------------------------------------------------------------->");
@@ -43,6 +45,20 @@ public class SubjectDao {
 			System.out.println("<------------------------------------------------------------------------------->");
 		}
 		return list;
+	}
+	//模糊查询
+	public String listSubjectlike(Map map,String hql){
+		String sname = (String)map.get("sname");
+		String stype = (String)map.get("stype");
+		String sstatus = (String)map.get("sstatus");
+		if (sname!=null && !sname.equals("")) {
+			hql+=" and name like '%"+sname+"%'";
+		}else if (stype!=null && !stype.equals("")) {
+			hql+=" and type like '%"+stype+"%'";
+		}else if (sstatus!=null && !sstatus.equals("")) {
+			hql+=" and status like '%"+sstatus+"%'";
+		}
+		return hql;
 	}
 	
 }

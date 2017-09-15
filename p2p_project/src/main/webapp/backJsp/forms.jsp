@@ -10,7 +10,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Modern Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script> -->
  <!-- Bootstrap Core CSS -->
 <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/bootstrap-3.3.4.css">
 <!-- Custom CSS -->
@@ -189,22 +189,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <a href="#"><i class="fa fa-check-square-o nav_icon"></i>会员管理<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="/p2p_project/backJsp/forms.jsp">账号管理</a>
+                                    <a href="/p2p_project/member/listMember">账号管理</a>
                                 </li>
                                 <li>
-                                    <a href="/p2p_project/backJsp/validation.jsp">绑卡管理</a>
+                                    <a href="/p2p_project/member_bankcards/listMember_Bankcards">绑卡管理</a>
                                 </li>
                                  <li>
-                                    <a href="/p2p_project/backJsp/validation.jsp">付息计划</a>
+                                    <a href="/p2p_project/subject/listSubject">付息计划</a>
                                 </li>
                                  <li>
-                                    <a href="/p2p_project/backJsp/validation.jsp">充值管理</a>
+                                    <a href="/p2p_project/member_deposit_record/listMember_deposit_record">充值管理</a>
                                 </li>
                                  <li>
-                                    <a href="/p2p_project/backJsp/validation.jsp">提现管理</a>
+                                    <a href="/p2p_project/member_withdraw_record/listMember_withdraw_record">提现管理</a>
                                 </li>
                                  <li>
-                                    <a href="/p2p_project/backJsp/validation.jsp">邀请奖励</a>
+                                    <a href="/p2p_project/award_records/listAward_records">邀请奖励</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -264,21 +264,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			 <div class="box-right-main">
                         <h2><span class="glyphicon glyphicon-play" style="margin-right:5px"></span>账号管理</h2>
                       <div class="tablelist">
-                      	<form action="/winplus/sysmember/index" method="post" id="form1">
+                      	<form action="/p2p_project/member/listMember" method="post" id="form1">
                         <table class="table tabletop">
                         <tr>
                         <td style="width:110px;padding-left:30px">用户名：</td>
-                        <td style="width:180px"><input type="text" class="form-control" name="name" placeholder="用户名" value=""></td>
+                        <td style="width:180px"><input type="text" name="namem" class="form-control" placeholder="用户名" value="${namem }"></td>
                         <td style="width:110px;padding-left:30px">手机号：</td>
-                        <td style="width:180px"><input type="text"  name="mobilePhone" class="form-control" placeholder="手机号" value=""></td>
+                        <td style="width:180px"><input type="text"  name="mobilePhonem" class="form-control" placeholder="手机号" value="${mobilePhonem }"></td>
                         <td style="width:110px;padding-left:30px">姓名：</td>
-                        <td style="width:180px"><input type="text"  name="memberName" class="form-control" placeholder="姓名" value=""></td>
+                        <td style="width:180px"><input type="text"  name="memberNamem" class="form-control" placeholder="姓名" value="${memberNamem }"></td>
                         <td style="width:110px;padding-left:30px">邀请码：</td>
-                        <td style="width:180px"><input type="text"  name="invitationcode" class="form-control" placeholder="邀请码" value=""></td>
+                        <td style="width:180px"><input type="text"  name="invitationcodem" class="form-control" placeholder="邀请码" value="${invitationcodem }"></td>
                         <td style="width:110px;padding-left:30px">注册时间：</td>
-                        <td style="width:180px"><input type="text"  name="createDate" class="form-control time" placeholder="注册时间" readonly="readonly" value=""></td>
-                        <td class="pull-right" style="padding-right:10px"><button type="submit" class="btn btn-primary btn-sm">查询</button></td>
-                        <td><button type="button" class="btn btn-primary btn-sm" onclick="$('#form1').find(':input').not(':button, :submit, :reset').val('').removeAttr('checked').removeAttr('selected');">重置</button></td>
+                        <td >
+                        <div class="form-group" style="width: 150px"><!-- 时间样式 -->
+                        <input type="date" class="form-control time" ng-model="model.date" name="create_datem">
+                        </div>
+                        </td>
+                        <td class="pull-right" style="padding-right:10px">
+                        <button type="submit" class="btn btn-primary btn-sm">查询</button>
+                        </td>
+                        <td>
+                        <button type="button" class="btn btn-primary btn-sm" onclick="$('#form1').find(':input').not(':button, :submit, :reset').val('').removeAttr('checked').removeAttr('selected');">重置</button>
+                        </td>
                         </tr>     
                         </table>
                         </form>
@@ -325,15 +333,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="/p2p_project/backStyle/js/metisMenu.min.js"></script>
 <script src="/p2p_project/backStyle/js/custom.js"></script>
 <script type="text/javascript">
-$('.time').datetimepicker({
-	format : 'yyyy-mm-dd',
-	language: 'zh-CN',
-	minView: 2,
-    todayBtn: 1
-}).on('changeDate', function(ev) {
-	$('.time').datetimepicker('hide');
-});
-
+// $(function(){//查询
+// 	$("#form1").click(function(){
+// 		document.forms[0].action="/p2p_project/member/listMember";
+// 		document.forms[0].submit();
+// 	});
+// });
 </script>
 </body>
 </html>

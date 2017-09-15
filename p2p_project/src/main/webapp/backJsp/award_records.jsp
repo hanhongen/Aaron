@@ -182,24 +182,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                          <!-- ----------------------------------------------------- -->
                          <li>
                             <a href="#"><i class="fa fa-check-square-o nav_icon"></i>会员管理<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
+                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="/p2p_project/backJsp/forms.jsp">账号管理</a>
+                                    <a href="/p2p_project/member/listMember">账号管理</a>
                                 </li>
                                 <li>
-                                    <a href="/p2p_project/backJsp/validation.jsp">绑卡管理</a>
+                                    <a href="/p2p_project/member_bankcards/listMember_Bankcards">绑卡管理</a>
                                 </li>
                                  <li>
-                                    <a href="/p2p_project/backJsp/validation.jsp">付息计划</a>
+                                    <a href="/p2p_project/subject/listSubject">付息计划</a>
                                 </li>
                                  <li>
-                                    <a href="/p2p_project/backJsp/validation.jsp">充值管理</a>
+                                    <a href="/p2p_project/member_deposit_record/listMember_deposit_record">充值管理</a>
                                 </li>
                                  <li>
-                                    <a href="/p2p_project/backJsp/validation.jsp">提现管理</a>
+                                    <a href="/p2p_project/member_withdraw_record/listMember_withdraw_record">提现管理</a>
                                 </li>
                                  <li>
-                                    <a href="/p2p_project/backJsp/validation.jsp">邀请奖励</a>
+                                    <a href="/p2p_project/award_records/listAward_records">邀请奖励</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -257,26 +257,33 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	   <div class="xs">
   	     	    <!-- --------------------------------------------------------------------------------------------------------------------------- -->       
 			 <div class="box-right-main">
-                        <h2><span class="glyphicon glyphicon-play" style="margin-right:5px"></span>提现管理</h2>
+                        <h2><span class="glyphicon glyphicon-play" style="margin-right:5px"></span>邀请奖励</h2>
                       <div class="tablelist">
-                      	<form action="/winplus/sysmember/index" method="post" id="form1">
-                        <table class="table tabletop">
-                        <tr>
-                        <td style="width:110px;padding-left:30px">姓名：</td>
-                        <td style="width:180px"><input type="text" class="form-control" name="" placeholder="姓名" value=""></td>
-                        <td style="width:110px;padding-left:30px">手机号：</td>
-                        <td style="width:180px"><input type="text"  name="" class="form-control" placeholder="手机号" value=""></td>
-                        <td style="width:110px;padding-left:30px">绑卡卡号：</td>
-                        <td style="width:180px"><input type="text"  name="" class="form-control" placeholder="绑卡卡号" value=""></td>
-                        <td style="width:110px;padding-left:30px">状态：</td>
-                        <td style="width:180px"><input type="text"  name="" class="form-control" placeholder="状态" value=""></td>
-                        <td style="width:110px;padding-left:30px">提现时间：</td>
-                        <td style="width:180px"><input type="text"  name="" class="form-control" placeholder="提现时间" value=""></td>
-                        <td><button type="button" class="btn btn-primary btn-sm" onclick="$('#form1').find(':input').not(':button, :submit, :reset').val('').removeAttr('checked').removeAttr('selected');">重置</button></td>
-                        <td><button type="button" class="btn btn-primary btn-sm" onclick="fun();">刷新订单数据</button></td>
-                        </tr>     
-                        </table>
-                        </form>
+<!--                       	<form action="/p2p_project/award_records/listAward_records" method="post" id="form1"> -->
+<!--                         <table class="table tabletop"> -->
+<!--                         <tr> -->
+<!--                         <td style="width:110px;padding-left:30px">姓名：</td> -->
+<!--                         <td style="width:180px"><input type="text" name="name" class="form-control" placeholder="姓名" value=""></td> -->
+<!--                         <td style="width:110px;padding-left:30px">手机号：</td> -->
+<!--                         <td style="width:180px"><input type="text"  name="phone" class="form-control" placeholder="手机号" value=""></td> -->
+<!--                         <td style="width:110px;padding-left:30px">绑卡卡号：</td> -->
+<!--                         <td style="width:180px"><input type="text"  name="card" class="form-control" placeholder="绑卡卡号" value=""></td> -->
+<!--                         <td style="width:110px;padding-left:30px">状态：</td> -->
+<!--                         <td style="width:180px"><input type="text"  name="status" class="form-control" placeholder="状态" value=""></td> -->
+<!--                         <td style="width:110px;padding-left:30px">提现时间：</td> -->
+<!--                         <td style="width:180px"> -->
+<!--                         <div class="form-group" style="width: 150px">时间样式 -->
+<!--                         <input type="date" class="form-control time" ng-model="model.date" name="create_datem"> -->
+<!--                         </div> -->
+<!--                         </td> -->
+<!--                         <td class="pull-right" style="padding-right:10px"> -->
+<!--                         <button type="submit" class="btn btn-primary btn-sm">查询</button> -->
+<!--                         </td> -->
+<!--                         <td><button type="button" class="btn btn-primary btn-sm" onclick="$('#form1').find(':input').not(':button, :submit, :reset').val('').removeAttr('checked').removeAttr('selected');">重置</button></td> -->
+<!--                         <td><button type="button" class="btn btn-primary btn-sm" onclick="fun();">刷新订单数据</button></td> -->
+<!--                         </tr>      -->
+<!--                         </table> -->
+<!--                         </form> -->
                         <table class="table table-bordered tablebox">
                           <tr class="text-center" bgcolor="#f7f7f7">
                           <td>序号</td>
@@ -291,19 +298,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                           <td>操作</td>
                           </tr>
                           <c:forEach items="${listar }" var="lm" varStatus="stat">
-                          <c:forEach items="${lists }" var="ls">
+<%--                           <c:forEach items="${lists }" var="ls"> --%>
                           <tr class="text-center">
                             <td>${stat.index+1 }</td>
                             <td>${lm.member.mobile_phone }</td>
                             <td>${lm.member.member_name }</td>
                             <td>${lm.member.invitationcode }</td>
                             <td>${lm.member.invitedcode}</td>
-                            <td><!-- 判断用户表id和主题表借款人id是否一致 -->
-                            <c:if test="${lm.member.id == ls.borrowerid }">
-                            	${ls.amount }
-                            </c:if>
-                            ${ls.amount }
-                            </td>
+                            <td>${lm.amount }</td>
                             <td>
                             <c:if test="${lm.type == 0}">是</c:if>
                             <c:if test="${lm.type == 1}">否</c:if>
@@ -313,9 +315,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <c:if test="${lm.type == 0}">否</c:if>
                             </td>
                             <td>${lm.addtime }</td>
-                            <td><a href="#">账号详情</a></td>
+                            <td>
+                            <c:if test="${lm.type == 0}">注册已奖励</c:if>
+                            <c:if test="${lm.type == 1}">投资已奖励</c:if>
+                            <c:if test="${lm.type == 2}">暂无奖励</c:if>
+                            <a href="/p2p_project/award_records/listiy/${lm.invitingid }/${lm.byinvitingid }">查看奖励记录</a>
+                            </td>
                           </tr>
-                          </c:forEach>
+<%--                           </c:forEach> --%>
                           </c:forEach>
 			</table>
   	 <!-- --------------------------------------------------------------------------------------------------------------------------- -->   

@@ -182,24 +182,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                          <!-- ----------------------------------------------------- -->
                          <li>
                             <a href="#"><i class="fa fa-check-square-o nav_icon"></i>会员管理<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
+                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="/p2p_project/backJsp/forms.jsp">账号管理</a>
+                                    <a href="/p2p_project/member/listMember">账号管理</a>
                                 </li>
                                 <li>
-                                    <a href="/p2p_project/backJsp/validation.jsp">绑卡管理</a>
+                                    <a href="/p2p_project/member_bankcards/listMember_Bankcards">绑卡管理</a>
                                 </li>
                                  <li>
-                                    <a href="/p2p_project/backJsp/validation.jsp">付息计划</a>
+                                    <a href="/p2p_project/subject/listSubject">付息计划</a>
                                 </li>
                                  <li>
-                                    <a href="/p2p_project/backJsp/validation.jsp">充值管理</a>
+                                    <a href="/p2p_project/member_deposit_record/listMember_deposit_record">充值管理</a>
                                 </li>
                                  <li>
-                                    <a href="/p2p_project/backJsp/validation.jsp">提现管理</a>
+                                    <a href="/p2p_project/member_withdraw_record/listMember_withdraw_record">提现管理</a>
                                 </li>
                                  <li>
-                                    <a href="/p2p_project/backJsp/validation.jsp">邀请奖励</a>
+                                    <a href="/p2p_project/award_records/listAward_records">邀请奖励</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -261,17 +261,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			 <div class="box-right-main">
                         <h2><span class="glyphicon glyphicon-play" style="margin-right:5px"></span>绑卡管理</h2>
                       <div class="tablelist">
-                      	<form action="/winplus/sysmember/index" method="post" id="form1">
+                      	<form action="/p2p_project/member_bankcards/listMember_Bankcards" method="post" id="form1">
                         <table class="table tabletop">
                         <tr>
                         <td style="width:110px;padding-left:30px">手机号：</td>
-                        <td style="width:180px"><input type="text" class="form-control" name="" placeholder="手机号" value=""></td>
+                        <td style="width:180px"><input type="text" name="phone" class="form-control" placeholder="手机号" value="${phone }"></td>
                         <td style="width:110px;padding-left:30px">绑卡姓名：</td>
-                        <td style="width:180px"><input type="text"  name="" class="form-control" placeholder="绑卡姓名" value=""></td>
+                        <td style="width:180px"><input type="text"  name="cardname" class="form-control" placeholder="绑卡姓名" value="${cardname }"></td>
                         <td style="width:110px;padding-left:30px">绑卡卡号：</td>
-                        <td style="width:180px"><input type="text"  name="" class="form-control" placeholder=绑卡卡号 value=""></td>
+                        <td style="width:180px"><input type="text"  name="cardno" class="form-control" placeholder=绑卡卡号 value="${cardno }"></td>
                         <td style="width:110px;padding-left:30px">注册时间：</td>
-                        <td style="width:180px"><input type="text"  name="" class="form-control" placeholder="注册时间" value=""></td>
+                        <td style="width:180px">
+                        <div class="form-group" style="width: 150px"><!-- 时间样式 -->
+                        <input type="date" class="form-control time" ng-model="model.date" name="createdate">
+                        </div>
+                        </td>
+                        <td class="pull-right" style="padding-right:10px">
+                        <button type="submit" class="btn btn-primary btn-sm">查询</button>
+                        </td>
                         <td><button type="button" class="btn btn-primary btn-sm" onclick="$('#form1').find(':input').not(':button, :submit, :reset').val('').removeAttr('checked').removeAttr('selected');">重置</button></td>
                         </tr>     
                         </table>
@@ -302,7 +309,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <td>${lm.create_date }</td>
                             <td>
                             <c:if test="${lm.delflag==0 }">该账号已绑卡,如解绑请点击<a href="">解绑账号</a></c:if>
-                            <c:if test="${lm.delflag==1 }">该账号未绑卡,绑卡请点击<a href="">绑定银行卡</a></c:if>
+                            <c:if test="${lm.delflag==1 }"><nobr style="color: red">该账号未绑卡,绑卡请点击</nobr><a href="">绑定银行卡</a></c:if>
                             </td>
                           </tr>
                           </c:forEach>

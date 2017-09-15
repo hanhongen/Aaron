@@ -1,11 +1,14 @@
 package com.dmg.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.dmg.bean.Member;
 import com.dmg.bean.Member_bankcards;
@@ -22,12 +25,28 @@ public class Member_BankcardsController {
 	 * @return
 	 */
 	@RequestMapping("/listMember_Bankcards")
-	public String listMember_Bankcards(Model model){
-		List<Member_bankcards> listmb = member_BankcardsService.listMember_bankcards();//银联
+	public String listMember_Bankcards(Model model,
+			@RequestParam(required=false)String phone,
+			@RequestParam(required=false)String cardname,
+			@RequestParam(required=false)String cardno,
+			@RequestParam(required=false)String createdate){
+		
+		Map map = new HashMap<>();
+		map.put("phone", phone);//手机
+		map.put("cardname", cardname);//绑卡姓名
+		map.put("cardno", cardno);//卡号
+		map.put("createdate", createdate);//时间
+		
+		List<Member_bankcards> listmb = member_BankcardsService.listMember_bankcards(map);//银联
 		for (Member_bankcards mb : listmb) {
 			System.out.println("listMember_Bankcards:"+mb.getMember().getMobile_phone());
 		}
 		model.addAttribute("listmb", listmb);
+		
+		model.addAttribute("phone", phone);
+		model.addAttribute("cardname", cardname);
+		model.addAttribute("cardno", cardno);
+		
 		return "backJsp/member_bankcards";
 	}
 	
