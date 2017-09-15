@@ -26,7 +26,7 @@ public class UserDao {
 	public Users getUsers(String mobile_phone,String password) {
 		Session session=getsession();
 		String hql="from Users where mobile_phone="+mobile_phone+" and password="+password;
-		Users user=(Users) session.createQuery(hql).list();
+		Users user=(Users) session.createQuery(hql);
 		return user;
 	}
 }

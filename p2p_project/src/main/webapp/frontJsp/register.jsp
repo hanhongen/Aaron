@@ -120,7 +120,7 @@
 
  
 	<div class="row register">
-	<form action="/p2p_project/user/register" onsubmit="return fun();" method="post">
+	<form action="/p2p_project/user/register" method="post">
 		<div class="title">
 			<div class="left">
 				<hr>
@@ -149,16 +149,6 @@
 			</div>
 			
 		</div>
-		<!--  <div class="item">
-            <div class="rLabel">
-                图形验证码
-            </div>
-            <div class="rInput">
-                <input type="text" required placeholder="图片验证码" id="picCode" class="form-control textInput imgcode">
-                <img src="/p2p_project/frontStyle/images/yzm.jpg" id="captcha" onclick="updcaptcha()" title="看不清楚,点击换一张" alt="看不清楚,点击换一张" class="picCodeImg">
-                <span class="errorInfo">请输入图形验证码</span>
-            </div>
-        </div> -->
 		
 		<div class="item">
 			<div class="rLabel">
@@ -236,14 +226,16 @@
 
 <script type="text/javascript">
 $(function(){
+	var flag=false;
 	  var reg=/^1[0-9]\d{9}$/;
 	  $("#phone").blur(function(){
 		  var num=$(this).val();
 		  if(num.length!=11){
 			  $("#s1").html("  (请输入正确的手机号码)");
-			  return false;
+			  return flag;
 		  }else{
 			  $("#s1").html("");
+			  flag=true;
 			  return true;
 		  }
 	  });
@@ -253,11 +245,13 @@ $(function(){
 		  var pwd1=$("#password1").val();
 		  if(pwd1 != pwd2){
 			  $("#span1").html("  (两次密码不一致！)");
-			  return false;
+			  return flag;
 		  }else{
+			  flag=true;
 			  return true;
 		  }
 	  });
+	  
  });
 
 </script>
@@ -279,9 +273,5 @@ $(function(){
 				</pre>
 		</div>
 	</div>
-
-
-
-
 </body>
 </html>
