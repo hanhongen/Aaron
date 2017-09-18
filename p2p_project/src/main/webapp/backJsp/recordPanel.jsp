@@ -5,7 +5,7 @@
 
 <html>
 <head>
-<title>Modern an Admin Panel Category Flat Bootstarp Resposive Website Template | Validation :: w3layouts</title>
+<title>提现管理</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Modern Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
@@ -182,7 +182,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                          <!-- ----------------------------------------------------- -->
                          <li>
                             <a href="#"><i class="fa fa-check-square-o nav_icon"></i>会员管理<span class="fa arrow"></span></a>
-                             <ul class="nav nav-second-level">
+                            <ul class="nav nav-second-level">
                                 <li>
                                     <a href="/p2p_project/member/listMember">账号管理</a>
                                 </li>
@@ -252,79 +252,240 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <!-- /.navbar-static-side -->
         </nav>
+        
+        
         <div id="page-wrapper">
         <div class="col-md-12 graphs">
 	   <div class="xs">
-  	     	    <!-- --------------------------------------------------------------------------------------------------------------------------- -->       
+  	    <!-- --------------------------------------------------------------------------------------------------------------------------- -->       
 			 <div class="box-right-main">
-                        <h2><span class="glyphicon glyphicon-play" style="margin-right:5px"></span>邀请奖励</h2>
+                        <h2><span class="glyphicon glyphicon-play" style="margin-right:5px"></span>账号详情</h2>
                       <div class="tablelist">
-<!--                       	<form action="/p2p_project/award_records/listAward_records" method="post" id="form1"> -->
-<!--                         <table class="table tabletop"> -->
-<!--                         <tr> -->
-<!--                         <td style="width:110px;padding-left:30px">姓名：</td> -->
-<!--                         <td style="width:180px"><input type="text" name="name" class="form-control" placeholder="姓名" value=""></td> -->
-<!--                         <td style="width:110px;padding-left:30px">手机号：</td> -->
-<!--                         <td style="width:180px"><input type="text"  name="phone" class="form-control" placeholder="手机号" value=""></td> -->
-<!--                         <td style="width:110px;padding-left:30px">绑卡卡号：</td> -->
-<!--                         <td style="width:180px"><input type="text"  name="card" class="form-control" placeholder="绑卡卡号" value=""></td> -->
-<!--                         <td style="width:110px;padding-left:30px">状态：</td> -->
-<!--                         <td style="width:180px"><input type="text"  name="status" class="form-control" placeholder="状态" value=""></td> -->
-<!--                         <td style="width:110px;padding-left:30px">提现时间：</td> -->
-<!--                         <td style="width:180px"> -->
-<!--                         <div class="form-group" style="width: 150px">时间样式 -->
-<!--                         <input type="date" class="form-control time" ng-model="model.date" name="create_datem"> -->
-<!--                         </div> -->
-<!--                         </td> -->
-<!--                         <td class="pull-right" style="padding-right:10px"> -->
-<!--                         <button type="submit" class="btn btn-primary btn-sm">查询</button> -->
-<!--                         </td> -->
-<!--                         <td><button type="button" class="btn btn-primary btn-sm" onclick="$('#form1').find(':input').not(':button, :submit, :reset').val('').removeAttr('checked').removeAttr('selected');">重置</button></td> -->
-<!--                         <td><button type="button" class="btn btn-primary btn-sm" onclick="fun();">刷新订单数据</button></td> -->
-<!--                         </tr>      -->
-<!--                         </table> -->
-<!--                         </form> -->
-                        <table class="table table-bordered tablebox">
-                          <tr class="text-center" bgcolor="#f7f7f7">
-                          <td>序号</td>
-                          <td>手机号</td>
-                          <td>姓名</td>
-                          <td>邀请码</td>
-                          <td>被邀请码</td>
-                          <td>投资金额</td>
-                          <td>是否已注册奖励</td>
-                          <td>是否已投资奖励</td>
-                          <td>注册时间</td>
-                          <td>操作</td>
-                          </tr>
-                          <c:forEach items="${listar }" var="lm" varStatus="stat">
-<%--                           <c:forEach items="${lists }" var="ls"> --%>
-                          <tr class="text-center">
-                            <td>${stat.index+1 }</td>
-                            <td>${lm.member.mobile_phone }</td>
-                            <td>${lm.member.member_name }</td>
-                            <td>${lm.member.invitationcode }</td>
-                            <td>${lm.member.invitedcode}</td>
-                            <td>${lm.amount }</td>
-                            <td>
-                            <c:if test="${lm.type == 0}">是</c:if>
-                            <c:if test="${lm.type == 1}">否</c:if>
-                            </td>
-                            <td>
-                            <c:if test="${lm.type == 1}">是</c:if>
-                            <c:if test="${lm.type == 0}">否</c:if>
-                            </td>
-                            <td>${lm.addtime }</td>
-                            <td>
-                            <c:if test="${lm.type == 0}"><nobr style="color:blue">注册已奖励</nobr></c:if>
-                            <c:if test="${lm.type == 1}"><nobr style="color:blue">投资已奖励</nobr></c:if>
-                            <c:if test="${lm.type == 2}">暂无奖励</c:if>
-                            <a href="/p2p_project/award_records/listiy/${lm.invitingid }/${lm.byinvitingid }">查看奖励记录</a>
-                            </td>
-                          </tr>
-<%--                           </c:forEach> --%>
-                          </c:forEach>
-			</table>
+<!--    <p class="active-tab"><strong>激活的标签页</strong>：<span></span></p> -->
+<!--    <p class="previous-tab"><strong>前一个激活的标签页</strong>：<span></span></p><hr> -->
+   
+   <ul id="myTab" class="nav nav-tabs">
+   <li><a href="#zj" data-toggle="tab">资金信息</a></li>
+   <li><a href="#zh" data-toggle="tab">账号信息</a></li>
+<!--    <li><a href="#lc" data-toggle="tab">理财师信息</a></li> -->
+   <li><a href="#tz" data-toggle="tab">投资记录</a></li>
+   <li><a href="#tx" data-toggle="tab">提现记录</a></li>
+   <li><a href="#cz" data-toggle="tab">充值记录</a></li>
+   <li><a href="#qb" data-toggle="tab">钱包记录</a></li>
+   </ul>
+   
+   <div id="myTabContent" class="tab-content">
+   
+      <div class="tab-pane fade in active" id="zj">
+      <table class="table table-condensed">
+   <caption>资金信息</caption><!-- 资金信息 -->
+   <thead>
+      <tr>
+         <th>可用余额</th>
+         <th>冻结金额</th>
+         <th>累计收益</th>
+         <th>投资总额</th>
+         <th>红包金额</th>
+         <th>体验金</th>
+      </tr>
+   </thead>
+   <tbody>
+   <c:forEach items="${lista }" var="lm" varStatus="stat">
+      <tr>
+         <td>${lm.useable_balance }</td>
+         <td>${lm.imuseale_balance }</td>
+         <td>${lm.totl_profit }</td>
+         <td>${lm.invest_amount }</td>
+         <td>${lm.bonus_amount }</td>
+         <td>${lm.bbin_amount }</td>
+      </tr>
+      </c:forEach>
+   </tbody></table>
+   </div>
+   
+     <div class="tab-pane fade" id="zh">
+     <table class="table table-condensed">
+   <caption>账号信息</caption><!-- 账号信息 -->
+   <thead>
+      <tr>
+         <th>用户名</th>
+         <th>手机号</th>
+         <th>真实姓名</th>
+         <th>身份证</th>
+         <th>邀请码</th>
+         <th>被邀请码</th>
+         <th>添加时间</th>
+      </tr>
+   </thead>
+   <tbody>
+    <c:forEach items="${listMemberId }" var="lm" varStatus="stat">
+      <tr>
+         <td>${lm.name }</td>
+         <td>${lm.mobile_phone }</td>
+         <td>${lm.member_name }</td>
+         <td>${lm.identity }</td>
+         <td>${lm.invitationcode }</td>
+         <td>${lm.invitedcode }</td>
+         <td>${lm.create_date }</td>
+      </tr>
+      </c:forEach>
+   </tbody></table>
+   </div>
+   
+<!--    <div class="tab-pane fade" id="lc"> -->
+<!--        <table class="table table-condensed"> -->
+<%--    <caption>理财师信息</caption><!-- 理财师信息 --> --%>
+<!--    <thead> -->
+<!--       <tr> -->
+<!--          <th>真实姓名</th> -->
+<!--          <th>机构名称</th> -->
+<!--          <th>我的名片</th> -->
+<!--          <th>邮寄地址</th> -->
+<!--          <th>添加时间</th> -->
+<!--       </tr> -->
+<!--    </thead> -->
+<!--    <tbody> -->
+<!--       <tr> -->
+<!--          <td></td> -->
+<!--          <td></td> -->
+<!--          <td></td> -->
+<!--          <td></td> -->
+<!--          <td></td> -->
+<!--       </tr> -->
+<!--    </tbody></table> -->
+<!--    </div> -->
+   
+   <div class="tab-pane fade" id="tz"><!-- 投资记录 -->
+       <table class="table table-condensed">
+   <caption>投资记录</caption><!-- 投资记录 -->
+   <thead>
+      <tr><!-- subject_purchase_record(标的购买表) -->
+         <th>序号</th>
+         <th>投资编号</th>
+         <th>投资金额</th>
+         <th>投资状态</th> 
+         <th>投资标的名称</th>
+          <th>投资收益</th><!--amount` decimal(16,4)  购买金额',*year_rate` decimal(16,4)  年化率'*购买天数  -->
+         <th>投资时间</th>
+      </tr>
+   </thead>
+   <tbody>
+   <c:forEach items="${listSPR }" var="lm" varStatus="stat">
+      <tr>
+         <td>${stat.index+1 }</td>
+         <td>${lm.serial_number }</td>
+         <td>${lm.amount }</td>
+         <td>
+            <c:if test="${lm.subject.status ==0}">未开始</c:if>
+            <c:if test="${lm.subject.status ==1}">募集中</c:if>
+            <c:if test="${lm.subject.status ==2}">已结束</c:if>
+         </td>
+         <td>${lm.subject.name }</td>
+<%--          <td>${lm.amount*lm.subject.year_rate/365*dayCount }</td><!-- 投资金额*年化率/365*perior --> --%>
+		<td>${result }</td>
+         <td>${lm.create_date }</td>
+      </tr>
+      </c:forEach>
+   </tbody></table>
+   </div>
+   
+   <div class="tab-pane fade" id="tx"><!-- 提现记录 -->
+     <table class="table table-condensed">
+   <caption>提现记录</caption><!-- 提现记录  -->
+   <thead>
+      <tr>
+         <th>序号</th>
+         <th>提现编号</th>
+         <th>提现金额</th>
+         <th>提现状态</th>
+         <th>提现银行</th>
+         <th>提现卡号</th>
+         <th>提现时间</th>
+      </tr>
+   </thead>
+   <tbody>
+    <c:forEach items="${listmwr }" var="lm" varStatus="stat">
+      <tr>
+         <td>${stat.index+1 }</td>
+         <td>${lm.serial_number }</td>
+         <td>${lm.amount }</td>
+         <td>
+         <c:if test="${lm.status == 0}">待审核</c:if>
+         <c:if test="${lm.status == 1}">已打款</c:if>
+         <c:if test="${lm.status == 2}">打款中</c:if>
+         <c:if test="${lm.status == 3}">打款失败</c:if>
+         </td>
+         <td>${lm.bank_name }</td>
+         <td>${lm.bank_card }</td>
+         <td>${lm.create_date }</td>
+      </tr>
+      </c:forEach>
+   </tbody></table>
+   </div>
+   
+   <div class="tab-pane fade" id="cz"><!-- 充值记录 -->
+      <table class="table table-condensed">
+   <caption>充值记录</caption><!-- 充值记录  -->
+   <thead>   
+      <tr>
+         <th>序号</th>
+         <th>充值编号</th>
+         <th>充值金额</th>
+         <th>充值状态</th>
+         <th>充值渠道</th>
+         <th>充值渠道编号</th>
+         <th>充值时间</th>
+      </tr>      
+   </thead>
+   <tbody>
+   <c:forEach items="${listmdr }" var="lm" varStatus="stat">
+      <tr>
+         <td>${stat.index+1 }</td>
+         <td>${lm.seril_number }</td>
+         <td>${lm.amount }</td>
+         <td>
+         <c:if test="${lm.status == 0}">待付款</c:if>
+         <c:if test="${lm.status == 1}">完成</c:if>
+         </td>
+         <td>${lm.pay_channel_name }</td>
+         <td>${lm.pay_channel_order_no }</td>
+         <td>${lm.create_date }</td>
+      </tr>
+      </c:forEach>
+   </tbody></table>
+   </div>
+   
+   <div class="tab-pane fade" id="qb"><!-- 钱包记录 -->
+      <table class="table table-condensed">
+   <caption>钱包记录</caption><!-- 钱包记录  -->
+   <thead>
+      <tr>
+         <th>序号</th>
+         <th>交易编号</th>
+         <th>交易金额</th>
+         <th>交易状态</th>
+         <th>交易分类</th>
+         <th>交易名称</th>
+         <th>交易时间</th>
+      </tr>
+   </thead>
+   <tbody>
+   <c:forEach items="${listmtr }" var="lm" varStatus="stat">
+      <tr>
+         <td>${stat.index+1 }</td>
+         <td>${lm.trade_no }</td>
+         <td>${lm.amount }</td>
+         <td>${lm.trade_status }</td>
+         <td>${lm.trade_type }</td>
+         <td>${lm.trade_name }</td>
+         <td>${lm.create_date }</td>
+      </tr>
+      </c:forEach>
+   </tbody></table>
+   </div>
+   </div>
+   
+   
   	 <!-- --------------------------------------------------------------------------------------------------------------------------- -->   
     <div class="copy_layout">
       <p>Copyright Â© 2015 Modern. All Rights Reserved | Design by  </p>
@@ -339,14 +500,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- Metis Menu Plugin JavaScript -->
 <script src="/p2p_project/backStyle/js/metisMenu.min.js"></script>
 <script src="/p2p_project/backStyle/js/custom.js"></script>
+<script type="text/javascript">
+function fun(){
+		window.location.reload();//刷新页面
+}
+</script>
 </body>
 </html>
-<!--             <div class="form-group"> -->
-<!--               <label class="control-label normal">Date</label> -->
-<!--               <input type="date" class="form-control1 ng-invalid ng-invalid-required" ng-model="model.date" required=""> -->
-<!--             </div> -->
-          
-<!--             <div class="form-group"> -->
-<!--               <button type="submit" class="btn btn-primary">Submit</button> -->
-<!--               <button type="reset" class="btn btn-default">Reset</button> -->
-<!--             </div> -->

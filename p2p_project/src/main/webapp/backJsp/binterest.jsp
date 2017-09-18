@@ -5,7 +5,7 @@
 
 <html>
 <head>
-<title>Modern an Admin Panel Category Flat Bootstarp Resposive Website Template | Validation :: w3layouts</title>
+<title>付息计划</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Modern Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
@@ -182,7 +182,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                          <!-- ----------------------------------------------------- -->
                          <li>
                             <a href="#"><i class="fa fa-check-square-o nav_icon"></i>会员管理<span class="fa arrow"></span></a>
-                             <ul class="nav nav-second-level">
+                           <ul class="nav nav-second-level">
                                 <li>
                                     <a href="/p2p_project/member/listMember">账号管理</a>
                                 </li>
@@ -252,77 +252,50 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <!-- /.navbar-static-side -->
         </nav>
+        
+        
         <div id="page-wrapper">
         <div class="col-md-12 graphs">
 	   <div class="xs">
-  	     	    <!-- --------------------------------------------------------------------------------------------------------------------------- -->       
+  	    <!-- --------------------------------------------------------------------------------------------------------------------------- -->       
 			 <div class="box-right-main">
-                        <h2><span class="glyphicon glyphicon-play" style="margin-right:5px"></span>邀请奖励</h2>
+                        <h2><span class="glyphicon glyphicon-play" style="margin-right:5px"></span>付息列表</h2>
                       <div class="tablelist">
-<!--                       	<form action="/p2p_project/award_records/listAward_records" method="post" id="form1"> -->
-<!--                         <table class="table tabletop"> -->
-<!--                         <tr> -->
-<!--                         <td style="width:110px;padding-left:30px">姓名：</td> -->
-<!--                         <td style="width:180px"><input type="text" name="name" class="form-control" placeholder="姓名" value=""></td> -->
-<!--                         <td style="width:110px;padding-left:30px">手机号：</td> -->
-<!--                         <td style="width:180px"><input type="text"  name="phone" class="form-control" placeholder="手机号" value=""></td> -->
-<!--                         <td style="width:110px;padding-left:30px">绑卡卡号：</td> -->
-<!--                         <td style="width:180px"><input type="text"  name="card" class="form-control" placeholder="绑卡卡号" value=""></td> -->
-<!--                         <td style="width:110px;padding-left:30px">状态：</td> -->
-<!--                         <td style="width:180px"><input type="text"  name="status" class="form-control" placeholder="状态" value=""></td> -->
-<!--                         <td style="width:110px;padding-left:30px">提现时间：</td> -->
-<!--                         <td style="width:180px"> -->
-<!--                         <div class="form-group" style="width: 150px">时间样式 -->
-<!--                         <input type="date" class="form-control time" ng-model="model.date" name="create_datem"> -->
-<!--                         </div> -->
-<!--                         </td> -->
-<!--                         <td class="pull-right" style="padding-right:10px"> -->
-<!--                         <button type="submit" class="btn btn-primary btn-sm">查询</button> -->
-<!--                         </td> -->
-<!--                         <td><button type="button" class="btn btn-primary btn-sm" onclick="$('#form1').find(':input').not(':button, :submit, :reset').val('').removeAttr('checked').removeAttr('selected');">重置</button></td> -->
-<!--                         <td><button type="button" class="btn btn-primary btn-sm" onclick="fun();">刷新订单数据</button></td> -->
-<!--                         </tr>      -->
-<!--                         </table> -->
-<!--                         </form> -->
                         <table class="table table-bordered tablebox">
                           <tr class="text-center" bgcolor="#f7f7f7">
                           <td>序号</td>
-                          <td>手机号</td>
-                          <td>姓名</td>
-                          <td>邀请码</td>
-                          <td>被邀请码</td>
+                          <td>流水号</td>
+                          <td>投资人手机号</td>
+                          <td>投资人姓名</td>
+                          <td>投资人身份证</td>
                           <td>投资金额</td>
-                          <td>是否已注册奖励</td>
-                          <td>是否已投资奖励</td>
-                          <td>注册时间</td>
+                          <td>还款利息</td>
+                          <td>投资时间</td>
+                          <td>还款时间</td>
+                          <td>还款状态</td>
                           <td>操作</td>
                           </tr>
-                          <c:forEach items="${listar }" var="lm" varStatus="stat">
-<%--                           <c:forEach items="${lists }" var="ls"> --%>
+                          <c:forEach items="${listSPR }" var="SPR" varStatus="stat">
                           <tr class="text-center">
                             <td>${stat.index+1 }</td>
-                            <td>${lm.member.mobile_phone }</td>
-                            <td>${lm.member.member_name }</td>
-                            <td>${lm.member.invitationcode }</td>
-                            <td>${lm.member.invitedcode}</td>
-                            <td>${lm.amount }</td>
+                            <td>${SPR.serial_number }</td>
+                            <td>${SPR.member.mobile_phone }</td>
+                            <td>${SPR.member.member_name }</td>
+                            <td>${SPR.member.identity }</td>
+                            <td>${SPR.amount }</td>
                             <td>
-                            <c:if test="${lm.type == 0}">是</c:if>
-                            <c:if test="${lm.type == 1}">否</c:if>
+                            	投资金额：${SPR.amount }
+                            	结算利息：${SPR.interest }
+                            	本息：${SPR.amount+SPR.interest }
                             </td>
+                            <td>${SPR.update_date }</td>
                             <td>
-                            <c:if test="${lm.type == 1}">是</c:if>
-                            <c:if test="${lm.type == 0}">否</c:if>
+                            <c:if test="${SPR.ispayment == 0 }">待还款</c:if>
+                            <c:if test="${SPR.ispayment == 1 }">已还款</c:if>                          
                             </td>
-                            <td>${lm.addtime }</td>
-                            <td>
-                            <c:if test="${lm.type == 0}"><nobr style="color:blue">注册已奖励</nobr></c:if>
-                            <c:if test="${lm.type == 1}"><nobr style="color:blue">投资已奖励</nobr></c:if>
-                            <c:if test="${lm.type == 2}">暂无奖励</c:if>
-                            <a href="/p2p_project/award_records/listiy/${lm.invitingid }/${lm.byinvitingid }">查看奖励记录</a>
-                            </td>
+                            <td></td>
+                            <td></td>
                           </tr>
-<%--                           </c:forEach> --%>
                           </c:forEach>
 			</table>
   	 <!-- --------------------------------------------------------------------------------------------------------------------------- -->   
@@ -341,12 +314,3 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="/p2p_project/backStyle/js/custom.js"></script>
 </body>
 </html>
-<!--             <div class="form-group"> -->
-<!--               <label class="control-label normal">Date</label> -->
-<!--               <input type="date" class="form-control1 ng-invalid ng-invalid-required" ng-model="model.date" required=""> -->
-<!--             </div> -->
-          
-<!--             <div class="form-group"> -->
-<!--               <button type="submit" class="btn btn-primary">Submit</button> -->
-<!--               <button type="reset" class="btn btn-default">Reset</button> -->
-<!--             </div> -->
