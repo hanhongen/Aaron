@@ -11,6 +11,8 @@ import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.dmg.bean.Feedback;
+import com.dmg.bean.Member;
 import com.dmg.bean.Push_notice;
 
 @Service
@@ -33,7 +35,7 @@ public class Push_notice_dao {
 	}
 	
 	//删除
-	public void delete(int id){
+	public void delete(int id){//删除下架 上架
 	  Session session=getSession();
 		Push_notice push_notice=(Push_notice)session.get(Push_notice.class,id);
 		push_notice.setStatus(1);//删除
@@ -68,6 +70,44 @@ public class Push_notice_dao {
 		return push;
 	}
 
+     
+	
+	//<!-----意见反馈-----!>
+	public void save(Feedback feedback){
+		Session session=getSession();
+		session.save(feedback);
+	}
+	public void update(Feedback feedback){
+		Session session=getSession();
+		session.update(feedback);
+	}
+	public void delete(Feedback feedback){
+		Session session=getSession();
+		session.delete(feedback);
+	}
+	public List<Feedback> listfeed(){
+		Session session=getSession();
+		String hql="from Feedback";
+		List<Feedback> feedbacks=session.createQuery(hql).list();
+		return feedbacks;
+	}
+	public Feedback getfeedid(int id){
+		Session session=getSession();
+		Feedback feedbacks=(Feedback)session.get(Feedback.class,id);
+		return feedbacks;
+	}
 	
 	
+	//点击查看意见反馈的人的信息
+	public List<Member> listmem(){
+		Session session=getSession();
+		String hql="from Member";
+		List<Member> members=session.createQuery(hql).list();
+		return members;
+	}
+	public Member getmpid(int id){
+		Session session=getSession();
+		Member members=(Member)session.get(Member.class,id);
+		return members;
+	}
 }

@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.dmg.bean.Feedback;
+import com.dmg.bean.Member;
 import com.dmg.bean.Push_notice;
 import com.dmg.service.Push_notice_service;
 
@@ -25,6 +27,7 @@ import com.dmg.service.Push_notice_service;
 public class Push_Controller {
 	@Autowired
 	private Push_notice_service push_notice_service;
+	
 	
 	
 	@RequestMapping("/pushadd")
@@ -90,4 +93,39 @@ public class Push_Controller {
 		return "redirect:/test/test1";
 	}
 	
+	
+	//<!--Òâ¼û·´À¡--!>
+	@RequestMapping("/select")
+	public String select(Model model){
+		List<Feedback> feedbacks=push_notice_service.listfeed();
+		model.addAttribute("feedbacks",feedbacks);
+		return "backJsp/feedback";
+	}
+	
+	@RequestMapping("/savefeed")
+	public String savefeed(Feedback feedbacks,int pid){
+		if(pid!=-1){
+			Member members=push_notice_service.getbympid(pid);
+			feedbacks.setMember(members);
+		}
+		SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String date=dateFormat.format(new Date());
+		feedbacks.setCreate_date(date);
+		push_notice_service.save(feedbacks);
+		return "redirect:/test/select";	
+	}
+	   
+	 @RequestMapping("/updatefeed/{id}")
+ 	 public String updatefeed(@PathVariable("id") int id,Model model){
+		  Feedback feedbacks=push_notice_service.getfeed(id);
+		    model.addAttribute("feedbacks",feedbacks);
+		    return "backJsp/updatefeed";
+	 }
+/*	 @RequestMapping("/updatefed")
+	public String updatefed(Feedback feedbacks){
+		 SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			feedbacks.set
+			push_notice_service.update(push_notice);
+			return "redirect:/test/test1";
+	 }*/
 }

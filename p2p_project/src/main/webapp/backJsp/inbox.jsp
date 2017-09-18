@@ -26,18 +26,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <!---//webfonts--->
 <!-- Bootstrap Core JavaScript -->
+<script type="text/javascript" src="/p2p_project/backStyle/js/jquery.min.js"></script>
+<script type="text/javascript" src="/p2p_project/backStyle/js/bootstrap.min.js"></script>
 <script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
-
-
-    
+    <link href="/p2p_project/backStyle/css/bootstrap.css" rel='stylesheet'>
    <link id="bs-css" href="/p2p_project/backStyle/css/bootstrap-cerulean.min.css" rel="stylesheet">
     <link href="/p2p_project/backStyle/css/charisma-app.css" rel="stylesheet">
-    <link href='/p2p_project/backStyle/bower_components/fullcalendar/dist/fullcalendar.css' rel='stylesheet'>
-    <link href='/p2p_project/backStyle/bower_components/fullcalendar/dist/fullcalendar.print.css' rel='stylesheet' media='print'>
-    <link href='/p2p_project/backStyle/bower_components/chosen/chosen.min.css' rel='stylesheet'>
-    <link href='/p2p_project/backStyle/bower_components/colorbox/example3/colorbox.css' rel='stylesheet'>
-    <link href='/p2p_project/backStyle/bower_components/responsive-tables/responsive-tables.css' rel='stylesheet'>
-    <link href='/p2p_project/backStyle/bower_components/bootstrap-tour/build/css/bootstrap-tour.min.css' rel='stylesheet'>
     <link href='/p2p_project/backStyle/css/jquery.noty.css' rel='stylesheet'>
     <link href='/p2p_project/backStyle/css/noty_theme_default.css' rel='stylesheet'>
     <link href='/p2p_project/backStyle/css/elfinder.min.css' rel='stylesheet'>
@@ -47,18 +41,85 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link href='/p2p_project/backStyle/css/animate.min.css' rel='stylesheet'>
     <link rel="shortcut icon" href="/p2p_project/backStyle/img/favicon.ico">
 
-<script type="text/javascript">
-function open1(){
-	var diag = new Dialog();
-	diag.Width = 800;
-	diag.Height = 600;
-	diag.Title = "添加新闻分类的窗口";
-	diag.URL = "/p2p_project/backJsp/news.jsp";
-	diag.show();
-}
-</script>
 </head>
 <body>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<a class="close" data-dismiss="modal"></a>
+				<h4 class="modal-title" id="myModalLabel">
+					 新闻分类添加
+				</h4>
+			</div>
+<div class="modal-body">
+<form action="/p2p_project/news_type/news_typesave"  method="post" enctype="multipart/form-data" >
+<table  border="0"  cellpadding="4"  bordercolor="#666666">
+     <tr>
+     <td>
+     名称:<input type="text" name="name">
+     </td>
+     <td>
+     简介:<input type="text"  name="info">
+     </td>
+ <td>内容:<input type="text" name="text"></td>    
+     </tr>
+        
+        <tr>
+     <td>
+     页面类型:<input type="text" name="pagetype">
+     </td>
+  
+ <td>封面图片:<input type="file" name="file" ></td>    
+     </tr>
+     <tr>
+     <td>
+     链接:<input type="text" name="link">
+     </td>
+     <td>
+     备注:<input type="text"  name="note">
+     </td>
+ <td>
+ 排序:<input type="number" name="sort">
+ </td>    
+     </tr>
+
+    <tr>
+     <td>
+     页面seo标题:<input type="text" name="seotitle">
+     </td>
+     <td>
+     seo关键字:<input type="text"  name="seokey">
+     </td>
+ <td>seo描述:<input type="text" name="seodes"></td>    
+     </tr>
+     <tr>
+     <td>
+     修改人ID:<input type="number" name="updid">
+     </td>
+     <td>
+    添加人ID:<input type="number"  name="addid">
+    </td>
+       <td>
+     上级类别:<select name="suptype" style="width: 90px;height:25px">
+    <option value="0">根目录</option>
+    <option value="1">子目录</option>
+     </select>
+     </td>
+     </tr>
+    </table>
+    <input type="submit" value="提交">&nbsp;&nbsp;&nbsp;
+    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+				</button> 
+     </form> 
+     
+</div>
+		
+		</div>
+	</div>
+
+      </div>
 
 <div id="wrapper">
 		<!-- Navigation -->
@@ -262,8 +323,9 @@ function open1(){
                 <span>hello</span></a>
 
            <!--用户开始-->
+       
             <div class="btn-group pull-right">
-            <button class="btn btn-default dropdown-toggle" onclick="open1();">
+                <button class="btn btn-info" data-toggle="modal" data-target="#myModal" >
                     <i class="glyphicon glyphicon-user"></i><span class="hidden-sm hidden-xs">添加</span>
                      </button>
                 <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
@@ -303,9 +365,11 @@ function open1(){
        <th>封面图片</th>
         <th>名称</th>
         <th>上级类别</th>
-        <th>简介</th>
-        <th>排序</th>
+        <th>修改时间</th>
         <th>添加时间</th>
+        <th>修改人ID</th>
+         <th>添加人ID</th>
+        <th>排序</th>
         <th>操作</th>
     </tr>
     </thead>
@@ -314,18 +378,18 @@ function open1(){
      <td class="center">
             <span class="label-success label label-default">${status.index+1}</span>
         </td>
-        <td class="center"><img width="200px" height="100px" src="/p2p_project/upload/${list.cphoto}"></td>
+        <td><img width="100px" height="60px" src="/p2p_project/upload/${list.cphoto}"></td>
         <td class="center">${list.name }</td>
-        <td class="center">${list.suptype}</td>
-        <td class="center">${list.info}</td>
-        <td class="center">${list.sort}</td>
+        <td class="center">${list.suptype==0?"根目录":"子目录"}</td>
+        <td class="center">${list.updtime}</td>
         <td class="center">${list.addtime}</td>
+        <td class="center">${list.updid}</td>
+        <td class="center">${list.addid}</td>
+        <td class="center">${list.sort}</td>
         <td class="center">
-          <a class="btn btn-info" href="#">
+                 <a class="btn btn-info" href="/p2p_project/news_type/updatelist/${list.id}">
+                <i class="glyphicon glyphicon-edit icon-white"></i>
                 Edit
-            </a>
-            <a class="btn btn-danger" href="#">
-                Delete
             </a>
         </td>
     </tr>
@@ -353,6 +417,7 @@ function open1(){
         </div>
     
     </div>
+    
     </div>
     </div>
     </div>
@@ -361,27 +426,17 @@ function open1(){
 
 <script src="/p2p_project/backStyle/js/metisMenu.min.js"></script>
 <script src="/p2p_project/backStyle/js/custom.js"></script>
-    
-    
-<script src="/p2p_project/backStyle/bower_components/jquery/jquery.min.js"></script>
-<script src="/p2p_project/backStyle/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/p2p_project/backStyle/js/bootstrap.min.js"></script>
 <script src="/p2p_project/backStyle/js/jquery.cookie.js"></script>
-<script src='/p2p_project/backStyle/bower_components/moment/min/moment.min.js'></script>
-<script src='/p2p_project/backStyle/bower_components/fullcalendar/dist/fullcalendar.min.js'></script>
 <script src='/p2p_project/backStyle/js/jquery.dataTables.min.js'></script>
-<script src="/p2p_project/backStyle/bower_components/chosen/chosen.jquery.min.js"></script>
-<script src="/p2p_project/backStyle/bower_components/colorbox/jquery.colorbox-min.js"></script>
 <script src="/p2p_project/backStyle/js/jquery.noty.js"></script>
-<script src="/p2p_project/backStyle/bower_components/responsive-tables/responsive-tables.js"></script>
-<script src="/p2p_project/backStyle/bower_components/bootstrap-tour/build/js/bootstrap-tour.min.js"></script>
 <script src="/p2p_project/backStyle/js/jquery.raty.min.js"></script>
 <script src="/p2p_project/backStyle/js/jquery.iphone.toggle.js"></script>
 <script src="/p2p_project/backStyle/js/jquery.autogrow-textarea.js"></script>
 <script src="/p2p_project/backStyle/js/jquery.uploadify-3.1.min.js"></script>
 <script src="/p2p_project/backStyle/js/jquery.history.js"></script>
 <script src="/p2p_project/backStyle/js/charisma.js"></script>
-<script type="text/javascript" src="/p2p_project/backStyle/js/zDrag.js"></script>
-<script type="text/javascript" src="/p2p_project/backStyle/js/zDialog.js"></script>
+<script src="/p2p_project/backStyle/js/bootstrap-modal.js"></script>
 
 </body>
 </html>
