@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -47,7 +48,22 @@ public class News_typecontroller {
 	       news_typeservice.savetype(news_type);
 		   	 return "redirect:/news_type/news_typelist";
 		}
-	
+   //修改之前的查询
+		@RequestMapping("/updatelist/{id}")
+		public String updatelist(@PathVariable("id")int id,Model model){
+		 System.out.println("id="+id);
+			News_type	news_type=news_typeservice.getbyid(id);
+		model.addAttribute("news",news_type);
+			return "backJsp/edit";
+		}
+//修改
+		@RequestMapping("/update")
+public String update(News_type news_type){
+	        SimpleDateFormat ssf=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+			news_type.setUpdtime(ssf.format(new Date()));		
+			news_typeservice.updatetype(news_type);
+			return "redirect:/news_type/news_typelist";
+		}
 }
 
 

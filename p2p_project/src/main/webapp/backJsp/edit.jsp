@@ -1,21 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
-<!DOCTYPE HTML>
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-
-    <meta name="description" content="Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.">
-    <meta name="author" content="Muhammad Usman">
-    
-    	
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords"
-
 	content="Modern Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script type="application/x-javascript">
+	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+</script>
 <!-- Bootstrap Core CSS -->
 <link rel="stylesheet" type="text/css"
 	href="http://www.jq22.com/jquery/bootstrap-3.3.4.css">
@@ -29,102 +24,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <!---//webfonts--->
 <!-- Bootstrap Core JavaScript -->
-<script type="text/javascript" src="/p2p_project/backStyle/js/jquery.min.js"></script>
-<script type="text/javascript" src="/p2p_project/backStyle/js/bootstrap.min.js"></script>
+<script type="text/javascript"
+	src="/p2p_project/backStyle/js/jquery.min.js"></script>
+<script type="text/javascript"
+	src="/p2p_project/backStyle/js/bootstrap.min.js"></script>
 <script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
-    <link href="/p2p_project/backStyle/css/bootstrap.css" rel='stylesheet'>
-   <link id="bs-css" href="/p2p_project/backStyle/css/bootstrap-cerulean.min.css" rel="stylesheet">
-    <link href="/p2p_project/backStyle/css/charisma-app.css" rel="stylesheet">
-    <link href='/p2p_project/backStyle/css/jquery.noty.css' rel='stylesheet'>
-    <link href='/p2p_project/backStyle/css/noty_theme_default.css' rel='stylesheet'>
-    <link href='/p2p_project/backStyle/css/elfinder.min.css' rel='stylesheet'>
-    <link href='/p2p_project/backStyle/css/elfinder.theme.css' rel='stylesheet'>
-    <link href='/p2p_project/backStyle/css/jquery.iphone.toggle.css' rel='stylesheet'>
-    <link href='/p2p_project/backStyle/css/uploadify.css' rel='stylesheet'>
-    <link href='/p2p_project/backStyle/css/animate.min.css' rel='stylesheet'>
-    <link rel="shortcut icon" href="/p2p_project/backStyle/img/favicon.ico">
-
 </head>
 <body>
-
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<a class="close" data-dismiss="modal"></a>
-				<h4 class="modal-title" id="myModalLabel">
-					 新闻分类添加
-				</h4>
-			</div>
-<div class="modal-body">
-<form action="/p2p_project/news_type/news_typesave"  method="post" enctype="multipart/form-data" >
-<table  border="0"  cellpadding="4"  bordercolor="#666666">
-     <tr>
-     <td>
-     名称:<input type="text" name="name">
-     </td>
-     <td>
-     简介:<input type="text"  name="info">
-     </td>
- <td>内容:<input type="text" name="text"></td>    
-     </tr>
-        
-        <tr>
-     <td>
-     页面类型:<input type="text" name="pagetype">
-     </td>
-  
- <td>封面图片:<input type="file" name="file" ></td>    
-     </tr>
-     <tr>
-     <td>
-     链接:<input type="text" name="link">
-     </td>
-     <td>
-     备注:<input type="text"  name="note">
-     </td>
- <td>
- 排序:<input type="number" name="sort">
- </td>    
-     </tr>
-
-    <tr>
-     <td>
-     页面seo标题:<input type="text" name="seotitle">
-     </td>
-     <td>
-     seo关键字:<input type="text"  name="seokey">
-     </td>
- <td>seo描述:<input type="text" name="seodes"></td>    
-     </tr>
-     <tr>
-     <td>
-     修改人ID:<input type="number" name="updid">
-     </td>
-     <td>
-    添加人ID:<input type="number"  name="addid">
-    </td>
-       <td>
-     上级类别:<select name="suptype" style="width: 90px;height:25px">
-    <option value="0">根目录</option>
-    <option value="1">子目录</option>
-     </select>
-     </td>
-     </tr>
-    </table>
-    <input type="submit" value="提交">&nbsp;&nbsp;&nbsp;
-    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
-				</button> 
-     </form> 
-     
-</div>
-		
-		</div>
-	</div>
-
-      </div>
-
-<div id="wrapper">
+	<div id="wrapper">
 		<!-- Navigation -->
 		<nav class="top1 navbar navbar-default navbar-static-top"
 			role="navigation" style="margin-bottom: 0">
@@ -292,142 +199,50 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<!-- /.sidebar-collapse -->
 		</div>
 		<!-- /.navbar-static-side --> </nav>
-
-
-
-<!--           sssss             -->
-  <div id="page-wrapper">
-  <div class="graphs">
-  <div class="xs">
-  
-  
-    <div class="navbar navbar-default" role="navigation">
-        <div class="navbar-inner">
-            <button type="button" class="navbar-toggle pull-left animated flip">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            
-           <a class="navbar-brand" href="index.html">  <img alt="Charisma Logo" src="/p2p_project/backStyle/images/logo20.png" class="hidden-xs"/>
-                <span>hello</span></a>
-
-           <!--用户开始-->
-       
-            <div class="btn-group pull-right">
-                <button class="btn btn-info" data-toggle="modal" data-target="#myModal" >
-                    <i class="glyphicon glyphicon-user"></i><span class="hidden-sm hidden-xs">添加</span>
-                     </button>
-                <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                    <i class="glyphicon glyphicon-user"></i><span class="hidden-sm hidden-xs">用户名称</span>
-                    <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                    <li class="divider"></li>
-                     <a href="/p2p_project/frontJsp/login.jsp">切换用户</a>
-                </ul>
-            </div>
-
-    </div>
-
-
-
-    <div class="row">
-    <div class="box col-md-12">
-    <div class="box-inner">
-    <div class="box-header well" data-original-title="">
-        <h2><i class="glyphicon glyphicon-user"></i>资讯分类</h2>
-
-        <div class="box-icon">
-            <a href="#" class="btn btn-setting btn-round btn-default"><i class="glyphicon glyphicon-cog"></i></a>
-            <a href="#" class="btn btn-minimize btn-round btn-default"><i
-                    class="glyphicon glyphicon-chevron-up"></i></a>
-            <a href="#" class="btn btn-close btn-round btn-default"><i class="glyphicon glyphicon-remove"></i></a>
-        </div>
-    </div>
-    
-    <div class="box-content">
-	<table class="table table-striped table-bordered bootstrap-datatable datatable responsive">
-    <thead>
-    <tr>
-      
-  <th>序号</th>
-       <th>封面图片</th>
-        <th>名称</th>
-        <th>上级类别</th>
-        <th>修改时间</th>
-        <th>添加时间</th>
-        <th>修改人ID</th>
-         <th>添加人ID</th>
-        <th>排序</th>
-        <th>操作</th>
-    </tr>
-    </thead>
-    <c:forEach items="${list}" var="list" varStatus="status">
-     <tr>
-     <td class="center">
-            <span class="label-success label label-default">${status.index+1}</span>
-        </td>
-        <td><img width="100px" height="60px" src="/p2p_project/upload/${list.cphoto}"></td>
-        <td class="center">${list.name }</td>
-        <td class="center">${list.suptype==0?"根目录":"子目录"}</td>
-        <td class="center">${list.updtime}</td>
-        <td class="center">${list.addtime}</td>
-        <td class="center">${list.updid}</td>
-        <td class="center">${list.addid}</td>
-        <td class="center">${list.sort}</td>
-        <td class="center">
-                 <a class="btn btn-info" href="/p2p_project/news_type/updatelist/${list.id}">
-                <i class="glyphicon glyphicon-edit icon-white"></i>
-                Edit
-            </a>
-        </td>
-    </tr>
-    </c:forEach>
-    
- </tbody>
-    </table>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-</div>
-    <div class="row">
-        <div class="col-md-9 col-lg-9 col-xs-9 hidden-xs">
-            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-          
-            <ins class="adsbygoogle"
-                 style="display:inline-block;width:728px;height:90px"
-                 data-ad-client="ca-pub-5108790028230107"
-                 data-ad-slot="3193373905"></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
-    
-    </div>
-    
-    </div>
-    </div>
-    </div>
-    
-    <link href="/p2p_project/backStyle/css/custom.css" rel="stylesheet">
-
+		<div id="page-wrapper" >
+			<div class="graphs" >
+				<div class="xs">
+     <div class="box-right-main" >
+					<!-- --------------------- -->
+					<form action="/p2p_project/news_type/update" method="post">
+						<input type="hidden" name="id"  value="${news.id}">
+						<input type="hidden" name="link"  value="${news.link}">
+						<input type="hidden" name="pagetype"  value="${news.pagetype}">
+						<input type="hidden" name="info"  value="${news.info}">
+						<input type="hidden" name="cphoto"  value="${news.cphoto}">
+						<input type="hidden" name="text"  value="${news.text}">
+						<input type="hidden" name="seotitle"  value="${news.seotitle}">
+						<input type="hidden" name="seokey"  value="${news.seokey}">
+						<input type="hidden" name="seodes"  value="${news.seokey}">
+						<input type="hidden" name="addid"  value="${news.addid}">
+						<input type="hidden" name="addtime" value="${news.addtime}">
+						<table class="table" >
+								<thead>
+							<tr class="active">
+									<td>名称:<input type="text" name="name" value="${news.name}"></td>
+							</tr>
+							<tr class="active">
+							<td>上级类别:<select name="suptype" style="width: 100; height: 30">
+							<option value="${news.suptype}">${news.suptype==0?"根类名":"子类名"}</option>
+							</select>
+								</tr>
+								<tr class="active">
+									<td>序号:<input type="number" name="sort" value="${news.sort}"></td>
+								</tr>
+								<tr>
+									<td><input type="submit" value="提交"> <input
+										type="button" value="关闭" onclick="close()"></td>
+								</tr>
+							</thead>
+						</table>
+					</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<link href="/p2p_project/backStyle/css/custom.css" rel="stylesheet">
+<!-- Metis Menu Plugin JavaScript -->
 <script src="/p2p_project/backStyle/js/metisMenu.min.js"></script>
 <script src="/p2p_project/backStyle/js/custom.js"></script>
-<script src="/p2p_project/backStyle/js/bootstrap.min.js"></script>
-<script src="/p2p_project/backStyle/js/jquery.cookie.js"></script>
-<script src='/p2p_project/backStyle/js/jquery.dataTables.min.js'></script>
-<script src="/p2p_project/backStyle/js/jquery.noty.js"></script>
-<script src="/p2p_project/backStyle/js/jquery.raty.min.js"></script>
-<script src="/p2p_project/backStyle/js/jquery.iphone.toggle.js"></script>
-<script src="/p2p_project/backStyle/js/jquery.autogrow-textarea.js"></script>
-<script src="/p2p_project/backStyle/js/jquery.uploadify-3.1.min.js"></script>
-<script src="/p2p_project/backStyle/js/jquery.history.js"></script>
-<script src="/p2p_project/backStyle/js/charisma.js"></script>
-<script src="/p2p_project/backStyle/js/bootstrap-modal.js"></script>
-
 </body>
 </html>

@@ -1,17 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Modern an Admin Panel Category Flat Bootstarp Resposive
-	Website Template | Compose :: w3layouts</title>
-	
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords"
 	content="Modern Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script type="application/x-javascript">
+	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+</script>
 <!-- Bootstrap Core CSS -->
 <link rel="stylesheet" type="text/css"
 	href="http://www.jq22.com/jquery/bootstrap-3.3.4.css">
@@ -25,6 +25,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <!---//webfonts--->
 <!-- Bootstrap Core JavaScript -->
+<script type="text/javascript"
+	src="/p2p_project/backStyle/js/jquery.min.js"></script>
+<script type="text/javascript"
+	src="/p2p_project/backStyle/js/bootstrap.min.js"></script>
 <script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
 </head>
 <body>
@@ -196,153 +200,127 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<!-- /.sidebar-collapse -->
 		</div>
 		<!-- /.navbar-static-side --> </nav>
-		<div id="page-wrapper">
-			<div class="graphs">
+		<div id="page-wrapper" >
+			<div class="graphs" >
 				<div class="xs">
-					<h3>Compose</h3>
-					<div class="col-md-4 email-list1">
-						<ul class="collection">
-							<li class="collection-item avatar email-unread"><i
-								class="fa fa-users icon_1"></i>
-								<div class="avatar_left">
-									<span class="email-title">Social</span>
-									<p class="truncate grey-text ultra-small">Lorem Ipsum is
-										simply dummy text of.</p>
-								</div> <a href="#!" class="secondary-content"><span
-									class="new badge blue">4</span></a>
-								<div class="clearfix"></div></li>
-							<li class="collection-item avatar email-unread"><i
-								class="fa fa-exclamation-circle icon_2"></i>
-								<div class="avatar_left">
-									<span class="email-title">Updates</span>
-									<p class="truncate grey-text ultra-small">It is a long
-										established fact that a reader.</p>
-								</div> <a href="#!" class="secondary-content"><span
-									class="new badge red">4</span></a>
-								<div class="clearfix"></div></li>
-							<li class="collection-item avatar email-unread"><i
-								class="fa fa-tag icon_3"></i>
-								<div class="avatar_left">
-									<span class="email-title">Promotions</span>
-									<p class="truncate grey-text ultra-small">There are many
-										variations of passages.</p>
-								</div> <a href="#!" class="secondary-content"><span
-									class="new badge blue1">4</span></a>
-								<div class="clearfix"></div></li>
-							<li class="collection-item avatar email-unread"><i
-								class="icon_4">G</i>
-								<div class="avatar_left">
-									<span class="email-title">Gmail</span>
-									<p class="truncate grey-text ultra-small">Sed ut
-										perspiciatis unde omnis iste.</p>
-								</div> <a href="#!" class="secondary-content"><span
-									class="blue-text ultra-small">2:15 pm</span></a>
-								<div class="clearfix"></div></li>
-							<li class="collection-item avatar email-unread"><i
-								class="icon_4 icon_5">F</i>
-								<div class="avatar_left">
-									<span class="email-title">Facebook</span>
-									<p class="truncate grey-text ultra-small">But I must
-										explain to you how.</p>
-								</div> <a href="#!" class="secondary-content"><span
-									class="blue-text ultra-small">2:15 pm</span></a>
-								<div class="clearfix"></div></li>
-							<li class="collection-item avatar email-unread email_last">
-								<i class="icon_4 icon_6">T</i>
-								<div class="avatar_left">
-									<span class="email-title">Twitter</span>
-									<p class="truncate grey-text ultra-small">At vero eos et
-										accusamus et iusto odio.</p>
-								</div> <a href="#!" class="secondary-content"><span
-									class="blue-text ultra-small">2:15 pm</span></a>
-								<div class="clearfix"></div>
-							</li>
-						</ul>
-						<div class="content-box  mrg15B">
-							<div class="content-box-wrapper text-center">
-								<h4 class="content-box-header">
-									Chat <small>(Online friends)</small>
-								</h4>
-								<div class="status-badge mrg10A">
-									<img class="img-circle" width="40"
-										src="/p2p_project/backStyle/images/1.png" alt="">
-									<div class="small-badge bg-red"></div>
-								</div>
-								<div class="status-badge mrg10A">
-									<img class="img-circle" width="40"
-										src="/p2p_project/backStyle/images/2.png" alt="">
-									<div class="small-badge bg-orange"></div>
-								</div>
-								<div class="status-badge mrg10A">
-									<img class="img-circle" width="40"
-										src="/p2p_project/backStyle/images/3.png" alt="">
-									<div class="small-badge bg-red"></div>
-								</div>
-								<div class="status-badge mrg10A">
-									<img class="img-circle" width="40"
-										src="/p2p_project/backStyle/images/4.png" alt="">
-									<div class="small-badge bg-green1"></div>
-								</div>
-								<div class="status-badge mrg10A">
-									<img class="img-circle" width="40"
-										src="/p2p_project/backStyle/images/5.png" alt="">
-									<div class="small-badge bg-orange"></div>
-								</div>
-								<div class="status-badge mrg10A">
-									<img class="img-circle" width="40"
-										src="/p2p_project/backStyle/images/1.png" alt="">
-									<div class="small-badge bg-red"></div>
-								</div>
-								<div class="status-badge mrg10A">
-									<img class="img-circle" width="40"
-										src="/p2p_project/backStyle/images/2.png" alt="">
-									<div class="small-badge bg-green1"></div>
-								</div>
-								<div class="status-badge mrg10A">
-									<img class="img-circle" width="40"
-										src="/p2p_project/backStyle/images/3.png" alt="">
-									<div class="small-badge bg-orange"></div>
-								</div>
-							</div>
-						</div>
+     <div class="box-right-main" >
+     <!-- ------------------------------- -->
+ 
+ 
+ <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<a class="close" data-dismiss="modal"></a>
+				<h4 class="modal-title" id="myModalLabel">
+					 新闻添加
+				</h4>
+			</div>
+<div class="modal-body">
+<form action="/p2p_project/news_type/news_typesave"  method="post" enctype="multipart/form-data" >
+<table  border="0"  cellpadding="4"  bordercolor="#666666">
+<tr>
+<td>
+ 所属类别:<select name="news_type" style="width: 90px;height:25px">
+ <c:forEach items="${list}" var="list">
+ <option value="${list.news_type.id}">${list.news_type.name}</option>
+ </c:forEach>
+ </select>
+ </td>
+ </tr> 
+</table>
+    <input type="submit" value="提交">&nbsp;&nbsp;&nbsp;
+    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+				</button> 
+     </form> 
+     
+</div>
+		
+		</div>
+	</div>
+
+      </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <div align="right">
+ <button type="button" class="btn btn-primary btn-3g" >添加新闻</button>
+ </div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>序号</th>
+      <th>封面图片</th>
+      <th>所属类别</th>
+      <th>作者</th>
+      <th>排序</th>
+      <th>点击数量</th>
+      <th>是否置顶</th>
+      <th>修改时间</th>
+      <th>添加时间</th>
+      <th>修改人ID</th>
+      <th>添加人ID</th>
+      </tr>
+  </thead>
+  <tbody>
+  <c:forEach items="${list}" var="news" varStatus="status">
+    <tr class="warning">
+      <td>${status.index+1}</td>
+      <td><img  src="p2p_project/upload/${news.cphoto}"></td>
+      <td>${news.news_type}</td>
+      <td>${news.author}</td>
+       <td>${news.sort}</td>
+      <td>${news.clicknumber}</td>
+      <td>${news.plactop==0?"是":"否"}</td>
+       <td>${news.updtime}</td>
+      <td>${news.addtime}</td>
+      <td>${news.updld}</td>
+      <td>${news.addld}</td>
+      <td>
+   <a class="btn btn-success" href="#">
+                <i class="glyphicon glyphicon-zoom-in icon-white"></i>
+               修改
+            </a>
+           
+            <a class="btn btn-danger" href="#">
+                <i class="glyphicon glyphicon-trash icon-white"></i>
+               删除
+            </a>
+      
+      
+      
+      </td>
+      </tr>
+  </c:forEach>
+  </tbody>
+
+
+
+
+</table>	
+	
+		
+					
+	<!-- ------------------------------------ -->				
 					</div>
-					<div class="col-md-8 inbox_right">
-						<div class="Compose-Message">
-							<div class="panel panel-default">
-								<div class="panel-heading">Compose New Message</div>
-								<div class="panel-body">
-									<div class="alert alert-info">Please fill details to send
-										a new message</div>
-									<hr>
-									<label>Enter Recipient Name : </label> <input type="text"
-										class="form-control1 control3"> <label>Enter
-										Subject : </label> <input type="text" class="form-control1 control3">
-									<label>Enter Message : </label>
-									<textarea rows="6" class="form-control1 control2"></textarea>
-									<hr>
-									<a href="#" class="btn btn-warning btn-warng1"><span
-										class="glyphicon glyphicon-envelope tag_02"></span> Send
-										Message </a>&nbsp; <a href="#" class="btn btn-success btn-warng1"><span
-										class="glyphicon glyphicon-tags tag_01"></span> Save To Drafts
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="clearfix"></div>
-				</div>
-				<div class="copy_layout">
-					<p>Copyright Â© 2015 Modern. All Rights Reserved | Design by</p>
 				</div>
 			</div>
 		</div>
-		<!-- /#page-wrapper -->
-	</div>
-	<!-- /#wrapper -->
-	<!-- Nav CSS -->
-	<link href="/p2p_project/backStyle/css/custom.css" rel="stylesheet">
-	<!-- Metis Menu Plugin JavaScript -->
-	<script src="/p2p_project/backStyle/js/metisMenu.min.js"></script>
-	<script src="/p2p_project/backStyle/js/custom.js"></script>
+		<link href="/p2p_project/backStyle/css/custom.css" rel="stylesheet">
+<!-- Metis Menu Plugin JavaScript -->
+<script src="/p2p_project/backStyle/js/metisMenu.min.js"></script>
+<script src="/p2p_project/backStyle/js/custom.js"></script>
+<script type="text/javascript" src="/p2p_project/backStyle/css/bootstrap.css"></script>
+<script type="text/javascript" src="/p2p_project/backStyle/js/jquery-3.2.0.min.js"></script>
+<script type="text/javascript" src="/p2p_project/backStyle/js/bootstrap-modal.js"></script>
+<script type="text/javascript" src="/p2p_project/backStyle/js/bootstrap.min.js"></script>
 </body>
 </html>
