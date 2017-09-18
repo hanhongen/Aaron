@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -163,26 +162,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<!-- ----------------------------------------------------- -->
 					<li><a href="#"><i class="fa fa-check-square-o nav_icon"></i>会员管理<span
 							class="fa arrow"></span></a>
-						 <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="/p2p_project/member/listMember">账号管理</a>
-                                </li>
-                                <li>
-                                    <a href="/p2p_project/member_bankcards/listMember_Bankcards">绑卡管理</a>
-                                </li>
-                                 <li>
-                                    <a href="/p2p_project/subject/listSubject">付息计划</a>
-                                </li>
-                                 <li>
-                                    <a href="/p2p_project/member_deposit_record/listMember_deposit_record">充值管理</a>
-                                </li>
-                                 <li>
-                                    <a href="/p2p_project/member_withdraw_record/listMember_withdraw_record">提现管理</a>
-                                </li>
-                                 <li>
-                                    <a href="/p2p_project/award_records/listAward_records">邀请奖励</a>
-                                </li>
-                            </ul><!-- /.nav-second-level --></li>
+						<ul class="nav nav-second-level">
+							<li><a href="/p2p_project/backJsp/forms.jsp">账号管理</a></li>
+							<li><a href="/p2p_project/backJsp/validation.jsp">绑卡管理</a></li>
+							<li><a href="/p2p_project/backJsp/validation.jsp">付息计划</a></li>
+							<li><a href="/p2p_project/backJsp/validation.jsp">充值管理</a></li>
+							<li><a href="/p2p_project/backJsp/validation.jsp">提现管理</a></li>
+							<li><a href="/p2p_project/backJsp/validation.jsp">邀请奖励</a></li>
+						</ul> <!-- /.nav-second-level --></li>
 					<!-- ----------------------------------------------------- -->
 					<li><a href="#"><i class="fa fa-table nav_icon"></i>盈加统计<span
 							class="fa arrow"></span></a>
@@ -216,112 +203,39 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="graphs" >
 				<div class="xs">
      <div class="box-right-main" >
-     <!-- ------------------------------- -->
- 
- 
- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<a class="close" data-dismiss="modal"></a>
-				<h4 class="modal-title" id="myModalLabel">
-					 新闻添加
-				</h4>
-			</div>
-<div class="modal-body">
-<form action="/p2p_project/news_type/news_typesave"  method="post" enctype="multipart/form-data" >
-<table  border="0"  cellpadding="4"  bordercolor="#666666">
-<tr>
-<td>
- 所属类别:<select name="news_type" style="width: 90px;height:25px">
- <c:forEach items="${list}" var="list">
- <option value="${list.news_type.id}">${list.news_type.name}</option>
- </c:forEach>
- </select>
- </td>
- </tr> 
-</table>
-    <input type="submit" value="提交">&nbsp;&nbsp;&nbsp;
-    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
-				</button> 
-     </form> 
-     
-</div>
-		
-		</div>
-	</div>
-
-      </div>
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- <div align="right">
- <button type="button" class="btn btn-primary btn-3g" >添加新闻</button>
- </div>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>序号</th>
-      <th>封面图片</th>
-      <th>所属类别</th>
-      <th>作者</th>
-      <th>排序</th>
-      <th>点击数量</th>
-      <th>是否置顶</th>
-      <th>修改时间</th>
-      <th>添加时间</th>
-      <th>修改人ID</th>
-      <th>添加人ID</th>
-      </tr>
-  </thead>
-  <tbody>
-  <c:forEach items="${list}" var="news" varStatus="status">
-    <tr class="warning">
-      <td>${status.index+1}</td>
-      <td><img  src="p2p_project/upload/${news.cphoto}"></td>
-      <td>${news.news_type}</td>
-      <td>${news.author}</td>
-       <td>${news.sort}</td>
-      <td>${news.clicknumber}</td>
-      <td>${news.plactop==0?"是":"否"}</td>
-       <td>${news.updtime}</td>
-      <td>${news.addtime}</td>
-      <td>${news.updld}</td>
-      <td>${news.addld}</td>
-      <td>
-   <a class="btn btn-success" href="#">
-                <i class="glyphicon glyphicon-zoom-in icon-white"></i>
-               修改
-            </a>
-           
-            <a class="btn btn-danger" href="#">
-                <i class="glyphicon glyphicon-trash icon-white"></i>
-               删除
-            </a>
-      
-      
-      
-      </td>
-      </tr>
-  </c:forEach>
-  </tbody>
-
-
-
-
-</table>	
-	
-		
-					
-	<!-- ------------------------------------ -->				
+					<!-- --------------------- -->
+					<form action="/p2p_project/news_type/update" method="post">
+						<input type="hidden" name="id"  value="${news.id}">
+						<input type="hidden" name="link"  value="${news.link}">
+						<input type="hidden" name="pagetype"  value="${news.pagetype}">
+						<input type="hidden" name="info"  value="${news.info}">
+						<input type="hidden" name="cphoto"  value="${news.cphoto}">
+						<input type="hidden" name="text"  value="${news.text}">
+						<input type="hidden" name="seotitle"  value="${news.seotitle}">
+						<input type="hidden" name="seokey"  value="${news.seokey}">
+						<input type="hidden" name="seodes"  value="${news.seokey}">
+						<input type="hidden" name="addid"  value="${news.addid}">
+						<input type="hidden" name="addtime" value="${news.addtime}">
+						<table class="table" >
+								<thead>
+							<tr class="active">
+									<td>名称:<input type="text" name="name" value="${news.name}"></td>
+							</tr>
+							<tr class="active">
+							<td>上级类别:<select name="suptype" style="width: 100; height: 30">
+							<option value="${news.suptype}">${news.suptype==0?"根类名":"子类名"}</option>
+							</select>
+								</tr>
+								<tr class="active">
+									<td>序号:<input type="number" name="sort" value="${news.sort}"></td>
+								</tr>
+								<tr>
+									<td><input type="submit" value="提交"> <input
+										type="button" value="关闭" onclick="close()"></td>
+								</tr>
+							</thead>
+						</table>
+					</form>
 					</div>
 				</div>
 			</div>
@@ -330,9 +244,5 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- Metis Menu Plugin JavaScript -->
 <script src="/p2p_project/backStyle/js/metisMenu.min.js"></script>
 <script src="/p2p_project/backStyle/js/custom.js"></script>
-<script type="text/javascript" src="/p2p_project/backStyle/css/bootstrap.css"></script>
-<script type="text/javascript" src="/p2p_project/backStyle/js/jquery-3.2.0.min.js"></script>
-<script type="text/javascript" src="/p2p_project/backStyle/js/bootstrap-modal.js"></script>
-<script type="text/javascript" src="/p2p_project/backStyle/js/bootstrap.min.js"></script>
 </body>
 </html>
