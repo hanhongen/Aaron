@@ -233,7 +233,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <a href="/p2p_project/backJsp/media.jsp">公告管理</a>
                                 </li>
                                 <li>
-                                    <a href="/p2p_project/backJsp/login.jsp">意见反馈</a>
+                                    <a href="/p2p_project/backJsp/feedback.jsp">意见反馈</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
