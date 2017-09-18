@@ -294,11 +294,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                           </tr>
                           <c:forEach items="${listSubject }" var="ls" varStatus="stat">
                           <tr class="text-center">
-                            <td>${stat.index+1 }</td>
+                            <td>
+                            <input type="hidden" id="bid" value="${ls.id }">
+                            ${stat.index+1 }
+                            </td>
                             <td>${ls.serial_no }</td>
                             <td>${ls.type }</td>
                             <td>${ls.name }</td>
-                            <td>${ls.amount}</td>
+                            <td>${ls.amount*ls.bought}</td>
                             <td>${ls.floor_amount }</td>
                             <td>${ls.bought }</td>
                             <td>${ls.period }</td>
@@ -314,11 +317,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </td>
                             <td>
                             <c:if test="${ls.exper_status ==1}">
-                             <button type="button" class="btn btn-primary btn-sm">体验金付息</button>
-                             <button type="button" class="btn btn-primary btn-sm">付息列表</button>
+                             <a href="/p2p_project/subject_bbin_purchase_record/listSubject_bbin_purchase_record/${ls.id }">体验金付息</a>
+                             <a href="/p2p_project/subject_purchase_record/listSubject_purchase_record/${ls.id }">付息列表</a>
                             </c:if>
                             <c:if test="${ls.exper_status ==0}">
-                            <button type="submit" class="btn btn-primary btn-sm">付息列表</button>
+                            <a href="/p2p_project/subject_purchase_record/listSubject_purchase_record/${ls.id }">付息列表</a>
                             </c:if>
                             </td>
                           </tr>
@@ -338,5 +341,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- Metis Menu Plugin JavaScript -->
 <script src="/p2p_project/backStyle/js/metisMenu.min.js"></script>
 <script src="/p2p_project/backStyle/js/custom.js"></script>
+
 </body>
 </html>

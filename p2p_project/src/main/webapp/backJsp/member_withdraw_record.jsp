@@ -317,7 +317,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <c:if test="${lm.status == 3 }">打款失败</c:if>
                             </td>
                             <td>${lm.create_date }</td>
-                            <td><a href="#">账号详情</a></td>
+                            <td><a href="/p2p_project/member_withdraw_record/recordPanel/${lm.id }/${lm.member.id }">账号详情</a></td>
                           </tr>
                           </c:forEach>
 			</table>

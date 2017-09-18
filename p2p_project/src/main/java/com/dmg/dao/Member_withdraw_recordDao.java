@@ -7,6 +7,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import com.dmg.bean.Member;
 import com.dmg.bean.Member_withdraw_record;
 
 @Component
@@ -52,4 +54,19 @@ public class Member_withdraw_recordDao {
 		
 		return hql;
 	}
+	
+	public List<Member_withdraw_record> listMember_withdraw_record(int id){
+		String hql="from Member_withdraw_record where id="+id;
+		Session session = getSession();
+		List<Member_withdraw_record> list = session.createQuery(hql).list(); 
+		return list;
+	}
+	
+	//根据id查询个人账号详情
+		public List<Member> listMemberId(int id){
+			String hql = "from Member where id="+id;
+			Session session = getSession();
+			List<Member> list = session.createQuery(hql).list();
+			return list;
+		}
 }

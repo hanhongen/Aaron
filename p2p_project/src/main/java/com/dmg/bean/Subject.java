@@ -27,6 +27,8 @@ public class Subject {  //主题表
 	private String raise_end;  //募集结束
 	private int refund_way;  //还款方式
 	private int safeguard_way;  //保障方式
+	private String start_date;//标的开始日期
+	private String end_date;//标的结束日期
 	private double year_rate;  //年化率',
 	private String comment;  //产品速览
 	private Subject_folder subject_folder;  //文件夹Id

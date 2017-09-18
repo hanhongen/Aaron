@@ -52,4 +52,11 @@ public class Member_deposit_recordDao {
 		return hql;
 	}
 	
+	public List<Member_deposit_record> listMember_deposit_record(int id){
+		String hql="from Member_deposit_record m where m.member.id="+id;
+		Session session = getSession();
+		List<Member_deposit_record> list = session.createQuery(hql).list();
+		return list;
+	}
+	
 }

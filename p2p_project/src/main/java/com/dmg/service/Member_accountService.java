@@ -20,4 +20,9 @@ public class Member_accountService {
 		return list;
 	}
 	
+	
+	public List<Member_account> listMember_account(int id){
+		List<Member_account> list = member_accountDao.listMember_account(id);
+		return list;
+	}
 }

@@ -25,4 +25,10 @@ public class Member_deposit_recordSevice {
 		List<Member_deposit_record> list= member_deposit_recordDao.listMember_deposit_record(map);
 		return list;
 	}
+	
+	public List<Member_deposit_record> listMember_deposit_record(int id){
+		List<Member_deposit_record> list= member_deposit_recordDao.listMember_deposit_record(id);
+		return list;
+	}
+	
 }
