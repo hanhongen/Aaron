@@ -61,12 +61,12 @@ public class Push_Controller {
 		return "redirect:/test/test1";
     }
 	
-	@RequestMapping("/test4/{id}")
+/*	@RequestMapping("/test4/{id}")
 	public String test4(@PathVariable("id") int id,Model model){
 		     Push_notice push_notice=push_notice_service.getbypid(id);
 		     model.addAttribute("push_notice",push_notice);
 		     return "pushupdate";
-	}
+	}*/
 	
 	@RequestMapping("/test5")
 	public String test5(Push_notice push_notice){

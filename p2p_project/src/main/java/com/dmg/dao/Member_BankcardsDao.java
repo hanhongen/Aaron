@@ -3,7 +3,6 @@ package com.dmg.dao;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.catalina.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
