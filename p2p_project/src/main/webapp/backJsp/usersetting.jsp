@@ -274,9 +274,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<td><c:if test="${u.del_flag==1}"><font color="red">以删除</font></c:if>
 									  <c:if test="${u.del_flag==0}">未删除</c:if>
 									 </td>
-									<td><c:if test="${u.identity==0}">超级管理员</c:if> <c:if
-											test="${u.identity==1}">普通管理员</c:if> <c:if
-											test="${u.identity==2}">普通用户</c:if></td>
+									<td><c:if test="${u.identity==1}">系统管理员</c:if> <c:if
+											test="${u.identity==2}">普通管理员</c:if> <c:if
+											test="${u.identity==3}">普通用户</c:if></td>
 									<td>${u.create_date }</td>
 									<!-- <td>${u.update_date }</td> -->
 									<td>

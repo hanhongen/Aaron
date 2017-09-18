@@ -246,7 +246,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <a href="/p2p_project/usersetting/showuser">账户设置</a>
                                 </li>
                                 <li>
-                                    <a href="/p2p_project/backJsp/login.jsp">角色设置</a>
+                                    <a href="/p2p_project/back/showRole">角色设置</a>
                                 </li>
                                 <li>
                                     <a href="/p2p_project/backJsp/login.jsp">密码设置</a>

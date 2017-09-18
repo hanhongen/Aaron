@@ -271,7 +271,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<!--开头-->
 				
 				<div class="tablelist">
-					<form name="form1" action="/p2p_project/usersetting/addUser" id="form1" method="post">
+					<form name="form1" action="/p2p_project/usersetting/update" id="form1" method="post">
 						<table class="table  tablebox">
 						<input type="hidden" name="id" value="${user.id}">
 							<tr class="text-center" bgcolor="#f7f7f7">
@@ -290,7 +290,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								  角    色：<select id="identity" name="identity" style="width: 150px;height: 25px">
 								    <option value="-1"/>请选择角色
 									<c:forEach items="${list }" var="r">
-									  <option value="${r.id}"/>${r.cname}
+									  <option value="${r.id}" ${r.id==user.user_role_relation.role_id?"selected":"" }/>${r.cname}
 									</c:forEach>
 								  </select>
 								</td>
@@ -316,7 +316,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 			</div>
 		</div>
-		
+		<script type="text/javascript">
+		  $(function(){
+			  $("#btn1").click(function(){
+					location="/p2p_project/usersetting/showuser";
+				});
+			  
+		  });
+		</script>
 	
 
 

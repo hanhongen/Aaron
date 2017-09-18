@@ -1,13 +1,15 @@
 package com.dmg.bean;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -25,7 +27,19 @@ public class Users {  //用户表
 	private int identity;   //身份
 	private String create_date;  //创建时间
 	private String update_date;  // 修改时间
-
+	private Set<User_role> rolelist=new HashSet<>();  //角色表
+	
+	
+	@ManyToMany(cascade=CascadeType.ALL)
+	@JoinTable(name="user_role_relation",
+				joinColumns=@JoinColumn(name="user_id"),
+				inverseJoinColumns=@JoinColumn(name="role_id"))
+	public Set<User_role> getRolelist() {
+		return rolelist;
+	}
+	public void setRolelist(Set<User_role> rolelist) {
+		this.rolelist = rolelist;
+	}
 	@Id
 	@GeneratedValue
 	public int getId() {
