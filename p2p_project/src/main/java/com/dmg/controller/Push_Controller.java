@@ -102,7 +102,7 @@ public class Push_Controller {
 		return "backJsp/feedback";
 	}
 	
-	@RequestMapping("/savefeed")
+	/*@RequestMapping("/savefeed")
 	public String savefeed(Feedback feedbacks,int pid){
 		if(pid!=-1){
 			Member members=push_notice_service.getbympid(pid);
@@ -113,7 +113,7 @@ public class Push_Controller {
 		feedbacks.setCreate_date(date);
 		push_notice_service.save(feedbacks);
 		return "redirect:/test/select";	
-	}
+	}*/
 	   
 	 @RequestMapping("/updatefeed/{id}")
  	 public String updatefeed(@PathVariable("id") int id,Model model){
