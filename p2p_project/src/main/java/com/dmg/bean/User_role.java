@@ -1,8 +1,14 @@
 package com.dmg.bean;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -20,7 +26,15 @@ public class User_role {  //角色表
 	private int source_type;  //源型类别
 	private int source_id;  //源ID
 	private int del_flag;
+	private Set<Users> userlist=new HashSet<>(); //用户表
 	
+	@ManyToMany(mappedBy="rolelist",cascade=CascadeType.ALL)
+	public Set<Users> getUserlist() {
+		return userlist;
+	}
+	public void setUserlist(Set<Users> userlist) {
+		this.userlist = userlist;
+	}
 	@Id
 	@GeneratedValue
 	public int getId() {

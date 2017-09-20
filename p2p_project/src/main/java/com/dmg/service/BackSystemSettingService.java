@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dmg.bean.Backtitle;
+import com.dmg.bean.User_role;
 import com.dmg.dao.BackSystemSettingDao;
 
 @Service
@@ -17,8 +18,13 @@ public class BackSystemSettingService {
 	@Autowired
 	private BackSystemSettingDao backSystemSettingDao;
 	
-	//显示
-	public List<Backtitle> showTitle(){
-		return backSystemSettingDao.showTitle();
+	//查询角色
+	public List<User_role> listRole() {
+		return backSystemSettingDao.listRole();
+	}
+	
+	//添加角色
+	public void addRole(User_role role) {
+		backSystemSettingDao.addRole(role);
 	}
 }

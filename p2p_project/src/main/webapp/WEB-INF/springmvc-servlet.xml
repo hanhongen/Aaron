@@ -13,6 +13,8 @@
 	 <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/> 
 	</context:component-scan>
 	<mvc:annotation-driven></mvc:annotation-driven>
+	
+	
 	<mvc:resources location="/frontStyle/js/" mapping="/frontStyle/js/**"/>
 	<mvc:resources location="/frontStyle/css/" mapping="/frontStyle/css/**"/>
 	<mvc:resources location="/frontStyle/images/" mapping="/frontStyle/images/**"/>
@@ -20,6 +22,9 @@
 	<mvc:resources location="/backStyle/js/" mapping="/backStyle/js/**"/>
 	<mvc:resources location="/backStyle/css/" mapping="/backStyle/css/**"/>
 	<mvc:resources location="/backStyle/images/" mapping="/backStyle/images/**"/>
+	
+	
+	
 	<mvc:resources location="/upload/" mapping="/upload/**"/>
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 	  <property name="prefix" value="/"></property>

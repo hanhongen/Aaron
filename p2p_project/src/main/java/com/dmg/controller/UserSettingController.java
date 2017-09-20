@@ -24,6 +24,13 @@ public class UserSettingController {
 	@Autowired
 	private UserSetttingService userSetttingService;
 	
+	@RequestMapping("/showrole")
+	public String showRoles(Model model) {
+		List<User_role> list=userSetttingService.listRole();
+		model.addAttribute("list", list);
+		return "rolesetting";
+	}
+	
 	@RequestMapping("/addUser")
 	public String addUser(Users user) {
 		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");

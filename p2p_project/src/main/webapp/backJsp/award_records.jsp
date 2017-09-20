@@ -316,8 +316,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </td>
                             <td>${lm.addtime }</td>
                             <td>
-                            <c:if test="${lm.type == 0}">注册已奖励</c:if>
-                            <c:if test="${lm.type == 1}">投资已奖励</c:if>
+                            <c:if test="${lm.type == 0}"><nobr style="color:blue">注册已奖励</nobr></c:if>
+                            <c:if test="${lm.type == 1}"><nobr style="color:blue">投资已奖励</nobr></c:if>
                             <c:if test="${lm.type == 2}">暂无奖励</c:if>
                             <a href="/p2p_project/award_records/listiy/${lm.invitingid }/${lm.byinvitingid }">查看奖励记录</a>
                             </td>

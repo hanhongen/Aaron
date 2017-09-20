@@ -309,11 +309,9 @@ function delenotic(id){
 				<!--开头-->
 				<form method="post" id="forms">
 					<table class="table table-striped">
-						<span input-group-addon>请输入查询标题</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<input type="button" value="搜索" id="btn1" />
-						<input type="text" class="form-control" placeholder="公告标题" name="name" value="${name}" />
-						<button type="button" class="btn btn-primary" id="save">新增</button>
-						<%--  <caption style="font-size:35px"></caption> --%>
+					请输入要查询标题<input type="text" placeholder="公告标题" placeholder="公告标题" name="name" value="${name}" />
+						<input type="button"   class="btn btn-primary" value="搜索" id="btn1" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<button type="button" class="btn btn-primary" id="save" >新增</button>
 						<thead>
 							<tr>
 								<th>序号</th>

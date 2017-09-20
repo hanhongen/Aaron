@@ -5,25 +5,20 @@
 
 <html>
 <head>
-<title>Modern an Admin Panel Category Flat Bootstarp Resposive Website Template | Forms :: w3layouts</title>
+<title>付息计划</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Modern Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
-<!-- <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script> -->
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
  <!-- Bootstrap Core CSS -->
 <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/bootstrap-3.3.4.css">
 <!-- Custom CSS -->
 <link href="/p2p_project/backStyle/css/style.css" rel='stylesheet' type='text/css' />
 <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/font-awesome.4.6.0.css"> 
-<!-- 日期控件 -->
-<link rel="stylesheet" type="text/css" href="/p2p_project/backStyle/css/bootstrap-datetimepicker.min.css"> 
 <!-- jQuery -->
 <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
-<!-- 日期控件 -->
-<script src="/p2p_project/backStyle/js/bootstrap-datetimepicker.min.js"></script>
-<script src="/p2p_project/backStyle/js/bootstrap-datetimepicker.fr.js"></script>
-<script src="/p2p_project/backStyle/js/bootstrap-datetimepicker.zh-CN.js"></script>
+
 <!---//webfonts--->  
 <!-- Bootstrap Core JavaScript -->
 <script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
@@ -131,9 +126,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </form>
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
-                                    <ul class="nav" id="side-menu">
+                                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href=""><i class="fa fa-dashboard fa-fw nav_icon"></i>回到首页</a>
+                             <a href=""><i class="fa fa-dashboard fa-fw nav_icon"></i>回到首页</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-laptop nav_icon"></i>理财产品<span class="fa arrow"></span></a>
@@ -187,7 +182,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                          <!-- ----------------------------------------------------- -->
                          <li>
                             <a href="#"><i class="fa fa-check-square-o nav_icon"></i>会员管理<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
+                           <ul class="nav nav-second-level">
                                 <li>
                                     <a href="/p2p_project/member/listMember">账号管理</a>
                                 </li>
@@ -257,80 +252,65 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <!-- /.navbar-static-side -->
         </nav>
-       
+        
+        
+        <div id="page-wrapper">
+        <div class="col-md-12 graphs">
+	   <div class="xs">
+  	    <!-- --------------------------------------------------------------------------------------------------------------------------- -->       
+			 <div class="box-right-main">
+                        <h2><span class="glyphicon glyphicon-play" style="margin-right:5px"></span>付息列表</h2>
+                      <div class="tablelist">
+                        <table class="table table-bordered tablebox">
+                          <tr class="text-center" bgcolor="#f7f7f7">
+                          <td>序号</td>
+                          <td>流水号</td>
+                          <td>投资人手机号</td>
+                          <td>投资人姓名</td>
+                          <td>投资人身份证</td>
+                          <td>投资金额</td>
+                          <td>还款利息</td>
+                          <td>投资时间</td>
+                          <td>还款时间</td>
+                          <td>还款状态</td>
+                          <td>操作</td>
+                          </tr>
+                          <c:forEach items="${listSPR }" var="SPR" varStatus="stat">
+                          <tr class="text-center">
+                            <td>${stat.index+1 }</td>
+                            <td>${SPR.serial_number }</td>
+                            <td>${SPR.member.mobile_phone }</td>
+                            <td>${SPR.member.member_name }</td>
+                            <td>${SPR.member.identity }</td>
+                            <td>${SPR.amount }</td>
+                            <td>
+                            	投资金额：${SPR.amount }
+                            	结算利息：${SPR.interest }
+                            	本息：${SPR.amount+SPR.interest }
+                            </td>
+                            <td>${SPR.update_date }</td>
+                            <td>
+                            <c:if test="${SPR.ispayment == 0 }">待还款</c:if>
+                            <c:if test="${SPR.ispayment == 1 }">已还款</c:if>                          
+                            </td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          </c:forEach>
+			</table>
   	 <!-- --------------------------------------------------------------------------------------------------------------------------- -->   
-<div id="page-wrapper">
-			<div class="graphs">
-				<div class="widget_head">
-					<div class="box-right-main">
-						<h2>
-							<span class="glyphicon glyphicon-play" style="margin-right: 5px"></span>修改用户信息
-						</h2>
-					</div>
-				</div>
-				<!--开头-->
-				
-				<div class="tablelist">
-					<form name="form1" action="/p2p_project/usersetting/update" id="form1" method="post">
-						<table class="table  tablebox">
-						<input type="hidden" name="id" value="${user.id}">
-							<tr class="text-center" bgcolor="#f7f7f7">
-								<td>姓    名：<input type="text" name="user_name" value="${user.user_name}"></td>
-						    <tr class="text-center" bgcolor="#f7f7f7">
-								<td>
-								   密    码：<input type="text" id="password" name="password" value="${user.password }">
-								</td>
-							</tr>
-							
-							<tr class="text-center" bgcolor="#f7f7f7">
-								<td>手机号：<input type="text" name="mobile_phone" value="${user.mobile_phone }"></td>
-							</tr>
-							<tr class="text-center" bgcolor="#f7f7f7">
-								<td>
-								  角    色：<select id="identity" name="identity" style="width: 150px;height: 25px">
-								    <option value="-1"/>请选择角色
-									<c:forEach items="${list }" var="r">
-									  <option value="${r.id}" ${r.id==user.user_role_relation.role_id?"selected":"" }/>${r.cname}
-									</c:forEach>
-								  </select>
-								</td>
-								
-								
-								<tr class="text-center" bgcolor="#f7f7f7">
-								<td>状   态：
-								  <input type="radio" name="status" value="0" ${user.status==0?"checked":""}>禁用&nbsp;
-								  <input type="radio" name="status" value="1" ${user.status==1?"checked":""}>正常
-								</td>
-							</tr>
-							
-							</tr>
-							<tr class="text-center" bgcolor="#f7f7f7">
-							  <td>&nbsp;
-							    <input type="submit" value="提   交">&nbsp;&nbsp;
-							    
-							    <input type="button" id="btn1" value="返  回">&nbsp;
-							  </td>
-							</tr>
-						</table>
-					</form>
-				</div>
-			</div>
-		</div>
-		<script type="text/javascript">
-		  $(function(){
-			  $("#btn1").click(function(){
-					location="/p2p_project/usersetting/showuser";
-				});
-			  
-		  });
-		</script>
-	
-
-
-		<!-- Nav CSS -->
-		<link href="/p2p_project/backStyle/css/custom.css" rel="stylesheet">
-		<!-- Metis Menu Plugin JavaScript -->
-		<script src="/p2p_project/backStyle/js/metisMenu.min.js"></script>
-		<script src="/p2p_project/backStyle/js/custom.js"></script>
+    <div class="copy_layout">
+      <p>Copyright Â© 2015 Modern. All Rights Reserved | Design by  </p>
+   </div>
+   </div>
+      </div>
+      <!-- /#page-wrapper -->
+   </div>
+    <!-- /#wrapper -->
+<!-- Nav CSS -->
+<link href="/p2p_project/backStyle/css/custom.css" rel="stylesheet">
+<!-- Metis Menu Plugin JavaScript -->
+<script src="/p2p_project/backStyle/js/metisMenu.min.js"></script>
+<script src="/p2p_project/backStyle/js/custom.js"></script>
 </body>
 </html>

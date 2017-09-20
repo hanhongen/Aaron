@@ -56,6 +56,9 @@ public class Member_deposit_recordDao {
 		String hql="from Member_deposit_record m where m.member.id="+id;
 		Session session = getSession();
 		List<Member_deposit_record> list = session.createQuery(hql).list();
+		for (Member_deposit_record m : list) {
+			System.out.println("序号："+m.getId()+",编号:"+m.getSeril_number()+",充值金额："+m.getAmount()+",充值状态："+m.getStatus()+",充值渠道:"+m.getPay_channel_name()+",充值编号："+m.getPay_channel_order_no()+",充值时间"+m.getCreate_date());
+		}
 		return list;
 	}
 	

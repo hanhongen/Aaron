@@ -5,7 +5,7 @@
 
 <html>
 <head>
-<title>用户管理</title>
+<title>添加用户</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords"
@@ -118,7 +118,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							Logout</a></li>
 				</ul></li>
 		</ul>
-		
+
 		<div class="navbar-default sidebar" role="navigation">
 			<div class="sidebar-nav navbar-collapse">
 				<ul class="nav" id="side-menu">
@@ -211,50 +211,54 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 				</div>
 				<!--开头-->
-				
+
 				<div class="tablelist">
-					<form name="form1" action="/p2p_project/usersetting/addUser" id="form1" method="post">
+					<form name="form1" action="/p2p_project/usersetting/addUser"
+						id="form1" method="post">
 						<table class="table  tablebox">
 							<tr class="text-center" bgcolor="#f7f7f7">
-								<td>姓    名：<input type="text" name="user_name" required placeholder="用户名"></td>
-						    <tr class="text-center" bgcolor="#f7f7f7">
-								<td>
-								   密    码：<input type="password" id="password1" name="password1" required placeholder="密 码">
+								<td>姓 名：<input type="text" name="user_name" required
+									placeholder="用户名"></td>
+							<tr class="text-center" bgcolor="#f7f7f7">
+								<td>密 码：<input type="password" id="password1"
+									name="password1" required placeholder="密 码">
 								</td>
 							</tr>
 							<tr class="text-center" bgcolor="#f7f7f7">
-								<td>密    码：<input type="password" id="password" name="password" onblur="return fun1();" required placeholder="再次输入密码"><span id="s1"></span>
+								<td>密 码：<input type="password" id="password"
+									name="password" onblur="return fun1();" required
+									placeholder="再次输入密码"><span id="s1"></span>
 								</td>
 							</tr>
 							<tr class="text-center" bgcolor="#f7f7f7">
-								<td>手机号：<input type="text" name="mobile_phone" required placeholder="手机号码"></td>
+								<td>手机号：<input type="number" name="mobile_phone" required
+									placeholder="手机号码"></td>
 							</tr>
 							<tr class="text-center" bgcolor="#f7f7f7">
-								<td>
-								  角    色：<select id="identity" name="identity" style="width: 150px;height: 25px">
-								    <option value="-1"/>请选择角色
-									<c:forEach items="${list }" var="r">
-									  <option value="${r.id}"/>${r.cname}
+								<td>角 色：<select id="identity" name="identity"
+									style="width: 150px; height: 25px">
+										<option value="-1" />请选择角色
+										<c:forEach items="${list }" var="r">
+											<option value="${r.id}" />${r.cname}
 									</c:forEach>
-								  </select>
+								</select>
 								</td>
 							</tr>
 							<tr class="text-center" bgcolor="#f7f7f7">
-							  <td>&nbsp;
-							    <input type="submit" value="提   交">&nbsp;
-							    <input type="reset" value="重  置">&nbsp; 
-							    <input type="button" id="btn1" value="返  回">&nbsp;
-							  </td>
+								<td>&nbsp; <input type="submit" value="提   交">&nbsp;
+									<input type="reset" value="重  置">&nbsp; <input
+									type="button" id="btn1" value="返  回">&nbsp;
+								</td>
 							</tr>
 						</table>
 					</form>
 				</div>
 			</div>
 		</div>
-		
-	
-	
-	
+
+
+
+
 		<!-- Nav CSS -->
 		<link href="/p2p_project/backStyle/css/custom.css" rel="stylesheet">
 		<!-- Metis Menu Plugin JavaScript -->
@@ -263,6 +267,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </body>
 <script type="text/javascript">
 	$(function(){
+		$("#btn1").click(function(){
+			location="/p2p_project/usersetting/showuser";
+		});
+		
 		  function fun1(){
 			  var pwd1=$("#password1").val();
 			  var pwd=$("this").val();
