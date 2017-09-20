@@ -1,17 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html>
 <head>
+<title>用户管理</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords"
 	content="Modern Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
-<script type="application/x-javascript">
-	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
-</script>
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- Bootstrap Core CSS -->
 <link rel="stylesheet" type="text/css"
 	href="http://www.jq22.com/jquery/bootstrap-3.3.4.css">
@@ -25,11 +25,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <!---//webfonts--->
 <!-- Bootstrap Core JavaScript -->
-<script type="text/javascript"
-	src="/p2p_project/backStyle/js/jquery.min.js"></script>
-<script type="text/javascript"
-	src="/p2p_project/backStyle/js/bootstrap.min.js"></script>
 <script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
+
+
+<script type="text/javascript">
+function fun1(){
+document.forms[0].action="/p2p_project/news/savelist";
+document.forms[0].submit();
+}
+</script>
 </head>
 <body>
 	<div id="wrapper">
@@ -121,11 +125,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							Logout</a></li>
 				</ul></li>
 		</ul>
-		<form class="navbar-form navbar-right">
-			<input type="text" class="form-control" value="Search..."
-				onFocus="this.value = '';"
-				onBlur="if (this.value == '') {this.value = 'Search...';}">
-		</form>
+		
 		<div class="navbar-default sidebar" role="navigation">
 			<div class="sidebar-nav navbar-collapse">
 				<ul class="nav" id="side-menu">
@@ -163,26 +163,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<!-- ----------------------------------------------------- -->
 					<li><a href="#"><i class="fa fa-check-square-o nav_icon"></i>会员管理<span
 							class="fa arrow"></span></a>
-						 <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="/p2p_project/member/listMember">账号管理</a>
-                                </li>
-                                <li>
-                                    <a href="/p2p_project/member_bankcards/listMember_Bankcards">绑卡管理</a>
-                                </li>
-                                 <li>
-                                    <a href="/p2p_project/subject/listSubject">付息计划</a>
-                                </li>
-                                 <li>
-                                    <a href="/p2p_project/member_deposit_record/listMember_deposit_record">充值管理</a>
-                                </li>
-                                 <li>
-                                    <a href="/p2p_project/member_withdraw_record/listMember_withdraw_record">提现管理</a>
-                                </li>
-                                 <li>
-                                    <a href="/p2p_project/award_records/listAward_records">邀请奖励</a>
-                                </li>
-                            </ul><!-- /.nav-second-level --></li>
+						<ul class="nav nav-second-level">
+							<li><a href="/p2p_project/member/listMember">账号管理</a></li>
+							<li><a
+								href="/p2p_project/member_bankcards/listMember_Bankcards">绑卡管理</a>
+							</li>
+							<li><a href="/p2p_project/subject/listSubject">付息计划</a></li>
+							<li><a
+								href="/p2p_project/member_deposit_record/listMember_deposit_record">充值管理</a>
+							</li>
+							<li><a
+								href="/p2p_project/member_withdraw_record/listMember_withdraw_record">提现管理</a>
+							</li>
+							<li><a href="/p2p_project/award_records/listAward_records">邀请奖励</a>
+							</li>
+						</ul> <!-- /.nav-second-level --></li>
 					<!-- ----------------------------------------------------- -->
 					<li><a href="#"><i class="fa fa-table nav_icon"></i>盈加统计<span
 							class="fa arrow"></span></a>
@@ -203,7 +198,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<li><a href="#"><i class="fa fa-sitemap fa-fw nav_icon"></i>系统设置<span
 							class="fa arrow"></span></a>
 						<ul class="nav nav-second-level">
-							<li><a href="/p2p_project/backJsp/media.jsp">账户设置</a></li>
+							<li><a href="/p2p_project/backJsp/usersetting.jsp">账户设置</a>
+							</li>
 							<li><a href="/p2p_project/backJsp/login.jsp">角色设置</a></li>
 							<li><a href="/p2p_project/backJsp/login.jsp">密码设置</a></li>
 						</ul> <!-- /.nav-second-level --></li>
@@ -212,60 +208,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<!-- /.sidebar-collapse -->
 		</div>
 		<!-- /.navbar-static-side --> </nav>
-		<div id="page-wrapper" >
-			<div class="graphs" >
-				<div class="xs">
-     <div class="box-right-main" >
-     <!-- ------------------------------- -->
+		<div id="page-wrapper">
+			<div class="graphs">
+				<div class="widget_head">
+					
+				</div>
+				<!--开头-->
+				
+				<div class="tablelist">
+<input type="text" name="title" placeholder="标题"> &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="type" placeholder="新闻类别">&nbsp;&nbsp;&nbsp;<button type="button" class="hidden-sm hidden-xs" id="but1">查询</button>
+ <div class="btn-group pull-right">
+                <button type="button" class="btn btn-primary btn-3g" onclick="fun1()" >添加新闻</button>
+                <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    <i class="glyphicon glyphicon-user"></i><span class="hidden-sm hidden-xs">用户名称</span>
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li class="divider"></li>
+                     <a href="/p2p_project/frontJsp/login.jsp">切换用户</a>
+                </ul>
+            </div>
  
- 
- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<a class="close" data-dismiss="modal"></a>
-				<h4 class="modal-title" id="myModalLabel">
-					 新闻添加
-				</h4>
-			</div>
-<div class="modal-body">
-<form action="/p2p_project/news_type/news_typesave"  method="post" enctype="multipart/form-data" >
-<table  border="0"  cellpadding="4"  bordercolor="#666666">
-<tr>
-<td>
- 所属类别:<select name="news_type" style="width: 90px;height:25px">
- <c:forEach items="${list}" var="list">
- <option value="${list.news_type.id}">${list.news_type.name}</option>
- </c:forEach>
- </select>
- </td>
- </tr> 
-</table>
-    <input type="submit" value="提交">&nbsp;&nbsp;&nbsp;
-    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
-				</button> 
-     </form> 
-     
-</div>
-		
-		</div>
-	</div>
-
-      </div>
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- <div align="right">
- <button type="button" class="btn btn-primary btn-3g" >添加新闻</button>
- </div>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -286,8 +249,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   <c:forEach items="${list}" var="news" varStatus="status">
     <tr class="warning">
       <td>${status.index+1}</td>
-      <td><img  src="p2p_project/upload/${news.cphoto}"></td>
-      <td>${news.news_type}</td>
+      <td><img width="100px" height="60px" src="/p2p_project/upload/${news.cphoto}"></td>
+      <td>${news.news_type.name}</td>
       <td>${news.author}</td>
        <td>${news.sort}</td>
       <td>${news.clicknumber}</td>
@@ -297,12 +260,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       <td>${news.updld}</td>
       <td>${news.addld}</td>
       <td>
-   <a class="btn btn-success" href="#">
+   <a class="btn btn-success" href="/p2p_project/news/updatelist/${news.id}">
                 <i class="glyphicon glyphicon-zoom-in icon-white"></i>
                修改
             </a>
            
-            <a class="btn btn-danger" href="#">
+            <a class="btn btn-danger" href="/p2p_project/news/deletenews/${news.id}">
                 <i class="glyphicon glyphicon-trash icon-white"></i>
                删除
             </a>
@@ -313,26 +276,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       </tr>
   </c:forEach>
   </tbody>
-
-
-
-
 </table>	
-	
-		
-					
-	<!-- ------------------------------------ -->				
-					</div>
 				</div>
 			</div>
 		</div>
+
+	
+		<!-- Nav CSS -->
 		<link href="/p2p_project/backStyle/css/custom.css" rel="stylesheet">
-<!-- Metis Menu Plugin JavaScript -->
-<script src="/p2p_project/backStyle/js/metisMenu.min.js"></script>
-<script src="/p2p_project/backStyle/js/custom.js"></script>
-<script type="text/javascript" src="/p2p_project/backStyle/css/bootstrap.css"></script>
-<script type="text/javascript" src="/p2p_project/backStyle/js/jquery-3.2.0.min.js"></script>
-<script type="text/javascript" src="/p2p_project/backStyle/js/bootstrap-modal.js"></script>
-<script type="text/javascript" src="/p2p_project/backStyle/js/bootstrap.min.js"></script>
+		<!-- Metis Menu Plugin JavaScript -->
+		<script src="/p2p_project/backStyle/js/metisMenu.min.js"></script>
+		<script src="/p2p_project/backStyle/js/custom.js"></script>
 </body>
 </html>

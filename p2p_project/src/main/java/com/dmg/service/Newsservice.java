@@ -28,4 +28,7 @@ public class Newsservice {
 			   
    }
 
+   public void deletenews(News news){
+	   newsdao.deletenews(news);
+   }
 }

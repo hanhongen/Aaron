@@ -32,10 +32,8 @@ public class News_typecontroller {
 		public String news_typesave(@RequestParam("file")MultipartFile file,
 	News_type news_type,HttpServletRequest request)throws Exception{
 	    String  filename=file.getOriginalFilename();
-		   		System.out.println("filename="+filename);
 		   	String path=request.getRealPath("/upload/");
 		   	String path1=path+filename;
-		   	System.out.println("path1="+path1);
 		   	File newfile=new File(path,filename);
 		   	if(!newfile.exists()){
 		   		newfile.createNewFile();

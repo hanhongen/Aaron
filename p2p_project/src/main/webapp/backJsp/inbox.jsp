@@ -81,7 +81,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
      备注:<input type="text"  name="note">
      </td>
  <td>
- 排序:<input type="number" name="sort">
+ 排序:<input type="text" name="sort" onkeyup="this.value=this.value.replace(/[^0-9-]+/,'');">
  </td>    
      </tr>
 
@@ -96,10 +96,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
      </tr>
      <tr>
      <td>
-     修改人ID:<input type="number" name="updid">
+     修改人ID:<input type="text" name="updid" onkeyup="this.value=this.value.replace(/[^0-9-]+/,'');">
      </td>
      <td>
-    添加人ID:<input type="number"  name="addid">
+    添加人ID:<input type="text"  name="addid" onkeyup="this.value=this.value.replace(/[^0-9-]+/,'');">
     </td>
        <td>
      上级类别:<select name="suptype" style="width: 90px;height:25px">
