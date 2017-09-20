@@ -84,7 +84,7 @@
 						id="cp_two">我要投资</a>
 						<dl class="cp_two">
 							<dd>
-								<a href="/p2p_project/frontJsp/product_center.jsp">固收类理财</a>
+								<a href="/p2p_project/frontJsp/solid.jsp">固收类理财</a>
 							</dd>
 							<dd>
 								<a href="">私募资金</a>

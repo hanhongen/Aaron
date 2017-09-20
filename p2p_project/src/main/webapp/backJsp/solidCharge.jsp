@@ -118,7 +118,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							Logout</a></li>
 				</ul></li>
 		</ul>
-		
+
 		<div class="navbar-default sidebar" role="navigation">
 			<div class="sidebar-nav navbar-collapse">
 				<ul class="nav" id="side-menu">
@@ -201,6 +201,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<!-- /.sidebar-collapse -->
 		</div>
 		<!-- /.navbar-static-side --> </nav>
+
+		<script type="text/javascript">
+		  $(function(){
+			  $("#btn1").click(function(){  //添加
+				  $("#form1").attr("aciton","/p2p_project/backJsp/addProduct");
+			  	  $("#form1").submit();
+			  });
+			  
+		 	 $("#btn1").click(function(){  //模糊查询
+			   $("#form1").attr("aciton","/p2p_project/product/showProduct");
+		  	   $("#form1").submit();
+		     });
+		 	 
+		 	 $("#btn3").click(function(){
+		 		 $("#qname").val("");
+		 		 $("#s1").val("-1");
+		 		$("#s2").val("-1");
+		 	 });
+		 
+		});
+		  
+		</script>
 		<div id="page-wrapper">
 			<div class="graphs">
 				<div class="widget_head">
@@ -210,37 +232,42 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</h2>
 					</div>
 				</div>
-				
-				
+
+
 				<div class="tablelist">
 					<form name="form1" id="form1" method="post">
 						<table class="table">
 							<tr>
 								<td style="width: 150px; padding-left: 30px;">
-								  <button type="button" id="btn1" name="btn1" class="btn btn-primary btn-sm">新增</button>
+									<button type="button" id="btn1" name="btn1"
+										class="btn btn-primary btn-sm">新增</button>
 								</td>
 								<td style="width: 150px; padding-left: 30px;"><h4>名称：</h4></td>
-								<td style="width: 300px">
-								<input type="text" name="qname"
+								<td style="width: 300px"><input type="text" id="qname" name="qname"
 									class="form-control" placeholder="名称" value="${qname}"></td>
 								<td style="width: 150px; padding-left: 30px;"><h4>状态：</h4></td>
 								<td style="width: 170px">
-								<select class="form-control">
-									<option value="-1">请选择
-								</select>
-								</td>
+								<select class="form-control" id="s1" name="s1" >
+										<option value="-1"/>请选择
+										<option value="0"  ${s1==0?"selected":""}/>未发布
+										<option value="1"  ${s1==1?"selected":""}/>募集中
+										<option value="2"  ${s1==2?"selected":""}/>回款中
+										<option value="3"  ${s1==3?"selected":""}/>还款完成
+								</select></td>
 								<td style="width: 150px; padding-left: 30px;"><h4>类型：</h4></td>
 								<td style="width: 170px">
-									<select class="form-control">
-									<option value="-1">请选择
-									</select>
+								<select class="form-control" id="s2" name="s2">
+										<option value="-1" />请选择
+										<option value="0" ${s2==0?"selected":""}/>固收类
+										<option value="1" ${s2==1?"selected":""}/>P2P车贷
+										<option value="2" ${s2==2?"selected":""}/>P2P房贷
+								</select></td>
+								<td>
+									<button type="submit" id="btn2" name="btn2"
+										class="btn btn-primary btn-sm">查询</button>
 								</td>
 								<td>
-									<button type="submit" id="btn2" name="btn2" class="btn btn-primary btn-sm">查询</button>
-								</td>
-								<td>
-									<button type="button" class="btn btn-primary btn-sm"
-										onclick="$('#form1').find(':input').not(':button, :submit, :reset').val('').removeAttr('checked').removeAttr('selected');">重置</button>
+									<button type="button" id="btn3" class="btn btn-primary btn-sm">重置</button>
 								</td>
 							</tr>
 						</table>
@@ -261,13 +288,35 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<td>添加时间</td>
 								<td>操 作</td>
 							</tr>
+							<c:forEach items="${list}" var="p" varStatus="stat">
+								<tr class="text-center" bgcolor="#f7f7f7">
+									<td>${stat.index+1 }</td>
+									<td>${p.id }</td>
+									<td>${p.serial_no }</td>
+									<td><c:if test="${p.type==0}">固收类</c:if> <c:if
+											test="${p.type==1}">P2P车贷</c:if></td>
+									<td>${p.name}</td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td>${p.floor_amount}</td>
+									<td>${p.year_rate}%</td>
+									<td><c:if test="${p.status==0}">未募集</c:if> <c:if
+											test="${p.status==1}">募集中</c:if> <c:if test="${p.status==2}">已结束</c:if>
+									</td>
+									<td><c:if test="${p.exper_status==0}">否</c:if> <c:if
+											test="${p.exper_status==1}">是</c:if></td>
+									<td>${p.create_date }</td>
+									<td>修改</td>
+								</tr>
+							</c:forEach>
 						</table>
 					</form>
 				</div>
 			</div>
 		</div>
-		
-	
+
+
 		<!-- Nav CSS -->
 		<link href="/p2p_project/backStyle/css/custom.css" rel="stylesheet">
 		<!-- Metis Menu Plugin JavaScript -->
