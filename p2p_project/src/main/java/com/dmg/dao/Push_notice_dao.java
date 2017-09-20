@@ -5,6 +5,7 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import org.apache.commons.io.filefilter.FalseFileFilter;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -71,43 +72,20 @@ public class Push_notice_dao {
 	}
 
      
-	
+
 	//<!-----意见反馈-----!>
 	public void save(Feedback feedback){
 		Session session=getSession();
 		session.save(feedback);
 	}
-	public void update(Feedback feedback){
-		Session session=getSession();
-		session.update(feedback);
-	}
-	public void delete(Feedback feedback){
-		Session session=getSession();
-		session.delete(feedback);
-	}
+	
+	
+	
 	public List<Feedback> listfeed(){
 		Session session=getSession();
-		String hql="from Feedback";
+		String hql="from hql";
 		List<Feedback> feedbacks=session.createQuery(hql).list();
 		return feedbacks;
 	}
-	public Feedback getfeedid(int id){
-		Session session=getSession();
-		Feedback feedbacks=(Feedback)session.get(Feedback.class,id);
-		return feedbacks;
-	}
 	
-	
-	//点击查看意见反馈的人的信息
-	public List<Member> listmem(){
-		Session session=getSession();
-		String hql="from Member";
-		List<Member> members=session.createQuery(hql).list();
-		return members;
-	}
-	public Member getmpid(int id){
-		Session session=getSession();
-		Member members=(Member)session.get(Member.class,id);
-		return members;
-	}
 }

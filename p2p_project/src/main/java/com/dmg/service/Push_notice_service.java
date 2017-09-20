@@ -37,27 +37,12 @@ public class Push_notice_service {
 	 }
 	 
 	 
+	 
 	 //<!--Òâ¼û·´À¡---!>
 	 public void save(Feedback feedback){
 		 	push_notice_dao.save(feedback);	 
 	 }
-	 public void update(Feedback feedback){
-		 push_notice_dao.update(feedback);
-	 }
-	 public void delte(int id){
-		 Feedback feedback=push_notice_dao.getfeedid(id);
-		 push_notice_dao.delete(feedback);
-	 }
 	 public List<Feedback> listfeed(){
 		 return push_notice_dao.listfeed();
-	 }
-	 public List<Member> listmem(){
-		 return push_notice_dao.listmem();
-	 }
-	 public Feedback getfeed(int id){
-		 return push_notice_dao.getfeedid(id);
-	 }
-	 public Member getbympid(int id){
-		 return push_notice_dao.getmpid(id);
 	 }
 }

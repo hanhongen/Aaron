@@ -41,7 +41,7 @@
 				<div class='login_bt'>
 					<a href="/p2p_project/frontJsp/login.jsp" id="login" rel="nofollow"
 						class="fff">登录</a> <a href="/p2p_project/frontJsp/register.jsp"
-						rel="nofollow" class="fff">注册</a>
+						rel="nofollow" class="fff">注册</a><a href="/p2p_project/backJsp/feedbacks.jsp" rel="nofollow" class="fff">意见反馈</a>
 				</div>
 
 				<dl>

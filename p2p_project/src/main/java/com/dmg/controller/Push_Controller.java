@@ -7,15 +7,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletResponse;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+
 
 import com.dmg.bean.Feedback;
 import com.dmg.bean.Member;
@@ -95,37 +94,22 @@ public class Push_Controller {
 	
 	
 	//<!--意见反馈--!>
-	@RequestMapping("/select")
-	public String select(Model model){
-		List<Feedback> feedbacks=push_notice_service.listfeed();
-		model.addAttribute("feedbacks",feedbacks);
-		return "backJsp/feedback";
+	//前台页面添加
+	@RequestMapping("/savefeed")
+	public String select(Feedback feedbacks){
+		/*SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	   */
+	    SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	    feedbacks.setCreate_date(dateFormat.format(new Date()));
+		push_notice_service.save(feedbacks);
+		return "backJsp/feedbacks";
 	}
 	
-	/*@RequestMapping("/savefeed")
-	public String savefeed(Feedback feedbacks,int pid){
-		if(pid!=-1){
-			Member members=push_notice_service.getbympid(pid);
-			feedbacks.setMember(members);
-		}
-		SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		String date=dateFormat.format(new Date());
-		feedbacks.setCreate_date(date);
-		push_notice_service.save(feedbacks);
-		return "redirect:/test/select";	
-	}*/
-	   
-	 @RequestMapping("/updatefeed/{id}")
- 	 public String updatefeed(@PathVariable("id") int id,Model model){
-		  Feedback feedbacks=push_notice_service.getfeed(id);
-		    model.addAttribute("feedbacks",feedbacks);
-		    return "backJsp/updatefeed";
-	 }
-/*	 @RequestMapping("/updatefed")
-	public String updatefed(Feedback feedbacks){
-		 SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-			feedbacks.set
-			push_notice_service.update(push_notice);
-			return "redirect:/test/test1";
-	 }*/
+	//后台显示查询页面
+	@RequestMapping("/list")
+	public String list(Model model){
+		List<Feedback> feedbacks=push_notice_service.listfeed();
+		model.addAttribute("feedbacks",feedbacks);
+		return "feedback";
+	}
 }
