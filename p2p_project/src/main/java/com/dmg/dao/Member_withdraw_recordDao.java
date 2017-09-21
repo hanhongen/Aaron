@@ -20,8 +20,8 @@ public class Member_withdraw_recordDao {
 		return sessionFactory.getCurrentSession();
 	}
 	/**
-	 * ÁĞ±íÏÔÊ¾£º
-     * ĞòºÅ ÊÖ»úºÅ ĞÕÃû Éí·İÖ¤ ÌáÏÖ½ğ¶î ÌáÏÖÒøĞĞ ÌáÏÖ¿¨ºÅ ÌáÏÖ¿ª»§ĞĞµØÖ· ÌáÏÖ×´Ì¬ ÌáÏÖÊ±¼ä ÕËºÅÏêÏ¸
+	 *åˆ—è¡¨æ˜¾ç¤ºï¼š
+  	 *åºå· æ‰‹æœºå· å§“å èº«ä»½è¯ æç°é‡‘é¢ æç°é“¶è¡Œ æç°å¡å· æç°å¼€æˆ·è¡Œåœ°å€ æç°çŠ¶æ€ æç°æ—¶é—´ è´¦å·è¯¦ç»†
 	 * @return
 	 */
 	public List<Member_withdraw_record> listMember_withdraw_record(Map map){
@@ -47,22 +47,22 @@ public class Member_withdraw_recordDao {
 		}else if (mcard!=null && !mcard.equals("")) {
 			hql+=" and mw.bank_card like '%"+mcard+"%'";
 		}else if (mstatus!=null && !mstatus.equals("")) {
-			hql+=" and mw.status like '%"+mstatus+"%'";
+			hql+=" and mw.status='"+mstatus+"'";
 		}else if (create_datem!=null && !create_datem.equals("")) {
-			hql+=" and mw.create_date like '%"+create_datem+"%'";
+			hql+=" and mw.create_date='"+create_datem+"'";
 		}
 		
 		return hql;
 	}
-	
+	//æç°è®°å½•
 	public List<Member_withdraw_record> listMember_withdraw_record(int id){
-		String hql="from Member_withdraw_record where id="+id;
+		String hql="from Member_withdraw_record m where m.member.id="+id;
 		Session session = getSession();
 		List<Member_withdraw_record> list = session.createQuery(hql).list(); 
 		return list;
 	}
 	
-	//¸ù¾İid²éÑ¯¸öÈËÕËºÅÏêÇé
+	//ï¿½ï¿½ï¿½idï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½Ëºï¿½ï¿½ï¿½ï¿½ï¿½
 		public List<Member> listMemberId(int id){
 			String hql = "from Member where id="+id;
 			Session session = getSession();

@@ -9,22 +9,22 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class Subject_purchase_record {  //(±êµÄ¹ºÂò±í)
+public class Subject_purchase_record {  //(ï¿½ï¿½Ä¹ï¿½ï¿½ï¿½ï¿½)
 
 	private int id;  //id
-	private String serial_number;  //Á÷Ë®ºÅ',
-	private double amount;  //¹ºÂò½ğ¶î
-	private String deal_ip;  //½»Ò×ip',
-	private Subject subject;  //±êµÄId'
-	private Member member;  //»áÔ±ID
-	private int delflag;  //ÊÇ·ñÉ¾³ı
-	private String create_date;  
-	private String update_date;
-	private double interest;  //½áËãÀûÏ¢',
-	private int ispayment;  //ÊÇ·ñ»¹¿î
-	private int pay_interest_times;  // ¹ºÂò´ÎÊı
-	private int last_profit_day;  //×îºó¼ÆÏ¢ÈÕ
-	private String bonus_info;  //ºì°ü½ğ¶îĞÅÏ¢£¨app¶ËÊµ¼ÊÍ¶×Ê¶î¶È+ºì°ü¶î¶È£©
+	private String serial_number;  //æµæ°´å·
+	private double amount;  //è´­ä¹°é‡‘é¢
+	private String deal_ip;  //äº¤æ˜“ip
+	private Subject subject;  //æ ‡çš„Id
+	private Member member;  //ä¼šå‘˜ID
+	private int delflag;  //æ˜¯å¦åˆ é™¤
+	private String create_date;//æ·»åŠ æ—¶é—´  
+	private String update_date;//ä¿®æ”¹æ—¶é—´
+	private double interest;  //ç»“ç®—åˆ©æ¯
+	private int ispayment;  //æ˜¯å¦è¿˜æ¬¾', 0 æœªè¿˜æ¬¾ 1 è¿˜æ¬¾
+	private int pay_interest_times;  // è´­ä¹°æŸä¸ªæ ‡çš„æ¬¡æ•°
+	private int last_profit_day;//æœ€åè®¡æ¯æ—¥', è¿˜å‰©å¤šå°‘å¤©
+	private String bonus_info;//çº¢åŒ…é‡‘é¢ä¿¡æ¯ï¼ˆappç«¯å®é™…æŠ•èµ„é¢åº¦+çº¢åŒ…é¢åº¦ï¼‰
 	
 	@Id
 	@GeneratedValue

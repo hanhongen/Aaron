@@ -20,8 +20,8 @@ public class Award_recordsDao {
 	}
 	
 	/**
-	 * ÁĞ±íÏÔÊ¾£º
-  	 * ĞòºÅ ÊÖ»úºÅ ĞÕÃû ÑûÇëÂë ±»ÑûÇëÂë Í¶×Ê½ğ¶î ÊÇ·ñÒÑ×¢²á½±Àø ÊÇ·ñÒÑÍ¶×Ê½±Àø ×¢²áÊ±¼ä
+	 * ï¿½Ğ±ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½
+  	 * ï¿½ï¿½ï¿½ ï¿½Ö»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Í¶ï¿½Ê½ï¿½ï¿½ ï¿½Ç·ï¿½ï¿½ï¿½×¢ï¿½á½±ï¿½ï¿½ ï¿½Ç·ï¿½ï¿½ï¿½Í¶ï¿½Ê½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½Ê±ï¿½ï¿½
 	 * @return
 	 */
 	public List<Award_records> listAward_records(){
@@ -33,23 +33,23 @@ public class Award_recordsDao {
 		}
 		return list;
 	}
-	//ÑûÇëÈË
+	//é‚€è¯·äººæ‰‹æœºå·
 	public List<Award_records> listinvitingid(int invitingid){
 		String hql="from Award_records ar where ar.member.id="+invitingid;
 		Session session = getSession();
 		List<Award_records> list = session.createQuery(hql).list();
 		for (Award_records a : list) {
-			System.out.println("ÑûÇëÈËID:"+a.getInvitingid()+"ÑûÇëÈËÊÖ»úºÅ£º"+a.getMember().getMobile_phone()+"£¬½±ÀøÀàĞÍ£º"+a.getType()+",½±Àø½ğ¶î£º"+a.getAmount()+",½±ÀøÊ±¼ä£º"+a.getAddtime()+",ÑûÇëÂë£º"+a.getMember().getInvitationcode());
+			System.out.println("é‚€è¯·äººID:"+a.getInvitingid()+"ï¼Œé‚€è¯·äººæ‰‹æœºå·ï¼š"+a.getMember().getMobile_phone()+"ï¼Œå¥–åŠ±ç±»å‹ï¼š"+a.getType()+"ï¼Œå¥–åŠ±é‡‘é¢ï¼š"+a.getAmount()+"ï¼Œæ·»åŠ æ—¶é—´ï¼š"+a.getAddtime()+"ï¼Œé‚€è¯·ç "+a.getMember().getInvitationcode());
 		}
 		return list;
 	}
-	//±»ÑûÇëÈË
+	//è¢«é‚€è¯·äººæ‰‹æœºå·
 	public List<Award_records> listbyinvitingid(int byinvitingid){
 		String hql="from Award_records ar where ar.member.id="+byinvitingid;
 		Session session = getSession();
 		List<Award_records> list = session.createQuery(hql).list();
 		for (Award_records a : list) {
-			System.out.println("±»ÑûÇëÈËID:"+a.getInvitingid()+"±»ÑûÇëÈËÊÖ»úºÅ£º"+a.getMember().getMobile_phone()+"£¬½±ÀøÀàĞÍ£º"+a.getType()+",½±Àø½ğ¶î£º"+a.getAmount()+",½±ÀøÊ±¼ä£º"+a.getAddtime()+",ÑûÇëÂë£º"+a.getMember().getInvitationcode());
+			System.out.println("è¢«é‚€è¯·äººID:"+a.getByinvitingid()+"ï¼Œè¢«é‚€è¯·äººæ‰‹æœºå·ï¼š"+a.getMember().getMobile_phone()+"ï¼Œå¥–åŠ±ç±»å‹ï¼š"+a.getType()+"ï¼Œå¥–åŠ±é‡‘é¢ï¼š"+a.getAmount()+"ï¼Œæ·»åŠ æ—¶é—´ï¼š"+a.getAddtime()+"ï¼Œè¢«é‚€è¯·ç ï¼š"+a.getMember().getInvitedcode());
 		}
 		return list;
 	}

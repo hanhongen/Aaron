@@ -299,13 +299,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             ${stat.index+1 }
                             </td>
                             <td>${ls.serial_no }</td>
-                            <td>${ls.type }</td>
+                            <td>
+                            <c:if test="${ls.type == 0}">固收类</c:if>
+                            <c:if test="${ls.type == 1}">p2p车贷</c:if>
+                            <c:if test="${ls.type == 2}">p2p房贷</c:if>
+                            </td>
                             <td>${ls.name }</td>
                             <td>${ls.amount*ls.bought}</td>
                             <td>${ls.floor_amount }</td>
                             <td>${ls.bought }</td>
                             <td>${ls.period }</td>
-                            <td>${ls.year_rate }</td><!-- 这里需要计算年化收益 -->
+                            <td>${ls.year_rate }%</td>
                             <td>
                             <c:if test="${ls.status ==0}">未开始</c:if>
                             <c:if test="${ls.status ==1}">募集中</c:if>
