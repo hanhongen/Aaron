@@ -25,7 +25,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
    .elegant-aero {
 margin-left:auto;
 margin-right:auto;
-max-width: 500px;
+max-width: 650px;
 background: #D2E9FF;
 padding: 20px 20px 20px 20px;
 font: 12px Arial, Helvetica, sans-serif;
@@ -103,6 +103,13 @@ text-shadow: 1px 1px 1px #5079A3;
 background: #3EB1DD;
 }
 </style>
+      <script type="text/javascript" charset="utf-8" src="/p2p_project/backStyle/editor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/p2p_project/backStyle/editor/ueditor.all.min.js"> </script>
+    <script type="text/javascript" charset="utf-8" src="/p2p_project/backStyle/editor/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript" charset="utf-8">
+var ue = UE.getEditor("myUeditor1",{initialFrameWidth :600,
+        initialFrameHeight: 300});
+</script>
 </head>
 <body>
 <div id="wrapper">
@@ -350,8 +357,10 @@ background: #3EB1DD;
 </label>
 <label>
 <span>修改内容:</span>
-<textarea name="content" placeholder="修改内容">${push_notice.content}</textarea>
-</label>
+<%-- <textarea name="content" placeholder="修改内容">${push_notice.content}</textarea>
+ --%>
+ <textarea id="myUeditor1"  name="content">${push_notice.content}</textarea>
+ </label>
 <label>
 <span></span>
 <input type="hidden" name="create_date" value="${push_notice.create_date}"/></label>
