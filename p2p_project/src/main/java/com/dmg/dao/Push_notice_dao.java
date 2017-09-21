@@ -45,8 +45,6 @@ public class Push_notice_dao {
 	
 	
 	
-	
-	
 	public List<Push_notice> listpush(Map map){	
 		Session session=getSession();
 		String hql="from Push_notice where 0=0";

@@ -205,11 +205,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<script type="text/javascript">
 		  $(function(){
 			  $("#btn1").click(function(){  //添加
-				  $("#form1").attr("aciton","/p2p_project/backJsp/addProduct");
-			  	  $("#form1").submit();
+				  location="/p2p_project/backJsp/addsolid.jsp";
 			  });
 			  
-		 	 $("#btn1").click(function(){  //模糊查询
+		 	 $("#btn2").click(function(){  //模糊查询
 			   $("#form1").attr("aciton","/p2p_project/product/showProduct");
 		  	   $("#form1").submit();
 		     });

@@ -78,7 +78,7 @@ public class Push_Controller {
 	
 	
 	@RequestMapping("/updod/{id}")
-	public String select(@PathVariable("id")int id,Model model){
+ 	public String select(@PathVariable("id")int id,Model model){
 		    Push_notice push_notice=push_notice_service.getbypid(id);
 		    model.addAttribute("push_notice",push_notice);
 			    return "backJsp/update";
