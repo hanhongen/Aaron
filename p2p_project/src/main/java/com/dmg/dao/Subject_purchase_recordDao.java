@@ -18,11 +18,11 @@ public class Subject_purchase_recordDao {
 		return sessionFactory.getCurrentSession();
 	}
 	/**
-	 * ¸¶Ï¢ÁĞ±íÈ¥ÏÔÊ¾Õâ¸ö²úÆ·µÄËùÓĞ¹ºÂòĞÅÏ¢
+	 * ï¿½ï¿½Ï¢ï¿½Ğ±ï¿½È¥ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½Ğ¹ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 	 * @return
 	 */
 	public List<Subject_purchase_record> listSubject_purchase_record(int id){
-		String hql = "from Subject_purchase_record where id="+id;
+		String hql = "from Subject_purchase_record spr where spr.member.id="+id;
 		Session session = getSession();
 		List<Subject_purchase_record> list = session.createQuery(hql).list();
 		return list;

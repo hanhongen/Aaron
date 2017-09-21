@@ -9,20 +9,20 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class Member_withdraw_record {  //ÌáÏÖ¼ÇÂ¼±í
+public class Member_withdraw_record {//æç°è®°å½•è¡¨
 
 	private int id;  //id
-	private String serial_number;   //Á÷Ë®ºÅ',
-	private Member member;  //»áÔ±ID
-	private double amount;  //ÌáÏÖ½ğ¶î',
-	private String bank_name;  // ÒøĞĞÃû³Æ',
-	private String bank_card;  //¿¨ºÅ
-	private int status;  //ÌáÏÖ×´Ì¬(0:´ıÉóºË;1:ÒÑ´ò¿î;2´ò¿îÖĞ;3:´ò¿îÊ§°Ü)',
-	private int delflag;  //ÊÇ·ñÉ¾³ı
-	private String cardaddress;  //¿ª»§ÒøĞĞËùÔÚµØ',
-	private String channel_name;  //´ò¿îÍ¨µÀ£¨¸»ÓÑ,±´¸¶£©',
-	private String create_date;  //´´½¨Ê±¼ä
-	private String update_date;  //ĞŞ¸ÄÊ±¼ä
+	private String serial_number;   //æµæ°´å·
+	private Member member;  //ç”¨æˆ·id
+	private double amount;  //æç°é‡‘é¢
+	private String bank_name;  //é“¶è¡Œåç§°
+	private String bank_card;  //å¡å·
+	private int status;  //æç°çŠ¶æ€(0:å¾…å®¡æ ¸;1:å·²æ‰“æ¬¾;2æ‰“æ¬¾ä¸­;3:æ‰“æ¬¾å¤±è´¥)',
+	private int delflag;  //æ˜¯å¦åˆ é™¤
+	private String cardaddress;  //å¼€æˆ·é“¶è¡Œæ‰€åœ¨åœ°',
+	private String channel_name;  //æ‰“æ¬¾é€šé“ï¼ˆå¯Œå‹,è´ä»˜ï¼‰',
+	private String create_date;  //åˆ›å»ºæ—¶é—´
+	private String update_date;  //ä¿®æ”¹æ—¶é—´
 	
 	@Id
 	@GeneratedValue

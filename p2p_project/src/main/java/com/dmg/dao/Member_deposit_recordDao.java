@@ -20,8 +20,8 @@ public class Member_deposit_recordDao {
 		return sessionFactory.getCurrentSession();
 	}
 	/**
-	 * ÁÐ±íÏÔÊ¾£º
-     * ÐòºÅ ¶©µ¥±àºÅ ÊÖ»úºÅ ¶©µ¥½ð¶î ¶©µ¥×´Ì¬ ³äÖµÇþµÀ ¸»ÓÑÊÖ»ú³äÖµ¶©µ¥ ¶©µ¥Ê±¼ä
+	 * å……å€¼è®°å½•
+     * ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½×´Ì¬ ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
 	 * @return
 	 */
 	public List<Member_deposit_record> listMember_deposit_record(Map map){
@@ -31,7 +31,7 @@ public class Member_deposit_recordDao {
 		List<Member_deposit_record> list = session.createQuery(hql).list();
 		return list;
 	}
-	//Ä£ºý²éÔƒ
+	//Ä£ï¿½ï¿½ï¿½Ôƒ
 	public String listMember_deposit_recordlike(Map map,String hql){
 		String snumber = (String)map.get("snumber");
 		String phone = (String)map.get("phone");
@@ -57,7 +57,7 @@ public class Member_deposit_recordDao {
 		Session session = getSession();
 		List<Member_deposit_record> list = session.createQuery(hql).list();
 		for (Member_deposit_record m : list) {
-			System.out.println("ÐòºÅ£º"+m.getId()+",±àºÅ:"+m.getSeril_number()+",³äÖµ½ð¶î£º"+m.getAmount()+",³äÖµ×´Ì¬£º"+m.getStatus()+",³äÖµÇþµÀ:"+m.getPay_channel_name()+",³äÖµ±àºÅ£º"+m.getPay_channel_order_no()+",³äÖµÊ±¼ä"+m.getCreate_date());
+			System.out.println("ï¿½ï¿½Å£ï¿½"+m.getId()+",ï¿½ï¿½ï¿½:"+m.getSeril_number()+",ï¿½ï¿½Öµï¿½ï¿½î£º"+m.getAmount()+",ï¿½ï¿½Öµ×´Ì¬ï¿½ï¿½"+m.getStatus()+",ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½:"+m.getPay_channel_name()+",ï¿½ï¿½Öµï¿½ï¿½Å£ï¿½"+m.getPay_channel_order_no()+",ï¿½ï¿½ÖµÊ±ï¿½ï¿½"+m.getCreate_date());
 		}
 		return list;
 	}

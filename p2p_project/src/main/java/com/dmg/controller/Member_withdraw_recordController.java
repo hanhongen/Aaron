@@ -71,40 +71,40 @@ public class Member_withdraw_recordController {
 	}
 	
 	
-	//¸ù¾İid²éÑ¯¸öÈËÕËºÅĞÅÏ¢
-		@RequestMapping("/recordPanel/{id}/{id}")
-		public String recordPanel(Model model,@PathVariable("id")int id,@PathVariable("id")int mid){
-			System.out.println("id="+id);
-			System.out.println("mid="+mid);
-			List<Member> listMemberId = memberService.listMemberId(id);//ÕËºÅĞÅÏ¢
-			List<Member_account> lista = member_accountService.listMember_account(id);//³ÉÔ±ÕË»§
-			List<Subject_purchase_record> listSPR = subject_purchase_recordService.listSubject_purchase_record(id);//±êµÄ¹ºÂò±í
+	//æç°ç®¡ç†è´¦å·è¯¦æƒ…
+		@RequestMapping("/recordPanel/{id}")
+		public String recordPanel(Model model,@PathVariable("id")int mid){
+//			System.out.println("id="+id);//ä½“ç°è¡¨id
+			System.out.println("mid="+mid);//ç”¨æˆ·è¡¨id
+			List<Member> listMemberId = memberService.listMemberId(mid);//ç”¨æˆ·è¡¨
+			List<Member_account> lista = member_accountService.listMember_account(mid);//æˆå‘˜è´¦æˆ·è¡¨
+			List<Subject_purchase_record> listSPR = subject_purchase_recordService.listSubject_purchase_record(mid);//æ ‡çš„è´­ä¹°è¡¨
 			Date date = new Date();
-			double dayCount = 0;//ÌìÊı
-			double earnings = 0;//Í¶×ÊÊÕÒæ
-			String result = "";//¸ñÊ½»¯Ğ¡ÊıÎ»ºóµÄÍ¶×ÊÊÕÒæÊı
+			double dayCount = 0;//å¤©æ•°
+			double earnings = 0;//æ”¶ç›Š
+			String result = "";//æ ¼å¼åŒ–åçš„æ”¶ç›Šæ•°å­—
 			for (Subject_purchase_record s : listSPR) {
-				String start_date = s.getSubject().getStart_date();//µÃµ½¿ªÊ¼Ê±¼ä
-				String end_date = s.getSubject().getEnd_date();//µÃµ½½áÊøÊ±¼ä
-				System.out.println("±êµÄ¿ªÊ¼ÈÕÆÚ£º"+start_date);
-				System.out.println("±êµÄ½áÊøÈÕÆÚ£º"+end_date);
-				double time1=(double)date.parse(start_date);//½âÎöÈÕÆÚ×Ö·û´®
+				String start_date = s.getSubject().getStart_date();//å¼€å§‹æ—¶é—´
+				String end_date = s.getSubject().getEnd_date();//ç»“æŸæ—¶é—´
+				System.out.println("æ ‡çš„å¼€å§‹æ—¶é—´ï¼š"+start_date);
+				System.out.println("æ ‡çš„ç»“æŸæ—¶é—´ï¼š"+end_date);
+				double time1=(double)date.parse(start_date);//å¼€å§‹æ—¶é—´
 				double time2=(double)date.parse(end_date);
 				
-				dayCount = (Math.abs(time2 - time1))/1000/60/60/24;//µÃµ½ÌìÊı
-				double amount= s.getAmount();//±êµÄ¹ºÂò½ğ¶î
-				double year_rate= s.getSubject().getYear_rate();//±êµÄÄê»¯ÂÊlm.amount*lm.subject.year_rate/365*dayCount
-				earnings = amount*year_rate/365*dayCount;
-				result = String.format("%.2f", earnings);
-//				System.out.println(s.getSubject().getName()+"µÄ¿ªÊ¼Óë½áÊøµÄÌìÊıÎª£º"+dayCount+"Ìì");
+				dayCount = (Math.abs(time2 - time1))/1000/60/60/24;//å¾—åˆ°ä¸¤ä¸ªæ—¥æœŸä¹‹é—´ç›¸éš”çš„å¤©æ•°
+				double amount= s.getAmount();//é‡‘é¢
+				double year_rate= s.getSubject().getYear_rate();//å¹´åŒ–ç‡
+				earnings = amount*year_rate/365*dayCount;//lm.amount*lm.subject.year_rate/365*dayCount
+				result = String.format("%.2f", earnings);//å°†earningsä¿ç•™ä¸¤ä½å°æ•°
+//				System.out.println(s.getSubject().getName()+"å¤©æ•°ä¸ºï¼š"+dayCount+"å¤©");
 			}
-			System.out.println("dayCount£º"+dayCount+"Ìì");
-			System.out.println("Í¶×ÊÊÕÒæ£º"+result);
+			System.out.println("dayCount:"+dayCount+"å¤©");
+			System.out.println("æ”¶ç›Š:"+result);
 			
 			
-			List<Member_withdraw_record> listmwr = member_withdraw_recordService.listMember_withdraw_record(id);//ÌáÏÖ¼ÇÂ¼±í
-			List<Member_deposit_record> listmdr = member_deposit_recordSevice.listMember_deposit_record(mid);//³äÖµ¼ÇÂ¼±í
-			List<Member_trade_record>  listmtr = member_trade_recordService.listMember_trade_record(mid);//½»Ò×¼ÇÂ¼±í
+			List<Member_withdraw_record> listmwr = member_withdraw_recordService.listMember_withdraw_record(mid);//æç°è®°å½•è¡¨
+			List<Member_deposit_record> listmdr = member_deposit_recordSevice.listMember_deposit_record(mid);//å……å€¼è®°å½•è¡¨
+			List<Member_trade_record>  listmtr = member_trade_recordService.listMember_trade_record(mid);//äº¤æ˜“è®°å½•è¡¨
 			
 			model.addAttribute("listMemberId", listMemberId);
 			model.addAttribute("lista", lista);
