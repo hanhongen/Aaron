@@ -77,13 +77,23 @@ public class Push_notice_dao {
 		session.save(feedback);
 	}
 	
+
 	
-	
-	public List<Feedback> listfeed(){
+	public List<Feedback> listfeed(Map map){
 		Session session=getSession();
-		String hql="from hql";
+		String hql="from Feedback where 0=0";
+		hql=indates(map, hql);
 		List<Feedback> feedbacks=session.createQuery(hql).list();
 		return feedbacks;
+	}
+	
+	//Ä£ºý²éÑ¯
+	public String indates(Map map,String hql){
+		String anme=(String)map.get("name");
+		if(anme!=null && !anme.equals("")){
+			hql+=" and content like '%"+anme+"%'";
+		}
+		return hql;
 	}
 	
 }
