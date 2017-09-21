@@ -1,6 +1,8 @@
 package com.dmg.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -11,7 +13,6 @@ import com.dmg.bean.News;
 
 @Component
 public class Newsdao {
-   
 	@Autowired
 	private SessionFactory sessionFactory;
 
@@ -41,11 +42,36 @@ public class Newsdao {
        session.delete(news);
    }
    
-    public List<News> listnews(){
+    public List<News> listnews( Map map){
+    	System.out.println("·½·¨");
     	Session session=getsession();
-    	String hql="from News  order by sort desc";
+    	String hql = getHql(map);
+    	System.out.println("----------------------------------");
+    	System.out.println(hql);
+    	System.out.println("----------------------------------");
        List<News> list=session.createQuery(hql).list();
        return list;
     }
+    
+    public String getHql(Map map){
+    	String tlt=(String)map.get("tlt");
+    	System.out.println("tlt");
+    	String s1=(String)map.get("s1");
+    	String hql="select n from News n where 1=1  ";
+    	if ((tlt!=null && !equals(""))&&s1!=null &&!"-1".equals(s1)) {
+    		hql=hql+"and title like '%"+tlt+"%'and n.news_type.name like '%"+s1+"%'";
+    	}else {
+			if(tlt!=null && !equals("")){
+    		hql=hql+"and title like '%"+tlt+"%'";
+    	}
+    	
+			if (s1!=null && !"-1".equals(s1)) {
+			hql=hql+"and n.news_type.name like '%"+s1+"%'";
+			}
+    	}
+    	return hql +=" order by n.sort desc";
+    }
+
+
 
 }

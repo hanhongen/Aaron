@@ -272,7 +272,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </tr>
 </table>
      </form> 
-     
 	<!-- ----------------这结束-------------------- -->	
 					
 				</div>
