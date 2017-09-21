@@ -25,7 +25,7 @@ public class Member_accountDao {
 	}
 	
 	public List<Member_account> listMember_account(int id){
-		String hql="from Member_account where id="+id;
+		String hql="from Member_account m where m.member.id="+id;
 		Session session = getSession();
 		List<Member_account> list = session.createQuery(hql).list();
 		return list;

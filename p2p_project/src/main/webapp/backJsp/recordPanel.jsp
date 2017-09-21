@@ -475,8 +475,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
          <td>${stat.index+1 }</td>
          <td>${lm.trade_no }</td>
          <td>${lm.amount }</td>
-         <td>${lm.trade_status }</td>
-         <td>${lm.trade_type }</td>
+         <td>
+         <c:if test="${lm.trade_status == 0}">交易结束</c:if>
+         <c:if test="${lm.trade_status == 1}">交易异常</c:if>
+         </td>
+         <td>
+         <c:if test="${lm.trade_type == 0}">固收类</c:if>
+         <c:if test="${lm.trade_type == 1}">p2p房贷</c:if>
+         <c:if test="${lm.trade_type == 2}">p2p车贷</c:if>
+         </td>
          <td>${lm.trade_name }</td>
          <td>${lm.create_date }</td>
       </tr>

@@ -272,7 +272,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                           <td>还款利息</td>
                           <td>还款时间</td>
                           <td>还款状态</td>
-                          <td>操作</td>
                           </tr>
                           <c:forEach items="${listSBPR }" var="SBPR" varStatus="stat">
                           <tr class="text-center">
@@ -288,14 +287,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <c:if test="${SBPR.ispayment == 0}">待还款</c:if>
                             <c:if test="${SBPR.ispayment == 1}">已还款</c:if>
                             </td>
-                            <td>
-                            <c:if test="${SBPR.ispayment == 0}">
-                            <button type="submit" class="btn btn-primary btn-sm">还款</button>
-                            </c:if>
-                            <c:if test="${SBPR.ispayment == 1}">
-                            <button type="submit" class="btn btn-primary btn-sm">已还款</button>
-                            </c:if>
-                            </td>
+<!--                             <td> -->
+<%--                             <c:if test="${SBPR.ispayment == 0}"> --%>
+<!--                             <button type="submit" class="btn btn-primary btn-sm">还款</button> -->
+<%--                             </c:if> --%>
+<%--                             <c:if test="${SBPR.ispayment == 1}"> --%>
+<!--                             <button type="submit" class="btn btn-primary btn-sm">已还款</button> -->
+<%--                             </c:if> --%>
+<!--                             </td> -->
                           </tr>
                           </c:forEach>
 			</table>

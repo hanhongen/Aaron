@@ -17,8 +17,8 @@ public class Member_deposit_recordSevice {
 	@Autowired
 	private Member_deposit_recordDao member_deposit_recordDao;
 	/**
-	 * ÁÐ±íÏÔÊ¾£º
-     * ÐòºÅ ¶©µ¥±àºÅ ÊÖ»úºÅ ¶©µ¥½ð¶î ¶©µ¥×´Ì¬ ³äÖµÇþµÀ ¸»ÓÑÊÖ»ú³äÖµ¶©µ¥ ¶©µ¥Ê±¼ä
+	 * å……å€¼è®°å½•
+     * ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½×´Ì¬ ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
 	 * @return
 	 */
 	public List<Member_deposit_record> listMember_deposit_record(Map map){

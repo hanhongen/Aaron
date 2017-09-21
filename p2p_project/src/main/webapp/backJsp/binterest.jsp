@@ -271,7 +271,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                           <td>投资金额</td>
                           <td>还款利息</td>
                           <td>投资时间</td>
-                          <td>还款时间</td>
                           <td>还款状态</td>
                           <td>操作</td>
                           </tr>
@@ -293,7 +292,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <c:if test="${SPR.ispayment == 0 }">待还款</c:if>
                             <c:if test="${SPR.ispayment == 1 }">已还款</c:if>                          
                             </td>
-                            <td></td>
                             <td></td>
                           </tr>
                           </c:forEach>

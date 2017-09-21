@@ -78,7 +78,7 @@ public class Push_Controller {
 	
 	
 	@RequestMapping("/updod/{id}")
-	public String select(@PathVariable("id")int id,Model model){
+ 	public String select(@PathVariable("id")int id,Model model){
 		    Push_notice push_notice=push_notice_service.getbypid(id);
 		    model.addAttribute("push_notice",push_notice);
 			    return "backJsp/update";
@@ -107,8 +107,11 @@ public class Push_Controller {
 	
 	//后台显示查询页面
 	@RequestMapping("/list")
-	public String list(Model model){
-		List<Feedback> feedbacks=push_notice_service.listfeed();
+	public String list(Model model,String name){
+	    Map map=new HashMap();
+	    map.put("name",name);
+		List<Feedback> feedbacks=push_notice_service.listfeed(map);
+		model.addAttribute("name",name);
 		model.addAttribute("feedbacks",feedbacks);
 		return "feedback";
 	}

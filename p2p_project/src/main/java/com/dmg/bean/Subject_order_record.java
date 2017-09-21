@@ -9,18 +9,18 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class Subject_order_record { //±êµÄ¶©µ¥±í
+public class Subject_order_record { //ï¿½ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	private int id;  //id
-	private String serial_number;  //Á÷Ë®ºÅ'
-	private int deal_type;  //½»Ò×ÀàÐÍ
-	private double amount;  //¶©µ¥½ð¶î
-	private int status;  //¶©µ¥×´Ì¬ 
-	private Subject subject;  //submitµÄid
-	private Member member;  //»áÔ±id
-	private int delflag;   //ÊÇ·ñÉ¾³ý'
-	private String create_date;  //´´½¨ÈÕÆÚ
-	private String update_date;  //¸üÐÂÈÕÆÚ
+	private String serial_number;  
+	private int deal_type;  
+	private double amount;  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private int status;  //ï¿½ï¿½ï¿½ï¿½×´Ì¬ 
+	private Subject subject;  //submitï¿½ï¿½id
+	private Member member;  //ï¿½ï¿½Ô±id
+	private int delflag;   //ï¿½Ç·ï¿½É¾ï¿½ï¿½'
+	private String create_date;  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private String update_date;  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	
 	@Id
 	@GeneratedValue

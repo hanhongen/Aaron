@@ -42,7 +42,7 @@ public class Push_notice_service {
 	 public void save(Feedback feedback){
 		 	push_notice_dao.save(feedback);	 
 	 }
-	 public List<Feedback> listfeed(){
-		 return push_notice_dao.listfeed();
+	 public List<Feedback> listfeed(Map map){
+		 return push_notice_dao.listfeed(map);
 	 }
 }

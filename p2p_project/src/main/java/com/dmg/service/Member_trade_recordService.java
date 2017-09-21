@@ -15,7 +15,7 @@ import com.dmg.dao.Member_trade_recordDao;
 public class Member_trade_recordService {
 	@Autowired
 	private Member_trade_recordDao member_trade_recordDao;
-	
+	//交易记录
 	public List<Member_trade_record> listMember_trade_record(int id){
 		List<Member_trade_record> list = member_trade_recordDao.listMember_trade_record(id);
 		return list;
