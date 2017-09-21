@@ -5,7 +5,7 @@
 
 <html>
 <head>
-<title>用户管理</title>
+<title>添加用户</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords"
@@ -201,119 +201,62 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<!-- /.sidebar-collapse -->
 		</div>
 		<!-- /.navbar-static-side --> </nav>
-
-		<script type="text/javascript">
-		  $(function(){
-			  $("#btn1").click(function(){  //添加
-				  location="/p2p_project/backJsp/addsolid.jsp";
-			  });
-			  
-		 	 $("#btn2").click(function(){  //模糊查询
-			   $("#form1").attr("aciton","/p2p_project/product/showProduct");
-		  	   $("#form1").submit();
-		     });
-		 	 
-		 	 $("#btn3").click(function(){
-		 		 $("#qname").val("");
-		 		 $("#s1").val("-1");
-		 		$("#s2").val("-1");
-		 	 });
-		 
-		});
-		  
-		</script>
 		<div id="page-wrapper">
 			<div class="graphs">
 				<div class="widget_head">
 					<div class="box-right-main">
 						<h2>
-							<span class="glyphicon glyphicon-play" style="margin-right: 5px"></span>固收类
+							<span class="glyphicon glyphicon-play" style="margin-right: 5px"></span>添加产品
 						</h2>
 					</div>
 				</div>
-
+				<!--开头-->
 
 				<div class="tablelist">
-					<form name="form1" id="form1" method="post">
-						<table class="table">
-							<tr>
-								<td style="width: 150px; padding-left: 30px;">
-									<button type="button" id="btn1" name="btn1"
-										class="btn btn-primary btn-sm">新增</button>
-								</td>
-								<td style="width: 150px; padding-left: 30px;"><h4>名称：</h4></td>
-								<td style="width: 300px"><input type="text" id="qname" name="qname"
-									class="form-control" placeholder="名称" value="${qname}"></td>
-								<td style="width: 150px; padding-left: 30px;"><h4>状态：</h4></td>
-								<td style="width: 170px">
-								<select class="form-control" id="s1" name="s1" >
-										<option value="-1"/>请选择
-										<option value="0"  ${s1==0?"selected":""}/>未发布
-										<option value="1"  ${s1==1?"selected":""}/>募集中
-										<option value="2"  ${s1==2?"selected":""}/>回款中
-										<option value="3"  ${s1==3?"selected":""}/>还款完成
-								</select></td>
-								<td style="width: 150px; padding-left: 30px;"><h4>类型：</h4></td>
-								<td style="width: 170px">
-								<select class="form-control" id="s2" name="s2">
-										<option value="-1" />请选择
-										<option value="0" ${s2==0?"selected":""}/>固收类
-										<option value="1" ${s2==1?"selected":""}/>P2P车贷
-										<option value="2" ${s2==2?"selected":""}/>P2P房贷
-								</select></td>
-								<td>
-									<button type="submit" id="btn2" name="btn2"
-										class="btn btn-primary btn-sm">查询</button>
-								</td>
-								<td>
-									<button type="button" id="btn3" class="btn btn-primary btn-sm">重置</button>
-								</td>
-							</tr>
-						</table>
-						<table border="1" class="table table-bordered tablebox">
+					<form name="form1" action="/p2p_project/usersetting/addUser"
+						id="form1" method="post">
+						<table class="table  tablebox">
 							<tr class="text-center" bgcolor="#f7f7f7">
-								<td>序 号</td>
-								<td>ID</td>
-								<td>合同编号</td>
-								<td>类型</td>
-								<td>名称</td>
-								<td>标的总金额</td>
-								<td>已投总金额</td>
-								<td>投资期限</td>
-								<td>起投金额</td>
-								<td>年化收益</td>
-								<td>状态</td>
-								<td>可使用体验金</td>
-								<td>添加时间</td>
-								<td>操 作</td>
+								<td>姓 名：<input type="text" name="user_name" required
+									placeholder="用户名"></td>
+							<tr class="text-center" bgcolor="#f7f7f7">
+								<td>密 码：<input type="password" id="password1"
+									name="password1" required placeholder="密 码">
+								</td>
 							</tr>
-							<c:forEach items="${list}" var="p" varStatus="stat">
-								<tr class="text-center" bgcolor="#f7f7f7">
-									<td>${stat.index+1 }</td>
-									<td>${p.id }</td>
-									<td>${p.serial_no }</td>
-									<td><c:if test="${p.type==0}">固收类</c:if> <c:if
-											test="${p.type==1}">P2P车贷</c:if></td>
-									<td>${p.name}</td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td>${p.floor_amount}</td>
-									<td>${p.year_rate}%</td>
-									<td><c:if test="${p.status==0}">未募集</c:if> <c:if
-											test="${p.status==1}">募集中</c:if> <c:if test="${p.status==2}">已结束</c:if>
-									</td>
-									<td><c:if test="${p.exper_status==0}">否</c:if> <c:if
-											test="${p.exper_status==1}">是</c:if></td>
-									<td>${p.create_date }</td>
-									<td>修改</td>
-								</tr>
-							</c:forEach>
+							<tr class="text-center" bgcolor="#f7f7f7">
+								<td>密 码：<input type="password" id="password"
+									name="password" onblur="return fun1();" required
+									placeholder="再次输入密码"><span id="s1"></span>
+								</td>
+							</tr>
+							<tr class="text-center" bgcolor="#f7f7f7">
+								<td>手机号：<input type="number" name="mobile_phone" required
+									placeholder="手机号码"></td>
+							</tr>
+							<tr class="text-center" bgcolor="#f7f7f7">
+								<td>角 色：<select id="identity" name="identity"
+									style="width: 150px; height: 25px">
+										<option value="-1" />请选择角色
+										<c:forEach items="${list }" var="r">
+											<option value="${r.id}" />${r.cname}
+									</c:forEach>
+								</select>
+								</td>
+							</tr>
+							<tr class="text-center" bgcolor="#f7f7f7">
+								<td>&nbsp; <input type="submit" value="提   交">&nbsp;
+									<input type="reset" value="重  置">&nbsp; <input
+									type="button" id="btn1" value="返  回">&nbsp;
+								</td>
+							</tr>
 						</table>
 					</form>
 				</div>
 			</div>
 		</div>
+
+
 
 
 		<!-- Nav CSS -->
@@ -322,4 +265,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<script src="/p2p_project/backStyle/js/metisMenu.min.js"></script>
 		<script src="/p2p_project/backStyle/js/custom.js"></script>
 </body>
+<script type="text/javascript">
+	$(function(){
+		$("#btn1").click(function(){
+			location="/p2p_project/usersetting/showuser";
+		});
+		
+		  function fun1(){
+			  var pwd1=$("#password1").val();
+			  var pwd=$("this").val();
+			  if(pwd1==pwd){
+				  return true;
+			  }else{
+				  return false;
+			  }
+			  
+		  }
+	});
+	</script>
 </html>
