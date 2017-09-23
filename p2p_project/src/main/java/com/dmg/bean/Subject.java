@@ -9,38 +9,38 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class Subject {  //ï¿½ï¿½ï¿½ï¿½ï¿½
+public class Subject {  //é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿï¿½
 
 	private int id;  //id
-	private String serial_number;  // ï¿½ï¿½Ë®ï¿½ï¿½
-	private String serial_no;  //ï¿½ï¿½Í¬ï¿½ï¿½'
-	private String name;  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-	private int type;  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½'
+	private String serial_number;  // Á÷Ë®ºÅ
+	private String serial_no;  //ºÏÍ¬ºÅ'
+	private String name;  //±êµÄÃû³Æ
+	private int type;  //±êµÄÀàÐÍ'
 	private int status;  //×´Ì¬
-	private double floor_amount;  //ï¿½ï¿½Í¶ï¿½ï¿½ï¿½
-	private double amount;  //ï¿½ï¿½Ä½ï¿½ï¿½
-	private int first_id;  //Ê¼ï¿½ï¿½id
-	private int parent_id;  //ï¿½ï¿½ï¿½ï¿½id
-	private int period;  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-	private String purpose;  //ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½
-	private String raise_start;  //Ä¼ï¿½ï¿½ï¿½ï¿½Ê¼
-	private String raise_end;  //Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-	private int refund_way;  //ï¿½ï¿½ï¿½î·½Ê½
-	private int safeguard_way;  //ï¿½ï¿½ï¿½Ï·ï¿½Ê½
-	private String start_date;//ï¿½ï¿½Ä¿ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½
-	private String end_date;//ï¿½ï¿½Ä½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-	private double year_rate;  //ï¿½ê»¯ï¿½ï¿½',
-	private String comment;  //ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½
-	private Subject_folder subject_folder;  //ï¿½Ä¼ï¿½ï¿½ï¿½Id
-	private int delflag;  //ï¿½Ç·ï¿½É¾ï¿½ï¿½
-	private String update_date;  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½'
-	private String create_date;  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-	private String borrowername;  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-	private int borrowerid;  //ï¿½ï¿½ï¿½ï¿½ï¿½id
-	private int bought;  //ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½
-	private String projectdetails;  //ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½
-	private String safetycontrol;  //ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½
-	private int exper_status;  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ô¹ï¿½ï¿½ï¿½(0ï¿½ï¿½ï¿½ï¿½1ï¿½ï¿½ï¿½ï¿½)
+	private double floor_amount;  //ÆðÍ¶½ð¶î
+	private double amount;  //±êµÄ½ð¶î
+	private int first_id;  //Ê¼±êid
+	private int parent_id;  //¸¸±êid
+	private int period;  //±êµÄÖÜÆÚ
+	private String purpose;  //½è¿îÄ¿µÄ
+	private String raise_start;  //Ä¼¼¯¿ªÊ¼
+	private String raise_end;  //Ä¼¼¯½áÊø
+	private int refund_way;  //»¹¿î·½Ê½
+	private int safeguard_way;  //±£ÕÏ·½Ê½
+	private String start_date;//±êµÄ¿ªÊ¼ÈÕÆÚ
+	private String end_date;//±êµÄ½áÊøÈÕÆÚ
+	private double year_rate;  //Äê»¯ÂÊ',
+	private String comment;  //²úÆ·ËÙÀÀ
+	private Subject_folder subject_folder;  //ÎÄ¼þ¼ÐId
+	private int delflag;  //ÊÇ·ñÉ¾³ý
+	private String update_date;  //¸üÐÂÈÕÆÚ'
+	private String create_date;  //´´½¨ÈÕÆÚ
+	private String borrowername;  //½è¿îÈËÐÕÃû
+	private int borrowerid;  //½è¿îÈËid
+	private int bought;  //ÒÑ¹ºÈËÊý
+	private String projectdetails;  //ÏîÄ¿ÏêÇé
+	private String safetycontrol;  //°²È«±£ÕÏ
+	private int exper_status;  //ÌåÑé½ðÊÇ·ñ¿ÉÒÔ¹ºÂò(0£º·ñ£¬1£ºÊÇ)
 	private Member member;
 	@ManyToOne
 	@JoinColumn(name="member_id")

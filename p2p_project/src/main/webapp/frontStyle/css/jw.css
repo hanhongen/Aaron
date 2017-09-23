@@ -1372,11 +1372,11 @@ input.tytxt {
     border-radius: 1px
 }
 
-.login {
-    margin-top: 60px;
-    margin-bottom: 100px
+/* .login {
+	margin-top: 60px;
+	margin-bottom: 100px
 }
-
+ */
 .login .loginPic {
     float: left;
     width: 60%;

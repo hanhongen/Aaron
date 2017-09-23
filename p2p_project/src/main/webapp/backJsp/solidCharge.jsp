@@ -11,7 +11,7 @@
 <meta name="keywords"
 	content="Modern Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
 <!-- Bootstrap Core CSS -->
 <link rel="stylesheet" type="text/css"
 	href="http://www.jq22.com/jquery/bootstrap-3.3.4.css">
@@ -44,80 +44,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				Finance</a>
 		</div>
 		<!-- /.navbar-header -->
-		<ul class="nav navbar-nav navbar-right">
-			<li class="dropdown"><a href="#" class="dropdown-toggle"
-				data-toggle="dropdown" aria-expanded="false"><i
-					class="fa fa-comments-o"></i><span class="badge">4</span></a>
-				<ul class="dropdown-menu">
-					<li class="dropdown-menu-header"><strong>Messages</strong>
-						<div class="progress thin">
-							<div class="progress-bar progress-bar-success" role="progressbar"
-								aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"
-								style="width: 40%">
-								<span class="sr-only">40% Complete (success)</span>
-							</div>
-						</div></li>
-					<li class="avatar"><a href="#"> <img
-							src="/p2p_project/backStyle/images/1.png" alt="" />
-							<div>New message</div> <small>1 minute ago</small> <span
-							class="label label-info">NEW</span>
-					</a></li>
-					<li class="avatar"><a href="#"> <img
-							src="/p2p_project/backStyle/images/2.png" alt="" />
-							<div>New message</div> <small>1 minute ago</small> <span
-							class="label label-info">NEW</span>
-					</a></li>
-					<li class="avatar"><a href="#"> <img
-							src="/p2p_project/backStyle/images/3.png" alt="" />
-							<div>New message</div> <small>1 minute ago</small>
-					</a></li>
-					<li class="avatar"><a href="#"> <img
-							src="/p2p_project/backStyle/images/4.png" alt="" />
-							<div>New message</div> <small>1 minute ago</small>
-					</a></li>
-					<li class="avatar"><a href="#"> <img
-							src="/p2p_project/backStyle/images/5.png" alt="" />
-							<div>New message</div> <small>1 minute ago</small>
-					</a></li>
-					<li class="avatar"><a href="#"> <img
-							src="/p2p_project/backStyle/images/pic1.png" alt="" />
-							<div>New message</div> <small>1 minute ago</small>
-					</a></li>
-					<li class="dropdown-menu-footer text-center"><a href="#">View
-							all messages</a></li>
-				</ul></li>
-			<li class="dropdown"><a href="#" class="dropdown-toggle avatar"
-				data-toggle="dropdown"><img
-					src="/p2p_project/backStyle/images/1.png" alt="" /><span
-					class="badge">9</span></a>
-				<ul class="dropdown-menu">
-					<li class="dropdown-menu-header text-center"><strong>Account</strong>
-					</li>
-					<li class="m_2"><a href="#"><i class="fa fa-bell-o"></i>
-							Updates <span class="label label-info">42</span></a></li>
-					<li class="m_2"><a href="#"><i class="fa fa-envelope-o"></i>
-							Messages <span class="label label-success">42</span></a></li>
-					<li class="m_2"><a href="#"><i class="fa fa-tasks"></i>
-							Tasks <span class="label label-danger">42</span></a></li>
-					<li><a href="#"><i class="fa fa-comments"></i> Comments <span
-							class="label label-warning">42</span></a></li>
-					<li class="dropdown-menu-header text-center"><strong>Settings</strong>
-					</li>
-					<li class="m_2"><a href="#"><i class="fa fa-user"></i>
-							Profile</a></li>
-					<li class="m_2"><a href="#"><i class="fa fa-wrench"></i>
-							Settings</a></li>
-					<li class="m_2"><a href="#"><i class="fa fa-usd"></i>
-							Payments <span class="label label-default">42</span></a></li>
-					<li class="m_2"><a href="#"><i class="fa fa-file"></i>
-							Projects <span class="label label-primary">42</span></a></li>
-					<li class="divider"></li>
-					<li class="m_2"><a href="#"><i class="fa fa-shield"></i>
-							Lock Profile</a></li>
-					<li class="m_2"><a href="#"><i class="fa fa-lock"></i>
-							Logout</a></li>
-				</ul></li>
-		</ul>
+
 
 		<div class="navbar-default sidebar" role="navigation">
 			<div class="sidebar-nav navbar-collapse">
@@ -203,24 +130,32 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<!-- /.navbar-static-side --> </nav>
 
 		<script type="text/javascript">
-		  $(function(){
-			  $("#btn1").click(function(){  //添加
-				  location="/p2p_project/backJsp/addsolid.jsp";
-			  });
-			  
-		 	 $("#btn2").click(function(){  //模糊查询
-			   $("#form1").attr("aciton","/p2p_project/product/showProduct");
-		  	   $("#form1").submit();
-		     });
-		 	 
-		 	 $("#btn3").click(function(){
-		 		 $("#qname").val("");
-		 		 $("#s1").val("-1");
-		 		$("#s2").val("-1");
-		 	 });
-		 
-		});
-		  
+			$(function() {
+				$("#btn1").click(function() { //添加
+					location = "/p2p_project/backJsp/addsolid.jsp";
+				});
+
+				$("#btn2").click(
+						function() { //模糊查询
+							$("#form1").attr("action",
+									"/p2p_project/product/showSolid");
+							$("#form1").submit();
+						});
+
+				$("#btn3").click(function() {
+					$("#qname").val("");
+					$("#s1").val("-1");
+					$("#s2").val("-1");
+				});
+
+				/* $("#btn4").click(
+						function() { //修改
+							$("#form1").attr("action",
+							"/p2p_project/product/bfupdateSolid");
+					$("#form1").submit();
+						}); */
+				
+			});
 		</script>
 		<div id="page-wrapper">
 			<div class="graphs">
@@ -242,24 +177,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										class="btn btn-primary btn-sm">新增</button>
 								</td>
 								<td style="width: 150px; padding-left: 30px;"><h4>名称：</h4></td>
-								<td style="width: 300px"><input type="text" id="qname" name="qname"
-									class="form-control" placeholder="名称" value="${qname}"></td>
+								<td style="width: 300px"><input type="text" id="qname"
+									name="qname" class="form-control" placeholder="名称"
+									value="${qname}"></td>
 								<td style="width: 150px; padding-left: 30px;"><h4>状态：</h4></td>
-								<td style="width: 170px">
-								<select class="form-control" id="s1" name="s1" >
-										<option value="-1"/>请选择
-										<option value="0"  ${s1==0?"selected":""}/>未发布
-										<option value="1"  ${s1==1?"selected":""}/>募集中
-										<option value="2"  ${s1==2?"selected":""}/>回款中
-										<option value="3"  ${s1==3?"selected":""}/>还款完成
+								<td style="width: 170px"><select class="form-control"
+									id="s1" name="s1">
+										<option value="-1">请选择</option>
+										<option value="0" ${s1==0?"selected":""}>未发布</option>
+										<option value="1" ${s1==1?"selected":""}>募集中</option>
+										<option value="2" ${s1==2?"selected":""}>回款中</option>
+										<option value="3" ${s1==3?"selected":""}>还款完成</option>
 								</select></td>
 								<td style="width: 150px; padding-left: 30px;"><h4>类型：</h4></td>
-								<td style="width: 170px">
-								<select class="form-control" id="s2" name="s2">
-										<option value="-1" />请选择
-										<option value="0" ${s2==0?"selected":""}/>固收类
-										<option value="1" ${s2==1?"selected":""}/>P2P车贷
-										<option value="2" ${s2==2?"selected":""}/>P2P房贷
+								<td style="width: 170px"><select class="form-control"
+									id="s2" name="s2">
+										<option value="-1">请选择</option>
+										<option value="0" ${s2==0?"selected":""}>固收类</option>
+										<option value="1" ${s2==1?"selected":""}>P2P车贷</option>
+										<option value="2" ${s2==2?"selected":""}>P2P房贷</option>
 								</select></td>
 								<td>
 									<button type="submit" id="btn2" name="btn2"
@@ -296,8 +232,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											test="${p.type==1}">P2P车贷</c:if></td>
 									<td>${p.name}</td>
 									<td></td>
-									<td></td>
-									<td></td>
+									<td>${p.amount}</td>
+									<td>${p.period}天</td>
 									<td>${p.floor_amount}</td>
 									<td>${p.year_rate}%</td>
 									<td><c:if test="${p.status==0}">未募集</c:if> <c:if
@@ -306,7 +242,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<td><c:if test="${p.exper_status==0}">否</c:if> <c:if
 											test="${p.exper_status==1}">是</c:if></td>
 									<td>${p.create_date }</td>
-									<td>修改</td>
+									<td>
+										<button type="submit" id="btn4" onclick="action='/p2p_project/product/bfupdateSolid/${p.id}'" class="btn btn-primary btn-sm">查看/编辑</button>
+									</td>
 								</tr>
 							</c:forEach>
 						</table>

@@ -11,7 +11,13 @@
 <meta name="keywords"
 	content="Modern Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script type="application/x-javascript">
+	
+	
+	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
+
+</script>
 <!-- Bootstrap Core CSS -->
 <link rel="stylesheet" type="text/css"
 	href="http://www.jq22.com/jquery/bootstrap-3.3.4.css">
@@ -26,6 +32,31 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!---//webfonts--->
 <!-- Bootstrap Core JavaScript -->
 <script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
+
+
+<script type="text/javascript" charset="utf-8"
+	src="/p2p_project/backStyle/editor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8"
+	src="/p2p_project/backStyle/editor/ueditor.all.min.js">
+	
+</script>
+<script type="text/javascript" charset="utf-8"
+	src="/p2p_project/backStyle/editor/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript" charset="utf-8">
+	var ue = UE.getEditor("myUeditor1", {
+		initialFrameWidth : 1200,
+		initialFrameHeight : 300
+	});
+	var ue = UE.getEditor("myUeditor2", {
+		initialFrameWidth : 1200,
+		initialFrameHeight : 300
+	});
+	var ue = UE.getEditor("myUeditor3", {
+		initialFrameWidth : 1200,
+		initialFrameHeight : 300
+	});
+</script>
+
 
 </head>
 <body>
@@ -44,80 +75,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				Finance</a>
 		</div>
 		<!-- /.navbar-header -->
-		<ul class="nav navbar-nav navbar-right">
-			<li class="dropdown"><a href="#" class="dropdown-toggle"
-				data-toggle="dropdown" aria-expanded="false"><i
-					class="fa fa-comments-o"></i><span class="badge">4</span></a>
-				<ul class="dropdown-menu">
-					<li class="dropdown-menu-header"><strong>Messages</strong>
-						<div class="progress thin">
-							<div class="progress-bar progress-bar-success" role="progressbar"
-								aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"
-								style="width: 40%">
-								<span class="sr-only">40% Complete (success)</span>
-							</div>
-						</div></li>
-					<li class="avatar"><a href="#"> <img
-							src="/p2p_project/backStyle/images/1.png" alt="" />
-							<div>New message</div> <small>1 minute ago</small> <span
-							class="label label-info">NEW</span>
-					</a></li>
-					<li class="avatar"><a href="#"> <img
-							src="/p2p_project/backStyle/images/2.png" alt="" />
-							<div>New message</div> <small>1 minute ago</small> <span
-							class="label label-info">NEW</span>
-					</a></li>
-					<li class="avatar"><a href="#"> <img
-							src="/p2p_project/backStyle/images/3.png" alt="" />
-							<div>New message</div> <small>1 minute ago</small>
-					</a></li>
-					<li class="avatar"><a href="#"> <img
-							src="/p2p_project/backStyle/images/4.png" alt="" />
-							<div>New message</div> <small>1 minute ago</small>
-					</a></li>
-					<li class="avatar"><a href="#"> <img
-							src="/p2p_project/backStyle/images/5.png" alt="" />
-							<div>New message</div> <small>1 minute ago</small>
-					</a></li>
-					<li class="avatar"><a href="#"> <img
-							src="/p2p_project/backStyle/images/pic1.png" alt="" />
-							<div>New message</div> <small>1 minute ago</small>
-					</a></li>
-					<li class="dropdown-menu-footer text-center"><a href="#">View
-							all messages</a></li>
-				</ul></li>
-			<li class="dropdown"><a href="#" class="dropdown-toggle avatar"
-				data-toggle="dropdown"><img
-					src="/p2p_project/backStyle/images/1.png" alt="" /><span
-					class="badge">9</span></a>
-				<ul class="dropdown-menu">
-					<li class="dropdown-menu-header text-center"><strong>Account</strong>
-					</li>
-					<li class="m_2"><a href="#"><i class="fa fa-bell-o"></i>
-							Updates <span class="label label-info">42</span></a></li>
-					<li class="m_2"><a href="#"><i class="fa fa-envelope-o"></i>
-							Messages <span class="label label-success">42</span></a></li>
-					<li class="m_2"><a href="#"><i class="fa fa-tasks"></i>
-							Tasks <span class="label label-danger">42</span></a></li>
-					<li><a href="#"><i class="fa fa-comments"></i> Comments <span
-							class="label label-warning">42</span></a></li>
-					<li class="dropdown-menu-header text-center"><strong>Settings</strong>
-					</li>
-					<li class="m_2"><a href="#"><i class="fa fa-user"></i>
-							Profile</a></li>
-					<li class="m_2"><a href="#"><i class="fa fa-wrench"></i>
-							Settings</a></li>
-					<li class="m_2"><a href="#"><i class="fa fa-usd"></i>
-							Payments <span class="label label-default">42</span></a></li>
-					<li class="m_2"><a href="#"><i class="fa fa-file"></i>
-							Projects <span class="label label-primary">42</span></a></li>
-					<li class="divider"></li>
-					<li class="m_2"><a href="#"><i class="fa fa-shield"></i>
-							Lock Profile</a></li>
-					<li class="m_2"><a href="#"><i class="fa fa-lock"></i>
-							Logout</a></li>
-				</ul></li>
-		</ul>
 
 		<div class="navbar-default sidebar" role="navigation">
 			<div class="sidebar-nav navbar-collapse">
@@ -210,77 +167,186 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</h2>
 					</div>
 				</div>
+				<hr>
 				<!--开头-->
 
 				<div class="tablelist">
-					<form name="form1" action="/p2p_project/usersetting/addUser"
-						id="form1" method="post">
-						<table class="table  tablebox">
-							<tr class="text-center" bgcolor="#f7f7f7">
-								<td>姓 名：<input type="text" name="user_name" required
-									placeholder="用户名"></td>
-							<tr class="text-center" bgcolor="#f7f7f7">
-								<td>密 码：<input type="password" id="password1"
-									name="password1" required placeholder="密 码">
-								</td>
+					<form class="form-group" name="form1"
+						action="/p2p_project/product/saveSolid" id="form1" method="post">
+						<!-- table1 开始 -------------------------------------------------------------------------------->
+						<table class="table table-condensed" border="0">
+							<tr class="text-center">
+								<td width="10%">名 称：</td>
+								<td align="left"><input style="height: 30px; width: 260px;"
+									type="text" name="name" required placeholder="请输入文本"></td>
+								<td width="10%">类 型：</td>
+								<td align="left"><select
+									style="height: 30px; width: 260px;" name="type">
+										<option value="-1">请选择</option>
+										<option value="0" ${s2==0?"selected":""}>固收类</option>
+										<option value="1" ${s2==1?"selected":""}>P2P车贷</option>
+										<option value="2" ${s2==2?"selected":""}>P2P房贷</option>
+								</select></td>
 							</tr>
-							<tr class="text-center" bgcolor="#f7f7f7">
-								<td>密 码：<input type="password" id="password"
-									name="password" onblur="return fun1();" required
-									placeholder="再次输入密码"><span id="s1"></span>
-								</td>
+							<tr class="text-center">
+								<td width="10%">合同编号：</td>
+								<td width="20%" align="left"><input
+									style="height: 30px; width: 260px;" type="text"
+									name="serial_no" required placeholder="请输入文本"></td>
+								<td width="10%">借款用途：</td>
+								<td width="20%" align="left"><input
+									style="height: 30px; width: 260px;" type="text" name="purpose"
+									required placeholder="请输入文本"></td>
 							</tr>
-							<tr class="text-center" bgcolor="#f7f7f7">
-								<td>手机号：<input type="number" name="mobile_phone" required
-									placeholder="手机号码"></td>
+							<tr class="text-center">
+								<td width="10%">起投金额(元)：</td>
+								<td width="20%" align="left"><input
+									style="height: 30px; width: 260px;" type="number"
+									name="floor_amount" required placeholder="请输入文本"></td>
+								<td width="10%">保障方式：</td>
+								<td width="20%" align="left"><select
+									style="height: 30px; width: 260px;" name="safeguard_way">
+										<option value="-1">请选择</option>
+										<option value="0" ${s2==0?"selected":""}>企业担保</option>
+										<option value="1" ${s2==1?"selected":""}>银行监管</option>
+								</select></td>
 							</tr>
-							<tr class="text-center" bgcolor="#f7f7f7">
-								<td>角 色：<select id="identity" name="identity"
-									style="width: 150px; height: 25px">
-										<option value="-1" />请选择角色
-										<c:forEach items="${list }" var="r">
-											<option value="${r.id}" />${r.cname}
-									</c:forEach>
-								</select>
-								</td>
+							<tr class="text-center">
+								<td width="10%">年化收益(%)：</td>
+								<td width="20%" align="left"><input
+									style="height: 30px; width: 260px;" type="number"
+									name="year_rate" required placeholder="请输入文本"></td>
+								<td width="10%">可使用体验金：</td>
+								<td width="20%" align="left"><select
+									style="height: 30px; width: 260px;" name="exper_status">
+										<option value="-1">请选择</option>
+										<option value="0" ${s2==0?"selected":""}>否</option>
+										<option value="1" ${s2==1?"selected":""}>是</option>
+								</select></td>
 							</tr>
-							<tr class="text-center" bgcolor="#f7f7f7">
-								<td>&nbsp; <input type="submit" value="提   交">&nbsp;
-									<input type="reset" value="重  置">&nbsp; <input
-									type="button" id="btn1" value="返  回">&nbsp;
+							<tr class="text-center">
+								<td width="10%">投资期限(天)：</td>
+								<td width="20%" align="left"><input
+									style="height: 30px; width: 260px;" type="number" name="period"
+									required placeholder="请输入文本"></td>
+								<td width="10%">借款人姓名：</td>
+								<td width="20%" align="left"><input
+									style="height: 30px; width: 260px;" type="text"
+									name="borrowername" required placeholder="请输入文本"></td>
+							</tr>
+						</table>
+
+						<!-- table1 结束 ---------------------------------------------------------------------------------->
+						<hr>
+
+						<!-- 特定属性 开始 --------------------------------------------------------------------->
+						<div class="widget_head">
+							<div class="box-right-main">
+								<h2>
+									<span class="glyphicon glyphicon-play"
+										style="margin-right: 5px"></span>特定属性
+								</h2>
+							</div>
+						</div>
+
+						<table class="table table-condensed" border="0">
+							<tr class="text-center">
+								<td width="10%">责权编号：</td>
+								<td width="20%" align="left"><input
+									style="height: 30px; width: 260px;" type="text" name=""
+									placeholder="请输入文本"></td>
+								<td width="10%">企业认证：</td>
+								<td width="20%" align="left"><input
+									style="height: 30px; width: 260px;" type="text"
+									name=""  placeholder="请输入文本"></td>
+							</tr>
+							<tr class="text-center">
+								<td width="10%">责权人：</td>
+								<td width="20%" align="left"><input
+									style="height: 30px; width: 260px;" type="text" name="period"
+									 placeholder="请输入文本"></td>
+								<td width="10%">保障平台：</td>
+								<td width="20%" align="left"><input
+									style="height: 30px; width: 260px;" type="text"
+									name=""  placeholder="请输入文本"></td>
+							</tr>
+						</table>
+						<!-- 特定属性 结束-------------------------------------------------------------------- -->
+						<hr>
+						<!-- 产品速揽  开始-------------------------------------------------------------------- -->
+
+						<div class="widget_head">
+							<div class="box-right-main">
+								<h2>
+									<span class="glyphicon glyphicon-play"
+										style="margin-right: 5px"></span>产品速揽
+								</h2>
+							</div>
+						</div>
+
+						<table class="table table-condensed" border="0">
+							<tr class="text-center">
+								<td><textarea id="myUeditor1" name="comment"></textarea></td>
+							</tr>
+						</table>
+						<!-- 产品速揽 结束-------------------------------------------------------------------- -->
+
+						<hr>
+						<!-- 项目详情  开始-------------------------------------------------------------------- -->
+
+						<div class="widget_head">
+							<div class="box-right-main">
+								<h2>
+									<span class="glyphicon glyphicon-play"
+										style="margin-right: 5px"></span>项目详情
+								</h2>
+							</div>
+						</div>
+
+						<table class="table table-condensed" border="0">
+							<tr class="text-center">
+								<td><textarea id="myUeditor2" name="projectDetails"></textarea></td>
+							</tr>
+						</table>
+						<!-- 项目详情 结束-------------------------------------------------------------------- -->
+
+						<hr>
+						<!-- 安全保障    开始-------------------------------------------------------------------- -->
+
+						<div class="widget_head">
+							<div class="box-right-main">
+								<h2>
+									<span class="glyphicon glyphicon-play"
+										style="margin-right: 5px"></span>安全保障
+								</h2>
+							</div>
+						</div>
+
+						<table class="table table-condensed" border="0">
+							<tr class="text-center">
+								<td><textarea id="myUeditor3" name="safetyControl"></textarea></td>
+							</tr>
+							<tr class="text-center">
+								<td>
+									<button style="width: 150px; height: 50px;" type="submit"
+										id="btn1" name="btn1" class="btn btn-primary btn-sm">
+										<font size="4">保 &nbsp;存</font>
+									</button>
 								</td>
 							</tr>
 						</table>
-					</form>
+						</form>
 				</div>
 			</div>
 		</div>
+	</div>
 
 
 
-
-		<!-- Nav CSS -->
-		<link href="/p2p_project/backStyle/css/custom.css" rel="stylesheet">
-		<!-- Metis Menu Plugin JavaScript -->
-		<script src="/p2p_project/backStyle/js/metisMenu.min.js"></script>
-		<script src="/p2p_project/backStyle/js/custom.js"></script>
+	<!-- Nav CSS -->
+	<link href="/p2p_project/backStyle/css/custom.css" rel="stylesheet">
+	<!-- Metis Menu Plugin JavaScript -->
+	<script src="/p2p_project/backStyle/js/metisMenu.min.js"></script>
+	<script src="/p2p_project/backStyle/js/custom.js"></script>
 </body>
-<script type="text/javascript">
-	$(function(){
-		$("#btn1").click(function(){
-			location="/p2p_project/usersetting/showuser";
-		});
-		
-		  function fun1(){
-			  var pwd1=$("#password1").val();
-			  var pwd=$("this").val();
-			  if(pwd1==pwd){
-				  return true;
-			  }else{
-				  return false;
-			  }
-			  
-		  }
-	});
-	</script>
 </html>

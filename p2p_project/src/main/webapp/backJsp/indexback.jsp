@@ -58,7 +58,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <a href="#"><i class="fa fa-laptop nav_icon"></i>理财产品<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="/p2p_project/product/showSubject">固收类</a>
+                                    <a href="/p2p_project/product/showSolid">固收类</a>
                                 </li>
                             </ul>
 							<ul class="nav nav-second-level">
