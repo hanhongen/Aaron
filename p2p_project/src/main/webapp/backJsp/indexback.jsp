@@ -146,7 +146,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <a href="#"><i class="fa fa-flask nav_icon"></i>盈加设置<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="/p2p_project/backJsp/media.jsp">公告管理</a>
+                                    <a href="/p2p_project/test/test1">公告管理</a>
                                 </li>
                                 <li>
                                     <a href="/p2p_project/backJsp/feedback.jsp">意见反馈</a>

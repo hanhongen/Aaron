@@ -96,7 +96,7 @@
 								<a href="">股权基金</a>
 							</dd>
 						</dl></li>
-					<li class="rela"><a href="" class="one">盈+商学院</a>
+					<li class="rela"><a href="/p2p_project/frontJsp/college.jsp" class="one">盈+商学院</a>
 					</li>
 					<li class="rela"><a href="" class="one">我的加法库</a>
 					</li>

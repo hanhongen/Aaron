@@ -2,8 +2,11 @@ package com.dmg.controller;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -30,8 +33,16 @@ public class Newscontroller {
 	private News_typeservice news_typeservice;
 	//œ‘ æ
 @RequestMapping("/listnews")
-public String listnews(Model model){
-	List<News>list=newsservice.listnews();
+public String listnews(Model model,@RequestParam(required=false)String tlt,@RequestParam(required=false)String s1){
+	Map<String,String>map=new HashMap<>();
+	map.put("tlt", tlt);
+	map.put("s1", s1);
+	List<News>list=newsservice.listnews(map);
+	List<News_type>li=news_typeservice.listtype();
+	System.out.println(li);
+	model.addAttribute("s1", s1);
+	model.addAttribute("tlt",tlt);
+	model.addAttribute("li",li);
 	model.addAttribute("list",list);
 	return"backJsp/compose";
 }
@@ -78,6 +89,7 @@ public String updatelist(@PathVariable("id")int id,Model model){
 	model.addAttribute("news",news);
  return "backJsp/updatelist";
 }
+
 @RequestMapping("/updatenews")
 public String updatenews(News news,int tid,@RequestParam("file")MultipartFile file,HttpServletRequest request)throws Exception{
 	SimpleDateFormat ssf=new SimpleDateFormat("yyyy-MM-dd hh-mm-ss");

@@ -238,7 +238,7 @@
 		</div>
 	</div>
 
-
+</div>
 	<!-- Nav CSS -->
 	<link href="/p2p_project/backStyle/css/custom.css" rel="stylesheet">
 	<!-- Metis Menu Plugin JavaScript -->

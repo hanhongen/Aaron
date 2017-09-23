@@ -1,5 +1,7 @@
 package com.dmg.service;
 import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,8 +25,8 @@ public class Newsservice {
 	 return newsdao.getbyid(id);
   }
 
-   public List<News>listnews(){
-	   return newsdao.listnews();
+   public List<News>listnews(Map map){
+	   return newsdao.listnews(map);
 			   
    }
 

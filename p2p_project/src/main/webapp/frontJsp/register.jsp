@@ -120,7 +120,7 @@
 
  
 	<div class="row register">
-	<form action="/p2p_project/user/register" method="post">
+	<form action="/p2p_project/user/register" method="post" >
 		<div class="title">
 			<div class="left">
 				<hr>
@@ -145,7 +145,7 @@
 				手机号
 			</div>
 			<div class="rInput">
-				<input type="text" placeholder="请输入手机号"  required id="phone" name="mobile_phone" class="form-control textInput phone"><span id="s1"></span>
+				<input type="text" placeholder="请输入手机号"  required name="phone" id="phone" name="mobile_phone" class="form-control textInput phone"><span id="s1"></span>
 			</div>
 			
 		</div>
@@ -208,7 +208,7 @@
 				&nbsp;
 			</div>
 			<div class="rInput">
-				<input type="submit" value="立即注册" class="btn registBtn submit">
+				<input type="submit" value="立即注册" class="btn registBtn submit" >
 			</div>
 		</div>
 		<div class="item">
@@ -226,7 +226,7 @@
 
 <script type="text/javascript">
 $(function(){
-	var flag=false;
+	  var flag=false;
 	  var reg=/^1[0-9]\d{9}$/;
 	  $("#phone").blur(function(){
 		  var num=$(this).val();
@@ -273,5 +273,5 @@ $(function(){
 				</pre>
 		</div>
 	</div>
-</body>
+</body> 	
 </html>

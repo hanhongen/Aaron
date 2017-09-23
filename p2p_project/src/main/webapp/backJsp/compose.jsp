@@ -5,7 +5,7 @@
 
 <html>
 <head>
-<title>用户管理</title>
+<title>新闻管理</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords"
@@ -33,9 +33,20 @@ function fun1(){
 document.forms[0].action="/p2p_project/news/savelist";
 document.forms[0].submit();
 }
+
+function fun2(){
+	document.forms[0].action="/p2p_project/news/listnews";
+    document.forms[0].submit();
+}
+
+function fun3(){
+$("input[name='tlt']").val("").focus(); // 清空并获得焦点
+$("select[name='s1']").val("").focus();
+}
 </script>
 </head>
 <body>
+<form name="forms" method="post">
 	<div id="wrapper">
 		<!-- Navigation -->
 		<nav class="top1 navbar navbar-default navbar-static-top"
@@ -216,9 +227,16 @@ document.forms[0].submit();
 				<!--开头-->
 				
 				<div class="tablelist">
-<input type="text" name="title" placeholder="标题"> &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="type" placeholder="新闻类别">&nbsp;&nbsp;&nbsp;<button type="button" class="hidden-sm hidden-xs" id="but1">查询</button>
+标题:<input type="text" name="tlt" value="${tlt}" > &nbsp;&nbsp;新闻分类:<select name="s1" style="width: 100px;height: 25px">
+<option value="-1">${s1}</option>
+<c:forEach items="${li}" var="li">
+<option value="${li.name}">${li.name}</option>
+</c:forEach>
+</select>&nbsp;&nbsp;&nbsp;<button type="button"  class="btn btn-primary btn-2g" onclick="fun2()">查询</button>&nbsp;&nbsp;&nbsp;
+<button type="button"  class="btn btn-primary btn-2g" onclick="fun3()">重置</button>
+
  <div class="btn-group pull-right">
-                <button type="button" class="btn btn-primary btn-3g" onclick="fun1()" >添加新闻</button>
+                <button type="button" class="btn btn-primary btn-3g" onclick="fun1();" >添加新闻</button>
                 <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                     <i class="glyphicon glyphicon-user"></i><span class="hidden-sm hidden-xs">用户名称</span>
                     <span class="caret"></span>
@@ -235,6 +253,7 @@ document.forms[0].submit();
       <th>序号</th>
       <th>封面图片</th>
       <th>所属类别</th>
+      <th>标题</th>
       <th>作者</th>
       <th>排序</th>
       <th>点击数量</th>
@@ -251,6 +270,7 @@ document.forms[0].submit();
       <td>${status.index+1}</td>
       <td><img width="100px" height="60px" src="/p2p_project/upload/${news.cphoto}"></td>
       <td>${news.news_type.name}</td>
+      <td>${news.title}</td>
       <td>${news.author}</td>
        <td>${news.sort}</td>
       <td>${news.clicknumber}</td>
@@ -265,7 +285,7 @@ document.forms[0].submit();
                修改
             </a>
            
-            <a class="btn btn-danger" href="/p2p_project/news/deletenews/${news.id}">
+            <a class="btn btn-danger" href="/p2p_project/news/deletenews/${news.id}" onclick="confirm('确认删除${news.title}吗')">
                 <i class="glyphicon glyphicon-trash icon-white"></i>
                删除
             </a>
@@ -281,7 +301,7 @@ document.forms[0].submit();
 			</div>
 		</div>
 
-	
+	</form>
 		<!-- Nav CSS -->
 		<link href="/p2p_project/backStyle/css/custom.css" rel="stylesheet">
 		<!-- Metis Menu Plugin JavaScript -->
