@@ -30,13 +30,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <script type="text/javascript">
 function fun1(){
-document.forms[0].action="/p2p_project/news/savelist";
-document.forms[0].submit();
+$("#form1").attr("action","/p2p_project/news/savelist");
+$("#form1").submit();
 }
 
 function fun2(){
-	document.forms[0].action="/p2p_project/news/listnews";
-    document.forms[0].submit();
+	$("#form1").attr("action","/p2p_project/news/listnews");
+	$("#form1").submit();
 }
 
 function fun3(){
@@ -46,7 +46,7 @@ $("select[name='s1']").val("").focus();
 </script>
 </head>
 <body>
-<form name="forms" method="post">
+<form name="forms" method="post" id="form1">
 	<div id="wrapper">
 		<!-- Navigation -->
 		<nav class="top1 navbar navbar-default navbar-static-top"
