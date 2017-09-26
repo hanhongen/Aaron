@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -13,6 +14,8 @@
 <link href="/p2p_project/frontStyle/css/iconfont1.css" rel="stylesheet" type="text/css" />
 <link href="/p2p_project/frontStyle/css/common.css" rel="stylesheet">
 <link href="/p2p_project/frontStyle/css/jw.css" rel="stylesheet">
+
+
 
 <link href="/p2p_project/frontStyle/css/style.css" rel="stylesheet"
 	type="text/css">
@@ -110,7 +113,7 @@
 
 
 
-
+<form id="form1" method="post">
 <div class="proMain">
     	<div class="hwpzNav">
     		<ul>
@@ -154,32 +157,31 @@
             </ul>
         </div>
 
-<meta name="keywords" content="盈+，盈，社区金融，O2O社区金融，社区金融O2O，O2O，互联网+社区金融，O2O连锁，社区门店，首家社区金融，社区金融服务，综合金融，互联网金融，体验中心，普惠金融，金融创新，社区化，普惠化，全渠道化，互联网线上平台，O2O交易，全国首家，盈十，金融衍生品，固收类理财，私募基金，股权基金，股指期货，玩转股指，商品期货，国际期货，外盘，A50，沪深300，中证500，上证50" />
-<meta name="description" content="盈+——全国首家互联网金融交流体验中心，与您共盈，给财富做加法。" />
-<link href="/resources/web/images/icon.ico" type="image/x-icon" rel="shortcut icon">
 
 <div class="ajaxContainer">
 	<!-- 异步内容开始 -->
+	
+	<c:forEach items="${list}" var="li">
 					<ul class="tbList">
 						<li class="first">
 									<span class="ico zq"></span>
-							<h2><em>投</em>稳盈宝新手标</h2>
+							<h2><em>投</em>${li.name }</h2>
 							<i></i>
 						</li>
 						<li class="second">					
 							
 							<div class="txt1">
-								<h2>5.0<span style="font-size:18px;">+1.0%</span></h2>
+								<h2>${li.year_rate }<span style="font-size:18px;">+1.0%</span></h2>
 								<p>年化收益</p>
 							</div>
 							
 							<div class="txt2">
-								<h2>￥100.00</h2>
+								<h2>￥${li.floor_amount }</h2>
 								<p>起购金额(元)</p>
 							</div>
 							
 							<div class="txt2">
-								<h2>5天</h2>
+								<h2>${li.period }天</h2>
 								<p>投资期限</p>
 							</div>
 						</li>
@@ -190,113 +192,15 @@
 						<li class="four">
 								
 						</li>
-						<li class="five">
-							<a class="abtn" href="/subject/subjectContent/1612">购买</a>
+						<li class="five"> 
+							<button type="submit" class="abtn" onclick="action='/p2p_project/toInvestment/buySubject/${li.id}'">购买</button>
 						</li>
 					</ul>
-					<ul class="tbList">
-						<li class="first">
-									<span class="ico zq"></span>
-							<h2><em>投</em>稳盈宝起步标</h2>
-							<i></i>
-						</li>
-						<li class="second">					
-							
-							<div class="txt1">
-								<h2>5.5<span style="font-size:18px;">+1.0%</span></h2>
-								<p>年化收益</p>
-							</div>
-							
-							<div class="txt2">
-								<h2>￥100.00</h2>
-								<p>起购金额(元)</p>
-							</div>
-							
-							<div class="txt2">
-								<h2>15天</h2>
-								<p>投资期限</p>
-							</div>
-						</li>
-						<li class="three">
-								<a href="#1">企业担保</a><span>中国人保财险承保</span>
-								<p>计息日期：当天投资，立即计息<br>已购人数：382人</p>
-						</li>
-						<li class="four">
-								
-						</li>
-						<li class="five">
-							<a class="abtn" href="/subject/subjectContent/1611">购买</a>
-						</li>
-					</ul>
-					<ul class="tbList">
-						<li class="first">
-									<span class="ico zq"></span>
-							<h2><em>投</em>稳盈宝整月标</h2>
-							<i></i>
-						</li>
-						<li class="second">					
-							
-							<div class="txt1">
-								<h2>6.0<span style="font-size:18px;">+1.0%</span></h2>
-								<p>年化收益</p>
-							</div>
-							
-							<div class="txt2">
-								<h2>￥100.00</h2>
-								<p>起购金额(元)</p>
-							</div>
-							
-							<div class="txt2">
-								<h2>30天</h2>
-								<p>投资期限</p>
-							</div>
-						</li>
-						<li class="three">
-								<a href="#1">企业担保</a><span>中国人保财险承保</span>
-								<p>计息日期：当天投资，立即计息<br>已购人数：354人</p>
-						</li>
-						<li class="four">
-								
-						</li>
-						<li class="five">
-							<a class="abtn" href="/subject/subjectContent/1610">购买</a>
-						</li>
-					</ul>
-					<ul class="tbList">
-						<li class="first">
-									<span class="ico zq"></span>
-							<h2><em>投</em>稳盈宝幸福标</h2>
-							<i></i>
-						</li>
-						<li class="second">					
-							
-							<div class="txt1">
-								<h2>7.0<span style="font-size:18px;">+1.0%</span></h2>
-								<p>年化收益</p>
-							</div>
-							
-							<div class="txt2">
-								<h2>￥100.00</h2>
-								<p>起购金额(元)</p>
-							</div>
-							
-							<div class="txt2">
-								<h2>50天</h2>
-								<p>投资期限</p>
-							</div>
-						</li>
-						<li class="three">
-								<a href="#1">企业担保</a><span>中国人保财险承保</span>
-								<p>计息日期：当天投资，立即计息<br>已购人数：473人</p>
-						</li>
-						<li class="four">
-								
-						</li>
-						<li class="five">
-							<a class="abtn" href="/subject/subjectContent/1609">购买</a>
-						</li>
-					</ul>
-	<!-- 异步内容结束 -->
+					
+				</c:forEach>	
+				
+<!--   分割线----------------------------------------------------- -->
+				
 	
 	
 	<div class="llpage">
@@ -393,9 +297,10 @@
 				}
 			}
 		);
-    </script>    </div>
+    </script>   
+     </div>
+     </form>
     
-    <meta charset="UTF-8">
     <div class="security">
         <div class="item">
             <img src="/p2p_project/frontStyle/images/indexSecurity1.png">

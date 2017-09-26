@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-</head>
+
 
 
 <link rel="stylesheet"
@@ -30,9 +30,26 @@
 	src="/p2p_project/frontStyle/js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="/p2p_project/frontStyle/js/all.js"></script>
 
+<script type="text/javascript">
+					 
+						 function fun1(){
+							 var reg=/^1[0-9]\d{9}$/;
+							 var num=$("#phone").val();
+							  if(num.length!=11){
+								  $("#s1").html("请输入正确的手机号码");
+								  return false;
+							  }else{
+								  $("#s1").html("");
+							  } 
+						 }
+						  
+					</script>
+					
+</head>
 <body>
 <c:if test="${!empty msg}">
   alert(${msg});
+  <%session.setAttribute("msg", ""); %>
 </c:if>
 	<div class="niwdoawi_top mw_1180">
 		<div class="header w1190 clearfix">
@@ -114,8 +131,10 @@
 	</div>
 
 
+<br><br>
+
 	<div class="login-wrap" id="loginWrap">
-		<div class="login-cont">
+		<div class="login-cont" >
 			<div class="login-bg"></div>
 			<div class="login-box">
 				<div class="login-hd">
@@ -124,35 +143,20 @@
 					</h1>
 					<a href="/p2p_project/frontJsp/register.jsp">免费注册</a>
 				</div>
-				<form id="formLogin" class="login-bd" action="/p2p_project/user/login" method="post">
+				<form id="formLogin" onsubmit="return fun1();" class="login-bd" action="/p2p_project/user/login" method="post">
 					<input type="hidden" name="returnUrl" value="/customer" />
 
 
 					<div class="login-item">
-						<input class="textbox" type="text" id="Phone" 
+						<input class="textbox" type="number" id="phone" 
 							name="mobile_phone" required placeholder="手机号"/>
 							<p id="s1"></p>
 					</div>
 					<div class="login-item">
-						<input class="textbox" required type="password" id="Password"
+						<input class="textbox" required type="password" id="password"
 							maxlength="50" name="password" placeholder="登录密码" />
 					</div>
-					<script type="text/javascript">
-					  $(function(){
-						
-						  var reg=/^1[0-9]\d{9}$/;
-						  $("#Phone").blur(function(){
-							  var num=$(this).val();
-							  if(num.length!=11){
-								  $("#s1").html("请输入正确的手机号码");
-								  return false;
-							  }else{
-								  $("#s1").html("");
-								  return true;
-							  }
-						  });
-					  });
-					</script>
+					
 					<a class="forget-pass" href="/p2p_project/frontJsp/forget.jsp">忘记密码?</a>
 					<button class="submit" type="submit" id="sendLogin" data-piwik>登
 						录</button>
