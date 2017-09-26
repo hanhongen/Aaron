@@ -29,6 +29,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script type="text/javascript"
 	src="/p2p_project/backStyle/js/bootstrap.min.js"></script>
 <script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
+<script>
+function fun2(){
+window.location.href="/p2p_project/backJsp/inbox.jsp";
+}
+</script>
+
 </head>
 <body>
 	<div id="wrapper">
@@ -231,7 +237,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</tr>
 								<tr>
 									<td><input type="submit" value="提交"> <input
-										type="button" value="关闭" onclick="close()"></td>
+										type="button" value="关闭" onclick="fun2()"></td>
 								</tr>
 							</thead>
 						</table>
