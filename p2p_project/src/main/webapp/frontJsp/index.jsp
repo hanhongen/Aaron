@@ -383,10 +383,12 @@
 			<div class="i-mod-cont">
 				<div class="cont-hd">
 					<i class="icon iconfont"></i><span class="em">定期理财</span><span
-						class="hd-tips">多种期限，收益更高</span> <a
-						href="" target="_blank"
-						class="more" data-num="">更多<i class="iconfont"></i></a>
+						class="hd-tips">多种期限，收益更高</span> 
+					<a href="/p2p_project/news/newstitle" target="_blank"
+						class="more">更多<i class="iconfont"></i></a>
 				</div>
+				
+			
 				<div class="cont-bd dq-cont-bd" style="position: relative;">
 					<ul id="DQPrj" class="prj-box cf dq-prj-box">
 					
