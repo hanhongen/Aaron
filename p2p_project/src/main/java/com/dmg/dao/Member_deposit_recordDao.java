@@ -62,4 +62,12 @@ public class Member_deposit_recordDao {
 		return list;
 	}
 	
+	//以id查询返回集合
+	public List<Member_deposit_record> listmdr(int id){
+		String hql="from Member_deposit_record m where m.member.id="+id;
+		Session session = getSession();
+		List<Member_deposit_record> mdr = session.createQuery(hql).list();
+		return mdr;
+	}
+	
 }
