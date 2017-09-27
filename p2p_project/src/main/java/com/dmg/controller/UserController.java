@@ -2,6 +2,7 @@ package com.dmg.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.dmg.bean.Push_notice;
 import com.dmg.bean.Users;
 import com.dmg.service.UserService;
 
@@ -21,7 +23,9 @@ public class UserController {
 
 	//Ç°Ì¨Ê×Ò³
 	@RequestMapping("/index")
-	public String index() {
+	public String index(Model model) {
+		List<Push_notice> push_notices=userService.listpush();
+		model.addAttribute("push_notices",push_notices);
 		return "frontJsp/index";
 	}
 	

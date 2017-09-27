@@ -197,21 +197,16 @@
 						<div class="imgbox"></div>
 						<div class="content_bg">
 							<div class="bt fs_16">
-								<span class="f">07月</span>数据
+							<span>公告标题</span>
 							</div>
-							<div class="lineas clearfix">
-								<span class="fl c_a">619,777</span> <span class="fr c_b">人成功注册</span>
-							</div>
-							<div class="lineas clearfix">
-								<span class="fl c_a">62,888</span> <span class="fr c_b">人成功投标</span>
-							</div>
-							<div class="lineas clearfix">
-								<span class="fl c_a">7,980</span> <span class="fr c_b">人实现借款</span>
-							</div>
-							<div class="lineas clearfix">
-								<span class="fl c_a">109,407</span> <span class="fr c_b">
-									<em>万元成交</em> 
-								</span>
+							<div class="note-bd news-cont">
+							<ul class="ff-f">
+							<c:forEach items="${push_notices}" var="p">
+							<li class="ellipsis"><span class="dot" >.</span>
+						     <a href="">${p.content}</a>
+						   </li>
+							</c:forEach>
+							</ul>
 							</div>
 						</div>
 					</div>
