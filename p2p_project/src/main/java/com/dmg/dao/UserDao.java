@@ -7,7 +7,10 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+
 import com.dmg.bean.Subject;
+
+import com.dmg.bean.Push_notice;
 import com.dmg.bean.Users;
 
 @Component
@@ -58,5 +61,13 @@ public class UserDao {
 		Session session=getsession();
 		Users user=(Users) session.get(Users.class, id);
 		return user;
+	}
+	
+	//前台显示公告标题
+	public List<Push_notice> listpush(){
+		Session session=getsession();
+		String hql="from Push_notice";
+		List<Push_notice> push_notices=session.createQuery(hql).list();
+		return push_notices;
 	}
 }

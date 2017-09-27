@@ -7,6 +7,8 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.dmg.bean.Subject;
+
+import com.dmg.bean.Push_notice;
 import com.dmg.bean.Users;
 import com.dmg.dao.UserDao;
 
@@ -33,5 +35,10 @@ public class UserService {
 	
 	public Users getUsersById(int id) {
 		return userDao.getUsersById(id);
+	}
+	
+	//前台显示公告管理
+	public List<Push_notice> listpush(){
+		return userDao.listpush();
 	}
 }

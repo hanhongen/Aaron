@@ -9,10 +9,12 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.dmg.bean.Subject;
+import com.dmg.bean.Push_notice;
 import com.dmg.bean.Users;
 import com.dmg.service.UserService;
 
@@ -22,6 +24,7 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
+
 
 	// 注销
 	@RequestMapping("/outlogin")
@@ -38,12 +41,14 @@ public class UserController {
 		String mon = sdf.format(new Date());
 		model.addAttribute("sub", sub);
 		model.addAttribute("mon", mon);
+		List<Push_notice> push_notices=userService.listpush();
+		model.addAttribute("push_notices",push_notices);
 		return "frontJsp/index";
 	}
 
 	// 后台首页
-	@RequestMapping("/indexback")
-	public String indexback(Model model, @RequestParam(required = false) int id) {
+	@RequestMapping("/indexback/{id}")
+	public String indexback(Model model, @PathVariable("id") int id) {
 		Users user=userService.getUsersById(id);
 		model.addAttribute("user", user);
 		return "backJsp/indexback";

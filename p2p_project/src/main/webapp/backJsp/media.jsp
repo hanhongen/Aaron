@@ -61,7 +61,7 @@ $(document).ready(function(){
 });	
 function updateod(id){
 	$("#forms").attr("action","/p2p_project/test/updod/"+id);
-	$("#forms").submit();	
+	$("#forms").submit();
 }
 
 function delenotic(id){
@@ -329,11 +329,13 @@ function delenotic(id){
 									<td style="font-size: 18px;">${p.category}</td>
 									<td style="font-size: 18px;">${p.title}</td>
 									<td style="font-size: 18px;">${p.create_date}</td>
-									<td><c:if test="${p.status==0}">已上架 </c:if> 
-									<c:if test="${p.status==1}">已下架</c:if></td>
+									<td>
+									<c:if test="${p.status==0}">已上架</c:if> 
+									<c:if test="${p.status==1}">已下架</c:if>
+									</td>
 									<td><button type="button" class="btn btn-primary"
-								id="btn2" onclick="delenotic(${p.id})">删除</button>||
-							<button type="button" class="btn btn-primary" id="update" onclick="updateod(${p.id})">编辑</button></td>
+								id="btn2"  <c:if test="${p.status==1}">disabled="disabled"</c:if> onclick="delenotic(${p.id})">删除</button>||
+							<button type="button" <c:if test="${p.status==1}">disabled="disabled"</c:if> class="btn btn-primary" id="update" onclick="updateod(${p.id})">编辑</button></td>
 								</tr>
 							</c:forEach>
 						</tbody>
