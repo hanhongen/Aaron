@@ -27,7 +27,7 @@ public class MemberDao {
 		List<Member> list = session.createQuery(hql).list();
 		for (Member member : list) {
 			System.out.println("<------------------------------------------------------------------------------->");
-			System.out.println("Member(查询所有账号) [id=" + member.getId() + ", member_name=" + member.getMember_name() + ", name=" + member.getName() + ", password=" + member.getPassword()
+			System.out.println("Member(查询所有账号) [id=" + member.getId() + ", member_name=" + ", name=" + member.getName() + ", password=" + member.getPassword()
 						+ ", salt=" + member.getSalt() + ", mobile_phone=" + member.getSalt() + ", status=" + member.getStatus() + ", del_flag=" + member.getDel_flag()
 						+ ", identity=" + member.getIdentity() + ", create_date=" + member.getCreate_date() + ", update_date=" + member.getUpdate_date()
 						+ ", weiboaccount=" + member.getWeiboaccount() + ", weixinaccount=" + member.getWeixinaccount() + ", headid=" + member.getHeadid()
@@ -65,7 +65,7 @@ public class MemberDao {
 		List<Member> list = session.createQuery(hql).list();
 		for (Member member : list) {
 			System.out.println("<------------------------------------------------------------------------------->");
-			System.out.println("Member(个人账号详情) [id=" + member.getId() + ", member_name=" + member.getMember_name() + ", name=" + member.getName() + ", password=" + member.getPassword()
+			System.out.println("Member(个人账号详情) [id=" + member.getId() + ", member_name=" + ", name=" + member.getName() + ", password=" + member.getPassword()
 						+ ", salt=" + member.getSalt() + ", mobile_phone=" + member.getSalt() + ", status=" + member.getStatus() + ", del_flag=" + member.getDel_flag()
 						+ ", identity=" + member.getIdentity() + ", create_date=" + member.getCreate_date() + ", update_date=" + member.getUpdate_date()
 						+ ", weiboaccount=" + member.getWeiboaccount() + ", weixinaccount=" + member.getWeixinaccount() + ", headid=" + member.getHeadid()

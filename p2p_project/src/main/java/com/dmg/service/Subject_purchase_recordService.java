@@ -16,7 +16,7 @@ public class Subject_purchase_recordService {
 	@Autowired
 	private Subject_purchase_recordDao subject_purchase_recordDao; 
 	/**
-	 * ¸¶Ï¢ÁĞ±íÈ¥ÏÔÊ¾Õâ¸ö²úÆ·µÄËùÓĞ¹ºÂòĞÅÏ¢
+	 * ï¿½ï¿½Ï¢ï¿½Ğ±ï¿½È¥ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½Ğ¹ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 	 * @return
 	 */
 	public List<Subject_purchase_record> listSubject_purchase_record(int id){
@@ -24,5 +24,9 @@ public class Subject_purchase_recordService {
 		
 		return list;
 	}
-	
+	//æŸ¥è¯¢ä¸ªäººæŠ•èµ„è®°å½•çš„ä¸ªæ•°
+	public int countSubject_purchase_record(int id){
+		int count = subject_purchase_recordDao.countSubject_purchase_record(id);
+		return count;
+	}
 }

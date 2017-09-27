@@ -21,7 +21,14 @@ public class Subject_order_record { //��Ķ�����
 	private int delflag;   //�Ƿ�ɾ��'
 	private String create_date;  //��������
 	private String update_date;  //��������
+	private String result;
 	
+	public String getResult() {
+		return result;
+	}
+	public void setResult(String result) {
+		this.result = result;
+	}
 	@Id
 	@GeneratedValue
 	public int getId() {

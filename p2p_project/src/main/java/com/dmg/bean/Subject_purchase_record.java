@@ -25,7 +25,14 @@ public class Subject_purchase_record {  //(��Ĺ����)
 	private int pay_interest_times;  // 购买某个标的次数
 	private int last_profit_day;//最后计息日', 还剩多少天
 	private String bonus_info;//红包金额信息（app端实际投资额度+红包额度）
+	private String result;
 	
+	public String getResult() {
+		return result;
+	}
+	public void setResult(String result) {
+		this.result = result;
+	}
 	@Id
 	@GeneratedValue
 	public int getId() {

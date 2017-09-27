@@ -6,31 +6,30 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import com.dmg.bean.Subject_purchase_record;
+import com.dmg.bean.Subject_order_record;
 
 @Component
-public class Subject_purchase_recordDao {
+public class Subject_order_recordDao {
 	@Autowired
 	private SessionFactory sessionFactory;
 	
 	public Session getSession(){
 		return sessionFactory.getCurrentSession();
 	}
+	
 	/**
-	 * 标的购买表
+	 * 标的订单表
 	 * @return
 	 */
-	public List<Subject_purchase_record> listSubject_purchase_record(int id){
-		String hql = "from Subject_purchase_record spr where spr.member.id="+id;
+	public List<Subject_order_record> listSubject_order_record(int id){
+		String hql = "from Subject_order_record sor where sor.member="+id;
 		Session session = getSession();
-		List<Subject_purchase_record> list = session.createQuery(hql).list();
+		List<Subject_order_record> list = session.createQuery(hql).list();
 		return list;
 	}
-	
-	//查询个人投资记录的次数
-	public int countSubject_purchase_record(int id){
-		String sql = "select count(spr.id) from subject_purchase_record spr where spr.member_id="+id;
+	//查询标的订单表记录的次数
+	public int countSubject_order_record(int id){
+		String sql = "select count(sor.id) from subject_order_record sor where sor.member_id="+id;
 		System.out.println("sql:"+sql);
 		Session session = getSession();
 		Object c = (Object)session.createSQLQuery(sql).list().get(0);

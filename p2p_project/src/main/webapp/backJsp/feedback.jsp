@@ -305,7 +305,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
        <c:forEach items="${feedbacks}" var="p" varStatus="stat">
 				<tr>
 	    		<td style="font-size: 18px;">${stat.index+1}</td>
-				<td style="font-size: 18px;">${p.feedbacks.mobile_phone}</td>
+				<td style="font-size: 18px;">${p.user.user_name}</td>
 				<td style="font-size: 18px;">${p.content}</td>
 				<td style="font-size: 18px;">${p.create_date}</td>
 				<td><button type="button" class="btn btn-primary" id="update" onclick="updateod(${p.id})">查看</button></td>

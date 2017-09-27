@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 import com.dmg.bean.Subject;
+import com.dmg.bean.Member;
 import com.dmg.bean.Push_notice;
 
 import com.dmg.bean.News;
@@ -33,6 +34,13 @@ public class UserController {
  @Autowired
  private Newsservice Newsservice;
 
+	//意见反馈
+	@RequestMapping("/feedBacks/{id}")
+	public String feedbacks(Model model,@PathVariable("id")int id) {
+		Users user=userService.getUsersById(id);
+		model.addAttribute("user", user);
+		return "backJsp/feedbacks";
+	}
 
 	// 注销
 	@RequestMapping("/outlogin")

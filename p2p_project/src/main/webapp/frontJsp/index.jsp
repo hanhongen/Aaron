@@ -43,13 +43,14 @@
 				  <div class='login_bt'>
 					<a href="/p2p_project/frontJsp/login.jsp" id="login" rel="nofollow"
 						class="fff">登录</a> <a href="/p2p_project/frontJsp/register.jsp"
-						rel="nofollow" class="fff">注册</a><a href="/p2p_project/backJsp/feedbacks.jsp" rel="nofollow" class="fff">意见反馈</a>
+						rel="nofollow" class="fff">注册</a>
 				</div>
 				</c:if>
 				<c:if test="${!empty user}">
 				<div class='login_bt'>
 				  <font color="white">欢迎您：${user.user_name }&nbsp;|</font>
 				  <a href="/p2p_project/user/outlogin"><font color="white">注销</font></a>
+				  <a href="/p2p_project/user/feedBacks/${user.id }" rel="nofollow" class="fff">意见反馈</a>
 				</div>
 				</c:if>
 				<dl>
@@ -114,7 +115,7 @@
 						</dl></li>
 					<li class="rela"><a href="/p2p_project/frontJsp/frontnews.jsp" class="one">盈+商学院</a>
 					</li>
-					<li class="rela"><a href="" class="one">我的加法库</a>
+					<li class="rela"><a href="/p2p_project/subject_purchase_record/listSubject_purchase_records/1" class="one">我的加法库</a>
 					</li>
 					<li class="rela"><a href="/p2p_project/frontJsp/about.jsp"
 						 class="one">关于我们 </a></li>
