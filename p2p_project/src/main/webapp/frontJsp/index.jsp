@@ -203,7 +203,7 @@
 							<ul class="ff-f">
 							<c:forEach items="${push_notices}" var="p">
 							<li class="ellipsis"><span class="dot" >.</span>
-						     <a href="">${p.content}</a>
+						    <img width="10px" height="10px" src="/p2p_project/frontStyle/images/saniao.jpg" style="float:left;margin:5px;margin-top:3px"/> <a href="" style="float:left">${p.content}</a>
 						   </li>
 							</c:forEach>
 							</ul>

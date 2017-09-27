@@ -22,7 +22,7 @@ public class UserController {
 	private UserService userService;
 
 	//Ç°Ì¨Ê×Ò³
-	@RequestMapping("/index")
+	@RequestMapping("/index")	
 	public String index(Model model) {
 		List<Push_notice> push_notices=userService.listpush();
 		model.addAttribute("push_notices",push_notices);
