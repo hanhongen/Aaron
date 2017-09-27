@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dmg.bean.Feedback;
 import com.dmg.bean.Member;
+import com.dmg.bean.Member_deposit_record;
 import com.dmg.bean.Push_notice;
 import com.dmg.service.Push_notice_service;
 
@@ -114,5 +115,13 @@ public class Push_Controller {
 		model.addAttribute("name",name);
 		model.addAttribute("feedbacks",feedbacks);
 		return "feedback";
+	}
+	
+	//Ç®°ü¹ÜÀí
+	@RequestMapping("/members")
+	public String listmembers(Model model){
+		List<Member_deposit_record> members=push_notice_service.listmembers();
+		model.addAttribute("members",members);
+		return "backJsp/graphs";
 	}
 }
