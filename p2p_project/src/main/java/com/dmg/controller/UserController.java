@@ -4,7 +4,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+
 import javax.servlet.http.HttpSession;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,9 +15,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+
 import com.dmg.bean.Subject;
 import com.dmg.bean.Push_notice;
+
+import com.dmg.bean.News;
 import com.dmg.bean.Users;
+import com.dmg.service.Newsservice;
 import com.dmg.service.UserService;
 
 @Controller
@@ -24,6 +30,8 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
+ @Autowired
+ private Newsservice Newsservice;
 
 
 	// 注销
@@ -33,9 +41,10 @@ public class UserController {
 		return "redirect:/user/index";
 	}
 
-	// 前台首页
+//前台首页
 	@RequestMapping("/index")
 	public String index(Model model) {
+
 		List<Subject> sub = userService.showSubject();
 		SimpleDateFormat sdf = new SimpleDateFormat("MM");
 		String mon = sdf.format(new Date());
@@ -43,6 +52,9 @@ public class UserController {
 		model.addAttribute("mon", mon);
 		List<Push_notice> push_notices=userService.listpush();
 		model.addAttribute("push_notices",push_notices);
+
+		List<News>list=Newsservice.list();
+		model.addAttribute("list",list);
 		return "frontJsp/index";
 	}
 

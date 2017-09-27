@@ -103,7 +103,7 @@ public class Push_Controller {
 	    SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	    feedbacks.setCreate_date(dateFormat.format(new Date()));
 		push_notice_service.save(feedbacks);
-		return "backJsp/feedbacks";
+		return "frontJsp/index";
 	}
 	
 	//后台显示查询页面
@@ -114,7 +114,7 @@ public class Push_Controller {
 		List<Feedback> feedbacks=push_notice_service.listfeed(map);
 		model.addAttribute("name",name);
 		model.addAttribute("feedbacks",feedbacks);
-		return "feedback";
+		return "backJsp/feedback";
 	}
 	
 	//钱包管理

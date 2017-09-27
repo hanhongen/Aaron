@@ -98,7 +98,7 @@ input[type=submit] {
 		<fieldset>
 
 		<label for="email">意见人:</label>
-		<input type="text" id="phone" name="phone" placeholder="请输入姓名" /> 
+		<input type="text" ${user.name} /> 
 	
 	  	<label for="message">意见内容:</label>
 		<textarea id="message" name="content" placeholder="请输入内容"></textarea>
