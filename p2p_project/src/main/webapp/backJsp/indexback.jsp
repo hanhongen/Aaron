@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html>
 <head>
-<title>后台首页</title>
+<title>Modern an Admin Panel Category Flat Bootstarp Resposive Website Template | Widgets :: w3layouts</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Modern Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
@@ -14,21 +14,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/bootstrap-3.3.4.css">
 <!-- Custom CSS -->
 <link href="/p2p_project/backStyle/css/style.css" rel='stylesheet' type='text/css' />
-<!-- Graph CSS -->
-<link href="/p2p_project/backStyle/css/lines.css" rel='stylesheet' type='text/css' />
 <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/font-awesome.4.6.0.css"> 
 <!-- jQuery -->
 <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
 
 <!---//webfonts--->  
-<!-- Nav CSS -->
-<link href="/p2p_project/backStyle/css/custom.css" rel="stylesheet">
-<!-- Metis Menu Plugin JavaScript -->
-<script src="/p2p_project/backStyle/js/metisMenu.min.js"></script>
-<script src="/p2p_project/backStyle/js/custom.js"></script>
-<!-- Graph JavaScript -->
-<script src="/p2p_project/backStyle/js/d3.v3.js"></script>
-<script src="/p2p_project/backStyle/js/rickshaw.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
 </head>
 <body>
 <div id="wrapper">
@@ -41,22 +33,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/p2p_project/backJsp/indexback.jsp">YJ Finance</a>
+               <a class="navbar-brand" href="/p2p_project/backJsp/indexback.jsp">YJ Finance</a>
             </div>
+            <!-- /.navbar-header -->
           
 			<form class="navbar-form navbar-right">
               <input type="text" class="form-control" value="Search..." onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Search...';}">
             </form>
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
-                    <ul class="nav" id="side-menu">
-                    
+                                    <ul class="nav" id="side-menu">
                         <li>
-                            <a href=""><i class="fa fa-dashboard fa-fw nav_icon"></i>回到首页</a>
+                             <a href=""><i class="fa fa-dashboard fa-fw nav_icon"></i>回到首页</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-laptop nav_icon"></i>理财产品<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
+                          <ul class="nav nav-second-level">
                                 <li>
                                     <a href="/p2p_project/product/showSolid">固收类</a>
                                 </li>
@@ -75,7 +67,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </li>
                         <!-- ----------------------------------------------------- -->
                         <li>
-                            <a href="#"><i class="fa fa-indent nav_icon"></i>钱包管理<span class="fa arrow"></span></a>
+                             <a href="#"><i class="fa fa-indent nav_icon"></i>钱包管理<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="/p2p_project/backJsp/graphs.jsp">钱包缴费记录</a>
@@ -158,7 +150,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <li>
                             <a href="#"><i class="fa fa-sitemap fa-fw nav_icon"></i>系统设置<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                <li>
+                                 <li>
                                     <a href="/p2p_project/usersetting/showuser">账户设置</a>
                                 </li>
                                 <li>
@@ -178,7 +170,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </nav>
         <div id="page-wrapper">
         <div class="graphs">
-        ${user.id } | ${user.name }
-     	</div></div>
+	     ${user.id } + ${user.user_name }
+      </div>
+      <!-- /#page-wrapper -->
+   </div>
+   </div>
+    <!-- /#wrapper -->
+<!-- Nav CSS -->
+<link href="/p2p_project/backStyle/css/custom.css" rel="stylesheet">
+<!-- Metis Menu Plugin JavaScript -->
+<script src="/p2p_project/backStyle/js/metisMenu.min.js"></script>
+<script src="/p2p_project/backStyle/js/custom.js"></script>
 </body>
 </html>
