@@ -23,7 +23,11 @@
 <link
 	href="https://ppmoneycnt.b0.upaiyun.com/static/v4.01/css/login/login_e18909b.css?v=201512161721"
 	rel="stylesheet" type="text/css" />
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> branch 'master' of https://github.com/hanhongen/hanhongen.git
 </head>
 <body class="index_niwo holiday_bg">
 
@@ -39,12 +43,19 @@
 			</div>
 			<div class="fr login clearfix">
 
-				<div class='login_bt'>
+				<c:if test="${empty user}">
+				  <div class='login_bt'>
 					<a href="/p2p_project/frontJsp/login.jsp" id="login" rel="nofollow"
 						class="fff">登录</a> <a href="/p2p_project/frontJsp/register.jsp"
 						rel="nofollow" class="fff">注册</a><a href="/p2p_project/backJsp/feedbacks.jsp" rel="nofollow" class="fff">意见反馈</a>
 				</div>
-
+				</c:if>
+				<c:if test="${!empty user}">
+				<div class='login_bt'>
+				  <font color="white">欢迎您：${user.user_name }&nbsp;|</font>
+				  <a href="/p2p_project/user/outlogin"><font color="white">注销</font></a>
+				</div>
+				</c:if>
 				<dl>
 					<dt>
 						<a href="" rel="nofollow" class="txnone"
@@ -65,8 +76,8 @@
 				</dl>
 				<div class="community">
 				
-				   <a href="/p2p_project/backJsp/indexback.jsp" target="_blank" rel="nofollow" class="fc_white">进入后台</a>
-			
+				   <a href="/p2p_project/user/indexback/${user.id}" target="_blank" rel="nofollow" class="fc_white">进入后台</a>
+				
 					
 				</div>
 			</div>
@@ -81,7 +92,7 @@
 			<div class="fr righ">
 				<ul class="nav clearfix">
 					<li><a rel="nofollow" href="" class="one">首页</a></li>
-					<li class="two"><a href="" class="two"
+<li class="two"><a href="" class="two"
 						id="cp_two">我要投资</a>
 						<dl class="cp_two">
 							<dd>
@@ -98,8 +109,16 @@
 							</dd>
 						</dl></li>
 					<li class="rela"><a href="/p2p_project/frontJsp/frontnews.jsp" class="one">盈+商学院</a>
+
+					
+					<li style="display: none;"><a href="" ></a></li>
+					<li class="rela"><a href="/p2p_project/toInvestment/showSubject" class="one">我要投资</a>
 					</li>
-					<li class="rela"><a href="" class="one">我的加法库</a>
+						
+					<li class="rela"><a href="/p2p_project/frontJsp/college.jsp" class="one">盈+商学院</a>
+
+					</li>
+					<li class="rela"><a href="/p2p_project/subject_purchase_record/listSubject_purchase_records/1" class="one">我的加法库</a>
 					</li>
 					<li class="rela"><a href="/p2p_project/frontJsp/about.jsp"
 						 class="one">关于我们 </a></li>
@@ -176,7 +195,7 @@
 					<div class="fl lingmengkan">
 						<img src="/p2p_project/frontStyle/images/chenping201501.png">
 						<p>
-							赣南地区最专业的网贷平台，投资快速、<br />安全、方便，让您享受投资的乐趣
+							中国最专业的网贷平台，投资快速、<br />安全、方便，让您享受投资的乐趣
 						</p>
 					</div>
 					<div class="fl lingmengkan">
@@ -198,21 +217,17 @@
 						<div class="imgbox"></div>
 						<div class="content_bg">
 							<div class="bt fs_16">
-								<span class="f">07月</span>数据
+								<span class="f">${mon}月</span>数据
+							<span>公告标题</span>
 							</div>
-							<div class="lineas clearfix">
-								<span class="fl c_a">619,777</span> <span class="fr c_b">人成功注册</span>
-							</div>
-							<div class="lineas clearfix">
-								<span class="fl c_a">62,888</span> <span class="fr c_b">人成功投标</span>
-							</div>
-							<div class="lineas clearfix">
-								<span class="fl c_a">7,980</span> <span class="fr c_b">人实现借款</span>
-							</div>
-							<div class="lineas clearfix">
-								<span class="fl c_a">109,407</span> <span class="fr c_b">
-									<em>万元成交</em> 
-								</span>
+							<div class="note-bd news-cont">
+							<ul class="ff-f">
+							<c:forEach items="${push_notices}" var="p">
+							<li class="ellipsis"><span class="dot" >.</span>
+						    <img width="10px" height="10px" src="/p2p_project/frontStyle/images/saniao.jpg" style="float:left;margin:5px;margin-top:3px"/> <a href="" style="float:left">${p.content}</a>
+						   </li>
+							</c:forEach>
+							</ul>
 							</div>
 						</div>
 					</div>
@@ -369,20 +384,26 @@
 				<div class="cont-hd">
 					<i class="icon iconfont"></i><span class="em">定期理财</span><span
 						class="hd-tips">多种期限，收益更高</span> <a
-						href="http://www.ppmoney.com/touzilicai/" target="_blank"
+						href="" target="_blank"
 						class="more" data-num="">更多<i class="iconfont"></i></a>
 				</div>
 				<div class="cont-bd dq-cont-bd" style="position: relative;">
 					<ul id="DQPrj" class="prj-box cf dq-prj-box">
+					
+					<c:forEach items="${sub}" var="s">
 						<li class="prj-box-item zr-box">
+						
 							<div class="t-box">
 								<div class="t-box-icon t-box-high"></div>
+							<center>
+								<div>${s.name }</div>
+							</center>
 							</div>
+						
 							<div class="cat-box cf">
 								<div class="fl">
-									<div class="cat-box-hd" data-rate="">
-
-										<span class="em">7.88</span> <span class="u">%</span>
+									<div class="cat-box-hd">
+										<span class="em">${s.year_rate}</span> <span class="u">%</span>
 									</div>
 									<div class="cat-box-bd">年化收益</div>
 								</div>
@@ -390,8 +411,7 @@
 									<div class="cat-box-hd">
 
 
-										<span class="em">1</span> <span class="u">月</span> <span
-											class="em">1</span> <span class="u">天</span>
+										<span class="em">${s.period }</span> <span class="u">天</span>
 
 									</div>
 									<div class="cat-box-bd">项目期限</div>
@@ -404,13 +424,13 @@
 								</div>
 							</div>
 							<div class="invest-box cf">
-								<div class="f-ff fl">
+								 <div class="f-ff fl">
 									<a href=""><i class="icon iconfont"></i>转让标</a>
 								</div>
 								<div class="fr" data-status="">
 									<div class="btn-box">
 
-										<a href="/CreditAssign/Detail/35302" target="_blank"
+										<a href="" target="_blank"
 											class="btn btn-primary btn-3d">立即投资</a>
 
 									</div>
@@ -420,96 +440,9 @@
 							<div class="pin-box">
 								<i class="iconfont"></i> <span class="em">转</span>
 							</div>
-
+							
 						</li>
-						<li class="prj-box-item zr-box">
-							<div class="t-box">
-								<div class="t-box-icon t-box-short"></div>
-							</div>
-							<div class="cat-box cf">
-								<div class="fl">
-									<div class="cat-box-hd" data-rate="">
-
-										<span class="em">7.34</span> <span class="u">%</span>
-									</div>
-									<div class="cat-box-bd">年化收益</div>
-								</div>
-								<div class="fr">
-									<div class="cat-box-hd">
-
-										<span class="em">110</span> <span class="u">天</span>
-
-									</div>
-									<div class="cat-box-bd">项目期限</div>
-								</div>
-							</div>
-							<div class="progress-box">
-								<div class="progress-box-c">
-									<div class="progress-ing" style="width: 12.66%"></div>
-									<span id="progress">12.66%</span>
-								</div>
-							</div>
-							<div class="invest-box cf">
-								<div class="f-ff fl">
-									<a href="/creditassign/list/"><i class="icon iconfont"></i>转让标</a>
-								</div>
-								<div class="fr" data-status="">
-									<div class="btn-box">
-
-										<a href="/CreditAssign/Detail/35158" target="_blank"
-											class="btn btn-primary btn-3d">立即投资</a>
-
-									</div>
-								</div>
-							</div>
-
-							<div class="pin-box">
-								<i class="iconfont"></i> <span class="em">转</span>
-							</div>
-
-						</li>
-						<li class="prj-box-item">
-							<div class="t-box">
-								<div class="t-box-icon t-box-default"></div>
-							</div>
-							<div class="cat-box cf">
-								<div class="fl">
-									<div class="cat-box-hd" data-rate="">
-
-										<span class="em">11.0</span> <span class="u">%</span>
-									</div>
-									<div class="cat-box-bd">年化收益</div>
-								</div>
-								<div class="fr">
-									<div class="cat-box-hd">
-
-										<span class="em">90</span> <span class="u">天</span>
-
-									</div>
-									<div class="cat-box-bd">项目期限</div>
-								</div>
-							</div>
-							<div class="progress-box">
-								<div class="progress-box-c">
-									<div class="progress-ing" style="width: 100.00%"></div>
-									<span id="progress">100.00%</span>
-								</div>
-							</div>
-							<div class="invest-box cf">
-								<div class="f-ff fl">
-									<a href="/jiaduobao/"><i class="icon iconfont"></i>加多保</a>
-								</div>
-								<div class="fr" data-status="">
-									<div class="btn-box">
-
-										<a href="/Project/CommonDetail/11741" target="_blank"
-											class="btn btn-primary btn-finished">已满额</a>
-
-									</div>
-								</div>
-							</div>
-
-						</li>
+						</c:forEach>
 					</ul>
 				</div>
 			</div>

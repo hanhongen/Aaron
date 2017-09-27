@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.dmg.bean.Feedback;
 import com.dmg.bean.Member;
+import com.dmg.bean.Member_deposit_record;
 import com.dmg.bean.Push_notice;
 import com.dmg.dao.Push_notice_dao;
 
@@ -44,5 +45,10 @@ public class Push_notice_service {
 	 }
 	 public List<Feedback> listfeed(Map map){
 		 return push_notice_dao.listfeed(map);
+	 }
+	 
+	 //Ç®°ü¹ÜÀí
+	 public List<Member_deposit_record> listmembers(){
+		 return push_notice_dao.listmembers();
 	 }
 }

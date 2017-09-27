@@ -31,4 +31,9 @@ public class Member_deposit_recordSevice {
 		return list;
 	}
 	
+	//以id查询返回集合
+	public List<Member_deposit_record> listmdr(int id){
+		List<Member_deposit_record> mdr = member_deposit_recordDao.listmdr(id);
+		return mdr;
+	}
 }

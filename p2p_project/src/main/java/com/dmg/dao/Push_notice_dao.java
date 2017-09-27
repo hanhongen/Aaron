@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import com.dmg.bean.Feedback;
 import com.dmg.bean.Member;
+import com.dmg.bean.Member_deposit_record;
 import com.dmg.bean.Push_notice;
 
 @Service
@@ -94,6 +95,14 @@ public class Push_notice_dao {
 			hql+=" and content like '%"+anme+"%'";
 		}
 		return hql;
+	}
+	
+	//Ç®°ü¹ÜÀí
+	public List<Member_deposit_record> listmembers(){
+		Session session=getSession();
+		String hql="from Member_deposit_record";
+		List<Member_deposit_record> members=session.createQuery(hql).list();
+		return members;
 	}
 	
 }
