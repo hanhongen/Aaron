@@ -116,4 +116,17 @@ public String deletenews(@PathVariable("id")int id){
 	return "redirect:/news/listnews";
 }
 
+@RequestMapping("/title/{id}")
+public  String title(@PathVariable("id")int id,Model model){
+	News news=newsservice.getbyid(id);
+	model.addAttribute("news",news);
+	return "frontJsp/college";
+}
+
+@RequestMapping("/newstitle")
+public  String title(Model model){
+	List<News>list=newsservice.list();
+	model.addAttribute("list",list);
+	return "frontJsp/moretitle";
+}
 }

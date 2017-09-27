@@ -72,6 +72,11 @@ public class Newsdao {
     	return hql +=" order by n.sort desc";
     }
 
-
+public List<News>list(){
+	Session session=getsession();
+	String hql="from News";
+	List<News>list=session.createQuery(hql).list();
+	return list;
+}
 
 }

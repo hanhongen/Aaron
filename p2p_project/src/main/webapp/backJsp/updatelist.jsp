@@ -27,11 +27,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- Bootstrap Core JavaScript -->
 <script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
 
-<script>
-function fun2(){
-window.location.href="/p2p_project/backJsp/inbox.jsp";
-}
-</script>
+
 </head>
 <body>
 	<div id="wrapper">

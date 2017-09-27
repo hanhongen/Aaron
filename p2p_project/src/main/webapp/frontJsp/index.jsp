@@ -23,6 +23,7 @@
 <link
 	href="https://ppmoneycnt.b0.upaiyun.com/static/v4.01/css/login/login_e18909b.css?v=201512161721"
 	rel="stylesheet" type="text/css" />
+
 </head>
 <body class="index_niwo holiday_bg">
 
@@ -96,7 +97,7 @@
 								<a href="">股权基金</a>
 							</dd>
 						</dl></li>
-					<li class="rela"><a href="/p2p_project/frontJsp/college.jsp" class="one">盈+商学院</a>
+					<li class="rela"><a href="/p2p_project/frontJsp/frontnews.jsp" class="one">盈+商学院</a>
 					</li>
 					<li class="rela"><a href="" class="one">我的加法库</a>
 					</li>
@@ -338,43 +339,19 @@
 			<div class="i-mod-note">
 				<div class="note-hd">
 					<span class="fl em">新闻公告</span> <a class="fr more primary"
-						href="http://www.ppmoney.com/news/ppgg" target="_blank" title="">更多<i
+						href="/p2p_project/news/newstitle" target="_blank" title="">更多<i
 						class="iconfont"></i></a>
 				</div>
 				<div class="note-bd news-cont">
 					<!--新闻公告-->
 					<ul class="ff-f">
-
-
-						<li class="ellipsis"><span class="dot">·</span><a
-							target="_blank" href="/news/ppgg_3070.html"
-							title="樊纲点赞互联网金融 宝叔解读PPmoney商业模式">樊纲点赞互联网金融 宝叔解读PPmoney商业模式</a></li>
-
-
-						<li class="ellipsis"><span class="dot">·</span><a
-							target="_blank" href="/news/ppgg_3029.html"
-							title="关于充值不投资提现规则更改的公告">关于充值不投资提现规则更改的公告</a></li>
-
-
-						<li class="ellipsis"><span class="dot">·</span><a
-							target="_blank" href="/news/ppgg_3028.html"
-							title="PPmoney陈宝国：纯信息中介与担保模式平台将共存共生">PPmoney陈宝国：纯信息中介与担保模式平台将共存共生</a>
-						</li>
-
-
-						<li class="ellipsis"><span class="dot">·</span><a
-							target="_blank" href="/news/ppgg_3027.html"
-							title="推进投资者保护：PPmoney引入第三方电子合同  ">推进投资者保护：PPmoney引入第三方电子合同 </a>
-						</li>
-
-						<li class="ellipsis"><span class="dot">·</span><a
-							target="_blank" href="/news/ppgg_3027.html"
-							title="推进投资者保护：PPmoney引入第三方电子合同  ">推进投资者保护：PPmoney引入第三方电子合同 </a>
-						</li>
-						<li class="ellipsis"><span class="dot">·</span><a
-							target="_blank" href="/news/ppgg_3026.html"
-							title="盘活老用户：互联网金融平台的新玩法">盘活老用户：互联网金融平台的新玩法</a></li>
-
+						<c:forEach items="${list}" var="list">
+						<li class="ellipsis"><span class="dot"></span>
+						<a
+							target="_blank" href="/p2p_project/news/title/${list.id}"
+							title="${list.title}">${list.title}</a>
+							</li>
+						</c:forEach>
 					</ul>
 				</div>
 			</div>
