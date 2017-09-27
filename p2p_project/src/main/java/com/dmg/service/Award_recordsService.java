@@ -26,7 +26,7 @@ public class Award_recordsService {
 		System.out.println("Service2");
 		for (Award_records a : list) {
 			System.out.println("Service3");
-			System.out.println("Award_recordsService: ID:"+a.getId()+",phone:"+a.getMember().getMobile_phone()+",name:"+a.getMember().getMember_name()+",invitationCode:"+a.getMember().getInvitationcode()+",invitedCode:"+a.getMember().getInvitedcode()+",Type:"+a.getType()+",addTime:"+a.getAddtime());
+			System.out.println("Award_recordsService: ID:"+a.getId()+",phone:"+a.getMember().getMobile_phone()+",invitationCode:"+a.getMember().getInvitationcode()+",invitedCode:"+a.getMember().getInvitedcode()+",Type:"+a.getType()+",addTime:"+a.getAddtime());
 		}
 		return list;
 	}

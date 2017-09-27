@@ -14,13 +14,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.dmg.bean.Feedback;
 import com.dmg.bean.Member;
 import com.dmg.bean.Member_deposit_record;
 import com.dmg.bean.Push_notice;
+import com.dmg.bean.Users;
 import com.dmg.service.Push_notice_service;
+import com.dmg.service.UserService;
 
 @Controller
 @RequestMapping("/test")
@@ -28,7 +30,8 @@ public class Push_Controller {
 	@Autowired
 	private Push_notice_service push_notice_service;
 	
-	
+	@Autowired
+	private UserService userService;
 	
 	@RequestMapping("/pushadd")
 	public String padd(){
@@ -97,11 +100,11 @@ public class Push_Controller {
 	//<!--意见反馈--!>
 	//前台页面添加
 	@RequestMapping("/savefeed")
-	public String select(Feedback feedbacks){
-		/*SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-	   */
+	public String select(Feedback feedbacks,@RequestParam(required=false)int user_id){
 	    SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	    feedbacks.setCreate_date(dateFormat.format(new Date()));
+	    Users user=userService.getUsersById(user_id);
+	    feedbacks.setUser(user);
 		push_notice_service.save(feedbacks);
 		return "backJsp/feedbacks";
 	}

@@ -20,8 +20,8 @@ public class Award_recordsDao {
 	}
 	
 	/**
-	 * �б���ʾ��
-  	 * ��� �ֻ�� ���� ������ �������� Ͷ�ʽ�� �Ƿ���ע�ά�� �Ƿ���Ͷ�ʽ��� ע��ʱ��
+	 * 锟叫憋拷锟斤拷示锟斤拷
+  	 * 锟斤拷锟� 锟街伙拷锟� 锟斤拷锟斤拷 锟斤拷锟斤拷锟斤拷 锟斤拷锟斤拷锟斤拷锟斤拷 投锟绞斤拷锟� 锟角凤拷锟斤拷注锟结奖锟斤拷 锟角凤拷锟斤拷投锟绞斤拷锟斤拷 注锟斤拷时锟斤拷
 	 * @return
 	 */
 	public List<Award_records> listAward_records(){
@@ -29,27 +29,27 @@ public class Award_recordsDao {
 		Session session = getSession();
 		List<Award_records> list = session.createQuery(hql).list();
 		for (Award_records a : list) {
-			System.out.println("Award_recordsDao: ID:"+a.getId()+",phone:"+a.getMember().getMobile_phone()+",name:"+a.getMember().getMember_name()+",invitationCode:"+a.getMember().getInvitationcode()+",invitedCode:"+a.getMember().getInvitedcode()+",Type:"+a.getType()+",addTime:"+a.getAddtime());
+			System.out.println("Award_recordsDao: ID:"+a.getId()+",phone:"+a.getMember().getMobile_phone()+",name:"+",invitationCode:"+a.getMember().getInvitationcode()+",invitedCode:"+a.getMember().getInvitedcode()+",Type:"+a.getType()+",addTime:"+a.getAddtime());
 		}
 		return list;
 	}
-	//邀请人手机号
+	//閭�璇蜂汉鎵嬫満鍙�
 	public List<Award_records> listinvitingid(int invitingid){
 		String hql="from Award_records ar where ar.member.id="+invitingid;
 		Session session = getSession();
 		List<Award_records> list = session.createQuery(hql).list();
 		for (Award_records a : list) {
-			System.out.println("邀请人ID:"+a.getInvitingid()+"，邀请人手机号："+a.getMember().getMobile_phone()+"，奖励类型："+a.getType()+"，奖励金额："+a.getAmount()+"，添加时间："+a.getAddtime()+"，邀请码"+a.getMember().getInvitationcode());
+			System.out.println("閭�璇蜂汉ID:"+a.getInvitingid()+"锛岄個璇蜂汉鎵嬫満鍙凤細"+a.getMember().getMobile_phone()+"锛屽鍔辩被鍨嬶細"+a.getType()+"锛屽鍔遍噾棰濓細"+a.getAmount()+"锛屾坊鍔犳椂闂达細"+a.getAddtime()+"锛岄個璇风爜"+a.getMember().getInvitationcode());
 		}
 		return list;
 	}
-	//被邀请人手机号
+	//琚個璇蜂汉鎵嬫満鍙�
 	public List<Award_records> listbyinvitingid(int byinvitingid){
 		String hql="from Award_records ar where ar.member.id="+byinvitingid;
 		Session session = getSession();
 		List<Award_records> list = session.createQuery(hql).list();
 		for (Award_records a : list) {
-			System.out.println("被邀请人ID:"+a.getByinvitingid()+"，被邀请人手机号："+a.getMember().getMobile_phone()+"，奖励类型："+a.getType()+"，奖励金额："+a.getAmount()+"，添加时间："+a.getAddtime()+"，被邀请码："+a.getMember().getInvitedcode());
+			System.out.println("琚個璇蜂汉ID:"+a.getByinvitingid()+"锛岃閭�璇蜂汉鎵嬫満鍙凤細"+a.getMember().getMobile_phone()+"锛屽鍔辩被鍨嬶細"+a.getType()+"锛屽鍔遍噾棰濓細"+a.getAmount()+"锛屾坊鍔犳椂闂达細"+a.getAddtime()+"锛岃閭�璇风爜锛�"+a.getMember().getInvitedcode());
 		}
 		return list;
 	}

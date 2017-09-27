@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.dmg.bean.Subject;
+import com.dmg.bean.Member;
 import com.dmg.bean.Push_notice;
 import com.dmg.bean.Users;
 import com.dmg.service.UserService;
@@ -25,6 +26,13 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
+	//意见反馈
+	@RequestMapping("/feedBacks/{id}")
+	public String feedbacks(Model model,@PathVariable("id")int id) {
+		Users user=userService.getUsersById(id);
+		model.addAttribute("user", user);
+		return "backJsp/feedbacks";
+	}
 
 	// 注销
 	@RequestMapping("/outlogin")
