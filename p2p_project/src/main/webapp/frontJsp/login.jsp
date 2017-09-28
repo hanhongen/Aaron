@@ -87,7 +87,7 @@
 		</div>
 	</div>
 
-	<div class="niwdoawi_center mw_1180">
+	<div class="niwdoawi_center mw_1180" >
 		<div class="w1190 logo clearfix">
 			<a href="" title="" class="fl pl_20 logo_a holiday_logo"><img
 				src="/p2p_project/frontStyle/images/logo.jpg" height="52" alt="" /></a>
@@ -126,10 +126,10 @@
 
 
 	<div id="myAlert" class="alert alert-warning"></div>
-	<div class="login-wrap" id="loginWrap">
-		<div class="login-cont">
+	<div class="login-wrap" id="loginWrap" style="background: url('/p2p_project/frontStyle/images/picture5.jpg'); ">
+		<div class="login-cont" style="top: 20px;left:90px;">
 			<div class="login-bg"></div>
-			<div class="login-box">
+			<div class="login-box" style="height: 490px;">
 				<div class="login-hd">
 					<h1>
 						登录<span class="ff-arial"></span>
