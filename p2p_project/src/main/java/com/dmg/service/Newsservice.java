@@ -33,4 +33,9 @@ public class Newsservice {
    public void deletenews(News news){
 	   newsdao.deletenews(news);
    }
+
+public List<News>list(){
+	return newsdao.list();
+}
+
 }
