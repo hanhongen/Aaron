@@ -104,5 +104,11 @@ public class Push_notice_dao {
 		List<Member_deposit_record> members=session.createQuery(hql).list();
 		return members;
 	}
+	public List<Member> listmeber(){
+		Session session=getSession();
+		String hql="from Member";
+		List<Member> member=session.createQuery(hql).list();
+		return member;
+	}
 	
 }

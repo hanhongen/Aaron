@@ -70,7 +70,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                              <a href="#"><i class="fa fa-indent nav_icon"></i>钱包管理<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="/p2p_project/backJsp/graphs.jsp">钱包缴费记录</a>
+                                    <a href="/p2p_project/test/members">钱包缴费记录</a>
                                 </li>
                                 <li>
                                     <a href="/p2p_project/backJsp/typography.jsp">Typography</a>
@@ -141,7 +141,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <a href="/p2p_project/test/test1">公告管理</a>
                                 </li>
                                 <li>
-                                    <a href="/p2p_project/backJsp/feedback.jsp">意见反馈</a>
+                                    <a href="/p2p_project/test/list">意见反馈</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

@@ -88,12 +88,22 @@
 			<div class="fr righ">
 				<ul class="nav clearfix">
 					<li><a rel="nofollow" href="" class="one">首页</a></li>
+
+
+
 					
 					<li style="display: none;"><a href="" ></a></li>
 					<li class="rela"><a href="/p2p_project/toInvestment/showSubject" class="one">我要投资</a>
 					</li>
+						
+					<li class="rela"><a href="/p2p_project/frontJsp/college.jsp" class="one">盈+商学院</a>
+
+					<li class="two"><a href="" class="two"
+						id="cp_two">我要投资</a>
+
 					
 <li class="two">
+
 						<dl class="cp_two">
 							<dd>
 								<a href="/p2p_project/frontJsp/solid.jsp">固收类理财</a>
