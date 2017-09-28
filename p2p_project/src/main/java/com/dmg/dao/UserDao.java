@@ -59,7 +59,7 @@ public class UserDao {
 		int count=0;
 		Object obj=(Object)session.createSQLQuery(sql).list().get(0);
 		count=Integer.parseInt(obj.toString());
-		System.out.println("count"+count);
+		//System.out.println("count"+count);
 		Users user=null;
 		if(count==1) {
 			String hql="from Users where mobile_phone="+mobile_phone+" and password="+password;

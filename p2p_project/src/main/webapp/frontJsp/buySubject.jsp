@@ -112,58 +112,72 @@
 	
 	<div class="proMain">
     <div class="conTit">
-        <span><a style="color:#9d8440;" href="/finance">其他标的</a></span>
+        <span><a style="color:#9d8440;" href="/p2p_project/toInvestment/showSubject">其他标的</a></span>
         <h2><em>￥</em>${sb.name}</h2>
     </div>
     <table class="conTable" width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr>
             <td class="txtInfo">
+                <div class="txt1">
+                    <h2>${count}</h2>
+                    <p>已购人数(人)</p>
+                </div>
                 <div class="txt2">
-                    <h2>
-                      <fmt:formatNumber type="number" value="${sb.floor_amount*sb.year_rate*sb.period/365/100/sb.floor_amount*100}" pattern="#.##"/>%</h2>
-                    <p>预期收益</p>
+                    <h2>${sb.year_rate}%</h2>
+                    <p>年化收益</p>
                 </div>
                 <div class="txt1">
-                    <h2>${sb.floor_amount}</h2>
-                    <p>起投金额(元)</p>
+                    <h2>${sb.period}</h2>
+                    <p>投资期限(天)</p>
                 </div>
-
             </td>
-            <td width="360" rowspan="2" align="center" valign="middle" height="320">
-            
-            <!--   分割线  ---------------- -->
-            
+            <td width="360" rowspan="2" align="center" ; valign="middle" height="320">
                 <div class="tbBox">
+                    <input type="hidden" id="account" value="">
+                    <h2>${sum}</h2>
+                    <p>已投金额(元)</p>
                     <div class="li4" style=""><span id="checkmoney" style="color: red;"></span></div>
-                <a href="/web/login">登录</a>后可见
-                    <p><input class="txt" name="name" type="text" value="" placeholder="请输入姓名"></p>
-                    <p><input class="txt" name="phone" type="text" value="" placeholder="请输入电话号码"></p>
-                    <p class="pSelect">
-                    	<span class="select1 fl">
-                           <select id="loc_province"></select>
-                        </span>
-                        <span class="select2 fr">
-                            <select id="loc_city"></select>
-                        </span>
-                        <input type="hidden" name="location_id" id="location_id"/>
+                    <div class="tit">
+                    	<span class="fr">
+                            <a style="color:#2695d5" class="unlogin" href="/p2p_project/frontJsp/login.jsp">登录</a>后可见
+						</span>
+                        <h2>账户余额</h2>
+                        <div id="count">预期所得收益<i
+                                data-num="0.000822"
+                                id="num">0</i>元
+                        </div>
+                    </div>
+                    <input id="mytext" class="txt" name="totalFee" type="text"
+                           placeholder="起投金额100元以上">
+                        <span style="float: right;margin-top: -40px;position: relative; line-height: 40px; padding: 0 10px;color: #f00;"
+                              id="addMoney"></span>
+                    <p class="preBox">
+                        <input type="checkbox" id="registerRule" class="registerRule" checked="checked"><span
+                            class="fl">同意<a href="/web/syxy" target="_black">《产品协议》</a></span>
                     </p>
-                    <button disabled="disabled" style="background-color: #848080;">已售罄</button>
-                    <div class="phone"><span>4000-999-158</span>7X24小时咨询电话</div>
+                    <button class="submit">确认抢购</button>
                 </div>
             </td>
         </tr>
         <tr>
             <td>
                 <ul class="conInfoList">
-                    <li class="info" style="height:auto">
-                        <p>已购人数：<font color="#00baff">31人</font></p>
-                        <p>管&nbsp;理&nbsp;&nbsp;人：<font color="#00baff">深圳市凯丰投资管理有限公司</font></p>
-                        <p>投资方向：<font color="#00baff">各交易所期货类、证券类投资品种等 </font></p>
+                    <li class="info">
+                        <p>计息日期：<font color="#00baff">2017-09-28</font></p>
+                        <p>还款方式：<font color="#00baff">一次性还本付息</font></p>
+                        <p>资金到账日：<font color="#00baff">2017-10-03至2017-10-04</font>
+                        </p>
+                    </li>
+                    <li class="info">
+                        <p>保障方式：<font color="#00baff">企业担保</font></p>
+                        <p>资金安全：<font color="#00baff">中国人保财险承保</font></p>
+                        <p></p>
                     </li>
                 </ul>
             </td>
         </tr>
     </table>
+
     <div class="tbConBox">
         <div class="tab">
             <a class="select" href="#1">关于基金</a>

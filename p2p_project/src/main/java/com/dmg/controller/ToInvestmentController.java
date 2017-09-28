@@ -22,7 +22,11 @@ public class ToInvestmentController {
 	@RequestMapping("/buySubject/{id}")
 	public String buySubject(Model model,@PathVariable("id")int id) {
 		Subject subject=toInvestmentService.getSubjectById(id);
+		int count=toInvestmentService.countByPeople(id);
+		double sum=toInvestmentService.countMoney(id);
 		model.addAttribute("sb", subject);
+		model.addAttribute("count", count);
+		model.addAttribute("sum", sum);
 		return "frontJsp/buySubject";
 	}
 	

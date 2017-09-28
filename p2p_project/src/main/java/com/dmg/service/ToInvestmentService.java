@@ -19,10 +19,17 @@ public class ToInvestmentService {
 	@Autowired
 	private ToInvestmentDao toInvestmentDao;
 	
+	public double countMoney(int id) {
+		return toInvestmentDao.countMoney(id);
+	}
+	
+	public int countByPeople(int id) {
+		return toInvestmentDao.countByPeople(id);
+	}
+	
 	public List<Subject> showSubject(){
 		return toInvestmentDao.showSubject();
 	}
-	
 	
 	public Subject getSubjectById(int id) {
 		return toInvestmentDao.getSubjectById(id);

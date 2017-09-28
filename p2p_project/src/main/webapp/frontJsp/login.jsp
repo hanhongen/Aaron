@@ -126,7 +126,7 @@
 
 
 	<div id="myAlert" class="alert alert-warning"></div>
-	<div class="login-wrap" id="loginWrap" style="background: url('/p2p_project/frontStyle/images/picture5.jpg'); ">
+	<div class="login-wrap" id="loginWrap" style="background: url('/p2p_project/frontStyle/images/picture5.jpg');">
 		<div class="login-cont" style="top: 20px;left:90px;">
 			<div class="login-bg"></div>
 			<div class="login-box" style="height: 490px;">

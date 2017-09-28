@@ -20,6 +20,32 @@ public class ToInvestmentDao {
 		return this.sessionFactory.getCurrentSession();
 	}
 	
+	
+	//已投金额
+	public double countMoney(int id) {
+		Session session=getSession();
+		String sql0="select count(*) from subject_purchase_record where subject_id="+id;
+		String sql="select sum(amount) from subject_purchase_record where subject_id="+id;
+		double sum=0;
+		Object obj0=(Object)session.createSQLQuery(sql0).list().get(0);
+		int count=Integer.parseInt(obj0.toString());
+		if(count!=0) {
+			Object obj=(Object)session.createSQLQuery(sql).list().get(0);
+			sum=Double.parseDouble(obj.toString());
+		}
+		return sum;
+	}
+	
+	//统计人数
+	public int countByPeople(int id) {
+		Session session=getSession();
+		String sql="select count(*) from subject_purchase_record where subject_id="+id;
+		int count=0;
+		Object obj=session.createSQLQuery(sql).list().get(0);
+		count=Integer.parseInt(obj.toString());
+		return count;
+	}
+	
 	//查询所有标
 	public List<Subject> showSubject(){
 		Session session=getSession();
