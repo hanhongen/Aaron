@@ -428,7 +428,7 @@
 								<div class="fr" data-status="">
 									<div class="btn-box">
 
-										<a href="p2p_project/toInvestment/buySubject/${s.id }" target="_blank"
+										<a href="/p2p_project/toInvestment/buySubject/${s.id }" target="_blank"
 											class="btn btn-primary btn-3d">立即投资</a>
 
 									</div>
