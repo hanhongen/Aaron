@@ -34,7 +34,7 @@ public class Member {  //≥…‘±±Ì
 	
 	
 	@OneToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="user_name")
+	@JoinColumn(name="user_id")
 	public Users getUser() {
 		return user;
 	}
