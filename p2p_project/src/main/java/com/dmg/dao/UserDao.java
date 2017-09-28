@@ -55,11 +55,15 @@ public class UserDao {
 	
 	public Users getUsers(String mobile_phone,String password) {
 		Session session=getsession();
-		String hql="from Users where mobile_phone="+mobile_phone+" and password="+password;
-		Object obj =session.createQuery(hql).list().get(0);
+		String sql="select count(*) from users where mobile_phone="+mobile_phone+" and password='"+password+"'";
+		int count=0;
+		Object obj=(Object)session.createSQLQuery(sql).list().get(0);
+		count=Integer.parseInt(obj.toString());
+		System.out.println("count"+count);
 		Users user=null;
-		if(obj!=null) {
-			user=(Users) obj;
+		if(count==1) {
+			String hql="from Users where mobile_phone="+mobile_phone+" and password="+password;
+			user=(Users) session.createQuery(hql).list().get(0);
 		}
 		return user;
 	}

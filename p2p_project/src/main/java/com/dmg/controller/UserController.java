@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.dmg.bean.Subject;
 import com.dmg.bean.Member;
 import com.dmg.bean.Push_notice;
+import com.dmg.bean.News;
 import com.dmg.bean.Users;
+import com.dmg.service.Newsservice;
 import com.dmg.service.UserService;
 
 @Controller
@@ -25,6 +27,8 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
+ @Autowired
+ private Newsservice Newsservice;
 
 	//意见反馈
 	@RequestMapping("/feedBacks/{id}")
@@ -51,6 +55,8 @@ public class UserController {
 		model.addAttribute("mon", mon);
 		List<Push_notice> push_notices=userService.listpush();
 		model.addAttribute("push_notices",push_notices);
+		List<News>list=Newsservice.list();
+		model.addAttribute("list",list);
 		return "frontJsp/index";
 	}
 
@@ -83,17 +89,10 @@ public class UserController {
 			Users user = userService.getUsers(mobile_phone, password);
 			if (user == null) {
 				model.addAttribute("msg", "账号或密码不正确");
-				flag = "login";
+				flag = "frontJsp/login";
 			} else {
 				model.addAttribute("user", user);
-				List<Subject> sub = userService.showSubject();
-				SimpleDateFormat sdf = new SimpleDateFormat("MM");
-				String mon = sdf.format(new Date());
-				
-				model.addAttribute("sub", sub);
-				model.addAttribute("mon", mon);
-			
-				flag = "frontJsp/index";
+				flag = this.index(model);
 			}
 		}
 		return flag;

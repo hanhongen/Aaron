@@ -29,11 +29,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script type="text/javascript"
 	src="/p2p_project/backStyle/js/bootstrap.min.js"></script>
 <script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
-<script>
-function fun2(){
-window.location.href="/p2p_project/backJsp/inbox.jsp";
-}
-</script>
+
 
 </head>
 <body>
@@ -233,11 +229,11 @@ window.location.href="/p2p_project/backJsp/inbox.jsp";
 							</select>
 								</tr>
 								<tr class="active">
-									<td>序号:<input type="number" name="sort" value="${news.sort}"></td>
+									<td>序号:<input type="text" name="sort" value="${news.sort}" ></td>
 								</tr>
 								<tr>
 									<td><input type="submit" value="提交"> <input
-										type="button" value="关闭" onclick="fun2()"></td>
+										type="submit" value="关闭" onclick="action='/p2p_project/news_type/news_typelist'"></td>
 								</tr>
 							</thead>
 						</table>
