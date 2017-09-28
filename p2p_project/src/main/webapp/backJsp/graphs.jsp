@@ -261,10 +261,12 @@ $(document).ready(function(){
         <form method="post" id="forms">
         <h1><span class="glyphicon glyphicon-play" style="margin-right:3px;"></span>钱包缴费记录</h1> 
          <table class="table">
-   请输入查询内容 <input type="text" name="pay_name" placeholder="请输入查询内容"/>    
+   请输入查询姓名 <input type="text" name="pay_name" id="pay_name" placeholder="请输入姓名"/>    
+   请输入订单编号 <input type="text" name="pay_channel_order_no" id="pay_channel_order_no" placeholder="请输入订单编号"/>
+   请输入订单名称 <input type="text" name="pay_channel_name" id="pay_channel_name" placeholder="请输入订单名称"/>          
    <input type="submit" value="查询" id="btn1" name="btn1"  class="btn btn-primary"/>
         <thead>  
-   <tr style="font-size:25px;font-style:oblique;"><th>编号</th><th>交易渠道</th><th>交易订单编号</th><th>姓名</th><th>手机号</th><th>交易状态</th><th>交易时间</th><th>交易流水号</th><th>手机号</th><th>购买金额</th></tr>  
+   <tr style="font-size:25px;font-style:oblique;"><th>编号</th><th>充值渠道名称</th><th>充值渠道订单号</th><th>姓名</th><th>手机号</th><th>交易状态</th><th>交易时间</th><th>交易流水号</th><th>手机号</th><th>购买金额</th></tr>  
         </thead>  
         <tbody>  
             <!-- <tr><td>001</td><td>郭靖</td><td>25</td></tr>  

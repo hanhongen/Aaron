@@ -121,13 +121,23 @@ public class Push_Controller {
 		return "backJsp/feedback";
 	}
 	
+	
+	
 	//钱包管理
 	@RequestMapping("/members")
-	public String listmembers(Model model){
-		List<Member_deposit_record> members=push_notice_service.listmembers();
-		List<Member> member=push_notice_service.listmerber();
+	public String listmembers(Model model,@RequestParam(required=false)String pay_name,String pay_channel_order_no,String pay_channel_name){
+		Map map=new HashMap();
+		map.put("pay_name",pay_name);
+		map.put("pay_channel_order_no", pay_channel_order_no);
+		map.put("pay_channel_name",pay_channel_name);
+		System.out.println("姓名"+pay_name);
+		List<Member_deposit_record> members=push_notice_service.listmembers(map);
+		//List<Member> member=push_notice_service.listmerber(map);
 		model.addAttribute("members",members);
-		model.addAttribute("member",member);
+		//model.addAttribute("member",member);
+		model.addAttribute("pay_name",pay_name);
+		model.addAttribute("pay_channel_order_no", pay_channel_order_no);
+		model.addAttribute("pay_channel_name",pay_channel_name);
 		return "backJsp/graphs";
 	}
 }
