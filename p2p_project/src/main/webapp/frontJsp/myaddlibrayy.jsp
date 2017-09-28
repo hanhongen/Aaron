@@ -125,9 +125,9 @@ content_obj.eq(index_tab).show();
         <li class="open"><a id="member_center_menu_invests" href="#"><em class="iconfont red">&#xe602;</em>投资记录</a></li>
         <li class="close"><a id="member_center_menu_profit_record" href="#"><em class="iconfont red">&#xe616;</em>收益记录</a></li>
         <li class="close"><a id="member_center_menu_deposit_record" href="#" onclick="query()"><em class="iconfont red">&#xe616;</em>充值记录</a></li>
-        <li class="close"><a id="member_center_menu_withdraw_record" href="#"><em class="iconfont red">&#xe616;</em>提款记录</a></li>
+        <li class="close"><a id="member_center_menu_withdraw_record" href="#" onclick="tk()"><em class="iconfont red">&#xe616;</em>提款记录</a></li>
         <li class="close"><a id="member_center_menu_bbinInfo_record" href="#"><em class="iconfont red">&#xe616;</em>体验金记录</a></li>    
-        <li class="close"><a id="member_center_menu_deposit" href="#"><em class="iconfont red">&#xe614;</em>账户充值</a></li>
+        <li class="close"><a id="member_center_menu_deposit" href="#" onclick="querycz()"><em class="iconfont red">&#xe614;</em>账户充值</a></li>
         <li class="close"><a id="member_center_menu_security" href="#"><em class="iconfont red">&#xe612;</em>安全信息</a></li>
         <li class="close"><a id="member_center_menu_withdraw" href="#"><em class="iconfont red">&#xe612;</em>我要提款</a></li>
 <!--    <li><a id="member_center_menu_financial" href="/account/financial"><em class="iconfont">&#xe612;</em>我是理财师</a></li> -->
@@ -337,12 +337,40 @@ content_obj.eq(index_tab).show();
 									<th width="20%">金额</th>
 									<th width="10%">状态</th>
 								</tr>
+								<tbody id="tbody_tk"></tbody>
 							</table>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+		<script type="text/javascript">
+		//点击按钮触发
+		function tk(){
+			ajaxtk();
+		}
+		//ajax执行体
+		function ajaxtk(){
+			$.ajax({
+				type:"post",
+				url:"/p2p_project/member_withdraw_record/listmwr",
+				data:"id="+$("#hid").val(),
+				dataType:"json",
+				success:function(data){
+					//清空表体
+					$("#tbody_tk").empty();
+					showDataTk(data);
+				}
+			});
+		}
+		function showDataTk(data){
+			var str="";
+			for(var i=0;i<data.length;i++){
+					str+="<tr><td>"+data[i].create_date+"</td><td>"+data[i].serial_number+"</td><td>"+data[i].amount+"</td><td>"+data[i].status+"</td></tr>";				
+			}
+			$("#tbody_tk").append(str);
+		}
+		</script>
 		<!-- 体验金记录 -->
 		<div class="admin-right" style="display: none">
 			<div class="tbConBox">
@@ -385,7 +413,7 @@ content_obj.eq(index_tab).show();
 								<form id="depositForm" action="/account/deposit/gopay"
 									method="POST" target="_blank">
 									<div>
-										充值银行卡：<strong>工商银行-4367548974335648512</strong>
+										充值银行卡：<strong id="str"></strong>
 									</div>
 									<br>
 									<div>
@@ -403,6 +431,30 @@ content_obj.eq(index_tab).show();
 				</div>
 			</div>
 		</div>
+		<script type="text/javascript">
+		//点击按钮触发  查询银行和银行卡号
+		function querycz(){
+			ajaxcz();
+		}
+		function ajaxcz(){
+			$.ajax({
+				type:"post",
+				url:"/p2p_project/member_bankcards/listmb",
+				data:"id="+$("#hid").val(),
+				dataType:"json",
+				success:function(data){
+					showcz(data);
+				}
+			});
+		}
+		function showcz(data){
+			var str="";
+			for(var i=0;i<data.length;i++){
+				str+="<strong>"+data[i].type+"-"+data[i].card_no+"</strong>";
+			}
+			$("#str").append(str);
+		}
+		</script>
 <!-- --------------------------------------------安全信息----------------------------------------------------- -->
         <div class="admin-right" style="display: none">
         	<div class="tbConBox">

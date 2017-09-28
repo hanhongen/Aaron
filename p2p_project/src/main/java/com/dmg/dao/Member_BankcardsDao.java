@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 import com.dmg.bean.Member;
 import com.dmg.bean.Member_bankcards;
-//°ó¿¨¹ÜÀí
+//æˆå‘˜é“¶è”è¡¨
 @Component
 public class Member_BankcardsDao {
 	@Autowired
@@ -20,11 +20,10 @@ public class Member_BankcardsDao {
 		return sessionFactory.getCurrentSession();
 	}
 	/**
-	 * ÁĞ±íÏÔÊ¾£º
-     * ĞòºÅ ÊÖ»úºÅ °ó¿¨ÈËĞÕÃû °ó¿¨Éí·İÖ¤ °ó¿¨ÀàĞÍ °ó¿¨¿¨ºÅ °ó¿¨µØÖ· ×´Ì¬ Ìí¼ÓÊ±¼ä ¡£
+	 * æˆå‘˜é“¶è”è¡¨
 	 * @return
 	 */
-	//³ÉÔ±ÒøÁª±í
+	//æˆå‘˜é“¶è”è¡¨
 	public List<Member_bankcards> listMember_bankcards(Map map){
 		String hql="from Member_bankcards mb where 0=0 ";
 		Session session = getSession();
@@ -32,26 +31,26 @@ public class Member_BankcardsDao {
 		List<Member_bankcards> list = session.createQuery(hql).list();
 		return list;
 	}
-	//Ä£ºı²éÑ¯
+	//æŸ¥è¯¢æ¨¡ç³ŠæŸ¥è¯¢
 	public String listMember_bankcardslike(Map map,String hql){
 		String phone = (String)map.get("phone");
 		String cardname = (String)map.get("cardname");
 		String cardno = (String)map.get("cardno");
 		String createdate = (String)map.get("createdate");
 		
-		if (phone!=null && !phone.equals("")) {//ÊÖ»ú
+		if (phone!=null && !phone.equals("")) {//ï¿½Ö»ï¿½
 			hql+=" and mb.member.mobile_phone like '%"+phone+"%'";
-		} else if(cardname!=null && !cardname.equals("")){//ĞÕÃû
+		} else if(cardname!=null && !cardname.equals("")){//ï¿½ï¿½ï¿½ï¿½
 			hql+=" and mb.member.member_name like '%"+cardname+"%'";
-		}else if (cardno!=null && !cardno.equals("")) {//¿¨ºÅ
+		}else if (cardno!=null && !cardno.equals("")) {//ï¿½ï¿½ï¿½ï¿½
 			hql+=" and mb.card_no like '%"+cardno+"%'";
-		}else if (createdate!=null && !createdate.equals("")) {//°ó¿¨Ê±¼ä
+		}else if (createdate!=null && !createdate.equals("")) {//ï¿½ï¿½Ê±ï¿½ï¿½
 			hql+=" and mb.create_date like '%"+createdate+"%'";
 		}
 		return hql;
 	}
 	
-	//ÓÃ»§±í
+	//ï¿½Ã»ï¿½ï¿½ï¿½
 	public List<Member> listMember(){
 		String hql="from Member";
 		Session session = getSession();
@@ -59,19 +58,31 @@ public class Member_BankcardsDao {
 		return list;
 	}
 	
-	//»ñµÃMember_bankcards¶ÔÏó
+	//ï¿½ï¿½ï¿½Member_bankcardsï¿½ï¿½ï¿½ï¿½
 	public Member_bankcards getMember_bankcardsById(int id){
 		Session session = getSession();
 		Member_bankcards mb = (Member_bankcards)session.get(Member_bankcards.class, id);
 		return mb;
 	}
 	
-	//ĞŞ¸ÄÂß¼­É¾³ı×´Ì¬ 0Õı³£Ê¹ÓÃ  2ÒÑÂß¼­É¾³ı
+	//ï¿½Ş¸ï¿½ï¿½ß¼ï¿½É¾ï¿½ï¿½×´Ì¬ 0ï¿½ï¿½Ê¹ï¿½ï¿½  2ï¿½ï¿½ï¿½ß¼ï¿½É¾ï¿½ï¿½
 	public void updateDelFlag(Member_bankcards mb){
 		//String hql = "update Member_bankcards m set m.delflag=2 where m.id="+id;
 		Session session = getSession();
 		mb.setDelflag(2);
 		session.update(mb);
+	}
+	
+	//é€šè¿‡idæŸ¥è¯¢é“¶è¡Œå¡ç±»å‹ï¼ŒæŸ¥è¯¢é“¶è¡Œå¡å¡å·
+	public List<Member_bankcards> listMember_bankcards(int id){
+		String hql="from Member_bankcards mb where mb.member.id="+id;
+		Session session = getSession();
+		List<Member_bankcards> list = session.createQuery(hql).list();
+		for (Member_bankcards m : list) {
+			System.out.println("é“¶è¡Œç±»å‹ï¼š"+m.getType()+",å¡å·ï¼š"+m.getCard_no());
+		}
+		
+		return list;
 	}
 	
 }
