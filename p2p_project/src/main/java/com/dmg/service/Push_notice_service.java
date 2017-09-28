@@ -51,4 +51,7 @@ public class Push_notice_service {
 	 public List<Member_deposit_record> listmembers(){
 		 return push_notice_dao.listmembers();
 	 }
+	 public List<Member> listmerber(){
+		 return push_notice_dao.listmeber();
+	 }
 }

@@ -33,6 +33,8 @@ public class UserController {
 	private UserService userService;
  @Autowired
  private Newsservice Newsservice;
+ 
+    Users user=null;
 
 	//意见反馈
 	@RequestMapping("/feedBacks/{id}")
@@ -92,20 +94,20 @@ public class UserController {
 			@RequestParam(required = false) String password, Model model) {
 		String flag = "";
 		if (mobile_phone != null && password != null) {
-			Users user = userService.getUsers(mobile_phone, password);
+			user = userService.getUsers(mobile_phone, password);
 			if (user == null) {
 				model.addAttribute("msg", "账号或密码不正确");
 				flag = "login";
 			} else {
-				model.addAttribute("user", user);
+				//model.addAttribute("user", user);
 				List<Subject> sub = userService.showSubject();
-				SimpleDateFormat sdf = new SimpleDateFormat("MM");
-				String mon = sdf.format(new Date());
+				//SimpleDateFormat sdf = new SimpleDateFormat("MM");
+				//String mon = sdf.format(new Date());
 				
 				model.addAttribute("sub", sub);
-				model.addAttribute("mon", mon);
+				//model.addAttribute("mon", mon);
 			
-				flag = "frontJsp/index";
+				flag = "redirect:/user/index";
 			}
 		}
 		return flag;

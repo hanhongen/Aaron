@@ -100,11 +100,12 @@ public class Push_Controller {
 	//<!--意见反馈--!>
 	//前台页面添加
 	@RequestMapping("/savefeed")
-	public String select(Feedback feedbacks,@RequestParam(required=false)int user_id){
+	public String select(Feedback feedbacks,@RequestParam(required=false)int user_id,Model model){
 	    SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	    feedbacks.setCreate_date(dateFormat.format(new Date()));
 	    Users user=userService.getUsersById(user_id);
 	    feedbacks.setUser(user);
+	    model.addAttribute("user",user);
 		push_notice_service.save(feedbacks);
 		return "frontJsp/index";
 	}
@@ -124,7 +125,9 @@ public class Push_Controller {
 	@RequestMapping("/members")
 	public String listmembers(Model model){
 		List<Member_deposit_record> members=push_notice_service.listmembers();
+		List<Member> member=push_notice_service.listmerber();
 		model.addAttribute("members",members);
+		model.addAttribute("member",member);
 		return "backJsp/graphs";
 	}
 }

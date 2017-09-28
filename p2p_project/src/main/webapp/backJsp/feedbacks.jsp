@@ -95,12 +95,7 @@ input[type=submit] {
  <div id="contact">
 	<h1>意见反馈</h1>
 	<form action="/p2p_project/test/savefeed" method="post">
-		<fieldset>
-
-
-		<label for="email">意见人:</label>
-		<input type="text" ${user.name} /> 
-	
+		<fieldset>	
 
 		<input type="hidden" id="user_id" name="user_id" value="${user.id }">
 	  	<label for="message">意见内容:</label>
