@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.dmg.bean.News;
+import com.dmg.bean.Users;
 
 @Component
 public class Newsdao {

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.dmg.bean.News_type;
+import com.dmg.bean.Users;
 
 @Component
 public class News_typedao {
@@ -26,8 +27,10 @@ public void savetype(News_type news_type){
 
 public void updatetype(News_type news_type){
 	Session session=getsession();
+	session.clear();
 	session.update(news_type);
 	session.flush();
+	
 }
 
 public News_type getbyid(int id){
@@ -50,4 +53,9 @@ public List<News_type>listtype(){
 	return list;
 }
 
+public Users userid(int  id){
+	Session session=getsession();
+	Users users=(Users)session.get(Users.class, id);
+     return users;
+}
 }

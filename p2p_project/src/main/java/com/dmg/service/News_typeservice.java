@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.dmg.bean.News_type;
+import com.dmg.bean.Users;
 import com.dmg.dao.News_typedao;
 
 @Transactional
@@ -33,5 +34,11 @@ public class News_typeservice {
 	    public List<News_type> listtype(){
 	    	return news_typedao.listtype();
 	    }
-	}
+	
+	    public Users usersid(int id){
+	    	return news_typedao.userid(id);
+	    }
+
+
+}
 

@@ -83,10 +83,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <a href="#"><i class="fa fa-envelope nav_icon"></i>学院管理<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="/p2p_project/news_type/news_typelist">资讯分类</a>
+                                    <a href="/p2p_project/news_type/news_typelist/${user.id }">资讯分类</a>
                                 </li>
                                 <li>
-                                    <a href="/p2p_project/news/listnews">资讯管理</a>
+                                    <a href="/p2p_project/news/listnews/${user.id }">资讯管理</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

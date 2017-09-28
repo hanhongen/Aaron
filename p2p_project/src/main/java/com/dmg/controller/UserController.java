@@ -91,7 +91,7 @@ public class UserController {
 				model.addAttribute("sub", sub);
 				model.addAttribute("mon", mon);
 			
-				flag = "frontJsp/index";
+				flag = "redirect:/user/index";
 			}
 		}
 		return flag;

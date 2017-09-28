@@ -23,11 +23,8 @@
 <link
 	href="https://ppmoneycnt.b0.upaiyun.com/static/v4.01/css/login/login_e18909b.css?v=201512161721"
 	rel="stylesheet" type="text/css" />
-<<<<<<< HEAD
 
-=======
 	
->>>>>>> branch 'master' of https://github.com/hanhongen/hanhongen.git
 </head>
 <body class="index_niwo holiday_bg">
 
@@ -381,7 +378,7 @@
 				<div class="cont-hd">
 					<i class="icon iconfont"></i><span class="em">定期理财</span><span
 						class="hd-tips">多种期限，收益更高</span> 
-					<a href="/p2p_project/news/newstitle" >更多<i class="iconfont"></i></a>
+					<a href="" >更多<i class="iconfont"></i></a>
 				</div>
 				
 			
@@ -448,7 +445,7 @@
 			<div class="i-mod-note">
 				<div class="note-hd">
 					<span class="fl em">媒体报道</span> <a class="fr more primary"
-						href="356465" target="_blank" title="">更多<i
+						href="#" target="_blank" title="">更多<i
 						class="iconfont"></i></a>
 				</div>
 				<div class="note-bd news-cont" style="height: 150px;">

@@ -30,7 +30,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <script type="text/javascript">
 function fun1(){
-$("#form1").attr("action","/p2p_project/news/savelist");
+$("#form1").attr("action","/p2p_project/news/savelist/${users.id}");
 $("#form1").submit();
 }
 
@@ -165,8 +165,8 @@ $("select[name='s1']").val("").focus();
 					<li><a href="#"><i class="fa fa-envelope nav_icon"></i>学院管理<span
 							class="fa arrow"></span></a>
 						<ul class="nav nav-second-level">
-							<li><a href="/p2p_project/backJsp/inbox.jsp">资讯分类</a></li>
-							<li><a href="/p2p_project/backJsp/compose.jsp">资讯管理</a></li>
+							<li><a href="/p2p_project/news_type/news_typelist/${users.id }">资讯分类</a></li>
+							<li><a href="/p2p_project/news/listnews/${users.id }">资讯管理</a></li>
 						</ul> <!-- /.nav-second-level --></li>
 					<!-- ----------------------------------------------------- -->
 					<li><a href="/p2p_project/backJsp/widgets.jsp"><i
@@ -238,7 +238,7 @@ $("select[name='s1']").val("").focus();
  <div class="btn-group pull-right">
                 <button type="button" class="btn btn-primary btn-3g" onclick="fun1();" >添加新闻</button>
                 <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                    <i class="glyphicon glyphicon-user"></i><span class="hidden-sm hidden-xs">用户名称</span>
+                    <i class="glyphicon glyphicon-user"></i><span class="hidden-sm hidden-xs">${users.user_name}</span>
                     <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu">
@@ -280,7 +280,7 @@ $("select[name='s1']").val("").focus();
       <td>${news.updld}</td>
       <td>${news.addld}</td>
       <td>
-   <a class="btn btn-success" href="/p2p_project/news/updatelist/${news.id}">
+   <a class="btn btn-success" href="/p2p_project/news/updatelist/${news.id}/${users.id}">
                 <i class="glyphicon glyphicon-zoom-in icon-white"></i>
                修改
             </a>
