@@ -114,10 +114,7 @@
 					<li style="display: none;"><a href="" ></a></li>
 					<li class="rela"><a href="/p2p_project/toInvestment/showSubject" class="one">我要投资</a>
 					</li>
-						
-					<li class="rela"><a href="/p2p_project/frontJsp/college.jsp" class="one">盈+商学院</a>
-
-					</li>
+					
 					<li class="rela"><a href="/p2p_project/subject_purchase_record/listSubject_purchase_records/1" class="one">我的加法库</a>
 					</li>
 					<li class="rela"><a href="/p2p_project/frontJsp/about.jsp"
@@ -384,8 +381,7 @@
 				<div class="cont-hd">
 					<i class="icon iconfont"></i><span class="em">定期理财</span><span
 						class="hd-tips">多种期限，收益更高</span> 
-					<a href="/p2p_project/news/newstitle" target="_blank"
-						class="more">更多<i class="iconfont"></i></a>
+					<a href="/p2p_project/news/newstitle" >更多<i class="iconfont"></i></a>
 				</div>
 				
 			
@@ -452,7 +448,7 @@
 			<div class="i-mod-note">
 				<div class="note-hd">
 					<span class="fl em">媒体报道</span> <a class="fr more primary"
-						href="http://www.ppmoney.com/news/ppgg" target="_blank" title="">更多<i
+						href="356465" target="_blank" title="">更多<i
 						class="iconfont"></i></a>
 				</div>
 				<div class="note-bd news-cont" style="height: 150px;">
