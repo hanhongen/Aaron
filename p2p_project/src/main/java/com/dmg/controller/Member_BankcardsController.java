@@ -4,28 +4,32 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.dmg.bean.Member;
 import com.dmg.bean.Member_bankcards;
 import com.dmg.service.Member_BankcardsService;
-//°ó¿¨¹ÜÀí
+//ï¿½ó¿¨¹ï¿½ï¿½ï¿½
 @Controller
 @RequestMapping("/member_bankcards")
 public class Member_BankcardsController {
 	@Autowired
 	private Member_BankcardsService member_BankcardsService;
 	/**
-	 * ÁÐ±íÏÔÊ¾£º
-     * ÐòºÅ ÊÖ»úºÅ °ó¿¨ÈËÐÕÃû °ó¿¨Éí·ÝÖ¤ °ó¿¨ÀàÐÍ °ó¿¨¿¨ºÅ °ó¿¨µØÖ· ×´Ì¬ Ìí¼ÓÊ±¼ä ¡£
+	 * ï¿½Ð±ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½
+     * ï¿½ï¿½ï¿½ ï¿½Ö»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ó¿¨¿ï¿½ï¿½ï¿½ ï¿½ó¿¨µï¿½Ö· ×´Ì¬ ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ ï¿½ï¿½
 	 * @return
 	 */
-	@RequestMapping("/listMember_Bankcards")//²éÑ¯¡¢Ä£ºý²éÑ¯
+	@RequestMapping("/listMember_Bankcards")//ï¿½ï¿½Ñ¯ï¿½ï¿½Ä£ï¿½ï¿½ï¿½Ñ¯
 	public String listMember_Bankcards(Model model,
 			@RequestParam(required=false)String phone,
 			@RequestParam(required=false)String cardname,
@@ -33,12 +37,12 @@ public class Member_BankcardsController {
 			@RequestParam(required=false)String createdate){
 		
 		Map map = new HashMap<>();
-		map.put("phone", phone);//ÊÖ»ú
-		map.put("cardname", cardname);//°ó¿¨ÐÕÃû
-		map.put("cardno", cardno);//¿¨ºÅ
-		map.put("createdate", createdate);//Ê±¼ä
+		map.put("phone", phone);//ï¿½Ö»ï¿½
+		map.put("cardname", cardname);//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		map.put("cardno", cardno);//ï¿½ï¿½ï¿½ï¿½
+		map.put("createdate", createdate);//Ê±ï¿½ï¿½
 		
-		List<Member_bankcards> listmb = member_BankcardsService.listMember_bankcards(map);//ÒøÁª
+		List<Member_bankcards> listmb = member_BankcardsService.listMember_bankcards(map);//ï¿½ï¿½ï¿½ï¿½
 		for (Member_bankcards mb : listmb) {
 			System.out.println("listMember_Bankcards:"+mb.getMember().getMobile_phone());
 		}
@@ -50,11 +54,19 @@ public class Member_BankcardsController {
 		
 		return "backJsp/member_bankcards";
 	}
-	@RequestMapping("/updateflag/{id}")//Âß¼­É¾³ý,½â°óÒøÐÐ¿¨
+	@RequestMapping("/updateflag/{id}")//ï¿½ß¼ï¿½É¾ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¿ï¿½
 	public String updateflag(@PathVariable("id")int id){
 		System.out.println("ID:"+id);
 		member_BankcardsService.updateDelFlag(id);
 		return "redirect:/member_bankcards/listMember_Bankcards";
+	}
+	@RequestMapping(value="listmb",method=RequestMethod.POST)
+	@ResponseBody
+	public List<Member_bankcards> listmb(HttpServletRequest request){
+		String idd=request.getParameter("id");
+		int id = Integer.valueOf(idd);
+		List<Member_bankcards> list = member_BankcardsService.listMember_bankcards(id);
+		return list;
 	}
 	
 }

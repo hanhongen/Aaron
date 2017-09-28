@@ -4,9 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-
 import javax.servlet.http.HttpSession;
-
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,9 +14,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
+import com.dmg.bean.News;
+
 import com.dmg.bean.Subject;
 import com.dmg.bean.Member;
 import com.dmg.bean.Push_notice;
+
+
+import com.dmg.bean.News;
 
 import com.dmg.bean.News;
 import com.dmg.bean.Users;
@@ -51,9 +54,14 @@ public class UserController {
 		return "redirect:/user/index";
 	}
 
+
 //前台首页
+
+
+	// 前台首页
 	@RequestMapping("/index")
 	public String index(Model model) {
+
 
 		List<Subject> sub = userService.showSubject();
 		SimpleDateFormat sdf = new SimpleDateFormat("MM");
@@ -97,7 +105,7 @@ public class UserController {
 			user = userService.getUsers(mobile_phone, password);
 			if (user == null) {
 				model.addAttribute("msg", "账号或密码不正确");
-				flag = "login";
+				flag = "frontJsp/login";
 			} else {
 				//model.addAttribute("user", user);
 				List<Subject> sub = userService.showSubject();
@@ -108,6 +116,8 @@ public class UserController {
 				//model.addAttribute("mon", mon);
 			
 				flag = "redirect:/user/index";
+				model.addAttribute("user", user);
+				flag = this.index(model);
 			}
 		}
 		return flag;
