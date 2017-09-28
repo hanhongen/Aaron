@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.dmg.bean.Member;
 import com.dmg.bean.Member_bankcards;
 import com.dmg.dao.Member_BankcardsDao;
-//°ó¿¨¹ÜÀí
+//ï¿½ó¿¨¹ï¿½ï¿½ï¿½
 @Service
 @Transactional
 public class Member_BankcardsService {
@@ -17,22 +17,29 @@ public class Member_BankcardsService {
 	private Member_BankcardsDao member_BankcardsDao;
 	
 	/**
-	 * ÁĞ±íÏÔÊ¾£º
-     * ĞòºÅ ÊÖ»úºÅ °ó¿¨ÈËĞÕÃû °ó¿¨Éí·İÖ¤ °ó¿¨ÀàĞÍ °ó¿¨¿¨ºÅ °ó¿¨µØÖ· ×´Ì¬ Ìí¼ÓÊ±¼ä ¡£
+	 * ï¿½Ğ±ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½
+     * ï¿½ï¿½ï¿½ ï¿½Ö»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ó¿¨¿ï¿½ï¿½ï¿½ ï¿½ó¿¨µï¿½Ö· ×´Ì¬ ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ ï¿½ï¿½
 	 * @return
 	 */
 	public List<Member_bankcards> listMember_bankcards(Map map){
 		List<Member_bankcards> listmb = member_BankcardsDao.listMember_bankcards(map);
 		return listmb;
 	}
-	//ÓÃ»§±í
+	//ï¿½Ã»ï¿½ï¿½ï¿½
 	public List<Member> listMember(){
 		List<Member> listm = member_BankcardsDao.listMember();
 		return listm;
 	}
-	//ĞŞ¸ÄÂß¼­É¾³ı×´Ì¬ 0Õı³£Ê¹ÓÃ  2ÒÑÂß¼­É¾³ı
+	//ï¿½Ş¸ï¿½ï¿½ß¼ï¿½É¾ï¿½ï¿½×´Ì¬ 0ï¿½ï¿½Ê¹ï¿½ï¿½  2ï¿½ï¿½ï¿½ß¼ï¿½É¾ï¿½ï¿½
 	public void updateDelFlag(int id){
 		Member_bankcards mb = member_BankcardsDao.getMember_bankcardsById(id);
 		member_BankcardsDao.updateDelFlag(mb);
 	}
+	
+	//é€šè¿‡idæŸ¥è¯¢é“¶è¡Œå¡ç±»å‹ï¼ŒæŸ¥è¯¢é“¶è¡Œå¡å¡å·
+		public List<Member_bankcards> listMember_bankcards(int id){
+			List<Member_bankcards> list = member_BankcardsDao.listMember_bankcards(id);
+			return list;
+		}
+	
 }

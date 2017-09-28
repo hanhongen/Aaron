@@ -23,7 +23,6 @@
 <link
 	href="https://ppmoneycnt.b0.upaiyun.com/static/v4.01/css/login/login_e18909b.css?v=201512161721"
 	rel="stylesheet" type="text/css" />
-
 </head>
 <body class="index_niwo holiday_bg">
 
@@ -90,6 +89,8 @@
 				<ul class="nav clearfix">
 					<li><a rel="nofollow" href="" class="one">首页</a></li>
 
+
+
 					
 					<li style="display: none;"><a href="" ></a></li>
 					<li class="rela"><a href="/p2p_project/toInvestment/showSubject" class="one">我要投资</a>
@@ -99,6 +100,10 @@
 
 					<li class="two"><a href="" class="two"
 						id="cp_two">我要投资</a>
+
+					
+<li class="two">
+
 						<dl class="cp_two">
 							<dd>
 								<a href="/p2p_project/frontJsp/solid.jsp">固收类理财</a>
@@ -115,6 +120,12 @@
 						</dl></li>
 					<li class="rela"><a href="/p2p_project/frontJsp/frontnews.jsp" class="one">盈+商学院</a>
 					</li>
+
+					
+					<li style="display: none;"><a href="" ></a></li>
+					<li class="rela"><a href="/p2p_project/toInvestment/showSubject" class="one">我要投资</a>
+					</li>
+					
 					<li class="rela"><a href="/p2p_project/subject_purchase_record/listSubject_purchase_records/1" class="one">我的加法库</a>
 					</li>
 					<li class="rela"><a href="/p2p_project/frontJsp/about.jsp"
@@ -214,7 +225,6 @@
 						<div class="imgbox"></div>
 						<div class="content_bg">
 							<div class="bt fs_16">
-								<span class="f">${mon}月</span>数据
 							<span>公告标题</span>
 							</div>
 							<div class="note-bd news-cont">
@@ -292,7 +302,7 @@
 							</div>
 							<div class="invest-box cf">
 								<div class="f-ff fl">
-									<a href="" target="_blank" data-link-type=""><i
+									<a href="#" target="_blank" data-link-type=""><i
 										class="icon iconfont"></i><span class="prj-type">机构保</span></a>
 								</div>
 								<div class="fr" data-status=""
@@ -380,10 +390,11 @@
 			<div class="i-mod-cont">
 				<div class="cont-hd">
 					<i class="icon iconfont"></i><span class="em">定期理财</span><span
-						class="hd-tips">多种期限，收益更高</span> <a
-						href="" target="_blank"
-						class="more" data-num="">更多<i class="iconfont"></i></a>
+						class="hd-tips">多种期限，收益更高</span> 
+					<a href="/p2p_project/toInvestment/showSubject" >更多<i class="iconfont"></i></a>
 				</div>
+				
+			
 				<div class="cont-bd dq-cont-bd" style="position: relative;">
 					<ul id="DQPrj" class="prj-box cf dq-prj-box">
 					
@@ -427,7 +438,7 @@
 								<div class="fr" data-status="">
 									<div class="btn-box">
 
-										<a href="" target="_blank"
+										<a href="p2p_project/toInvestment/buySubject/${s.id }" target="_blank"
 											class="btn btn-primary btn-3d">立即投资</a>
 
 									</div>
@@ -447,7 +458,7 @@
 			<div class="i-mod-note">
 				<div class="note-hd">
 					<span class="fl em">媒体报道</span> <a class="fr more primary"
-						href="http://www.ppmoney.com/news/ppgg" target="_blank" title="">更多<i
+						href="/p2p_project/aaa/a.jsp" target="_blank" title="">更多<i
 						class="iconfont"></i></a>
 				</div>
 				<div class="note-bd news-cont" style="height: 150px;">
