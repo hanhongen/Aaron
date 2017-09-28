@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.dmg.bean.News;
 import com.dmg.bean.Subject;
 import com.dmg.bean.Member;
 import com.dmg.bean.Push_notice;

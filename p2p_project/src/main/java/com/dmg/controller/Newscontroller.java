@@ -124,7 +124,7 @@ public  String title(@PathVariable("id")int id,Model model){
 }
 
 @RequestMapping("/newstitle")
-public  String title(Model model){
+public  String newstitle(Model model){
 	List<News>list=newsservice.list();
 	model.addAttribute("list",list);
 	return "frontJsp/moretitle";

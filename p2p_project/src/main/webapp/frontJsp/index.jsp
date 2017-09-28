@@ -92,10 +92,8 @@
 					<li style="display: none;"><a href="" ></a></li>
 					<li class="rela"><a href="/p2p_project/toInvestment/showSubject" class="one">我要投资</a>
 					</li>
-						
-					<li class="rela"><a href="/p2p_project/frontJsp/college.jsp" class="one">盈+商学院</a>
-					<li class="two"><a href="" class="two"
-						id="cp_two">我要投资</a>
+					
+<li class="two">
 						<dl class="cp_two">
 							<dd>
 								<a href="/p2p_project/frontJsp/solid.jsp">固收类理财</a>
@@ -112,6 +110,12 @@
 						</dl></li>
 					<li class="rela"><a href="/p2p_project/frontJsp/frontnews.jsp" class="one">盈+商学院</a>
 					</li>
+
+					
+					<li style="display: none;"><a href="" ></a></li>
+					<li class="rela"><a href="/p2p_project/toInvestment/showSubject" class="one">我要投资</a>
+					</li>
+					
 					<li class="rela"><a href="/p2p_project/subject_purchase_record/listSubject_purchase_records/1" class="one">我的加法库</a>
 					</li>
 					<li class="rela"><a href="/p2p_project/frontJsp/about.jsp"
@@ -380,7 +384,10 @@
 						class="hd-tips">多种期限，收益更高</span> 
 						<a href="/p2p_project/news/newstitle" target="_blank"
 						class="more">更多<i class="iconfont"></i></a>
+
 				</div>
+				
+			
 				<div class="cont-bd dq-cont-bd" style="position: relative;">
 					<ul id="DQPrj" class="prj-box cf dq-prj-box">
 					
@@ -444,7 +451,7 @@
 			<div class="i-mod-note">
 				<div class="note-hd">
 					<span class="fl em">媒体报道</span> <a class="fr more primary"
-						href="http://www.ppmoney.com/news/ppgg" target="_blank" title="">更多<i
+						href="356465" target="_blank" title="">更多<i
 						class="iconfont"></i></a>
 				</div>
 				<div class="note-bd news-cont" style="height: 150px;">
