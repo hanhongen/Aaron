@@ -25,4 +25,10 @@ public class Member_accountService {
 		List<Member_account> list = member_accountDao.listMember_account(id);
 		return list;
 	}
+	
+	//根据id修改账户可用余额，更新本条数据修改时间
+	public boolean top_upAmount(int id,double ub, String ud){
+		member_accountDao.top_upAmount(id, ub, ud);
+		return true;	
+	}
 }

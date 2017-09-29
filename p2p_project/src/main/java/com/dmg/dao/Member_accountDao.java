@@ -2,6 +2,7 @@ package com.dmg.dao;
 
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,14 @@ public class Member_accountDao {
 		Session session = getSession();
 		List<Member_account> list = session.createQuery(hql).list();
 		return list;
+	}
+	//根据id修改账户可用余额，更新本条数据修改时间
+	public boolean top_upAmount(int id,double ub, String ud){
+		String hql="update Member_account set useable_balance+="+ub+" update_date="+ud+" where member="+id;
+		Session session = getSession();
+		Member_account member_account = (Member_account) session.createQuery(hql);
+		session.update(member_account);
+		return true;
 	}
 	
 }

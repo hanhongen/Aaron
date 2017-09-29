@@ -36,4 +36,9 @@ public class Member_deposit_recordSevice {
 		List<Member_deposit_record> mdr = member_deposit_recordDao.listmdr(id);
 		return mdr;
 	}
+	
+	//将充值记录写入数据库
+	public void mdrSave(Member_deposit_record member_deposit_record){
+		member_deposit_recordDao.mdrSave(member_deposit_record);	
+	}
 }

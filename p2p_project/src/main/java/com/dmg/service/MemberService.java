@@ -8,20 +8,25 @@ import java.util.List;
 import java.util.Map;
 
 import javax.transaction.Transactional;
-//ÕËºÅ¹ÜÀí
+//ï¿½ËºÅ¹ï¿½ï¿½ï¿½
 @Service
 @Transactional
 public class MemberService {
 	@Autowired
 	private MemberDao memberDao;
-	//²éÑ¯ËùÓĞÕËºÅ
+	//ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½Ëºï¿½
 	public List<Member> listMember(Map map){
 		return memberDao.listMember(map);
 	}
-	//¸ù¾İid²éÑ¯¸öÈËÕËºÅÏêÇé
+	//ï¿½ï¿½ï¿½idï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½Ëºï¿½ï¿½ï¿½ï¿½ï¿½
 	public List<Member> listMemberId(int id){
 		List<Member> list = memberDao.listMemberId(id);
 		return list;
+	}
+	
+	public Member getMemberId(int id){
+		Member member=memberDao.getMemberId(id);
+		return member;
 	}
 	
 }
