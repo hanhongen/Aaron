@@ -218,6 +218,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<input type="hidden" name="seodes"  value="${news.seokey}">
 						<input type="hidden" name="addid"  value="${news.addid}">
 						<input type="hidden" name="addtime" value="${news.addtime}">
+						<input type="text" name="updid" value="${users}" readonly="readonly">
 						<table class="table" >
 								<thead>
 							<tr class="active">

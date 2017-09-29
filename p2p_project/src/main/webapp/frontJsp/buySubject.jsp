@@ -139,12 +139,10 @@
                     <div class="li4" style=""><span id="checkmoney" style="color: red;"></span></div>
                     <div class="tit">
                     	<span class="fr">
-                            <a style="color:#2695d5" class="unlogin" href="/p2p_project/frontJsp/login.jsp">登录</a>后可见
+                            <a style="color:#2695d5" href="/p2p_project/frontJsp/login.jsp">登录</a>后可见
 						</span>
                         <h2>账户余额</h2>
-                        <div id="count">预期所得收益<i
-                                data-num="0.000822"
-                                id="num">0</i>元
+                        <div id="count">预期所得收益<i data-num="0.000822" id="num">0</i>元
                         </div>
                     </div>
                     <input id="mytext" class="txt" name="totalFee" type="text"
@@ -155,7 +153,7 @@
                         <input type="checkbox" id="registerRule" class="registerRule" checked="checked"><span
                             class="fl">同意<a href="/web/syxy" target="_black">《产品协议》</a></span>
                     </p>
-                    <button class="submit">确认抢购</button>
+                    <button class="submit" style="background-color:" readonly>确认抢购</button>
                 </div>
             </td>
         </tr>
@@ -163,15 +161,15 @@
             <td>
                 <ul class="conInfoList">
                     <li class="info">
-                        <p>计息日期：<font color="#00baff">2017-09-28</font></p>
-                        <p>还款方式：<font color="#00baff">一次性还本付息</font></p>
-                        <p>资金到账日：<font color="#00baff">2017-10-03至2017-10-04</font>
+                        <p>计息日期：<font color="#00baff">${sb.create_date}</font></p>
+                        <p>还款方式：<font color="#00baff">${sb.refund_way==0?"分期付款":"一次性还本付息"}</font></p>
+                        <p>资金到账日：<font color="#00baff">1至2</font>
+                        
                         </p>
                     </li>
                     <li class="info">
-                        <p>保障方式：<font color="#00baff">企业担保</font></p>
+                        <p>保障方式：<font color="#00baff">${sb.safeguard_way==0?"企业担保":"银行监管"}</font></p>
                         <p>资金安全：<font color="#00baff">中国人保财险承保</font></p>
-                        <p></p>
                     </li>
                 </ul>
             </td>

@@ -282,6 +282,7 @@ window.location.href="/p2p_project/backJsp/compose.jsp";
  <td>链接地址:<input type="text" name="link"></td>
  <td>附件地址:<input type="text" name="filelink"></td>
  <td>作者:<input type="text" name="author"></td>
+ <td>添加人ID:<input type="text" name="addld"  value="${users}" readonly="readonly"></td>
  </tr>
  </tbody>
 <tr>
