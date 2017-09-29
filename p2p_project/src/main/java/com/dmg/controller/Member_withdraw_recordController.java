@@ -124,7 +124,6 @@ public class Member_withdraw_recordController {
 		@RequestMapping(value="listmwr",method={RequestMethod.POST})
 		@ResponseBody
 		public List<Member_withdraw_record> listmwr(HttpServletRequest request){
-			//设置返回字符编码
 			String idd=request.getParameter("id");
 			int id=Integer.valueOf(idd);
 			List<Member_withdraw_record> listmwr = member_withdraw_recordService.listMember_withdraw_record(id);

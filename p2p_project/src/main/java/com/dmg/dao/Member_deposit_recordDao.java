@@ -69,5 +69,10 @@ public class Member_deposit_recordDao {
 		List<Member_deposit_record> mdr = session.createQuery(hql).list();
 		return mdr;
 	}
+	//将充值记录写入数据库
+	public void mdrSave(Member_deposit_record member_deposit_record){
+	Session session = getSession();
+	session.save(member_deposit_record);
+	}
 	
 }

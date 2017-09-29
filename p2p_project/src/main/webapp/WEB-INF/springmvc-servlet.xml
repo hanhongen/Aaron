@@ -23,7 +23,7 @@
 	<mvc:resources location="/backStyle/js/" mapping="/backStyle/js/**" />
 	<mvc:resources location="/backStyle/css/" mapping="/backStyle/css/**" />
 	<mvc:resources location="/backStyle/images/" mapping="/backStyle/images/**" />
-
+	<mvc:resources location="/alipay/" mapping="/alipay/**" />
 
 
 	<mvc:resources location="/upload/" mapping="/upload/**" />

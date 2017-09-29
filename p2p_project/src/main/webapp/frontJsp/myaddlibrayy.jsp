@@ -117,7 +117,6 @@ content_obj.eq(index_tab).show();
     <a href="/account/deposit" class="cz">充值</a>
     <a href="/account/withdraw" class="tk">提款</a>
 </div>    
-<input type="hidden" name="hid" id="hid" value="1">
 <div class="proMain clearfix">
 <div class="adminLeft">
     <h2>我的投资</h2>
@@ -410,16 +409,18 @@ content_obj.eq(index_tab).show();
 						</div>
 						<div class="formBox">
 							<div class="czbox">
-								<form id="depositForm" action="/account/deposit/gopay"
+								<form id="depositForm" action="/p2p_project/member_deposit_record/goAlipayJsp"
 									method="POST" target="_blank">
 									<div>
 										充值银行卡：<strong id="str"></strong>
+										<div style="display: none"><p id="meid"></p></div>
 									</div>
 									<br>
 									<div>
 										充值金额：<input class="tytxt" id="fee" name="fee" type="text">
+										<input type="hidden" name="hid" id="hid" value="1">
 									</div>
-									<button class="tybutton" id="btn_go_pay" type="button">前往充值</button>
+									<button class="tybutton" id="btn_go_pay" type="submit">前往充值</button>
 								</form>
 							</div>
 						</div>
@@ -449,11 +450,17 @@ content_obj.eq(index_tab).show();
 		}
 		function showcz(data){
 			var str="";
+			var meid="";
 			for(var i=0;i<data.length;i++){
 				str+="<strong>"+data[i].type+"-"+data[i].card_no+"</strong>";
+				meid+="<p>"+data[i].member.id+"</p>";
 			}
 			$("#str").append(str);
+			$("#meid").append(meid);
 		}
+		
+
+		
 		</script>
 <!-- --------------------------------------------安全信息----------------------------------------------------- -->
         <div class="admin-right" style="display: none">

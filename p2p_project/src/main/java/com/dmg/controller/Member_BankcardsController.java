@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -64,6 +65,8 @@ public class Member_BankcardsController {
 	@ResponseBody
 	public List<Member_bankcards> listmb(HttpServletRequest request){
 		String idd=request.getParameter("id");
+		HttpSession session = request.getSession();
+		session.setAttribute("idd", idd);
 		int id = Integer.valueOf(idd);
 		List<Member_bankcards> list = member_BankcardsService.listMember_bankcards(id);
 		return list;
