@@ -74,5 +74,32 @@ public class Member_deposit_recordDao {
 	Session session = getSession();
 	session.save(member_deposit_record);
 	}
+	//根据充值渠道订单号（支付宝页面生成的订单号）查询本条信息
+	public int queryPay_channel_order_no(String pcon){
+		String  sql="select status from member_deposit_record where pay_channel_order_no="+pcon;
+		Session session = getSession();
+		Object st = (Object)session.createSQLQuery(sql).list().get(0);
+		int status=Integer.parseInt(st.toString());
+		return status;
+	}
+	//通过充值渠道订单号（支付宝页面生成的订单号）查询出本条信息id
+	public int listid(String pcon){
+		String sql="select id from member_deposit_record where pay_channel_order_no="+pcon;
+		Session session = getSession();
+		Object s = (Object)session.createSQLQuery(sql).list().get(0);
+		int id=Integer.parseInt(s.toString());
+		return id;
+	}
+	
+	//根据充值渠道订单号（支付宝页面生成的订单号）修改付款状态
+	public boolean updateStatus(String pcon){
+		//String hql="update Member_deposit_record set status="+1+" where pay_channel_order_no="+pcon;
+		int id=listid(pcon);
+		Session session = getSession();
+		Member_deposit_record member_deposit_record = (Member_deposit_record) session.get(Member_deposit_record.class, id);
+		member_deposit_record.setStatus(1);
+		session.update(member_deposit_record);
+		return true;
+	}
 	
 }

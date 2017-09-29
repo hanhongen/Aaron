@@ -202,7 +202,7 @@ h2 {
 				<dl class="content">
 					<dt>商户订单号 ：</dt>
 					<dd>
-						<input id="WIDout_trade_no" name="WIDout_trade_no" />
+						<input id="WIDout_trade_no" name="WIDout_trade_no"/>
 					</dd>
 					<hr class="one_line">
 					<dt>订单名称 ：</dt>

@@ -27,8 +27,8 @@ public class Member_accountService {
 	}
 	
 	//根据id修改账户可用余额，更新本条数据修改时间
-	public boolean top_upAmount(int id,double ub, String ud){
-		member_accountDao.top_upAmount(id, ub, ud);
+	public boolean top_upAmount(int id,double amount, String ud){
+		member_accountDao.top_upAmount(id, amount, ud);
 		return true;	
 	}
 }

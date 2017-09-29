@@ -292,30 +292,21 @@ content_obj.eq(index_tab).show();
 					}
 					/*显示数据*/
 						function showData(data){
-// 						for(var i=0;i<data.length;i++){
-// 							var html = "<tr><td>"+data[i].serial_number+"</td><td>"+data[i].amount+"</td><td>"+data[i].status+"</td><td>"+data[i].create_date+"</td></tr>"
-// 							//通过表体id把显示文本显示到网页中
-// 							$("#t_body").append(html);
-// 						}
-// 						var falg = data.member.weixinaccount;
-// 						alert(data);
 						var str = "";
 						for(var d in data){
 							var members = data[d];
-// 							var members = data[d][0].amount;
-// 							alert(members);
 							for(var m in members){
-// 								alert(members[m].weixinaccount);
-								str+="<tr><td>"+members[m].seril_number+"</td><td>"+members[m].amount+"</td><td>"+members[m].member.status+"</td><td>"+members[m].member.create_date+"</td></tr>"
+								//判断付款状态
+								if(members[m].status==0){
+									str+="<tr><td>"+members[m].seril_number+"</td><td>"+members[m].amount+"</td><td>待付款</td><td>"+members[m].member.create_date+"</td></tr>";
+								}
+								//同上
+								if(members[m].status==1){
+									str+="<tr><td>"+members[m].seril_number+"</td><td>"+members[m].amount+"</td><td>已付款</td><td>"+members[m].member.create_date+"</td></tr>";
+								}
 							}
-// 							alert(data[d].member.serial_number);
-// 							
 						}
-// 						$.each(data,function(index,value){
-// 							var html = "<tr><td>"+index.serial_number+"</td><td>"+index.amount+"</td><td>"+index.status+"</td><td>"+index.create_date+"</td></tr>"
-//  							//通过表体id把显示文本显示到网页中
- 							
-// 						});
+
 						$("#t_body").append(str);
 					}
 					</script>

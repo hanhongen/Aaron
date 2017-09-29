@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.dmg.bean.Member;
 import com.dmg.bean.Member_deposit_record;
 import com.dmg.service.MemberService;
+import com.dmg.service.Member_accountService;
 import com.dmg.service.Member_deposit_recordSevice;
 
 @Controller
@@ -32,10 +33,11 @@ import com.dmg.service.Member_deposit_recordSevice;
 public class Member_deposit_recordController {
 
 	@Autowired
-	private Member_deposit_recordSevice member_deposit_recordSevice;
+	private Member_deposit_recordSevice member_deposit_recordSevice;//充值记录表
 	@Autowired
-	private MemberService memberService;
-	
+	private MemberService memberService;//用户表
+	@Autowired
+	private Member_accountService member_accountService;//成员账户表
 	
 	@RequestMapping("/listMember_deposit_record")
 	public String listMember_deposit_record(Model model,
@@ -118,6 +120,11 @@ public class Member_deposit_recordController {
 		HttpSession session = request.getSession();
 		//参数取自Member_BankcardsController
 		String hid= (String) session.getAttribute("idd"); 
+			
+		//将订单号存入sess作用域,在Payment_is_completed方法中取出
+		session.setAttribute("out_trade_no", out_trade_no);
+		//金额
+		session.setAttribute("total_amount2", total_amount2);
 		int id=Integer.valueOf(hid);
 		System.out.println("id:"+id);
 		//根据id得到member对象
@@ -140,21 +147,50 @@ public class Member_deposit_recordController {
 		//将根据id得到的member对象注入到Member_deposit_record表的member_id外键
 		mdr.setMember(member);
 		mdr.setAmount(total_amount2);
-		mdr.setStatus(1);
+		mdr.setStatus(0);
 		mdr.setPay_channel_name(subject);
 		mdr.setPay_channel_order_no(out_trade_no);
 		mdr.setDelflag(0);
 		mdr.setCreate_date(time);
 		member_deposit_recordSevice.mdrSave(mdr);
-		
-		
-		
+
 		System.out.println("out_trade_no:"+out_trade_no);
 		System.out.println("total_amount:"+total_amount);
 		System.out.println("subject:"+subject);
 		System.out.println("hid:"+hid);
 		return "alipay/alipay.trade.page.pay";
 	}
-	
+	//付款完成后
+	@RequestMapping("/Payment_is_completed")
+	public String Payment_is_completed(HttpServletRequest request){
+		System.out.println("Payment_is_completed-------------------------------------------------------------------------------------------");
+		HttpSession session = request.getSession();
+		//商户订单号，商户网站订单系统中唯一订单号，必填
+//		String out_trade_no = request.getParameter("WIDout_trade_no");
+		String out_trade_no = (String) session.getAttribute("out_trade_no");
+		double amount = (double) session.getAttribute("total_amount2");
+		System.out.println("Payment_is_completed-out_trade_no:"+out_trade_no);
+		//根据商户订单号查询，得到充值订单数据
+		int status=member_deposit_recordSevice.queryPay_channel_order_no(out_trade_no);
+		System.out.println("Payment_is_completed--"+status);
+		//判断待付款订单项
+		if (status == 0) {
+			//根据商户订单号修改充值记录表的状态为付款完成
+			member_deposit_recordSevice.updateStatus(out_trade_no);
+			//再根据用户id增加成员账户表的可用余额并修改update_date（修改时间）的值
+			//参数取自Member_BankcardsController
+			String hid= (String) session.getAttribute("idd"); 
+			int id=Integer.valueOf(hid);
+			System.out.println("Payment_is_completed-id:"+id);
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			String time = sdf.format(new Date().getTime());
+			System.out.println("Payment_is_completed-当前时间:"+time);
+			//调用成员账户表并修改金额和时间
+			member_accountService.top_upAmount(id, amount, time);
+		}
+		//"https://openapi.alipaydev.com/gateway.do"
+		System.out.println("Payment_is_completed-------------------------------------------------------------------------------------------");
+		return "frontJsp/index";
+	}
 	
 }

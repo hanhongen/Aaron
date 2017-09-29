@@ -18,7 +18,6 @@ public class Member_deposit_recordSevice {
 	private Member_deposit_recordDao member_deposit_recordDao;
 	/**
 	 * 充值记录
-     * ��� ������� �ֻ�� ������� ����״̬ ��ֵ���� �����ֻ��ֵ���� ����ʱ��
 	 * @return
 	 */
 	public List<Member_deposit_record> listMember_deposit_record(Map map){
@@ -40,5 +39,17 @@ public class Member_deposit_recordSevice {
 	//将充值记录写入数据库
 	public void mdrSave(Member_deposit_record member_deposit_record){
 		member_deposit_recordDao.mdrSave(member_deposit_record);	
+	}
+	
+	//根据充值渠道订单号（支付宝页面生成的订单号）查询状态信息
+	public int queryPay_channel_order_no(String pcon){
+		int status=member_deposit_recordDao.queryPay_channel_order_no(pcon);
+		return status;
+	}
+	
+	//根据充值渠道订单号（支付宝页面生成的订单号）修改付款状态
+	public boolean updateStatus(String pcon){
+		member_deposit_recordDao.updateStatus(pcon);
+		return true;
 	}
 }
