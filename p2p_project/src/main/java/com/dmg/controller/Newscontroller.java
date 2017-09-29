@@ -20,6 +20,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.dmg.bean.News;
 import com.dmg.bean.News_type;
+import com.dmg.bean.Users;
 import com.dmg.service.News_typeservice;
 import com.dmg.service.Newsservice;
 
@@ -32,14 +33,15 @@ public class Newscontroller {
 	@Autowired
 	private News_typeservice news_typeservice;
 	//显示
-@RequestMapping("/listnews")
-public String listnews(Model model,@RequestParam(required=false)String tlt,@RequestParam(required=false)String s1){
+@RequestMapping("/listnews/{id}")
+public String listnews(@PathVariable("id")int id,Model model,@RequestParam(required=false)String tlt,@RequestParam(required=false)String s1){
 	Map<String,String>map=new HashMap<>();
 	map.put("tlt", tlt);
 	map.put("s1", s1);
 	List<News>list=newsservice.listnews(map);
 	List<News_type>li=news_typeservice.listtype();
-	System.out.println(li);
+    Users users=news_typeservice.usersid(id);
+    model.addAttribute("users",users);
 	model.addAttribute("s1", s1);
 	model.addAttribute("tlt",tlt);
 	model.addAttribute("li",li);
@@ -47,10 +49,11 @@ public String listnews(Model model,@RequestParam(required=false)String tlt,@Requ
 	return"backJsp/compose";
 }
 
-@RequestMapping("/savelist")
-public String savelist(Model model){
+@RequestMapping("/savelist/{id}")
+public String savelist(@PathVariable("id")int id, Model model){
 	List<News_type>list=news_typeservice.listtype();
 	model.addAttribute("list",list);
+	model.addAttribute("users",id);
 	return "backJsp/savenews";
 }
 
@@ -76,17 +79,19 @@ public String savennews(News news,@RequestParam("file")MultipartFile file,HttpSe
 	news.setUpdtime(null);
 	news.setClicknumber(0);
 	newsservice.savenews(news);
-	return "redirect:/news/listnews";
+	return "redirect:/news/listnews/"+news.getAddld();
 }
 
 //修改前的查询
-@RequestMapping("/updatelist/{id}")
-public String updatelist(@PathVariable("id")int id,Model model){
+@RequestMapping("/updatelist/{id}/{uid}")
+public String updatelist(@PathVariable("id")int id,@PathVariable("uid")int uid,Model model){
 	System.out.println("id="+id);
+	System.out.println("uid="+uid);
 	News news=newsservice.getbyid(id);
 	List<News_type>list=news_typeservice.listtype();
 	model.addAttribute("list",list);
 	model.addAttribute("news",news);
+	model.addAttribute("users",uid);
  return "backJsp/updatelist";
 }
 
@@ -105,15 +110,14 @@ public String updatenews(News news,int tid,@RequestParam("file")MultipartFile fi
 	file.transferTo(newfile);
 	news.setCphoto(filename);
 	newsservice.updatenews(news);
-	return "redirect:/news/listnews";
+	return "redirect:/news/listnews/"+news.getUpdld();
 }
-
 @RequestMapping("/deletenews/{id}")
 public String deletenews(@PathVariable("id")int id){
 	News news=newsservice.getbyid(id);
 	news.setNews_type(null);
 	newsservice.deletenews(news);
-	return "redirect:/news/listnews";
+	return "redirect:/news/listnews/"+news.getUpdld();
 }
 
 @RequestMapping("/title/{id}")

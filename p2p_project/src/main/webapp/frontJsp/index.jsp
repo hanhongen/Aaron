@@ -358,7 +358,9 @@
 				<div class="cont-hd">
 					<i class="icon iconfont"></i><span class="em">定期理财</span><span
 						class="hd-tips">多种期限，收益更高</span> 
+
 					<a href="/p2p_project/toInvestment/showSubject" >更多<i class="iconfont"></i></a>
+
 				</div>
 				
 			

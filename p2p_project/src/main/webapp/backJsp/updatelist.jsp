@@ -226,7 +226,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <input type="hidden" value="${news.seokey}" name="seokey">
 <input type="hidden" value="${news.seodes}" name="seodes">
 <input type="hidden" value="${news.addld}" name="addld">
-<input type="hidden" value="${news.updld}" name="updld">
 <input type="hidden" value="${news.addtime}" name="addtime">
 <table class="table table-striped"  border="0"  cellpadding="4"  bordercolor="#666666">
 <tbody>
@@ -258,8 +257,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </td>
 </tr>
 <tr>
-<td colspan="2">
+<td>
 排序:<input type="text" name="sort" value="${news.sort}"  onkeyup="this.value=this.value.replace(/[^0-9-]+/,'');" >
+</td>
+<td>
+修改人ID:<input type="text" value="${users}" name="updld" readonly="readonly">
 </td>
 </tr>
 <tr>

@@ -179,8 +179,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li><a href="#"><i class="fa fa-envelope nav_icon"></i>学院管理<span
 								class="fa arrow"></span></a>
 							<ul class="nav nav-second-level">
-								<li><a href="/p2p_project/backJsp/inbox.jsp">资讯分类</a></li>
-								<li><a href="/p2p_project/backJsp/compose.jsp">资讯管理</a></li>
+								<li><a href="/p2p_project/news_type/news_typelist/${users.id }">资讯分类</a></li>
+								<li><a href="/p2p_project/news/listnews/${users.id }">资讯管理</a></li>
 							</ul> <!-- /.nav-second-level --></li>
 						<!-- ----------------------------------------------------- -->
 						<li><a href="/p2p_project/backJsp/widgets.jsp"><i
@@ -291,10 +291,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<td>seo描述:<input type="text" name="seodes"></td>
 										</tr>
 										<tr>
-											<td>修改人ID:<input type="text" name="updid"
-												onkeyup="this.value=this.value.replace(/[^0-9-]+/,'');">
-											</td>
-											<td>添加人ID:<input type="text" name="addid"
+											<td>添加人ID:<input type="text" name="addid" value="${users.id}" readonly="readonly"
 												onkeyup="this.value=this.value.replace(/[^0-9-]+/,'');">
 											</td>
 											<td>上级类别:<select name="suptype"
@@ -346,7 +343,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<button class="btn btn-default dropdown-toggle"
 									data-toggle="dropdown">
 									<i class="glyphicon glyphicon-user"></i><span
-										class="hidden-sm hidden-xs">用户名称</span> <span class="caret"></span>
+										class="hidden-sm hidden-xs">${users.user_name}</span> <span class="caret"></span>
 								</button>
 								<ul class="dropdown-menu">
 									<li class="divider"></li>
@@ -409,7 +406,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 													<td class="center">${list.addid}</td>
 													<td class="center">${list.sort}</td>
 													<td class="center"><a class="btn btn-info"
-														href="/p2p_project/news_type/updatelist/${list.id}"> <i
+														href="/p2p_project/news_type/updatelist/${list.id}/${users.id}"> <i
 															class="glyphicon glyphicon-edit icon-white"></i> Edit
 													</a></td>
 												</tr>
