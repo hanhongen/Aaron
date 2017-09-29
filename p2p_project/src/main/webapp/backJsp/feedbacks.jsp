@@ -94,7 +94,7 @@ input[type=submit] {
 <body>
  <div id="contact">
 	<h1>意见反馈</h1>
-	<form action="/p2p_project/test/savefeed" method="post">
+	<form action="/p2p_project/test/savefeed" method="post" id="forms">
 		<fieldset>	
 
 		<input type="hidden" id="user_id" name="user_id" value="${user.id }">
