@@ -11,7 +11,7 @@ import javax.persistence.Table;
 @Table
 public class Member_deposit_record {  //充值记录表)
 
-	private int id;  //id
+	private int id;  //id	
 	private String seril_number;  //流水号',
 	private Member member;  //会员id',
 	private double amount;  //金额',

@@ -48,7 +48,10 @@ public class Push_notice_service {
 	 }
 	 
 	 //Ç®°ü¹ÜÀí
-	 public List<Member_deposit_record> listmembers(){
-		 return push_notice_dao.listmembers();
+	 public List<Member_deposit_record> listmembers(Map map){
+		 return push_notice_dao.listmembers(map);
 	 }
+	/* public List<Member> listmerber(Map map){
+		 return push_notice_dao.listmeber(map);
+	 }*/
 }

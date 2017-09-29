@@ -97,12 +97,47 @@ public class Push_notice_dao {
 		return hql;
 	}
 	
+	
+	
 	//钱包管理
-	public List<Member_deposit_record> listmembers(){
+	public List<Member_deposit_record> listmembers(Map map){
 		Session session=getSession();
-		String hql="from Member_deposit_record";
+		String hql="from Member_deposit_record m where 0=0";
+		hql=selectmembers(map, hql);
 		List<Member_deposit_record> members=session.createQuery(hql).list();
 		return members;
+	}
+	
+	
+	
+//	
+//	public List<Member> listmeber(Map map){
+//		Session session=getSession();
+//		String hql="from Member where 0=0";
+//		hql=selectmembers(map, hql);
+//		List<Member> member=session.createQuery(hql).list();
+//		return member;
+//	}
+	
+	//钱包管理模糊查询
+	public String selectmembers(Map map,String hql){
+		String pay_name=(String)map.get("pay_name");
+		String pay_channel_order_no=(String)map.get("pay_channel_order_no");
+		String pay_channel_name=(String)map.get("pay_channel_name");
+		if(pay_name!=null && !pay_name.equals("")){
+			hql+=" and m.member.name like '%"+pay_name+"%'";
+		}
+		if(pay_channel_name!=null && !pay_channel_name.equals("")){
+			hql+=" and pay_channel_name like '%"+pay_channel_name+"%'";
+		}
+		/*if(pay_channel_order_no!=null && pay_channel_order_no.equals("")){
+			hql+=" and pay_channel_order_no="+pay_channel_order_no;
+		}*/
+		//hql模糊查询int类型
+		if(pay_channel_order_no!=null && !pay_channel_order_no.equals("")){
+			hql+=" and pay_channel_order_no like '%"+pay_channel_order_no+"%'";
+		}
+		return hql;
 	}
 	
 }

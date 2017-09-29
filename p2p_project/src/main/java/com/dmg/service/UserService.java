@@ -7,7 +7,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.dmg.bean.Subject;
-
+import com.dmg.bean.Member;
 import com.dmg.bean.Push_notice;
 import com.dmg.bean.Users;
 import com.dmg.dao.UserDao;
@@ -18,6 +18,10 @@ public class UserService {
 
 	@Autowired
 	private UserDao userDao;
+	
+	public Member getMemberByName(String name) {
+		return userDao.getMemberByName(name);
+	}
 	
 	public List<Subject> showSubject(){
 		return userDao.showSubject();

@@ -94,12 +94,10 @@ input[type=submit] {
 <body>
  <div id="contact">
 	<h1>意见反馈</h1>
-	<form action="/p2p_project/test/savefeed" method="post">
-		<fieldset>
+	<form action="/p2p_project/test/savefeed" method="post" id="forms">
+		<fieldset>	
 
-		<label for="email">意见人:</label>
-		<input type="text" id="phone" name="phone" placeholder="请输入姓名" /> 
-	
+		<input type="hidden" id="user_id" name="user_id" value="${user.id }">
 	  	<label for="message">意见内容:</label>
 		<textarea id="message" name="content" placeholder="请输入内容"></textarea>
 

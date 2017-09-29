@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 
 import com.dmg.bean.Subject;
-
+import com.dmg.bean.Member;
 import com.dmg.bean.Push_notice;
 import com.dmg.bean.Users;
 
@@ -21,6 +21,14 @@ public class UserDao {
 	
 	public Session getsession() {
 		return this.sessionFactory.getCurrentSession();
+	}
+	
+	//根据用户真实姓名的到账号
+	public Member getMemberByName(String name) {
+		Session session=getsession();
+		String hql="from Member where member_name="+name;
+		Member member=(Member) session.createQuery(hql).list().get(0);
+		return member;
 	}
 	
 	//查询所有标
@@ -47,11 +55,15 @@ public class UserDao {
 	
 	public Users getUsers(String mobile_phone,String password) {
 		Session session=getsession();
-		String hql="from Users where mobile_phone="+mobile_phone+" and password="+password;
-		Object obj =session.createQuery(hql).list().get(0);
+		String sql="select count(*) from users where mobile_phone="+mobile_phone+" and password='"+password+"'";
+		int count=0;
+		Object obj=(Object)session.createSQLQuery(sql).list().get(0);
+		count=Integer.parseInt(obj.toString());
+		//System.out.println("count"+count);
 		Users user=null;
-		if(obj!=null) {
-			user=(Users) obj;
+		if(count==1) {
+			String hql="from Users where mobile_phone="+mobile_phone+" and password="+password;
+			user=(Users) session.createQuery(hql).list().get(0);
 		}
 		return user;
 	}

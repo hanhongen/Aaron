@@ -20,9 +20,8 @@
 	href="https://ppmoneycnt.b0.upaiyun.com/static/v4.01/css/release-commons_38d5ebd.css?v=201512161721">
 <script type="text/javascript"
 	src="https://ppmoneycnt.b0.upaiyun.com/static/v4.01/js/common/common_7b4e346.js?v=201512161721"></script>
-<link
-	href="https://ppmoneycnt.b0.upaiyun.com/static/v4.01/css/login/login_e18909b.css?v=201512161721"
-	rel="stylesheet" type="text/css" />
+<link href="https://ppmoneycnt.b0.upaiyun.com/static/v4.01/css/login/login_e18909b.css?v=201512161721"/>
+
 </head>
 <body class="index_niwo holiday_bg">
 
@@ -42,13 +41,14 @@
 				  <div class='login_bt'>
 					<a href="/p2p_project/frontJsp/login.jsp" id="login" rel="nofollow"
 						class="fff">登录</a> <a href="/p2p_project/frontJsp/register.jsp"
-						rel="nofollow" class="fff">注册</a><a href="/p2p_project/backJsp/feedbacks.jsp" rel="nofollow" class="fff">意见反馈</a>
+						rel="nofollow" class="fff">注册</a>
 				</div>
 				</c:if>
 				<c:if test="${!empty user}">
 				<div class='login_bt'>
 				  <font color="white">欢迎您：${user.user_name }&nbsp;|</font>
 				  <a href="/p2p_project/user/outlogin"><font color="white">注销</font></a>
+				  <a href="/p2p_project/user/feedBacks/${user.id}"><font color="white">意见反馈</font></a>
 				</div>
 				</c:if>
 				<dl>
@@ -70,10 +70,7 @@
 					</dd>
 				</dl>
 				<div class="community">
-				
 				   <a href="/p2p_project/user/indexback/${user.id}" target="_blank" rel="nofollow" class="fc_white">进入后台</a>
-				
-					
 				</div>
 			</div>
 		</div>
@@ -87,32 +84,14 @@
 			<div class="fr righ">
 				<ul class="nav clearfix">
 					<li><a rel="nofollow" href="" class="one">首页</a></li>
-<li class="two"><a href="" class="two"
-						id="cp_two">我要投资</a>
-						<dl class="cp_two">
-							<dd>
-								<a href="/p2p_project/frontJsp/solid.jsp">固收类理财</a>
-							</dd>
-							<dd>
-								<a href="">私募资金</a>
-							</dd>
-							<dd>
-								<a href="">海外配置</a>
-							</dd>
-							<dd>
-								<a href="">股权基金</a>
-							</dd>
-						</dl></li>
-					<li class="rela"><a href="/p2p_project/frontJsp/frontnews.jsp" class="one">盈+商学院</a>
 
 					
 					<li style="display: none;"><a href="" ></a></li>
 					<li class="rela"><a href="/p2p_project/toInvestment/showSubject" class="one">我要投资</a>
 					</li>
-						
-					<li class="rela"><a href="/p2p_project/frontJsp/college.jsp" class="one">盈+商学院</a>
-
-					</li>
+					
+					<li class="rela"><a href="/p2p_project/frontJsp/frontnews.jsp" class="one">盈+商学院</a>
+					
 					<li class="rela"><a href="/p2p_project/subject_purchase_record/listSubject_purchase_records/1" class="one">我的加法库</a>
 					</li>
 					<li class="rela"><a href="/p2p_project/frontJsp/about.jsp"
@@ -212,7 +191,7 @@
 						<div class="imgbox"></div>
 						<div class="content_bg">
 							<div class="bt fs_16">
-								<span class="f">${mon}月</span>数据
+							
 							<span>公告标题</span>
 							</div>
 							<div class="note-bd news-cont">
@@ -379,8 +358,7 @@
 				<div class="cont-hd">
 					<i class="icon iconfont"></i><span class="em">定期理财</span><span
 						class="hd-tips">多种期限，收益更高</span> 
-					<a href="/p2p_project/news/newstitle" target="_blank"
-						class="more">更多<i class="iconfont"></i></a>
+					<a href="/p2p_project/toInvestment/showSubject" >更多<i class="iconfont"></i></a>
 				</div>
 				
 			
@@ -427,7 +405,7 @@
 								<div class="fr" data-status="">
 									<div class="btn-box">
 
-										<a href="" target="_blank"
+										<a href="/p2p_project/toInvestment/buySubject/${s.id}" target="_blank"
 											class="btn btn-primary btn-3d">立即投资</a>
 
 									</div>
@@ -447,7 +425,7 @@
 			<div class="i-mod-note">
 				<div class="note-hd">
 					<span class="fl em">媒体报道</span> <a class="fr more primary"
-						href="http://www.ppmoney.com/news/ppgg" target="_blank" title="">更多<i
+						href="#" target="_blank" title="">更多<i
 						class="iconfont"></i></a>
 				</div>
 				<div class="note-bd news-cont" style="height: 150px;">

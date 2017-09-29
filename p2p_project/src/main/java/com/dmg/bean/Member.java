@@ -1,8 +1,11 @@
 package com.dmg.bean;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -10,7 +13,7 @@ import javax.persistence.Table;
 public class Member {  //成员表
 
 	private int id;  //用户id
-	private String member_name;  //真实姓名
+	private Users user;  //真实姓名
 	private String name;   //用户名 
 	private String password;  //密码	
 	private String salt;    //密码盐
@@ -29,6 +32,15 @@ public class Member {  //成员表
 	private String invitedcode;  //被邀请码
 	private String qqnumber;   //QQ号码
 	
+	
+	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="user_id")
+	public Users getUser() {
+		return user;
+	}
+	public void setUser(Users user) {
+		this.user = user;
+	}
 	@Id
 	@GeneratedValue
 	public int getId() {
@@ -37,12 +49,7 @@ public class Member {  //成员表
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getMember_name() {
-		return member_name;
-	}
-	public void setMember_name(String member_name) {
-		this.member_name = member_name;
-	}
+
 	public String getName() {
 		return name;
 	}

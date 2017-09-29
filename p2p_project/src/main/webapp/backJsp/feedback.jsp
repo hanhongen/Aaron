@@ -37,17 +37,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <script src="/scripts/jquery.min.js"></script>
 <script src="/bootstrap/js/bootstrap.min.js"></script>
-<!-- <script type="text/javascript">
-	</script>
-	<style type="text/css">
-	.form-control {
-		width: 300px;
-	}
-	</style>
-</head>
-<script type="text/javascript">
-
-</script> -->
+<script  type="text/javascript">
+$(document).ready(function(){
+	$("#btn2").click(function(){
+		$("#forms").attr("action","/p2p_project/test/list");
+		$("#forms").submit();	
+	});
+});
+</script>
 <body>
 	<div id="wrapper">
 		<!-- Navigation -->
@@ -284,13 +281,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </nav>
 		<div id="page-wrapper">
 			<div class="graphs">
-				<div class="widget_head">意见反馈</div>
- 请输入要查询内容 <input type="text"  placeholder="意见内容" name="name"/>
-<tr>  
+  <div class="widget_head">意见反馈</div>
 <td class="pull-right" style="padding-right: 10px">
-<button type="submit" id="btn2" name="btn2" class="btn btn-primary btn-sm">查询</button>
-</td>
-</tr>	
+<form method="post" id="forms"> 
+ 请输入要查询内容 <input type="text"  placeholder="意见内容" name="name"/>
+<input type="button" id="btn2" name="btn2"  class="btn btn-primary" value="查询"/>
 <!--开头-->
   <table class="table table-striped">
    <thead>
@@ -305,16 +300,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
        <c:forEach items="${feedbacks}" var="p" varStatus="stat">
 				<tr>
 	    		<td style="font-size: 18px;">${stat.index+1}</td>
-				<td style="font-size: 18px;">${p.feedbacks.mobile_phone}</td>
+				<td style="font-size: 18px;">${p.user.user_name}</td>
 				<td style="font-size: 18px;">${p.content}</td>
 				<td style="font-size: 18px;">${p.create_date}</td>
-				<td><button type="button" class="btn btn-primary" id="update" onclick="updateod(${p.id})">查看</button></td>
+				<%-- <td><button type="button" class="btn btn-primary" id="update" onclick="updateod(${p.id})">查看</button></td> --%>
    </tr>
    </c:forEach>
    </tbody>
-   </table>		
-				<!-- /#wrapper -->
-				<!-- Nav CSS -->
+   </table>	
+   </form>	
 				<link href="/p2p_project/backStyle/css/custom.css" rel="stylesheet">
 				<!-- Metis Menu Plugin JavaScript -->
 				<script src="/p2p_project/backStyle/js/metisMenu.min.js"></script>
