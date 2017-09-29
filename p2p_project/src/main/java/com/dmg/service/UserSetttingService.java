@@ -44,4 +44,8 @@ public class UserSetttingService {
 	public void addUser(Users user) {
 		userSettingDao.addUser(user);
 	}
+	
+	public User_role getRoleById(int id) {
+		return userSettingDao.getRoleById(id);
+	}
 }

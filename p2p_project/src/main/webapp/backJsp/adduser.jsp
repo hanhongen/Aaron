@@ -217,22 +217,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						id="form1" method="post">
 						<table class="table  tablebox">
 							<tr class="text-center" bgcolor="#f7f7f7">
-								<td>姓 名：<input type="text" name="user_name" required
-									placeholder="用户名"></td>
-							<tr class="text-center" bgcolor="#f7f7f7">
-								<td>密 码：<input type="password" id="password1"
-									name="password1" required placeholder="密 码">
-								</td>
-							</tr>
+								<td>姓 名：<input type="text" name="user_name" placeholder="请输入姓名" required>
+							</td></tr>
 							<tr class="text-center" bgcolor="#f7f7f7">
 								<td>密 码：<input type="password" id="password"
 									name="password" onblur="return fun1();" required
-									placeholder="再次输入密码"><span id="s1"></span>
+									placeholder="请输入密码"><span id="s1"></span>
 								</td>
 							</tr>
 							<tr class="text-center" bgcolor="#f7f7f7">
 								<td>手机号：<input type="number" name="mobile_phone" required
-									placeholder="手机号码"></td>
+									placeholder="手机号码" onblur="fun1();" id="phone"></td>
 							</tr>
 							<tr class="text-center" bgcolor="#f7f7f7">
 								<td>角 色：<select id="identity" name="identity"
@@ -265,22 +260,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<script src="/p2p_project/backStyle/js/metisMenu.min.js"></script>
 		<script src="/p2p_project/backStyle/js/custom.js"></script>
 </body>
+
 <script type="text/javascript">
 	$(function(){
 		$("#btn1").click(function(){
 			location="/p2p_project/usersetting/showuser";
 		});
-		
-		  function fun1(){
-			  var pwd1=$("#password1").val();
-			  var pwd=$("this").val();
-			  if(pwd1==pwd){
-				  return true;
-			  }else{
-				  return false;
-			  }
-			  
-		  }
 	});
+	
+	
+	function fun1(){
+		var xmlhttp;
+		if(window.XMLHttpRrequest){
+			xmlhttp=new XMLHttpRequest;
+		}else{
+			xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		var num=$("#phone").val();
+		xmlhttp.open("GET","/p2p_project/usersetting/checkphone/"+num,true);
+		xmlhttp.send();
+	}
 	</script>
 </html>

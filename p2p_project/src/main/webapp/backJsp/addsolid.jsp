@@ -313,19 +313,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<hr>
 						<!-- 安全保障    开始-------------------------------------------------------------------- -->
 
-						<div class="widget_head">
-							<div class="box-right-main">
-								<h2>
-									<span class="glyphicon glyphicon-play"
-										style="margin-right: 5px"></span>安全保障
-								</h2>
-							</div>
-						</div>
+						
 
 						<table class="table table-condensed" border="0">
-							<tr class="text-center">
-								<td><textarea id="myUeditor3" name="safetyControl"></textarea></td>
-							</tr>
+							
 							<tr class="text-center">
 								<td>
 									<button style="width: 150px; height: 50px;" type="submit"

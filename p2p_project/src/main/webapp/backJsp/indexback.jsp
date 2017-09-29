@@ -136,9 +136,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                         <!-- ----------------------------------------------------- -->
                         
-                        <!-- ----------------------------------------------------- -->
                         <li>
                             <a href="#"><i class="fa fa-flask nav_icon"></i>盈加设置<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">

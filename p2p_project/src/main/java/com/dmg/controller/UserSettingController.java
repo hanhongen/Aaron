@@ -35,6 +35,8 @@ public class UserSettingController {
 	public String addUser(Users user) {
 		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 		user.setCreate_date(sdf.format(new Date()));
+		User_role ur=userSetttingService.getRoleById(user.getIdentity());
+		user.getRolelist().add(ur);
 		user.setStatus(1);
 		userSetttingService.addUser(user);
 		return "redirect:/usersetting/showuser";

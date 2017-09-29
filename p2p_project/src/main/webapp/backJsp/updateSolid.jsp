@@ -241,95 +241,10 @@
 						</table>
 
 						<!-- table1 结束 ---------------------------------------------------------------------------------->
-						<hr>
-
-						<!-- 特定属性 开始 --------------------------------------------------------------------->
-						<div class="widget_head">
-							<div class="box-right-main">
-								<h2>
-									<span class="glyphicon glyphicon-play"
-										style="margin-right: 5px"></span>特定属性
-								</h2>
-							</div>
-						</div>
+						
 
 						<table class="table table-condensed" border="0">
-							<tr class="text-center">
-								<td width="10%">责权编号：</td>
-								<td width="20%" align="left"><input
-									style="height: 30px; width: 260px;" type="text" name=""
-									placeholder="请输入文本"></td>
-								<td width="10%">企业认证：</td>
-								<td width="20%" align="left"><input
-									style="height: 30px; width: 260px;" type="text"
-									name=""  placeholder="请输入文本"></td>
-							</tr>
-							<tr class="text-center">
-								<td width="10%">责权人：</td>
-								<td width="20%" align="left"><input
-									style="height: 30px; width: 260px;" type="text" name="period"
-									 placeholder="请输入文本"></td>
-								<td width="10%">保障平台：</td>
-								<td width="20%" align="left"><input
-									style="height: 30px; width: 260px;" type="text"
-									name=""  placeholder="请输入文本"></td>
-							</tr>
-						</table>
-						<!-- 特定属性 结束-------------------------------------------------------------------- -->
-						<hr>
-						<!-- 产品速揽  开始-------------------------------------------------------------------- -->
-
-						<div class="widget_head">
-							<div class="box-right-main">
-								<h2>
-									<span class="glyphicon glyphicon-play"
-										style="margin-right: 5px"></span>产品速揽
-								</h2>
-							</div>
-						</div>
-
-						<table class="table table-condensed" border="0">
-							<tr class="text-center">
-								<td><textarea id="myUeditor1" name="comment" value="${subject.comment}"></textarea></td>
-							</tr>
-						</table>
-						<!-- 产品速揽 结束-------------------------------------------------------------------- -->
-
-						<hr>
-						<!-- 项目详情  开始-------------------------------------------------------------------- -->
-
-						<div class="widget_head">
-							<div class="box-right-main">
-								<h2>
-									<span class="glyphicon glyphicon-play"
-										style="margin-right: 5px"></span>项目详情
-								</h2>
-							</div>
-						</div>
-
-						<table class="table table-condensed" border="0">
-							<tr class="text-center">
-								<td><textarea id="myUeditor2" name="projectDetails" value="${subject.projectdetails }"></textarea></td>
-							</tr>
-						</table>
-						<!-- 项目详情 结束-------------------------------------------------------------------- -->
-
-						<hr>
-						<!-- 安全保障    开始-------------------------------------------------------------------- -->
-
-						<div class="widget_head">
-							<div class="box-right-main">
-								<h2>
-									<span class="glyphicon glyphicon-play"
-										style="margin-right: 5px"></span>安全保障
-								</h2>
-							</div>
-						</div>
-
-						<table class="table table-condensed" border="0">
-							<tr class="text-center">
-								<td><textarea id="myUeditor3" name="safetyControl" value="${subject.safetycontrol}"></textarea></td>
-							</tr>
+							
 							<tr class="text-center">
 								<td>
 									<button style="width: 150px; height: 50px;" type="submit"

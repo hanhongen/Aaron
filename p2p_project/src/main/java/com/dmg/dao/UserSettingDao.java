@@ -71,4 +71,10 @@ public class UserSettingDao {
 		Users user=(Users) session.get(Users.class, id);
 		return user;
 	}
+	
+	public User_role getRoleById(int id) {
+		Session session=getSession();
+		User_role ur=(User_role) session.get(User_role.class,id);
+		return ur;
+	}
 }
