@@ -3,14 +3,20 @@ package com.dmg.controller;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.dmg.bean.Member_account;
 import com.dmg.bean.Subject_order_record;
 import com.dmg.bean.Subject_purchase_record;
+import com.dmg.bean.Users;
+import com.dmg.service.Member_accountService;
 import com.dmg.service.Subject_order_recordService;
 import com.dmg.service.Subject_purchase_recordService;
 
@@ -21,6 +27,8 @@ public class Subject_purchase_recordController {
 	private Subject_purchase_recordService subject_purchase_recordService;
 	@Autowired
 	private Subject_order_recordService subject_order_recordService;
+	@Autowired
+	private Member_accountService member_accountService;
 	
 	@RequestMapping("/listSubject_purchase_record/{id}")
 	public String listSubject_purchase_record(Model model,@PathVariable("id")int id){
@@ -29,8 +37,11 @@ public class Subject_purchase_recordController {
 		return "backJsp/binterest";
 	}
 	
-	@RequestMapping("/listSubject_purchase_records/{id}")
-	public String listSubject_purchase_records(Model model,@PathVariable("id")int id){
+	@RequestMapping("/listSubject_purchase_records/{id}/{user_name}")
+	public String listSubject_purchase_records(Model model,@PathVariable("id")int id,@PathVariable("user_name")String user_name,HttpServletRequest request){
+		System.out.println("listSubject_purchase_records---------------------------------");
+		System.out.println("listSubject_purchase_records--"+id);		
+		System.out.println("listSubject_purchase_records--"+user_name);
 		//投资记录
 		List<Subject_purchase_record> listSPR = subject_purchase_recordService.listSubject_purchase_record(id);
 		//查询个人投资记录的次数
@@ -102,7 +113,23 @@ public class Subject_purchase_recordController {
 			
 		}
 		
+		model.addAttribute("id", id);
+		model.addAttribute("user_name", user_name);
+		
+		/**
+		 * 账户可用余额
+		 * 投资金额(元)
+		 * 累计收益(元)
+		 * 冻结金额(元)
+		 * 所查表：member_account(成员账户表)
+		 */
+		List<Member_account> ma=member_accountService.listMember_account(id);
+		model.addAttribute("ma", ma);
+		
+//		HttpSession session = request.getSession();
+//		session.setAttribute("SPRid", id);
+//		session.setAttribute("user_name", user_name);
 		return "frontJsp/myaddlibrayy";
 	}
-	
+
 }

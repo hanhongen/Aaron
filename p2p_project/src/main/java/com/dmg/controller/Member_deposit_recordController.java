@@ -64,7 +64,7 @@ public class Member_deposit_recordController {
 		return "backJsp/member_deposit_record";
 	}
 	@RequestMapping(value="listmdr",method = {RequestMethod.POST})
-	@ResponseBody
+	@ResponseBody//这个方法的ajax返回写的太冗余了，HttpServletResponse response完全可以去掉！
 	public void listmdr(HttpServletRequest request,HttpServletResponse response){
 		// 设置返回字符编码
 		response.setCharacterEncoding("UTF-8");
@@ -101,12 +101,23 @@ public class Member_deposit_recordController {
 	@RequestMapping("/goAlipayJsp")
 	public String goAlipayJsp(Model model,@RequestParam(required=false)String fee,HttpServletRequest request){
 		System.out.println("金额:"+fee);
+		HttpSession session = request.getSession();
+		//参数取自Member_BankcardsController
+		String hid= (String) session.getAttribute("idd"); 
+		int idd=Integer.valueOf(hid);
+		int s=member_accountService.listid(idd);
+		System.out.println("s="+s);
+		//判断用户是否绑卡
+		if (s == 0) {
+			//返回用户未绑卡的信息
+			model.addAttribute("msg", 0);
+		}
 		//将富友充值页面金额写入支付宝付款信息页面
 		model.addAttribute("fee", fee);
 		return "alipay/index";
 	}
 	
-	//将充值信息写入数据库，并且进入支付宝二维码支付页面
+	//将充值记录信息写入数据库，此时的充值信息为待付款，并且进入支付宝二维码支付页面
 	@RequestMapping("/Alipay")
 	public String Alipay(HttpServletRequest request) throws ParseException{
 		System.out.println("Alipay");
@@ -147,9 +158,11 @@ public class Member_deposit_recordController {
 		//将根据id得到的member对象注入到Member_deposit_record表的member_id外键
 		mdr.setMember(member);
 		mdr.setAmount(total_amount2);
+		//status在此处注入数据时状态为0，代表本方法生成的订单处于待付款状态
 		mdr.setStatus(0);
 		mdr.setPay_channel_name(subject);
 		mdr.setPay_channel_order_no(out_trade_no);
+		//逻辑删除状态,0为未逻辑删除
 		mdr.setDelflag(0);
 		mdr.setCreate_date(time);
 		member_deposit_recordSevice.mdrSave(mdr);
@@ -188,9 +201,13 @@ public class Member_deposit_recordController {
 			//调用成员账户表并修改金额和时间
 			member_accountService.top_upAmount(id, amount, time);
 		}
+		
+//		request.getAttribute("SPRid");
+//		request.getAttribute("user_name");
+		
 		//"https://openapi.alipaydev.com/gateway.do"
 		System.out.println("Payment_is_completed-------------------------------------------------------------------------------------------");
-		return "frontJsp/index";
+		return "frontJsp/myaddlibrayy";
 	}
 	
 }

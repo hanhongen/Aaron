@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,7 @@ public class UserController {
 	@Autowired
 	private Newsservice Newsservice;
 
-	// Òâ¼û·´À¡
+	// ï¿½ï¿½ï¿½ï¿½ï¿½
 	@RequestMapping("/feedBacks/{id}")
 	public String feedbacks(Model model, @PathVariable("id") int id) {
 		Users user = userService.getUsersById(id);
@@ -39,14 +40,14 @@ public class UserController {
 		return "backJsp/feedbacks";
 	}
 
-	// ×¢Ïú
+	// ×¢ï¿½ï¿½
 	@RequestMapping("/outlogin")
 	public String outlogin(HttpSession session) {
 		session.invalidate();
 		return "redirect:/user/index";
 	}
 
-	// »Øµ½Ç°Ì¨Ê×Ò³
+	// ï¿½Øµï¿½Ç°Ì¨ï¿½ï¿½Ò³
 	@RequestMapping("/toindex/{id}")
 	public String toindex(Model model, @PathVariable("id") int id) {
 		Users user = userService.getUsersById(id);
@@ -55,7 +56,7 @@ public class UserController {
 		return "index";
 	}
 
-	// Ç°Ì¨Ê×Ò³
+	// Ç°Ì¨ï¿½ï¿½Ò³
 	@RequestMapping("/index")
 	public String index(Model model) {
 		List<Subject> sub = userService.showSubject();
@@ -70,15 +71,18 @@ public class UserController {
 		return "frontJsp/index";
 	}
 
-	// ºóÌ¨Ê×Ò³
+	// ï¿½ï¿½Ì¨ï¿½ï¿½Ò³
 	@RequestMapping("/indexback/{id}")
-	public String indexback(Model model, @PathVariable("id") int id) {
+	public String indexback(Model model, @PathVariable("id") int id,HttpServletRequest request) {
 		Users user = userService.getUsersById(id);
 		model.addAttribute("user", user);
+		//wo de jia fa ku myaddlibrayy.jsp
+		HttpSession session = request.getSession();
+		session.setAttribute("user", user);
 		return "backJsp/indexback";
 	}
 
-	// ÓÃ»§×¢²á
+	// ï¿½Ã»ï¿½×¢ï¿½ï¿½
 	@RequestMapping("/register")
 	public String saveUser(Users users) {
 		users.setStatus(1);
@@ -90,7 +94,7 @@ public class UserController {
 		return "frontJsp/index";
 	}
 
-	// µÇÂ½
+	// ï¿½ï¿½Â½
 	@RequestMapping("login")
 	public String login(@RequestParam(required = false) String mobile_phone,
 			@RequestParam(required = false) String password, Model model) {
@@ -98,7 +102,7 @@ public class UserController {
 		if (mobile_phone != null && password != null) {
 			Users user = userService.getUsers(mobile_phone, password);
 			if (user == null) {
-				model.addAttribute("msg", "ÕËºÅ»òÃÜÂë²»ÕýÈ·");
+				model.addAttribute("msg", "ï¿½ËºÅ»ï¿½ï¿½ï¿½ï¿½ë²»ï¿½ï¿½È·");
 				flag = "frontJsp/login";
 			} else {
 				List<Subject> sub = userService.showSubject();

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.dmg.bean.Subject;
 import com.dmg.service.SubjectService;
 
-//¸¶Ï¢¼Æ»®
+//ï¿½ï¿½Ï¢ï¿½Æ»ï¿½
 @Controller
 @RequestMapping("/subject")
 public class SubjectController {
@@ -21,8 +21,6 @@ public class SubjectController {
 	private SubjectService subjectService;
 
 	@RequestMapping("/listSubject")
-
-
 	public String listSubject(Model model,
 			@RequestParam(required=false)String sname,
 			@RequestParam(required=false)String stype,

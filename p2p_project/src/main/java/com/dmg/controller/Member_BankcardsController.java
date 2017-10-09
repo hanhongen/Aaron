@@ -63,7 +63,7 @@ public class Member_BankcardsController {
 	}
 	@RequestMapping(value="listmb",method=RequestMethod.POST)
 	@ResponseBody
-	public List<Member_bankcards> listmb(HttpServletRequest request){
+	public List<Member_bankcards> listmb(HttpServletRequest request,Model model){
 		String idd=request.getParameter("id");
 		HttpSession session = request.getSession();
 		session.setAttribute("idd", idd);
