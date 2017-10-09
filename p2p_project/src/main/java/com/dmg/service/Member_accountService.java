@@ -26,9 +26,13 @@ public class Member_accountService {
 		return list;
 	}
 	
-	//根据id修改账户可用余额，更新本条数据修改时间
+	//鏍规嵁id淇敼璐︽埛鍙敤浣欓锛屾洿鏂版湰鏉℃暟鎹慨鏀规椂闂�
 	public boolean top_upAmount(int id,double amount, String ud){
 		member_accountDao.top_upAmount(id, amount, ud);
 		return true;	
+	}
+	
+	public int listid(int idd){
+		return member_accountDao.listid(idd);
 	}
 }

@@ -5,20 +5,25 @@
 
 <html>
 <head>
-<title>提现管理</title>
+<title>Modern an Admin Panel Category Flat Bootstarp Resposive Website Template | Forms :: w3layouts</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Modern Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script> -->
  <!-- Bootstrap Core CSS -->
 <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/bootstrap-3.3.4.css">
 <!-- Custom CSS -->
 <link href="/p2p_project/backStyle/css/style.css" rel='stylesheet' type='text/css' />
 <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/font-awesome.4.6.0.css"> 
+<!-- 日期控件 -->
+<link rel="stylesheet" type="text/css" href="/p2p_project/backStyle/css/bootstrap-datetimepicker.min.css"> 
 <!-- jQuery -->
 <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
-
+<!-- 日期控件 -->
+<script src="/p2p_project/backStyle/js/bootstrap-datetimepicker.min.js"></script>
+<script src="/p2p_project/backStyle/js/bootstrap-datetimepicker.fr.js"></script>
+<script src="/p2p_project/backStyle/js/bootstrap-datetimepicker.zh-CN.js"></script>
 <!---//webfonts--->  
 <!-- Bootstrap Core JavaScript -->
 <script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
@@ -42,7 +47,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
 <div id="wrapper">
      <!-- Navigation -->
-          <nav class="top1 navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+         <nav class="top1 navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -173,93 +178,30 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <!-- /.navbar-static-side -->
         </nav>
-        
-        
-        <div id="page-wrapper">
-        <div class="col-md-12 graphs">
-	   <div class="xs">
-  	    <!-- --------------------------------------------------------------------------------------------------------------------------- -->       
-			 <div class="box-right-main">
-                        <h2><span class="glyphicon glyphicon-play" style="margin-right:5px"></span>提现管理</h2>
-                      <div class="tablelist">
-                      	<form action="/p2p_project/member_withdraw_record/listMember_withdraw_record" method="post" id="form1">
-                        <table class="table tabletop">
-                        <tr>
-                        <td style="width:110px;padding-left:30px">姓名：</td>
-                        <td style="width:180px"><input type="text" name="mname" class="form-control" placeholder="姓名" value="${mname }"></td>
-                        <td style="width:110px;padding-left:30px">手机号：</td>
-                        <td style="width:180px"><input type="text"  name="mphone" class="form-control" placeholder="手机号" value="${mphone }"></td>
-                        <td style="width:110px;padding-left:30px">绑卡卡号：</td>
-                        <td style="width:180px"><input type="text"  name="mcard" class="form-control" placeholder="绑卡卡号" value="${mcard }"></td>
-                        <td style="width:110px;padding-left:30px">状态：</td>
-                        <td style="width:180px"><input type="text"  name="mstatus" class="form-control" placeholder="状态" value="${mstatus }"></td>
-                        <td style="width:110px;padding-left:30px">提现时间：</td>
-                        <td style="width:180px">
-                        <div class="form-group" style="width: 150px"><!-- 时间样式 -->
-                        <input type="date" class="form-control time" ng-model="model.date" name="create_datem">
-                        </div>
-                        </td>
-                         <td class="pull-right" style="padding-right:10px">
-                        <button type="submit" class="btn btn-primary btn-sm">查询</button>
-                        </td>
-                        <td><button type="button" class="btn btn-primary btn-sm" onclick="$('#form1').find(':input').not(':button, :submit, :reset').val('').removeAttr('checked').removeAttr('selected');">重置</button></td>
-                        <td><button type="button" class="btn btn-primary btn-sm" onclick="fun();">刷新订单数据</button></td>
-                        </tr>     
-                        </table>
-                        </form>
-                        <table class="table table-bordered tablebox">
-                          <tr class="text-center" bgcolor="#f7f7f7">
-                          <td>序号</td>
-                          <td>手机号</td>
-                          <td>姓名</td>
-                          <td>身份证</td>
-                          <td>提现金额</td>
-                          <td>提现银行</td>
-                          <td>提现卡号</td>
-                          <td>提现开户行地址</td>
-                          <td>提现状态</td>
-                          <td>提现时间</td>
-                          <td>操作</td>
-                          </tr>
-                          <c:forEach items="${listmwr }" var="lm" varStatus="stat">
-                          <tr class="text-center">
-                            <td>${stat.index+1 }</td>
-                            <td>${lm.member.mobile_phone }</td>
-                            <td>${lm.member.member_name }</td>
-                            <td>${lm.member.identity }</td>
-                            <td>${lm.amount}</td>
-                            <td>${lm.bank_name }</td>
-                            <td>${lm.bank_card }</td>
-                            <td>${lm.cardaddress }</td>
-                            <td>
-                            <c:if test="${lm.status == 0 }">待审核</c:if>
-                            <c:if test="${lm.status == 1 }">已打款</c:if>
-                            <c:if test="${lm.status == 2 }">打款中</c:if>
-                            <c:if test="${lm.status == 3 }">打款失败</c:if>
-                            </td>
-                            <td>${lm.create_date }</td>
-                            <td><a href="/p2p_project/member_withdraw_record/recordPanel/${lm.member.id }">账号详情</a></td>
-                          </tr>
-                          </c:forEach>
-			</table>
+       
   	 <!-- --------------------------------------------------------------------------------------------------------------------------- -->   
-    <div class="copy_layout">
-      <p>Copyright Â© 2015 Modern. All Rights Reserved | Design by  </p>
-   </div>
-   </div>
-      </div>
-      <!-- /#page-wrapper -->
-   </div>
-    <!-- /#wrapper -->
-<!-- Nav CSS -->
-<link href="/p2p_project/backStyle/css/custom.css" rel="stylesheet">
-<!-- Metis Menu Plugin JavaScript -->
-<script src="/p2p_project/backStyle/js/metisMenu.min.js"></script>
-<script src="/p2p_project/backStyle/js/custom.js"></script>
-<script type="text/javascript">
-function fun(){
-		window.location.reload();//刷新页面
-}
-</script>
+<div id="page-wrapper">
+			<div class="graphs">
+				<div class="widget_head">
+					<div class="box-right-main">
+						<h2>
+							<span class="glyphicon glyphicon-play" style="margin-right: 5px"></span>修改用户信息
+						</h2>
+					</div>
+				</div>
+				<!--开头-->
+				update pwd
+				
+			</div>
+		</div>
+	
+	
+
+
+		<!-- Nav CSS -->
+		<link href="/p2p_project/backStyle/css/custom.css" rel="stylesheet">
+		<!-- Metis Menu Plugin JavaScript -->
+		<script src="/p2p_project/backStyle/js/metisMenu.min.js"></script>
+		<script src="/p2p_project/backStyle/js/custom.js"></script>
 </body>
 </html>

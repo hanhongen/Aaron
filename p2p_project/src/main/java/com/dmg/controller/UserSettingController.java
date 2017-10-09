@@ -53,7 +53,10 @@ public class UserSettingController {
 	//ÐÞ¸Ä
 	@RequestMapping("/update")
 	public String update(Users user) {
+		
 		userSetttingService.update(user);
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		user.setCreate_date(sdf.format(new Date()));
 		return "redirect:/usersetting/showuser";
 	}
 	
