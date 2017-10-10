@@ -36,8 +36,8 @@ public class UserSettingController {
 		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 		user.setCreate_date(sdf.format(new Date()));
 		User_role ur=userSetttingService.getRoleById(user.getIdentity());
-		user.getRolelist().add(ur);
-		user.setStatus(1);
+		user.setUser_role(ur);
+		user.setStatus(0);
 		userSetttingService.addUser(user);
 		return "redirect:/usersetting/showuser";
 	}
@@ -63,10 +63,10 @@ public class UserSettingController {
 	//ÐÞ¸ÄÇ°²éÑ¯
 	@RequestMapping("/bfupdate/{id}")
 	public String bfupdate(@PathVariable("id")int id,Model model) {
-		Users user=userSetttingService.getUserById(id);
+		Users users=userSetttingService.getUserById(id);
 		List<User_role> list=userSetttingService.listRole();
 		model.addAttribute("list", list);
-		model.addAttribute("user", user);
+		model.addAttribute("users", users);
 		return "backJsp/updateuser";
 	}
 	

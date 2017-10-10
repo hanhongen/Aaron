@@ -145,7 +145,7 @@
 				手机号
 			</div>
 			<div class="rInput">
-				<input type="text" placeholder="请输入手机号"  required  id="phone" name="mobile_phone" class="form-control textInput phone"><span id="s1"></span>
+				<input type="text" placeholder="请输入手机号" onblur="return fun1();"  required  id="phone" name="mobile_phone" class="form-control textInput phone"><span id="s1"></span>
 			</div>
 			
 		</div>
@@ -155,7 +155,7 @@
 				登录密码
 			</div>
 			<div class="rInput">
-				<input type="password" required placeholder="请输入密码" id="password1" name="password" class="form-control textInput password"><span class="errorInfo"></span>（数字和字母组合，不少于6位）
+				<input type="password" required placeholder="请输入密码" onblur="return fun();" id="password1" name="password" class="form-control textInput password"><span id="s2"></span>
 			</div>
 		</div>
 		<div class="item">
@@ -163,7 +163,7 @@
 				确认密码
 			</div>
 			<div class="rInput">
-				<input type="password" required placeholder="请再输入密码" onclick="fun1();" id="password2" name="password2" class="form-control textInput password2"><span id="span1"></span>
+				<input type="password" required placeholder="请再输入密码" onblur="return fun2();" id="password2" name="password2" class="form-control textInput password2"><span id="span1"></span>
 			</div>
 			<script type="text/javascript">
 			</script>	
@@ -225,35 +225,46 @@
 <script type="text/javascript" src="/p2p_project/frontStyle/js/regis.js"></script>
 
 <script type="text/javascript">
-$(function(){
+function fun1(){
 	  var flag=false;
 	  var reg=/^1[0-9]\d{9}$/;
-	  $("#phone").blur(function(){
-		  var num=$(this).val();
-		  if(num.length!=11){
-			  $("#s1").html("  (请输入正确的手机号码)");
-			  return flag;
-		  }else{
+		  var num=$("#phone").val();
+		  if(num.length==11 && reg.test(num)){
 			  $("#s1").html("");
 			  flag=true;
 			  return true;
-		  }
-	  });
-	  
-	  $("#password2").blur(function(){
-		  var pwd2=$(this).val();
-		  var pwd1=$("#password1").val();
-		  if(pwd1 != pwd2){
-			  $("#span1").html("  (两次密码不一致！)");
-			  return flag;
 		  }else{
-			  flag=true;
-			  return true;
+			  $("#s1").html("  (请输入正确的手机号码)");
+			  $("#phone").val("");
+			  return flag;
+			 
 		  }
-	  });
-	  
- });
+ }
+ 
+ function fun(){
+	 var pwd1=$("#password1").val();
+	 if(pwd1.length<6){
+		 $("#s2").html("  (密码至少6位！)");
+		 $("#password1").val("");
+		 return false;
+	 }else{
+		 $("#s2").html("");
+		 return true;
+	 }
+ }
 
+function fun2(){
+	  var pwd2=$("#password2").val();
+	  var pwd1=$("#password1").val();
+	  if(pwd1 != pwd2){
+		  $("#span1").html("  (两次密码不一致！)");
+		  $("#password2").val("");
+		  return false;
+	  }else{
+		  $("#span1").html("");
+		  return true;
+	  }
+}
 </script>
 
 

@@ -258,7 +258,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<table border="1" class="table table-bordered tablebox">
 							<tr class="text-center" bgcolor="#f7f7f7">
 								<td>序 号</td>
-								<td>ID</td>
+								
 								<td>合同编号</td>
 								<td>类型</td>
 								<td>名称</td>
@@ -275,7 +275,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<c:forEach items="${list}" var="p" varStatus="stat">
 								<tr class="text-center" bgcolor="#f7f7f7">
 									<td>${stat.index+1 }</td>
-									<td>${p.id }</td>
+									
 									<td>${p.serial_no }</td>
 									<td><c:if test="${p.type==0}">固收类</c:if> <c:if
 											test="${p.type==1}">P2P车贷</c:if></td>

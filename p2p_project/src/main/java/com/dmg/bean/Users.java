@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -27,18 +28,16 @@ public class Users {  //用户表
 	private int identity;   //身份
 	private String create_date;  //创建时间
 	private String update_date;  // 修改时间
-	private Set<User_role> rolelist=new HashSet<>();  //角色表
+	private User_role User_role;
 	
 	
-	@ManyToMany(cascade=CascadeType.ALL)
-	@JoinTable(name="user_role_relation",
-				joinColumns=@JoinColumn(name="user_id"),
-				inverseJoinColumns=@JoinColumn(name="role_id"))
-	public Set<User_role> getRolelist() {
-		return rolelist;
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="rid")
+	public User_role getUser_role() {
+		return User_role;
 	}
-	public void setRolelist(Set<User_role> rolelist) {
-		this.rolelist = rolelist;
+	public void setUser_role(User_role user_role) {
+		User_role = user_role;
 	}
 	@Id
 	@GeneratedValue
