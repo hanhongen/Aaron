@@ -22,11 +22,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!---//webfonts--->  
 <!-- Bootstrap Core JavaScript -->
 <script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
+
+<script type="text/javascript">
+
+	function getTime()
+	{
+	    var time = new Date();
+	    $("#times").html(time.toLocaleString());
+	}
+	
+	
+	$(function(){
+	    setInterval("getTime()",1000);
+	});
+
+
+</script>
 </head>
 <body>
 <div id="wrapper">
      <!-- Navigation -->
-        <nav class="top1 navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+         <nav class="top1 navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -34,130 +50,50 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-               <a class="navbar-brand" href="/p2p_project/backJsp/indexback.jsp">YJ Finance</a>
+               <a class="navbar-brand" href="/p2p_project/user/index/${user.id}">回到首页</a>
             </div>
             <!-- /.navbar-header -->
-            <ul class="nav navbar-nav navbar-right">
-				<li class="dropdown">
-	        		<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-comments-o"></i><span class="badge">4</span></a>
-	        		<ul class="dropdown-menu">
-						<li class="dropdown-menu-header">
-							<strong>Messages</strong>
-							<div class="progress thin">
-							  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-							    <span class="sr-only">40% Complete (success)</span>
-							  </div>
-							</div>
-						</li>
-						<li class="avatar">
-							<a href="#">
-								<img src="/p2p_project/backStyle/images/1.png" alt=""/>
-								<div>New message</div>
-								<small>1 minute ago</small>
-								<span class="label label-info">NEW</span>
-							</a>
-						</li>
-						<li class="avatar">
-							<a href="#">
-								<img src="/p2p_project/backStyle/images/2.png" alt=""/>
-								<div>New message</div>
-								<small>1 minute ago</small>
-								<span class="label label-info">NEW</span>
-							</a>
-						</li>
-						<li class="avatar">
-							<a href="#">
-								<img src="/p2p_project/backStyle/images/3.png" alt=""/>
-								<div>New message</div>
-								<small>1 minute ago</small>
-							</a>
-						</li>
-						<li class="avatar">
-							<a href="#">
-								<img src="/p2p_project/backStyle/images/4.png" alt=""/>
-								<div>New message</div>
-								<small>1 minute ago</small>
-							</a>
-						</li>
-						<li class="avatar">
-							<a href="#">
-								<img src="/p2p_project/backStyle/images/5.png" alt=""/>
-								<div>New message</div>
-								<small>1 minute ago</small>
-							</a>
-						</li>
-						<li class="avatar">
-							<a href="#">
-								<img src="/p2p_project/backStyle/images/pic1.png" alt=""/>
-								<div>New message</div>
-								<small>1 minute ago</small>
-							</a>
-						</li>
-						<li class="dropdown-menu-footer text-center">
-							<a href="#">View all messages</a>
-						</li>	
-	        		</ul>
-	      		</li>
-			    <li class="dropdown">
-	        		<a href="#" class="dropdown-toggle avatar" data-toggle="dropdown"><img src="/p2p_project/backStyle/images/1.png" alt=""/><span class="badge">9</span></a>
-	        		<ul class="dropdown-menu">
-						<li class="dropdown-menu-header text-center">
-							<strong>Account</strong>
-						</li>
-						<li class="m_2"><a href="#"><i class="fa fa-bell-o"></i> Updates <span class="label label-info">42</span></a></li>
-						<li class="m_2"><a href="#"><i class="fa fa-envelope-o"></i> Messages <span class="label label-success">42</span></a></li>
-						<li class="m_2"><a href="#"><i class="fa fa-tasks"></i> Tasks <span class="label label-danger">42</span></a></li>
-						<li><a href="#"><i class="fa fa-comments"></i> Comments <span class="label label-warning">42</span></a></li>
-						<li class="dropdown-menu-header text-center">
-							<strong>Settings</strong>
-						</li>
-						<li class="m_2"><a href="#"><i class="fa fa-user"></i> Profile</a></li>
-						<li class="m_2"><a href="#"><i class="fa fa-wrench"></i> Settings</a></li>
-						<li class="m_2"><a href="#"><i class="fa fa-usd"></i> Payments <span class="label label-default">42</span></a></li>
-						<li class="m_2"><a href="#"><i class="fa fa-file"></i> Projects <span class="label label-primary">42</span></a></li>
-						<li class="divider"></li>
-						<li class="m_2"><a href="#"><i class="fa fa-shield"></i> Lock Profile</a></li>
-						<li class="m_2"><a href="#"><i class="fa fa-lock"></i> Logout</a></li>	
-	        		</ul>
-	      		</li>
-			</ul>
-			<form class="navbar-form navbar-right">
-              <input type="text" class="form-control" value="Search..." onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Search...';}">
-            </form>
+            
+             <span class="navbar-right" ><br>
+             	
+	        	<p style="color: white;">用户：${user.user_name} | 时间：<span id="times"></span></p>
+	        	
+	      		</span>
+          
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
-                                     <ul class="nav" id="side-menu">
+                                    <ul class="nav" id="side-menu">
                         <li>
-                             <a href=""><i class="fa fa-dashboard fa-fw nav_icon"></i>回到首页</a>
+                             <a href=""><i class="fa fa-dashboard fa-fw nav_icon"></i>后台首页</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-laptop nav_icon"></i>理财产品<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
+                          <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="/p2p_project/backJsp/grids.jsp">固收类</a>
+                                    <a href="/p2p_project/product/showSolid">固收类</a>
                                 </li>
                             </ul>
 							<ul class="nav nav-second-level">
                                 <li>
-                                    <a href="/p2p_project/backJsp/grids.jsp">私募/股权类</a>
+                                    <a href="#">私募/股权类</a>
                                 </li>
                             </ul>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="/p2p_project/backJsp/grids.jsp">海外配置</a>
+                                    <a href="#">海外配置</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <!-- ----------------------------------------------------- -->
                         <li>
-                            <a href="#"><i class="fa fa-indent nav_icon"></i>钱包管理<span class="fa arrow"></span></a>
+                             <a href="#"><i class="fa fa-indent nav_icon"></i>钱包管理<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="/p2p_project/backJsp/graphs.jsp">钱包缴费记录</a>
+                                    <a href="/p2p_project/test/members">钱包缴费记录</a>
                                 </li>
                                 <li>
-                                    <a href="/p2p_project/backJsp/typography.jsp">Typography</a>
+                                    <a href="#">Typography</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -167,22 +103,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <a href="#"><i class="fa fa-envelope nav_icon"></i>学院管理<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="/p2p_project/backJsp/inbox.jsp">资讯分类</a>
+                                    <a href="/p2p_project/news_type/news_typelist/${user.id }">资讯分类</a>
                                 </li>
                                 <li>
-                                    <a href="/p2p_project/backJsp/compose.jsp">资讯管理</a>
+                                    <a href="/p2p_project/news/listnews/${user.id }">资讯管理</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <!-- ----------------------------------------------------- -->
-                        <li>
-                            <a href="/p2p_project/backJsp/widgets.jsp"><i class="fa fa-flask nav_icon"></i>Widgets</a>
-                        </li>
+                       
                          <!-- ----------------------------------------------------- -->
                          <li>
                             <a href="#"><i class="fa fa-check-square-o nav_icon"></i>会员管理<span class="fa arrow"></span></a>
-                           <ul class="nav nav-second-level">
+                            <ul class="nav nav-second-level">
                                 <li>
                                     <a href="/p2p_project/member/listMember">账号管理</a>
                                 </li>
@@ -204,28 +138,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                         <!-- ----------------------------------------------------- -->
-                        <li>
-                            <a href="#"><i class="fa fa-table nav_icon"></i>盈加统计<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="/p2p_project/backJsp/basic_tables.jsp">财务统计</a>
-                                </li>
-                                <li>
-                                    <a href="/p2p_project/backJsp/basic_tables.jsp">用户综合统计</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <!-- ----------------------------------------------------- -->
+                        
                         <li>
                             <a href="#"><i class="fa fa-flask nav_icon"></i>盈加设置<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="/p2p_project/backJsp/media.jsp">公告管理</a>
+                                    <a href="/p2p_project/test/test1">公告管理</a>
                                 </li>
                                 <li>
-                                    <a href="/p2p_project/backJsp/login.jsp">意见反馈</a>
+                                    <a href="/p2p_project/test/list">意见反馈</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -234,14 +155,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <li>
                             <a href="#"><i class="fa fa-sitemap fa-fw nav_icon"></i>系统设置<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="/p2p_project/backJsp/media.jsp">账户设置</a>
+                                 <li>
+                                    <a href="/p2p_project/usersetting/showuser">账户设置</a>
                                 </li>
                                 <li>
-                                    <a href="/p2p_project/backJsp/login.jsp">角色设置</a>
+                                    <a href="/p2p_project/back/showRole">角色设置</a>
                                 </li>
                                 <li>
-                                    <a href="/p2p_project/backJsp/login.jsp">密码设置</a>
+                                    <a href="/p2p_project/backJsp/updatePwd.jsp">密码设置</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

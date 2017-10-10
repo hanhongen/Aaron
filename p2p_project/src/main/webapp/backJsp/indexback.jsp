@@ -52,6 +52,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                <a class="navbar-brand" href="/p2p_project/user/index/${user.id}">回到首页</a>
             </div>
             <!-- /.navbar-header -->
+            
              <span class="navbar-right" ><br>
              	
 	        	<p style="color: white;">用户：${user.user_name} | 时间：<span id="times"></span></p>
@@ -160,7 +161,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <a href="/p2p_project/back/showRole">角色设置</a>
                                 </li>
                                 <li>
-                                    <a href="/p2p_project/backJsp/login.jsp">密码设置</a>
+                                    <a href="/p2p_project/backJsp/updatePwd.jsp">密码设置</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -173,7 +174,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </nav>
         <div id="page-wrapper">
         <div class="graphs">
-	    11111
+	   后台首页
       </div>
       <!-- /#page-wrapper -->
    </div>
