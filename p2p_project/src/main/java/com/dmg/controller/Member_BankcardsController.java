@@ -27,7 +27,7 @@ public class Member_BankcardsController {
 	private Member_BankcardsService member_BankcardsService;
 	/**
 	 * �б���ʾ��
-     * ��� �ֻ�� �������� �����֤ ������ �󿨿��� �󿨵�ַ ״̬ ���ʱ�� ��
+     * 绑卡管理
 	 * @return
 	 */
 	@RequestMapping("/listMember_Bankcards")//��ѯ��ģ���ѯ

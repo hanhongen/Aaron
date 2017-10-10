@@ -1,5 +1,6 @@
 package com.dmg.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -9,7 +10,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import com.dmg.bean.Member;
-//ÕËºÅ¹ÜÀí
+//ï¿½ËºÅ¹ï¿½ï¿½ï¿½
 @Component
 public class MemberDao {
 	@Autowired
@@ -19,7 +20,7 @@ public class MemberDao {
 		return sessionFactory.getCurrentSession();
 	}
 	
-	//²éÑ¯ËùÓĞÕËºÅ
+	//ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½Ëºï¿½
 	public List<Member> listMember(Map map){
 		String hql = "from Member where 0=0 ";
 		Session session = getSession();
@@ -27,7 +28,7 @@ public class MemberDao {
 		List<Member> list = session.createQuery(hql).list();
 		for (Member member : list) {
 			System.out.println("<------------------------------------------------------------------------------->");
-			System.out.println("Member(²éÑ¯ËùÓĞÕËºÅ) [id=" + member.getId() + ", member_name=" + ", name=" + member.getName() + ", password=" + member.getPassword()
+			System.out.println("Member(ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½Ëºï¿½) [id=" + member.getId() + ", member_name=" + ", name=" + member.getName() + ", password=" + member.getPassword()
 						+ ", salt=" + member.getSalt() + ", mobile_phone=" + member.getSalt() + ", status=" + member.getStatus() + ", del_flag=" + member.getDel_flag()
 						+ ", identity=" + member.getIdentity() + ", create_date=" + member.getCreate_date() + ", update_date=" + member.getUpdate_date()
 						+ ", weiboaccount=" + member.getWeiboaccount() + ", weixinaccount=" + member.getWeixinaccount() + ", headid=" + member.getHeadid()
@@ -37,35 +38,35 @@ public class MemberDao {
 		}
 		return list;
 	}
-	//ÕËºÅ¹ÜÀíÄ£ºı²éÑ¯
+	//ï¿½ËºÅ¹ï¿½ï¿½ï¿½Ä£ï¿½ï¿½ï¿½Ñ¯
 	public String listMemberLike(Map map,String hql){
 		String namem = (String)map.get("namem");
 		String mobilePhonem = (String)map.get("mobilePhonem");
 		String memberNamem = (String)map.get("memberNamem");
 		String invitationcodem = (String)map.get("invitationcodem");
 		String create_datem = (String)map.get("create_datem");
-		if (namem!=null && !namem.equals("")) {//ÓÃ»§Ãû
+		if (namem!=null && !namem.equals("")) {//ï¿½Ã»ï¿½ï¿½ï¿½
 			hql+=" and name like '%"+namem+"%'";
-		}else if (mobilePhonem!=null && !mobilePhonem.equals("")) {//ÊÖ»úºÅ
+		}else if (mobilePhonem!=null && !mobilePhonem.equals("")) {//ï¿½Ö»ï¿½ï¿½
 			hql+=" and mobile_phone like '%"+mobilePhonem+"%'";
-		}else if (memberNamem!=null && !memberNamem.equals("")) {//ĞÕÃû
+		}else if (memberNamem!=null && !memberNamem.equals("")) {//ï¿½ï¿½ï¿½ï¿½
 			hql+=" and member_name like '%"+memberNamem+"%'";
-		}else if (invitationcodem!=null && !invitationcodem.equals("")) {//ÑûÇëÂë
+		}else if (invitationcodem!=null && !invitationcodem.equals("")) {//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			hql+=" and invitationcode like '%"+invitationcodem+"%'";
-		}else if (create_datem!=null && !create_datem.equals("")) {//×¢²áÊ±¼ä
+		}else if (create_datem!=null && !create_datem.equals("")) {//×¢ï¿½ï¿½Ê±ï¿½ï¿½
 			hql+=" and create_date like '%"+create_datem+"%'";
 		}
 		return hql;
 	}
 	
-	//¸ù¾İid²éÑ¯¸öÈËÕËºÅÏêÇé
+	//ï¿½ï¿½ï¿½idï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½Ëºï¿½ï¿½ï¿½ï¿½ï¿½
 	public List<Member> listMemberId(int id){
 		String hql = "from Member where id="+id;
 		Session session = getSession();
 		List<Member> list = session.createQuery(hql).list();
 		for (Member member : list) {
 			System.out.println("<------------------------------------------------------------------------------->");
-			System.out.println("Member(¸öÈËÕËºÅÏêÇé) [id=" + member.getId() + ", member_name=" + ", name=" + member.getName() + ", password=" + member.getPassword()
+			System.out.println("Member(ï¿½ï¿½ï¿½ï¿½ï¿½Ëºï¿½ï¿½ï¿½ï¿½ï¿½) [id=" + member.getId() + ", member_name=" + ", name=" + member.getName() + ", password=" + member.getPassword()
 						+ ", salt=" + member.getSalt() + ", mobile_phone=" + member.getSalt() + ", status=" + member.getStatus() + ", del_flag=" + member.getDel_flag()
 						+ ", identity=" + member.getIdentity() + ", create_date=" + member.getCreate_date() + ", update_date=" + member.getUpdate_date()
 						+ ", weiboaccount=" + member.getWeiboaccount() + ", weixinaccount=" + member.getWeixinaccount() + ", headid=" + member.getHeadid()
@@ -77,11 +78,32 @@ public class MemberDao {
 	}
 	
 	
-	//»ñµÃMemberµÄid
+	//ï¿½ï¿½ï¿½Memberï¿½ï¿½id
 	public Member getMemberId(int id){
 		Session session = getSession();
 		Member member=(Member)session.get(Member.class, id);
 		return member;
 	}
 	
+	public boolean saveMember(Member member){
+		Session session = getSession();
+		session.save(member);
+		return true;
+	}
+	 //æ£€æŸ¥ç”¨æˆ·è®¤è¯æƒ…å†µ
+	public List<Member> checkRZ(int id){
+		String sql="select name,identity from member where user_id="+id;
+		Session session = getSession();
+    	List<Member> list=session.createSQLQuery(sql).list();
+		return list;
+	}
+	
+	//å†™è¿™ä¸ªæ–¹æ³•è§£å†³ä¸€äº›å†å²é—ç•™çš„é—®é¢˜ï¼Œä½¿ç”¨userè¡¨çš„idï¼Œåœ¨memberä¸­æŸ¥è¯¢å‡ºmemberè¡¨çš„idï¼Œä»¥æ­¤è§£å†³é—®é¢˜
+	public int correct(int id){
+		String sql = "select id from member where user_id="+id;
+		Session session = getSession();
+		Object memberid = (Object)session.createSQLQuery(sql).list().get(0);
+		int mid = Integer.parseInt(memberid.toString());
+		return mid;
+	}
 }

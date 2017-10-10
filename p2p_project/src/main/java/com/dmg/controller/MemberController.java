@@ -1,26 +1,36 @@
 package com.dmg.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-//ÕËºÅĞÅÏ¢
+import org.springframework.web.bind.annotation.RequestMethod;
+//ï¿½Ëºï¿½ï¿½ï¿½Ï¢
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.dmg.bean.Member;
+import com.dmg.bean.Users;
 import com.dmg.service.MemberService;
+import com.dmg.service.UserService;
 @Controller
 @RequestMapping("/member")
 public class MemberController {
 	@Autowired
 	private MemberService memberService;
-	
-	//²éÑ¯ËùÓĞÕËºÅĞÅÏ¢
+	@Autowired
+	private UserService userService;
+	//ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½Ëºï¿½ï¿½ï¿½Ï¢
 	@RequestMapping("/listMember")
 	public String listMember(Model model,
 			@RequestParam(required=false)String namem,
@@ -46,7 +56,7 @@ public class MemberController {
 			
 			return "backJsp/forms";
 	}
-	//¸ù¾İid²éÑ¯¸öÈËÕËºÅĞÅÏ¢
+	//ï¿½ï¿½ï¿½idï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½Ëºï¿½ï¿½ï¿½Ï¢
 	@RequestMapping("/listMemberId/{id}")
 	public String listMemberId(Model model,@PathVariable("id")int id){
 		System.out.println("id:"+id);
@@ -55,5 +65,46 @@ public class MemberController {
 		model.addAttribute("listMemberId", listMemberId);
 		return "backJsp/accountInfo";
 	}
+	//ç”¨æˆ·è®¤è¯
+	@RequestMapping(value="saveMember",method={RequestMethod.POST})
+	@ResponseBody
+	public String saveMember(HttpServletRequest request){
+		String name=request.getParameter("mname");
+		String it=request.getParameter("it");
+		int i=Integer.valueOf(request.getParameter("id"));
+		Users users=userService.getUsersById(i);
+		Member member = new Member();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		String time = sdf.format(new Date().getTime());
+		member.setCreate_date(time);
+		member.setDel_flag(0);
+		member.setHeadid(0);//å¤´åƒ
+		member.setIdentity(it);
+		member.setName(name);
+		member.setStatus(0);
+		member.setUser(users);
+		String str;
+		if (memberService.saveMember(member)==true) {
+			str="1";//è®¤è¯æˆåŠŸ
+		}else {
+			str="0";
+		}		
+		return str;
+	}
+	//æ£€æŸ¥æ˜¯å¦è®¤è¯
+	@RequestMapping(value="checkRZ",method={RequestMethod.POST})
+	@ResponseBody
+	public String checkRZ(HttpServletRequest request,Model model){
+		int id=Integer.valueOf(request.getParameter("id"));
+		List<Member> list=memberService.checkRZ(id);
+		String str;
+		if (!list.isEmpty()) {
+			str="1";
+		} else {
+			str="0";
+		}
+		return str;
+	}
+	
 
 }

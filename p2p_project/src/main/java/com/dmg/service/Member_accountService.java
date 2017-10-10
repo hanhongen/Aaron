@@ -31,4 +31,10 @@ public class Member_accountService {
 		member_accountDao.top_upAmount(id, amount, ud);
 		return true;	
 	}
+	
+	//idd为用户id,通过用户id查询出成员账户表的本条信息id
+	public int listid(int idd){
+		int s=member_accountDao.listid(idd);
+		return s;
+	}		
 }

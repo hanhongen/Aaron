@@ -145,7 +145,7 @@
 				手机号
 			</div>
 			<div class="rInput">
-				<input type="text" placeholder="请输入手机号"  required name="phone" id="phone" name="mobile_phone" class="form-control textInput phone"><span id="s1"></span>
+				<input type="text" placeholder="请输入手机号"  required  id="phone" name="mobile_phone" class="form-control textInput phone"><span id="s1"></span>
 			</div>
 			
 		</div>

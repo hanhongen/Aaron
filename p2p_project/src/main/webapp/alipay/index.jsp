@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
 <title>支付宝电脑网站支付</title>
 <style>
 * {
@@ -190,8 +191,16 @@ h2 {
 	color: #fff;
 }
 </style>
+<script type="text/javascript">
+function ifEmpty(msg){
+if(msg == 0){
+	alert("用户尚未绑定银行卡,暂不能执行下一步操作！");
+	window.location.href = "/p2p_project/frontJsp/index.jsp";
+}
+}
+</script>
 </head>
-<body text=#000000 bgColor="#ffffff" leftMargin=0 topMargin=4>
+<body text=#000000 bgColor="#ffffff" leftMargin=0 topMargin=4 onload="ifEmpty(${msg })">
 	<header class="am-header">
 	<h1>支付宝电脑网站支付体验入口页</h1>
 	</header>

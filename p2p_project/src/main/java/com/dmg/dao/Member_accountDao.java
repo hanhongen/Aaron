@@ -26,7 +26,7 @@ public class Member_accountDao {
 	}
 	
 	public List<Member_account> listMember_account(int id){
-		String hql="from Member_account m where m.member.id="+id;
+		String hql="from Member_account m where m.member="+id;
 		Session session = getSession();
 		List<Member_account> list = session.createQuery(hql).list();
 		return list;
@@ -34,12 +34,29 @@ public class Member_accountDao {
 	
 	//idd为用户id,通过用户id查询出成员账户表的本条信息id
 		public int listid(int idd){
-			String sql="select id from member_account where member_id="+idd;
-			Session session = getSession();
-			Object s = (Object)session.createSQLQuery(sql).list().get(0);
-			int id=Integer.parseInt(s.toString());
-			return id;
+			String sql="select id from member_account where member_id="+idd;			
+			try {				
+				Session session = getSession();
+				Object s = (Object)session.createSQLQuery(sql).list().get(0);
+				int id=Integer.parseInt(s.toString());
+				if (!s.equals("")) {
+					return id;
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return 0;		
 		}
+		//判断用户是否绑定银行卡
+//		public int ifnull(int idd){
+//			Session session = getSession();
+//			Member_account ma= (Member_account) session.get(Member_account.class, idd);			
+//			if (ma.equals("")) {
+//				return 0;
+//			} else {
+//				return 1;
+//			}
+//		}
 	
 	//根据id修改账户可用余额，更新本条数据修改时间
 	public boolean top_upAmount(int idd,double amount, String ud){
@@ -49,6 +66,7 @@ public class Member_accountDao {
 		Session session = getSession();
 		Member_account member_account = (Member_account) session.get(Member_account.class, id);
 		System.out.println("Member_accountDAO:"+member_account.getUseable_balance());
+		//在这里将充值的金额加在原本的账户可用余额之上，重新生成相加后的账户可用余额
 		member_account.setUseable_balance(member_account.getUseable_balance()+amount);
 		member_account.setUpdate_date(ud);
 		session.update(member_account);

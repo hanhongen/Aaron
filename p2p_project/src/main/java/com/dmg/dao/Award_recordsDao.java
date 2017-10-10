@@ -35,7 +35,7 @@ public class Award_recordsDao {
 	}
 	//閭�璇蜂汉鎵嬫満鍙�
 	public List<Award_records> listinvitingid(int invitingid){
-		String hql="from Award_records ar where ar.member.id="+invitingid;
+		String hql="from Award_records ar where ar.member="+invitingid;
 		Session session = getSession();
 		List<Award_records> list = session.createQuery(hql).list();
 		for (Award_records a : list) {
@@ -45,7 +45,7 @@ public class Award_recordsDao {
 	}
 	//琚個璇蜂汉鎵嬫満鍙�
 	public List<Award_records> listbyinvitingid(int byinvitingid){
-		String hql="from Award_records ar where ar.member.id="+byinvitingid;
+		String hql="from Award_records ar where ar.member="+byinvitingid;
 		Session session = getSession();
 		List<Award_records> list = session.createQuery(hql).list();
 		for (Award_records a : list) {

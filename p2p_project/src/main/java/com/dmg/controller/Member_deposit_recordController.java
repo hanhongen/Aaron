@@ -70,7 +70,10 @@ public class Member_deposit_recordController {
 		response.setCharacterEncoding("UTF-8");
 		String idd = request.getParameter("id");
 		System.out.println("listmdrID:"+idd);
-		int id=Integer.valueOf(idd);
+		int i=Integer.valueOf(idd);
+		//i为user的id  通过user的id查询的到member的id
+		int id=memberService.correct(i);
+		System.out.println("listmdr-userid:"+id);
 		List<Member_deposit_record> mdr=member_deposit_recordSevice.listmdr(id);
 		for (Member_deposit_record m : mdr) {
 			System.out.println("流水号："+m.getSeril_number()+"--金额："+m.getAmount()+"--状态："+m.getStatus()+"--创建时间："+m.getCreate_date());

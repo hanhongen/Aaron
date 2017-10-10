@@ -22,7 +22,7 @@ public class Subject_purchase_recordDao {
 	 * @return
 	 */
 	public List<Subject_purchase_record> listSubject_purchase_record(int id){
-		String hql = "from Subject_purchase_record spr where spr.member.id="+id;
+		String hql = "from Subject_purchase_record spr where spr.member="+id;
 		Session session = getSession();
 		List<Subject_purchase_record> list = session.createQuery(hql).list();
 		return list;
@@ -38,5 +38,7 @@ public class Subject_purchase_recordDao {
 		System.out.println("count:"+count);
 		return count;
 	}
+	
+
 	
 }

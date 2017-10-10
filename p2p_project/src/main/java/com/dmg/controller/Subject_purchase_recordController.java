@@ -16,6 +16,7 @@ import com.dmg.bean.Member_account;
 import com.dmg.bean.Subject_order_record;
 import com.dmg.bean.Subject_purchase_record;
 import com.dmg.bean.Users;
+import com.dmg.service.MemberService;
 import com.dmg.service.Member_accountService;
 import com.dmg.service.Subject_order_recordService;
 import com.dmg.service.Subject_purchase_recordService;
@@ -29,6 +30,8 @@ public class Subject_purchase_recordController {
 	private Subject_order_recordService subject_order_recordService;
 	@Autowired
 	private Member_accountService member_accountService;
+	@Autowired
+	private MemberService memberService;
 	
 	@RequestMapping("/listSubject_purchase_record/{id}")
 	public String listSubject_purchase_record(Model model,@PathVariable("id")int id){
@@ -40,6 +43,7 @@ public class Subject_purchase_recordController {
 	@RequestMapping("/listSubject_purchase_records/{id}/{user_name}")
 	public String listSubject_purchase_records(Model model,@PathVariable("id")int id,@PathVariable("user_name")String user_name,HttpServletRequest request){
 		System.out.println("listSubject_purchase_records---------------------------------");
+		//这里得id为user表的id
 		System.out.println("listSubject_purchase_records--"+id);		
 		System.out.println("listSubject_purchase_records--"+user_name);
 		//投资记录

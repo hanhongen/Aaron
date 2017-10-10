@@ -12,8 +12,15 @@
 <script type="text/javascript" src="/p2p_project/frontStyle/js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="/p2p_project/frontStyle/js/all.js"></script>
 <script type="text/javascript" src="/p2p_project/frontStyle/js/bootstrap.js"></script>
+<script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
 <!-- <link rel="stylesheet" href="https://ppmoneycnt.b0.upaiyun.com/static/v4.01/css/release-commons_38d5ebd.css?v=201512161721"> -->
 <link href="/p2p_project/frontStyle/css/jw.css" rel="stylesheet"><!-- 页面主体业务样式 -->
+<!-- <link href="/p2p_project/frontStyle/css/common.css" rel="stylesheet"> -->
+
+<!-- 两个省市级联插件 -->
+<script type="text/javascript" src="/p2p_project/frontStyle/js/jquery.cityselect.js"></script>
+<script type="text/javascript" src="/p2p_project/frontStyle/js/city.min.js"></script>
+
 <script type="text/javascript"> 
 //选项卡切换 
 $(function () { 
@@ -27,6 +34,17 @@ content_obj.eq(index_tab).show();
 }); 
 }); 
 </script> 
+<style type="text/css">
+.yj{border-radius:5px;overflow:hidden;border:1px solid #333333}
+.but{
+border-style:solid;
+border-width:1px;
+border-color:#333333;
+/*border:1px;*//*不要设置border*/
+}
+
+</style>
+
 </head>
 <body class="index_niwo holiday_bg">
 	<div class="niwdoawi_top mw_1180">
@@ -40,9 +58,14 @@ content_obj.eq(index_tab).show();
 			</div>
 			<div class="fr login clearfix">
 				<div class='login_bt'>
+				<c:if test="${empty id }">
 					<a href="/p2p_project/frontJsp/login.jsp" id="login" rel="nofollow" class="fff">登录</a> 
 					<a href="/p2p_project/frontJsp/register.jsp" rel="nofollow" class="fff">注册</a>
-					<a href="/p2p_project/backJsp/feedbacks.jsp" rel="nofollow" class="fff">意见反馈</a>
+				</c:if>
+				<c:if test="${!empty id }">
+				<a class="fff">用户：</a><a href="#" class="fff">${user_name}</a>
+				</c:if>
+					<a href="/p2p_project/user/feedBacks/${id}" rel="nofollow" class="fff">意见反馈</a>
 				</div>
 				<dl>
 					<dt><a href="" rel="nofollow" class="txnone" style="color: #ffffff">账户中心</a></dt>
@@ -89,8 +112,8 @@ content_obj.eq(index_tab).show();
     <tr>
         <td align="left" valign="middle" class="info">
             <a href="#">
-                <div class="img"><img src="/resources/web/images/userPic.jpg"></div>
-                <h2><span>您好!</span></h2>
+<!--                 <div class="img"><img src="/resources/web/images/userPic.jpg"></div> -->
+                <h2><span>${user_name} 您好!</span></h2>
             </a>
             <div class="safe">账户安全&nbsp;&nbsp;<span class="scroll"><em style="width:75%"></em></span></div>
             <ul class="listIco iconfont">
@@ -102,16 +125,18 @@ content_obj.eq(index_tab).show();
             </ul>
         </td>
         <td align="right">
-            <a href="/web/logout" class="loginOut"><span class="iconfont">&#xe618;</span>安全退出</a>
+            <a href="/p2p_project/user/outlogin" class="loginOut"><span class="iconfont">&#xe618;</span>安全退出</a>
         </td>
     </tr>
 </table>
 <div class="countBox">
     <ul>
-        <li><h2>31000</h2><p>账户可用余额(元)<a href="javascript:;" class="iconfont">&#xe619;<span>账户可用余额</span><i></i></a></p></li>
-        <li><h2 style="color:#9d8440">115632</h2><p>投资金额(元)<a href="javascript:;" class="iconfont">&#xe619;<span>投资中资金</span><i></i></a></p></li>
-        <li><h2 style="color:#9d8440">26500</h2><p>累计收益(元)<a href="javascript:;" class="iconfont">&#xe619;<span>累计收益</span><i></i></a></p></li>
-        <li><h2 style="color:#9d8440">0</h2><p>冻结金额(元)<a href="javascript:;" class="iconfont">&#xe619;<span>提现冻结金额</span><i></i></a></p></li>
+    <c:forEach items="${ma }" var="m">
+        <li><h2>${m.useable_balance }</h2><p>账户可用余额(元)<a href="javascript:;" class="iconfont">&#xe619;<span>账户可用余额</span><i></i></a></p></li>
+        <li><h2 style="color:#9d8440">${m.invest_amount }</h2><p>投资金额(元)<a href="javascript:;" class="iconfont">&#xe619;<span>投资总资金</span><i></i></a></p></li>
+        <li><h2 style="color:#9d8440">${m.totl_profit }</h2><p>累计收益(元)<a href="javascript:;" class="iconfont">&#xe619;<span>累计收益</span><i></i></a></p></li>
+        <li><h2 style="color:#9d8440">${m.imuseale_balance }</h2><p>冻结金额(元)<a href="javascript:;" class="iconfont">&#xe619;<span>提现冻结金额</span><i></i></a></p></li>
+   </c:forEach>
     </ul>
     <a href="/account/deposit" class="cz">充值</a>
     <a href="/account/withdraw" class="tk">提款</a>
@@ -126,11 +151,16 @@ content_obj.eq(index_tab).show();
         <li class="close"><a id="member_center_menu_withdraw_record" href="#" onclick="tk()"><em class="iconfont red">&#xe616;</em>提款记录</a></li>
         <li class="close"><a id="member_center_menu_bbinInfo_record" href="#"><em class="iconfont red">&#xe616;</em>体验金记录</a></li>    
         <li class="close"><a id="member_center_menu_deposit" href="#" onclick="querycz()"><em class="iconfont red">&#xe614;</em>账户充值</a></li>
-        <li class="close"><a id="member_center_menu_security" href="#"><em class="iconfont red">&#xe612;</em>安全信息</a></li>
+        <li class="close"><a id="member_center_menu_security" href="#" onclick="checkRz()"><em class="iconfont red">&#xe612;</em>安全信息</a></li>
         <li class="close"><a id="member_center_menu_withdraw" href="#"><em class="iconfont red">&#xe612;</em>我要提款</a></li>
 <!--    <li><a id="member_center_menu_financial" href="/account/financial"><em class="iconfont">&#xe612;</em>我是理财师</a></li> -->
     </ul>
 </div>
+<script>
+  var menu_item="";
+ $("#"+menu_item).addClass("select");
+</script>
+
 		<!-- 投资记录  -->
 		<div class="admin-right" style="display: block;">
 			<div class="tbConBox">
@@ -155,7 +185,7 @@ content_obj.eq(index_tab).show();
 								<td>${ls.serial_number }</td>
 								<td>${ls.subject.name }</td>
 								<td>${ls.amount }</td>
-								<td>${ls.result }</td><!-- amount*year_rate/365*dayCount公式有问题 -->
+								<td>${ls.result }</td>
 								<td>${ls.member.status }</td>
 								<td>${ls.create_date }</td>
 								</tr>
@@ -244,7 +274,6 @@ content_obj.eq(index_tab).show();
 				</div>
 				<div id="conBox">
 					<div class="box" style="display: block">
-
 						<div class="ajaxContainer">
 							<table class="tzlist" width="100%" border="1"
 								bordercolor="#e9e9e9" cellspacing="0" cellpadding="0">
@@ -297,11 +326,11 @@ content_obj.eq(index_tab).show();
 							for(var m in members){
 								//判断付款状态
 								if(members[m].status==0){
-									str+="<tr><td>"+members[m].seril_number+"</td><td>"+members[m].amount+"</td><td>待付款</td><td>"+members[m].member.create_date+"</td></tr>";
+									str+="<tr><td>"+members[m].seril_number+"</td><td>"+members[m].amount+"</td><td><a href='#' style='color:red'>待付款</a><br><font size='1' style='color:gray'>点击待付款继续付款</font></td><td>"+members[m].create_date+"</td></tr>";
 								}
 								//同上
 								if(members[m].status==1){
-									str+="<tr><td>"+members[m].seril_number+"</td><td>"+members[m].amount+"</td><td>已付款</td><td>"+members[m].member.create_date+"</td></tr>";
+									str+="<tr><td>"+members[m].seril_number+"</td><td>"+members[m].amount+"</td><td style='color:blue'>已付款</td><td>"+members[m].create_date+"</td></tr>";
 								}
 							}
 						}
@@ -408,7 +437,7 @@ content_obj.eq(index_tab).show();
 									<br>
 									<div>
 										充值金额：<input class="tytxt" id="fee" name="fee" type="text">
-										<input type="hidden" name="hid" id="hid" value="1">
+										<input type="hidden" name="hid" id="hid" value="${id}">
 									</div>
 									<button class="tybutton" id="btn_go_pay" type="submit">前往充值</button>
 								</form>
@@ -458,22 +487,30 @@ content_obj.eq(index_tab).show();
                 <div class="tab">
                     <a class="select" href="javascript:;">安全中心</a>
                 </div>
+                
                 <div id="conBox">
                     <div class="box" style="display:block">
                     	<table class="safeTable" width="100%" border="0" cellspacing="0" cellpadding="0">
                           <tr>
                           	<td class="first"><span class="iconfont active"><a href="#1">&#xe61c;</a><em>&#xe61b;</em></span></td>
 	                        <td><p style="color:#ff503f">实名认证</p></td>
-	                        <td>511***830</td>
+	                        <td>
+	                        <p id="pcheck"></p>
+	                        </td>
 	                        <td><p style="color:#888">保障账户安全，只有完成实名认证才能充值提款</p></td>
-	                        <td>认证完成</td>                      
+	                        <td>
+	                        <td>
+	                        <a id="smrz"></a>
+	                        </td>	
                           </tr>
 							<tr>
 							<td class="first"><span class="iconfont active"><a href="#1">&#xe61c;</a><em>&#xe61b;</em></span></td>
 							<td><p style="color:#ff503f">绑卡认证</p></td>
-							<td>已绑定</td>
+							<td>未绑定银行卡</td>
 							<td><p style="color:#888">保障账户安全，只有完成绑卡认证才能充值提款</p></td>
-							<td><a href="/account/security/memberBankcardView" class="renzheng">查看</a></td>					  
+							<td>
+							<a href="#" onclick="funbk()" class="renzheng">绑定</a>
+							</td>					  
 							</tr>
                           <tr>
                             <td class="first"><span class="iconfont active"><a href="#1">&#xe61d;</a><em>&#xe61b;</em></span></td>
@@ -493,16 +530,209 @@ content_obj.eq(index_tab).show();
 	                        <td><p style="color:#ff503f">提款密码</p></td>
 	                        <td>未设置</td>
 	                        <td><p style="color:#888">保障资金安全，提款需要设置提款密码</p></td>
-	                        <td><a onclick="$('#setWithdrawPWModel').modal(); return false;" href="javascript:;" class="renzheng">设置</a></td>								
+	                        <td><a onclick="fun()" href="javascript:;" class="renzheng">设置</a></td>								
                           </tr>
                         </table>
                     </div>
                 </div>
+                
             </div>
         </div>
 
-
+<!-- 用户认证 -->
+<script type="text/javascript">
+	function funRz(){
+   	$(".rz").show();
+	}
+	function funCloseRz(){
+		$(".rz").hide();
+	}
 	
+	function Rz(){
+		var name=$("#member_name").val();
+		var it=$("#identity").val();
+		var IDCard = new RegExp(/^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$/);
+		if(!name){
+			$("#sp1").html("不能为空!");
+		}
+		if(!IDCard.test(it)){
+			$("#sp2").html("号码格式不正确！");
+		}
+		
+		$.ajax({
+			type:'post',
+			url:'/p2p_project/member/saveMember',
+			data:{
+				mname: $("#member_name").val(),
+				it: $("#identity").val(),
+				id: $("#hid").val()
+			},
+			dataType:'json',
+			success:function(msg){
+				if(msg==1){
+					$(".rz").hide();
+					alert("认证完成！");
+					window.location.reload();
+				}else{
+					alert("认证失败！");
+				}
+					
+			}
+		});		
+	}
+	
+	function checkRz(){
+		$.ajax({
+			type:'post',
+			url:'/p2p_project/member/checkRZ',
+			data:"id="+$("#hid").val(),
+			dataType:'json',
+			success:function(data){
+				var str="";
+				var p="";
+				if(data==1){
+					p+="<p style='font-size: 1px; color:green'>用户已认证</p>";
+					str+="<a href='#' class='renzheng' >已认证</a>";
+				}
+				if(data==0){
+					p+="<p style='font-size: 1px; color:red'>用户未认证</p>";
+					str+="<a href='#' class='renzheng' onclick='funRz()'>认证</a>";
+				}
+				$("#pcheck").append(p);
+				$("#smrz").append(str);
+			}
+		});
+	}
+	
+</script>
+<!-- 用户认证 -->
+<div class="rz" style="display:none;position:absolute;left:40%;top:50%;width: 500px;">
+<form action="" method="post">
+	<table width="100%" cellspacing="0" cellpadding="0" bgcolor="#F9F9F9" class="yj">
+	<tr bgcolor="#333333"><td style="color:#FFFFFF;width: 230px"><font size="5">用户实名认证</font></td>
+	<td align="right" style="color:#FFFFFF" colspan="2">
+	<input type="button" onclick="funCloseRz()"style="background:#333333;color:#FFFFFF" value="&nbsp;X&nbsp;" class="but">
+	</td></tr>
+	
+	<tr>
+	<td align="right">用户名：</td>
+	<td><input type="text" id="member_name" name="member_name"></td>
+	<td align="left"><font size="1" color="red"><span id="sp1"></span></font></td>
+	</tr>
+	
+	<tr>
+	<td align="right">身份证：</td>
+	<td><input type="text" id="identity" name="identity"></td>
+	<td align="left"><font size="1" color="red"><span id="sp2"></span></font></td>
+	</tr>
+
+	<tr><td align="center" colspan="3">
+	<input type="button" onclick="Rz()" value="确认">
+	</td></tr>
+	</table>
+	</form>
+</div>
+<!-- 用户认证 -->
+<!-- --------------------------------------------------------------绑卡认证--------------------------------------------------------------------- -->
+<!-- 绑卡认证 -->
+<script type="text/javascript">
+	function funbk(){
+   	$(".bk").show();
+	}
+	function bkClose(){
+		$(".bk").hide();
+	}
+	$(function(){
+	    $("#citySelect").citySelect(); 
+	});	
+	$("#citySelect").citySelect({  
+	       nodata: "none",  
+	       required: false,  
+	       prov:json.data.province,  
+	       city:json.data.city,  
+	       dist:json.data.county  
+	 });
+	
+</script>
+<!-- 绑卡认证 -->
+<div class="bk" style="display:none;position:absolute;left:40%;top:50%;width: 500px;height: 600px">
+<form action="" method="post">
+	<table width="100%" cellspacing="0" cellpadding="0" bgcolor="#F9F9F9" class="yj">
+	<tr bgcolor="#333333"><td style="color:#FFFFFF;width: 230px"><font size="5">用户实名认证</font></td>
+	<td align="right" style="color:#FFFFFF" colspan="2">
+	<input type="button" onclick="bkClose()"style="background:#333333;color:#FFFFFF" value="&nbsp;X&nbsp;" class="but">
+	</td></tr>
+	
+	<tr>
+	<td align="right">银行卡类型：</td>
+	<td>
+	<select id="type" name="type">
+		<option id="农业银行">农业银行</option>
+		<option id="建设银行">建设银行</option>
+		<option id="工商银行">工商银行</option>
+		<option id="邮政储蓄">邮政储蓄</option>
+		<option id="华夏银行">华夏银行</option>
+		<option id="农商银行">农商银行</option>
+		<option id="湖北银行">湖北银行</option>
+		<option id="浦发银行">浦发银行</option>
+	</select>
+	</td>
+	<td align="left"><font size="1" color="red"><span id="sp1"></span></font></td>
+	</tr>
+	
+	<tr>
+	<td align="right">卡号：</td>
+	<td><input type="text" id="card_no" name="card_no"></td>
+	<td align="left"><font size="1" color="red"><span id="sp2"></span></font></td>
+	</tr>
+
+	<tr>
+	<td align="right">开户行所在地：</td>
+	<td>
+	<div id="citySelect"  style="float:left;margin-left: 15px;">                     
+         <select class="prov" id="province"></select>  
+         <select class="city" disabled="disabled" id="city"></select>  
+         <select class="dist" disabled="disabled" id="county"></select>  
+ 	</div>
+	</td>
+	<td align="left"><font size="1" color="red"><span id="sp2"></span></font></td>
+	</tr>
+
+	<tr><td align="center" colspan="3">
+	<input type="button" onclick="" value="确认">
+	</td></tr>
+	</table>
+	</form>
+</div>
+ <!-- 绑卡认证 -->       
+
+        
+ <script type="text/javascript">
+	function fun(){
+   	$(".xxd").show();
+	}
+	function funClose(){
+		$(".xxd").hide();
+	}
+</script>
+
+							
+<div class="xxd" style="display:none;position:absolute;left:40%;top:50%;width: 500px;">
+<form action="" method="post">
+	<table width="100%" cellspacing="0" cellpadding="0" bgcolor="#F9F9F9" class="yj">
+	<tr bgcolor="#333333"><td style="color:#FFFFFF;width: 230px"><font size="5">设置提款密码</font></td>
+	<td align="right" style="color:#FFFFFF">
+	<input type="button" onclick="funClose()"style="background:#333333;color:#FFFFFF" value="&nbsp;X&nbsp;" class="but">
+	</td></tr>
+	<tr><td align="right">提款密码：</td><td><input type="text" id="" name=""></td></tr>
+	<tr><td align="right">确认提款密码：</td><td><input type="text" id="" name=""></td></tr>
+	<tr><td align="center" colspan="2">
+	<a onclick="" href="javascript:;" class="renzheng">确认</a>
+	</td></tr>
+	</table>
+	</form>
+</div>
+							
 
 		<!-- --------------------------------------------我要提款----------------------------------------------------- -->
 
@@ -522,7 +752,7 @@ content_obj.eq(index_tab).show();
 							</tr>
 							<tr>
 								<td align="right">提款银行卡：</td>
-								<td><strong>工商银行-4367548974335648512</strong> <input
+								<td><strong >工商银行-4367548974335648512</strong> <input
 									type="hidden" id="withdrawBankCard" value="4367548974335648512"></td>
 							</tr>
 							<tr>
@@ -579,7 +809,7 @@ content_obj.eq(index_tab).show();
 				</pre>
 			</div>
 		</div>
-	</div>
+	</div>	
 </body>
 <script src="/p2p_project/frontStyle/js/security_changeloginpwd.js"></script>
 <script src="/p2p_project/frontStyle/js/security_withdrawpwd.js"></script>
