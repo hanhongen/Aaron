@@ -244,8 +244,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<td>${u.user_name }</td>
 									<td>${u.mobile_phone }</td>
 									<td><c:if test="${u.status==2}"><font color="red">删除</font></c:if>
-									<c:if test="${u.status==1}">正常</c:if> <c:if
-											test="${u.status==0}">禁用</c:if></td>
+									<c:if test="${u.status==1}">禁用</c:if> <c:if
+											test="${u.status==0}">正常</c:if></td>
 											
 									<td><c:if test="${u.del_flag==1}"><font color="red">以删除</font></c:if>
 									  <c:if test="${u.del_flag==0}">未删除</c:if>

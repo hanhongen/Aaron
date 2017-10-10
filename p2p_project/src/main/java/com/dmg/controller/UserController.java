@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.dmg.bean.News;
 
 import com.dmg.bean.Subject;
+import com.dmg.bean.User_role;
 import com.dmg.bean.Push_notice;
 
 import com.dmg.bean.Users;
@@ -32,7 +33,7 @@ public class UserController {
 	@Autowired
 	private Newsservice Newsservice;
 
-	// �����
+	// 锟斤拷锟斤拷锟�
 	@RequestMapping("/feedBacks/{id}")
 	public String feedbacks(Model model, @PathVariable("id") int id) {
 		Users user = userService.getUsersById(id);
@@ -40,14 +41,14 @@ public class UserController {
 		return "backJsp/feedbacks";
 	}
 
-	// ע��
+	// 注锟斤拷
 	@RequestMapping("/outlogin")
 	public String outlogin(HttpSession session) {
 		session.invalidate();
 		return "redirect:/user/index";
 	}
 
-	// �ص�ǰ̨��ҳ
+	// 锟截碉拷前台锟斤拷页
 	@RequestMapping("/toindex/{id}")
 	public String toindex(Model model, @PathVariable("id") int id) {
 		Users user = userService.getUsersById(id);
@@ -56,7 +57,7 @@ public class UserController {
 		return "index";
 	}
 
-	// ǰ̨��ҳ
+	// 前台锟斤拷页
 	@RequestMapping("/index")
 	public String index(Model model) {
 		List<Subject> sub = userService.showSubject();
@@ -71,7 +72,7 @@ public class UserController {
 		return "frontJsp/index";
 	}
 
-	// ��̨��ҳ
+	// 锟斤拷台锟斤拷页
 	@RequestMapping("/indexback/{id}")
 	public String indexback(Model model, @PathVariable("id") int id,HttpServletRequest request) {
 		Users user = userService.getUsersById(id);
@@ -82,19 +83,21 @@ public class UserController {
 		return "backJsp/indexback";
 	}
 
-	// �û�ע��
+	// 锟矫伙拷注锟斤拷
 	@RequestMapping("/register")
 	public String saveUser(Users users) {
-		users.setStatus(1);
-		users.setIdentity(0);
+		users.setStatus(0);
+		users.setIdentity(3);
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 		String date = sdf.format(new Date());
 		users.setCreate_date(date);
+		User_role ur=userService.getRoleByid(3);
+		users.setUser_role(ur);
 		userService.save(users);
-		return "frontJsp/index";
+		return "frontJsp/login";
 	}
 
-	// ��½
+	// 锟斤拷陆
 	@RequestMapping("login")
 	public String login(@RequestParam(required = false) String mobile_phone,
 			@RequestParam(required = false) String password, Model model) {
@@ -102,7 +105,7 @@ public class UserController {
 		if (mobile_phone != null && password != null) {
 			Users user = userService.getUsers(mobile_phone, password);
 			if (user == null) {
-				model.addAttribute("msg", "�˺Ż����벻��ȷ");
+				model.addAttribute("msg", "锟剿号伙拷锟斤拷锟诫不锟斤拷确");
 				flag = "frontJsp/login";
 			} else {
 				List<Subject> sub = userService.showSubject();

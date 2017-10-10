@@ -70,7 +70,9 @@
 					</dd>
 				</dl>
 				<div class="community">
+				<c:if test="${user.id==1}">
 				   <a href="/p2p_project/user/indexback/${user.id}" target="_blank" rel="nofollow" class="fc_white">进入后台</a>
+				</c:if>
 				</div>
 			</div>
 		</div>

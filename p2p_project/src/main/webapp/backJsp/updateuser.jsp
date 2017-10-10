@@ -194,24 +194,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="tablelist">
 					<form name="form1" action="/p2p_project/usersetting/update" id="form1" method="post">
 						<table class="table  tablebox">
-						<input type="hidden" name="id" value="${user.id}">
+						<input type="hidden" name="id" value="${users.id}">
+						<input type="hidden" name="create_date" value="${users.create_date}">
 							<tr class="text-center" bgcolor="#f7f7f7">
-								<td>姓    名：<input type="text" name="user_name" value="${user.user_name}"></td>
+								<td>姓    名：<input type="text" name="user_name" value="${users.user_name}"></td>
 						    <tr class="text-center" bgcolor="#f7f7f7">
 								<td>
-								   密    码：<input type="text" id="password" name="password" value="${user.password }">
+								   密    码：<input type="text" id="password" name="password" value="${users.password }">
 								</td>
 							</tr>
 							
 							<tr class="text-center" bgcolor="#f7f7f7">
-								<td>手机号：<input type="text" name="mobile_phone" value="${user.mobile_phone }"></td>
+								<td>手机号：<input type="text" name="mobile_phone" value="${users.mobile_phone }"></td>
 							</tr>
 							<tr class="text-center" bgcolor="#f7f7f7">
 								<td>
 								  角    色：<select id="identity" name="identity" style="width: 150px;height: 25px">
-								    <option value="-1"/>请选择角色
 									<c:forEach items="${list }" var="r">
-									  <option value="${r.id}"/>${r.cname}
+									  <option value="${r.id}" />${r.cname}
+									  
 									</c:forEach>
 								  </select>
 								</td>
@@ -219,8 +220,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								
 								<tr class="text-center" bgcolor="#f7f7f7">
 								<td>状   态：
-								  <input type="radio" name="status" value="0" ${user.status==0?"checked":""}>禁用&nbsp;
-								  <input type="radio" name="status" value="1" ${user.status==1?"checked":""}>正常
+								  <input type="radio" name="status" value="0" ${users.status==0?"checked":""}>正常&nbsp;
+								  <input type="radio" name="status" value="1" ${users.status==1?"checked":""}>禁用
 								</td>
 							</tr>
 							
