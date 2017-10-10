@@ -200,7 +200,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <td>${stat.index+1 }</td>
                             <td>${SPR.serial_number }</td>
                             <td>${SPR.member.mobile_phone }</td>
-                            <td>${SPR.member.member_name }</td>
+                            <td>${SPR.member.name }</td>
                             <td>${SPR.member.identity }</td>
                             <td>${SPR.amount }</td>
                             <td>

@@ -243,7 +243,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       <tr>
          <td>${lm.name }</td>
          <td>${lm.mobile_phone }</td>
-         <td>${lm.member_name }</td>
+         <td>${lm.name }</td>
          <td>${lm.identity }</td>
          <td>${lm.invitationcode }</td>
          <td>${lm.invitedcode }</td>

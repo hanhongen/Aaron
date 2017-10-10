@@ -221,7 +221,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                           <tr class="text-center">
                             <td>${stat.index+1 }</td>
                             <td>${lm.member.mobile_phone }</td>
-                            <td>${lm.member.member_name }</td>
+                            <td>${lm.member.name }</td>
                             <td>${lm.member.identity }</td>
                             <td>${lm.type} </td>
                             <td>${lm.card_no }</td>
@@ -232,7 +232,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </td>
                             <td>${lm.create_date }</td>
                             <td>
-                            <c:if test="${lm.delflag==0 }">该账号已绑卡,如解绑请点击<a href="/p2p_project/member_bankcards/updateflag/${lm.id}" onclick="return confirm('确认解绑用户${lm.member.member_name}的银行卡？');">解绑银行卡</a></c:if>
+                            <c:if test="${lm.delflag==0 }">该账号已绑卡,如解绑请点击<a href="/p2p_project/member_bankcards/updateflag/${lm.id}" onclick="return confirm('确认解绑用户${lm.member.name}的银行卡？');">解绑银行卡</a></c:if>
                             <c:if test="${lm.delflag==2 }"><nobr style="color: red">不能操作</nobr></c:if>
                             </td>
                           </tr>

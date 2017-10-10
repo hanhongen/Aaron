@@ -199,7 +199,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <td>${stat.index+1 }</td>
                             <td>${SBPR.serial_number }</td>
                             <td>${SBPR.member.mobile_phone }</td>
-                            <td>${SBPR.member.member_name }</td>
+                            <td>${SBPR.member.name }</td>
                             <td>${SBPR.member.identity}</td>
                             <td>${SBPR.amount }</td>
                             <td>${SBPR.interest }</td>
