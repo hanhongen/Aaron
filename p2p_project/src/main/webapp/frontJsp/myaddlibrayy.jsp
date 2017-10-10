@@ -113,16 +113,13 @@ border-color:#333333;
         <td align="left" valign="middle" class="info">
             <a href="#">
 <!--                 <div class="img"><img src="/resources/web/images/userPic.jpg"></div> -->
-                <h2><span>${user_name} 您好!</span></h2>
+                <h2><span>
+                <img src="/p2p_project/frontStyle/images/lt.png" width="60px" height="60px">&nbsp;
+                ${user_name} 您好!</span></h2>
             </a>
-            <div class="safe">账户安全&nbsp;&nbsp;<span class="scroll"><em style="width:75%"></em></span></div>
-            <ul class="listIco iconfont">
-                <li class="active"><a href="#1">&#xe61c;</a><em>&#xe61b;</em></li>
-                <li class="active"><a href="#1">&#xe61d;</a><em>&#xe61b;</em></li>
-                <!-- <li class=""><a href="#1">&#xe61f;</a><em>&#xe61b;</em></li> -->
-                <li class="active"><a href="#1">&#xe61a;</a><em>&#xe61b;</em></li>                                
-                <li class=""><a href="#1">&#xe61e;</a><em>&#xe61b;</em></li>
-            </ul>
+            <div class="safe">
+            <img src="/p2p_project/frontStyle/images/07.png" width="25px" height="25px">&nbsp;
+                                   账户安全&nbsp;&nbsp;<span class="scroll"><em style="width:75%"></em></span></div>
         </td>
         <td align="right">
             <a href="/p2p_project/user/outlogin" class="loginOut"><span class="iconfont">&#xe618;</span>安全退出</a>
@@ -145,15 +142,14 @@ border-color:#333333;
 <div class="adminLeft">
     <h2>我的投资</h2>
     <ul>
-        <li class="open"><a id="member_center_menu_invests" href="#"><em class="iconfont red">&#xe602;</em>投资记录</a></li>
-        <li class="close"><a id="member_center_menu_profit_record" href="#"><em class="iconfont red">&#xe616;</em>收益记录</a></li>
-        <li class="close"><a id="member_center_menu_deposit_record" href="#" onclick="query()"><em class="iconfont red">&#xe616;</em>充值记录</a></li>
-        <li class="close"><a id="member_center_menu_withdraw_record" href="#" onclick="tk()"><em class="iconfont red">&#xe616;</em>提款记录</a></li>
-        <li class="close"><a id="member_center_menu_bbinInfo_record" href="#"><em class="iconfont red">&#xe616;</em>体验金记录</a></li>    
-        <li class="close"><a id="member_center_menu_deposit" href="#" onclick="querycz()"><em class="iconfont red">&#xe614;</em>账户充值</a></li>
-        <li class="close"><a id="member_center_menu_security" href="#" onclick="checkRz()"><em class="iconfont red">&#xe612;</em>安全信息</a></li>
-        <li class="close"><a id="member_center_menu_withdraw" href="#"><em class="iconfont red">&#xe612;</em>我要提款</a></li>
-<!--    <li><a id="member_center_menu_financial" href="/account/financial"><em class="iconfont">&#xe612;</em>我是理财师</a></li> -->
+        <li class="open"><a id="member_center_menu_invests" href="#"><img src="/p2p_project/frontStyle/images/07.png" width="20px" height="20px">&nbsp;投资记录</a></li>
+        <li class="close"><a id="member_center_menu_profit_record" href="#"><img src="/p2p_project/frontStyle/images/08.png" width="20px" height="20px">&nbsp;收益记录</a></li>
+        <li class="close"><a id="member_center_menu_deposit_record" href="#" onclick="query()"><img src="/p2p_project/frontStyle/images/09.png" width="20px" height="20px">&nbsp;充值记录</a></li>
+        <li class="close"><a id="member_center_menu_withdraw_record" href="#" onclick="tk()"><img src="/p2p_project/frontStyle/images/10.png" width="20px" height="20px">&nbsp;提款记录</a></li>
+        <li class="close"><a id="member_center_menu_bbinInfo_record" href="#"><img src="/p2p_project/frontStyle/images/02.png" width="20px" height="20px">&nbsp;体验金记录</a></li>    
+        <li class="close"><a id="member_center_menu_deposit" href="#" onclick="querycz()"><img src="/p2p_project/frontStyle/images/04.png" width="20px" height="20px">&nbsp;账户充值</a></li>
+        <li class="close"><a id="member_center_menu_security" href="#" onclick="checkRz()"><img src="/p2p_project/frontStyle/images/01.png" width="20px" height="20px">&nbsp;安全信息</a></li>
+        <li class="close"><a id="member_center_menu_withdraw" href="#"><img src="/p2p_project/frontStyle/images/03.png" width="20px" height="20px">&nbsp;我要提款</a></li>
     </ul>
 </div>
 <script>
@@ -492,7 +488,9 @@ border-color:#333333;
                     <div class="box" style="display:block">
                     	<table class="safeTable" width="100%" border="0" cellspacing="0" cellpadding="0">
                           <tr>
-                          	<td class="first"><span class="iconfont active"><a href="#1">&#xe61c;</a><em>&#xe61b;</em></span></td>
+                          	<td class="first">
+                          	<img src="/p2p_project/frontStyle/images/01.png" width="40px" height="40px">
+                          	</td>
 	                        <td><p style="color:#ff503f">实名认证</p></td>
 	                        <td>
 	                        <p id="pcheck"></p>
@@ -504,29 +502,37 @@ border-color:#333333;
 	                        </td>	
                           </tr>
 							<tr>
-							<td class="first"><span class="iconfont active"><a href="#1">&#xe61c;</a><em>&#xe61b;</em></span></td>
+							<td class="first">
+							<img src="/p2p_project/frontStyle/images/03.png" width="40px" height="40px">
+							</td>
 							<td><p style="color:#ff503f">绑卡认证</p></td>
-							<td>未绑定银行卡</td>
+							<td><p id="bk1"></p></td>
 							<td><p style="color:#888">保障账户安全，只有完成绑卡认证才能充值提款</p></td>
 							<td>
-							<a href="#" onclick="funbk()" class="renzheng">绑定</a>
+							<a id="bk2"></a>
 							</td>					  
 							</tr>
                           <tr>
-                            <td class="first"><span class="iconfont active"><a href="#1">&#xe61d;</a><em>&#xe61b;</em></span></td>
+                            <td class="first">
+                            <img src="/p2p_project/frontStyle/images/04.png" width="40px" height="40px">
+                            </td>
                             <td><p style="color:#ff503f">绑定手机</p></td>
                             <td>1557111****</td>
                             <td><p style="color:#888">手机号码是您在盈+金融的重要身份凭证</p></td>
                             <td>绑定完成</td>
                           <tr>
-                            <td class="first"><span class="iconfont active"><a href="#1">&#xe61a;</a><em>&#xe61b;</em></span></td>
+                            <td class="first">
+                            <img src="/p2p_project/frontStyle/images/05.png" width="40px" height="40px">
+                            </td>
                             <td><p style="color:#ff503f">登录密码</p></td>
                             <td>已设置</td>
                             <td><p style="color:#888">登录盈+金融网站时需要输入的密码</p></td>
                             <td><a onclick="$('#changePWModal').modal(); return false;" href="javascript:;" class="renzheng">修改</a></td>
                           </tr>
                           <tr>
-	                        <td class="first"><span class="iconfont"><a href="#1">&#xe61e;</a><em>&#xe61b;</em></span></td>
+	                        <td class="first">
+	                        <img src="/p2p_project/frontStyle/images/06.png" width="40px" height="40px">
+	                        </td>
 	                        <td><p style="color:#ff503f">提款密码</p></td>
 	                        <td>未设置</td>
 	                        <td><p style="color:#888">保障资金安全，提款需要设置提款密码</p></td>
@@ -602,6 +608,8 @@ border-color:#333333;
 				$("#smrz").append(str);
 			}
 		});
+		//绑卡
+		checkBank();
 	}
 	
 </script>
@@ -642,9 +650,11 @@ border-color:#333333;
 	function bkClose(){
 		$(".bk").hide();
 	}
+	//调用省市级连模块
 	$(function(){
 	    $("#citySelect").citySelect(); 
 	});	
+	//初始化省市级连模块
 	$("#citySelect").citySelect({  
 	       nodata: "none",  
 	       required: false,  
@@ -653,12 +663,85 @@ border-color:#333333;
 	       dist:json.data.county  
 	 });
 	
+	function checkFormat(){
+		//银行类型
+		var name=$("#type").val();
+		alert(name);
+		//var IDCard = new RegExp(/^([1-9]{1})(\d{14}|\d{18})$/);
+		if(name==-1){
+			alert("请选择银行！");
+		}
+		if($("#card_no").val() == null || $("#card_no").val() == ''){
+			$("#kh").html("不能为空");
+			return false;
+		}
+		var length = $("#card_no").val().length;
+		if(length != 18){
+			$("#kh").html("必须等于18位");
+		}
+		//省
+		var province=$("#province").val();
+		//市
+		var city=$("#city").val();
+		//县
+		var county=$("#county").val();
+		
+		$.ajax({
+			type:'post',
+			url:'/p2p_project/member_bankcards/BankCard',
+			data:{
+				id:$("#hid").val(),
+				type:$("#type").val(),
+				card_no:$("#card_no").val(),
+				province:$("#province").val(),
+				city:$("#city").val(),
+				county:$("#county").val()
+			},
+			dataType:'json',
+			success:function(data){
+				if(data == true){
+					$(".bk").hide();
+					alert("绑卡成功!");
+					window.location.reload();
+				}else{
+					alert("绑卡失败!");
+				}
+			}
+		});
+		
+	}
+	
+	function checkBank(){
+		$.ajax({
+			type:'post',
+			url:'/p2p_project/member_bankcards/checkBank',
+			data:{
+				id:$("#hid").val()
+			},
+			dataType:'json',
+			success:function(data){
+				var str="";
+				var p="";
+				if(data==1){
+					p+="<p style='font-size: 1px; color:green'>用户已绑卡</p>";
+					str+="<a href='#' class='renzheng' >已绑卡</a>";
+				}
+				if(data==0){
+					p+="<p style='font-size: 1px; color:red'>用户未绑卡</p>";
+					str+="<a href='#' class='renzheng' onclick='checkFormat()'>绑卡</a>";
+				}
+				$("#bk1").append(p);
+				$("#bk2").append(str);
+			}
+		});
+	}
+	
 </script>
 <!-- 绑卡认证 -->
 <div class="bk" style="display:none;position:absolute;left:40%;top:50%;width: 500px;height: 600px">
 <form action="" method="post">
 	<table width="100%" cellspacing="0" cellpadding="0" bgcolor="#F9F9F9" class="yj">
-	<tr bgcolor="#333333"><td style="color:#FFFFFF;width: 230px"><font size="5">用户实名认证</font></td>
+	<tr bgcolor="#333333"><td style="color:#FFFFFF;width: 230px"><font size="5">用户绑卡</font></td>
 	<td align="right" style="color:#FFFFFF" colspan="2">
 	<input type="button" onclick="bkClose()"style="background:#333333;color:#FFFFFF" value="&nbsp;X&nbsp;" class="but">
 	</td></tr>
@@ -667,14 +750,15 @@ border-color:#333333;
 	<td align="right">银行卡类型：</td>
 	<td>
 	<select id="type" name="type">
-		<option id="农业银行">农业银行</option>
-		<option id="建设银行">建设银行</option>
-		<option id="工商银行">工商银行</option>
-		<option id="邮政储蓄">邮政储蓄</option>
-		<option id="华夏银行">华夏银行</option>
-		<option id="农商银行">农商银行</option>
-		<option id="湖北银行">湖北银行</option>
-		<option id="浦发银行">浦发银行</option>
+		<option value="-1">请选择--</option>
+		<option value="农业银行">农业银行</option>
+		<option value="建设银行">建设银行</option>
+		<option value="工商银行">工商银行</option>
+		<option value="邮政储蓄">邮政储蓄</option>
+		<option value="华夏银行">华夏银行</option>
+		<option value="农商银行">农商银行</option>
+		<option value="湖北银行">湖北银行</option>
+		<option value="浦发银行">浦发银行</option>
 	</select>
 	</td>
 	<td align="left"><font size="1" color="red"><span id="sp1"></span></font></td>
@@ -683,14 +767,16 @@ border-color:#333333;
 	<tr>
 	<td align="right">卡号：</td>
 	<td><input type="text" id="card_no" name="card_no"></td>
-	<td align="left"><font size="1" color="red"><span id="sp2"></span></font></td>
+	<td align="left"><font size="1" color="red"><span id="kh"></span></font></td>
 	</tr>
 
 	<tr>
 	<td align="right">开户行所在地：</td>
 	<td>
 	<div id="citySelect"  style="float:left;margin-left: 15px;">                     
-         <select class="prov" id="province"></select>  
+         <select class="prov" id="province">
+         <option value="-1">请选择</option>
+         </select>  
          <select class="city" disabled="disabled" id="city"></select>  
          <select class="dist" disabled="disabled" id="county"></select>  
  	</div>
@@ -699,7 +785,7 @@ border-color:#333333;
 	</tr>
 
 	<tr><td align="center" colspan="3">
-	<input type="button" onclick="" value="确认">
+	<input type="button" onclick="checkFormat()" value="确认">
 	</td></tr>
 	</table>
 	</form>

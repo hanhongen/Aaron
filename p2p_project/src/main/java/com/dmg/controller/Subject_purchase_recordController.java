@@ -41,19 +41,24 @@ public class Subject_purchase_recordController {
 	}
 	
 	@RequestMapping("/listSubject_purchase_records/{id}/{user_name}")
-	public String listSubject_purchase_records(Model model,@PathVariable("id")int id,@PathVariable("user_name")String user_name,HttpServletRequest request){
+	public String listSubject_purchase_records(Model model,@PathVariable("id")int uid,@PathVariable("user_name")String user_name,HttpServletRequest request){
 		System.out.println("listSubject_purchase_records---------------------------------");
 		//这里得id为user表的id
-		System.out.println("listSubject_purchase_records--"+id);		
+		System.out.println("listSubject_purchase_records--"+uid);		
 		System.out.println("listSubject_purchase_records--"+user_name);
+		//该方法解决一些历史遗留的问题，使用user表的id，在member中查询出member表的id，以此解决问题
+		int mid=memberService.correct(uid);
+		
+		System.out.println("通过user的id："+uid+"查询出member表的id为:"+mid);
+		
 		//投资记录
-		List<Subject_purchase_record> listSPR = subject_purchase_recordService.listSubject_purchase_record(id);
+		List<Subject_purchase_record> listSPR = subject_purchase_recordService.listSubject_purchase_record(mid);
 		//查询个人投资记录的次数
-		int count = subject_purchase_recordService.countSubject_purchase_record(id);
+		int count = subject_purchase_recordService.countSubject_purchase_record(mid);
 		//标的订单表
-		List<Subject_order_record> listsor = subject_order_recordService.listSubject_order_record(id);
+		List<Subject_order_record> listsor = subject_order_recordService.listSubject_order_record(mid);
 		//标的订单表记录数
-		int count2 = subject_order_recordService.countSubject_order_record(id);
+		int count2 = subject_order_recordService.countSubject_order_record(mid);
 		
 		model.addAttribute("listSPR", listSPR);
 		model.addAttribute("count", count);
@@ -117,7 +122,7 @@ public class Subject_purchase_recordController {
 			
 		}
 		
-		model.addAttribute("id", id);
+		model.addAttribute("id", mid);
 		model.addAttribute("user_name", user_name);
 		
 		/**
@@ -127,7 +132,7 @@ public class Subject_purchase_recordController {
 		 * 冻结金额(元)
 		 * 所查表：member_account(成员账户表)
 		 */
-		List<Member_account> ma=member_accountService.listMember_account(id);
+		List<Member_account> ma=member_accountService.listMember_account(mid);
 		model.addAttribute("ma", ma);
 		
 //		HttpSession session = request.getSession();

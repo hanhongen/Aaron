@@ -22,9 +22,9 @@
         // 默认值
         settings = $.extend({
             url: "/p2p_project/frontStyle/js/city.min.js",
-            prov: null,
-            city: null,
-            dist: null,
+            prov: '北京',
+            city: '',
+            dist: '',
             nodata: null,
             required: true
         }, settings);
