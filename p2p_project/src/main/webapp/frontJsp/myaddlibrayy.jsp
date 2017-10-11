@@ -126,18 +126,48 @@ border-color:#333333;
         </td>
     </tr>
 </table>
+<script type="text/javascript">
+$(document).ready(function(){
+	$.ajax({
+		type:'post',
+		url:'/p2p_project/member_account/selectAmount',
+		data:{
+			id:$("#hid").val()
+		},
+		dataType:'json',
+		success:function(data){
+			var h1 = "";
+			var h2 = "";
+			var h3 = "";
+			var h4 = "";
+			var h5 = "";
+			h1 += "<h2>"+data.useable_balance+"</h2>"; 
+			h2 += "<h2>暂无</h2>";
+			h3 += "<h2>"+data.invest_amount+"</h2>"; 
+			h4 += "<h2>"+data.totl_profit+"</h2>"; 
+			h5 += "<h2>"+data.imuseale_balance+"</h2>"; 
+			$("#h1").append(h1);
+			$("#h2").append(h2);
+			$("#h3").append(h3);
+			$("#h4").append(h4);
+			$("#h5").append(h5);
+			
+		} 
+	});  
+}); 
+</script>
 <div class="countBox">
     <ul>
-    <c:forEach items="${ma }" var="m">
-        <li><h2>${m.useable_balance }</h2><p>账户可用余额(元)<a href="javascript:;" class="iconfont">&#xe619;<span>账户可用余额</span><i></i></a></p></li>
-        <li><h2 style="color:#9d8440">${m.invest_amount }</h2><p>投资金额(元)<a href="javascript:;" class="iconfont">&#xe619;<span>投资总资金</span><i></i></a></p></li>
-        <li><h2 style="color:#9d8440">${m.totl_profit }</h2><p>累计收益(元)<a href="javascript:;" class="iconfont">&#xe619;<span>累计收益</span><i></i></a></p></li>
-        <li><h2 style="color:#9d8440">${m.imuseale_balance }</h2><p>冻结金额(元)<a href="javascript:;" class="iconfont">&#xe619;<span>提现冻结金额</span><i></i></a></p></li>
-   </c:forEach>
+        <li><h2 id="h1">0</h2><p>账户可用余额(元)<a href="javascript:;" class="iconfont">&#xe619;<span>账户可用余额</span><i></i></a></p></li>
+        <li><h2 id="h2">0</h2><p>账户总资产(元)<a href="javascript:;" class="iconfont">&#xe619;<span>可用余额+投资金额+累计收益</span><i></i></a></p></li>
+        <li><h2 id="h3" style="color:#9d8440">0</h2><p>投资金额(元)<a href="javascript:;" class="iconfont">&#xe619;<span>投资中资金</span><i></i></a></p></li>
+        <li><h2 id="h4" style="color:#9d8440">0</h2><p>累计收益(元)<a href="javascript:;" class="iconfont">&#xe619;<span>累计收益</span><i></i></a></p></li>
+        <li><h2 id="h5" style="color:#9d8440">0</h2><p>冻结金额(元)<a href="javascript:;" class="iconfont">&#xe619;<span>冻结金额</span><i></i></a></p></li>
     </ul>
-    <a href="/account/deposit" class="cz">充值</a>
-    <a href="/account/withdraw" class="tk">提款</a>
-</div>    
+    <a href="#" class="cz">充值</a>
+    <a href="#" class="tk">提款</a>
+</div> 
+
 <div class="proMain clearfix">
 <div class="adminLeft">
     <h2>我的投资</h2>
@@ -149,7 +179,7 @@ border-color:#333333;
         <li class="close"><a id="member_center_menu_bbinInfo_record" href="#"><img src="/p2p_project/frontStyle/images/02.png" width="20px" height="20px">&nbsp;体验金记录</a></li>    
         <li class="close"><a id="member_center_menu_deposit" href="#" onclick="querycz()"><img src="/p2p_project/frontStyle/images/04.png" width="20px" height="20px">&nbsp;账户充值</a></li>
         <li class="close"><a id="member_center_menu_security" href="#" onclick="checkRz()"><img src="/p2p_project/frontStyle/images/01.png" width="20px" height="20px">&nbsp;安全信息</a></li>
-        <li class="close"><a id="member_center_menu_withdraw" href="#"><img src="/p2p_project/frontStyle/images/03.png" width="20px" height="20px">&nbsp;我要提款</a></li>
+        <li class="close"><a id="member_center_menu_withdraw" href="#" onclick="tkCard()"><img src="/p2p_project/frontStyle/images/03.png" width="20px" height="20px">&nbsp;我要提款</a></li>
     </ul>
 </div>
 <script>
@@ -487,20 +517,15 @@ border-color:#333333;
                 <div id="conBox">
                     <div class="box" style="display:block">
                     	<table class="safeTable" width="100%" border="0" cellspacing="0" cellpadding="0">
-                          <tr>
+							<tr>
                           	<td class="first">
                           	<img src="/p2p_project/frontStyle/images/01.png" width="40px" height="40px">
                           	</td>
 	                        <td><p style="color:#ff503f">实名认证</p></td>
-	                        <td>
-	                        <p id="pcheck"></p>
-	                        </td>
+	                        <td><p id="pcheck"></p></td>
 	                        <td><p style="color:#888">保障账户安全，只有完成实名认证才能充值提款</p></td>
-	                        <td>
-	                        <td>
-	                        <a id="smrz"></a>
-	                        </td>	
-                          </tr>
+	                        <td><a id="smrz"></a></td>	
+                            </tr>
 							<tr>
 							<td class="first">
 							<img src="/p2p_project/frontStyle/images/03.png" width="40px" height="40px">
@@ -517,9 +542,9 @@ border-color:#333333;
                             <img src="/p2p_project/frontStyle/images/04.png" width="40px" height="40px">
                             </td>
                             <td><p style="color:#ff503f">绑定手机</p></td>
-                            <td>1557111****</td>
+                            <td><p id="Pphone"></p></td>
                             <td><p style="color:#888">手机号码是您在盈+金融的重要身份凭证</p></td>
-                            <td>绑定完成</td>
+                            <td><a id="Aphone"></a></td>
                           <tr>
                             <td class="first">
                             <img src="/p2p_project/frontStyle/images/05.png" width="40px" height="40px">
@@ -527,16 +552,16 @@ border-color:#333333;
                             <td><p style="color:#ff503f">登录密码</p></td>
                             <td>已设置</td>
                             <td><p style="color:#888">登录盈+金融网站时需要输入的密码</p></td>
-                            <td><a onclick="$('#changePWModal').modal(); return false;" href="javascript:;" class="renzheng">修改</a></td>
+                            <td><a onclick="funPwd()" href="#" class="renzheng">修改</a></td>
                           </tr>
                           <tr>
 	                        <td class="first">
 	                        <img src="/p2p_project/frontStyle/images/06.png" width="40px" height="40px">
 	                        </td>
 	                        <td><p style="color:#ff503f">提款密码</p></td>
-	                        <td>未设置</td>
+	                        <td><p id="ptk"></p></td>
 	                        <td><p style="color:#888">保障资金安全，提款需要设置提款密码</p></td>
-	                        <td><a onclick="fun()" href="javascript:;" class="renzheng">设置</a></td>								
+	                        <td><a id="atk"></a></td>								
                           </tr>
                         </table>
                     </div>
@@ -597,19 +622,24 @@ border-color:#333333;
 				var str="";
 				var p="";
 				if(data==1){
-					p+="<p style='font-size: 1px; color:green'>用户已认证</p>";
+					p+="<p style='font-size: 1px; color:green'>已认证</p>";
 					str+="<a href='#' class='renzheng' >已认证</a>";
 				}
 				if(data==0){
-					p+="<p style='font-size: 1px; color:red'>用户未认证</p>";
+					p+="<p style='font-size: 1px; color:red'>未认证</p>";
 					str+="<a href='#' class='renzheng' onclick='funRz()'>认证</a>";
 				}
+				
 				$("#pcheck").append(p);
 				$("#smrz").append(str);
 			}
 		});
 		//绑卡
 		checkBank();
+		//绑定手机号
+		checkPhone();
+		//提款密码
+		checkPwd();
 	}
 	
 </script>
@@ -666,7 +696,6 @@ border-color:#333333;
 	function checkFormat(){
 		//银行类型
 		var name=$("#type").val();
-		alert(name);
 		//var IDCard = new RegExp(/^([1-9]{1})(\d{14}|\d{18})$/);
 		if(name==-1){
 			alert("请选择银行！");
@@ -723,12 +752,12 @@ border-color:#333333;
 				var str="";
 				var p="";
 				if(data==1){
-					p+="<p style='font-size: 1px; color:green'>用户已绑卡</p>";
+					p+="<p style='font-size: 1px; color:green'>已绑卡</p>";
 					str+="<a href='#' class='renzheng' >已绑卡</a>";
 				}
 				if(data==0){
-					p+="<p style='font-size: 1px; color:red'>用户未绑卡</p>";
-					str+="<a href='#' class='renzheng' onclick='checkFormat()'>绑卡</a>";
+					p+="<p style='font-size: 1px; color:red'>未绑卡</p>";
+					str+="<a href='#' class='renzheng' onclick='funbk()'>绑卡</a>";
 				}
 				$("#bk1").append(p);
 				$("#bk2").append(str);
@@ -791,29 +820,342 @@ border-color:#333333;
 	</form>
 </div>
  <!-- 绑卡认证 -->       
+<!-- -------------------------------------------------------------绑定手机号------------------------------------------------------------- -->
+<script type="text/javascript">
+	function funPhone(){
+   		$(".phone").show();
+	}
+	function closePhone(){
+		$(".phone").hide();
+	}
 
-        
- <script type="text/javascript">
-	function fun(){
-   	$(".xxd").show();
+	function checkPhone(){
+	//检查用户是否绑定手机号
+	$.ajax({
+		type:'post',
+		url:'/p2p_project/member/checkPhone',
+		data:{
+			id:$("#hid").val()
+		},
+		dataType:'json',
+		success:function(data){
+			var p="";
+			var a="";
+			if(data == 1){//已绑定
+				p+="<p style='font-size: 1px; color:green'>已绑定</p>";
+				a+="<a href='#' class='renzheng' >已绑定</a>";
+			}
+			if(data == 0){//未绑定
+				p+="<p style='font-size: 1px; color:red'>未绑定</p>";
+				a+="<a href='#' class='renzheng' onclick='funPhone()'>绑定</a>";
+			}
+			$("#Pphone").append(p);
+			$("#Aphone").append(a);
+		}
+	});
+}
+	//绑定手机号
+	function bdPhone(){
+		alert("bdPhone")
+		alert($("#mobile_phone").val());
+		if($("#mobile_phone").val().length != 11){
+			$("#phone").html("必须等于11位");
+		}
+		if($("#mobile_phone").val() == null || $("#mobile_phone").val() == ''){
+			$("#phone").html("不能为空");
+		}
+		
+		$.ajax({
+			type:'post',
+			url:'/p2p_project/member/bdPhone',
+			data:{
+				id:$("#hid").val(),
+				phone:$("#mobile_phone").val()
+			},
+			dataType:'json',
+			success:function(data){
+				if(data == 1){
+					$(".phone").hide();
+					alert("绑定手机号成功!");
+					window.location.reload();
+				}
+				if(data == 0){
+					alert("绑定手机号失败!");
+				}
+			}
+		});
 	}
-	function funClose(){
-		$(".xxd").hide();
-	}
+
 </script>
+<div class="phone" style="display:none;position:absolute;left:40%;top:50%;width: 500px;">
+<form action="" method="post">
+	<table width="100%" cellspacing="0" cellpadding="0" bgcolor="#F9F9F9" class="yj">
+	<tr bgcolor="#333333"><td style="color:#FFFFFF;width: 230px"><font size="5">用户手机号绑定</font></td>
+	<td align="right" style="color:#FFFFFF" colspan="2">
+	<input type="button" onclick="closePhone()"style="background:#333333;color:#FFFFFF" value="&nbsp;X&nbsp;" class="but">
+	</td></tr>
+	
+	<tr>
+	<td align="right">手机号：</td>
+	<td><input type="text" id="mobile_phone" name="mobile_phone"></td>
+	<td align="left"><font size="1" color="red"><span id="phone"></span></font></td>
+	</tr>
+	
+	<tr><td align="center" colspan="3">
+	<input type="button" onclick="bdPhone()" value="确认">
+	</td></tr>
+	</table>
+	</form>
+</div>
 
-							
-<div class="xxd" style="display:none;position:absolute;left:40%;top:50%;width: 500px;">
+<!-- -----------------------------------------------------------------修改密码----------------------------------------------------------------- -->
+<script type="text/javascript">
+	function funPwd(){
+   	$(".pwd").show();
+	}
+	function closePwd(){
+		$(".pwd").hide();
+	}
+	//验证旧密码
+	function checkpwd(){
+		if($("#password").val() == null || $("#password").val() == ''){
+			$("#pwd").html("旧密码不能为空");
+		}
+		if($("#password").val().length != 6){
+			$("#pwd").html("大于等于6位");
+		}
+	}
+	//验证新密码
+	function checkNewPwd(){
+		if($("#newpassword").val() == null || $("#newpassword").val() == ''){
+			$("#newpwd").html("新密码不能为空");
+		}
+		if($("#newpassword").val().length != 6){
+			$("#newpwd").html("大于等于6位");
+		}
+	}
+	//判断新密码两次输入的相同性
+	function checkTwoNewPwd(){
+		if($("#newpassword2").val() == null || $("#newpassword2").val() == ''){
+			$("#newpwd2").html("不能为空");
+		}
+		if($("#newpassword2").val().length != 6){
+			$("#newpwd2").html("大于等于6位");
+		}
+		if($("#newpassword").val() != $("#newpassword2").val()){
+			alert("两次输入的新密码不一致！");
+			return false;
+		}
+		if($("#password").val() == $("#newpassword2").val()){
+			alert("新密码和旧密码不能一致！");
+			return false;
+		}
+		$.ajax({
+			type:'post',
+			url:'/p2p_project/member/updatePwd',
+			data:{
+				id:$("#hid").val(),
+				pwd:$("#newpassword2").val()
+			},
+			dataType:'json',
+			success:function(data){
+				if(data == 1){
+					$(".pwd").hide();
+					alert("密码修改完毕！");
+					window.location.reload();
+				}else{
+					alert("密码修改失败！");
+				}
+			}
+		});
+		
+	}
+	
+</script>
+<div class="pwd" style="display:none;position:absolute;left:40%;top:50%;width: 500px;">
+<form action="" method="post">
+	<table width="100%" cellspacing="0" cellpadding="0" bgcolor="#F9F9F9" class="yj">
+	<tr bgcolor="#333333"><td style="color:#FFFFFF;width: 230px"><font size="5">用户密码修改</font></td>
+	<td align="right" style="color:#FFFFFF" colspan="2">
+	<input type="button" onclick="closePwd()"style="background:#333333;color:#FFFFFF" value="&nbsp;X&nbsp;" class="but">
+	</td></tr>
+	
+	<tr>
+	<td align="right">旧密码：</td>
+	<td><input type="password" id="password" name="password"></td>
+	<td align="left"><font size="1" color="red"><span id="pwd"></span></font></td>
+	</tr>
+	
+	<tr>
+	<td align="right">新密码：</td>
+	<td><input type="password" id="newpassword" name="newpassword" onclick="checkpwd()"></td>
+	<td align="left"><font size="1" color="red"><span id="newpwd"></span></font></td>
+	</tr>
+	
+		<tr>
+	<td align="right">确认新密码：</td>
+	<td><input type="password" id="newpassword2" name="newpassword2" onclick="checkNewPwd()"></td>
+	<td align="left"><font size="1" color="red"><span id="newpwd2"></span></font></td>
+	</tr>
+	
+	<tr><td align="center" colspan="3">
+	<input type="button" onclick="checkTwoNewPwd()" value="确认">
+	</td></tr>
+	</table>
+	</form>
+</div>
+
+<!-- -----------------------------------------------------------------设置提款密码--------------------------------------------------------------- -->       
+ <script type="text/javascript">
+	function funTkPwd(){
+   	$(".tikuanpwd").show();
+	}
+	function CloseTkPwd(){
+	$(".tikuanpwd").hide();
+	}
+	
+	function funTkPwd2(){
+	$(".tikuanpwd2").show();
+	}
+	function CloseTkPwd2(){
+	$(".tikuanpwd2").hide();
+	}
+	
+	function checkNull(){
+		if($("#wp1").val() == null || $("#wp1").val() == ''){
+			$("#tkpwd1").html("不能为空");
+		}
+		if($("#wp1").val().length != 6){
+			$("#tkpwd1").html("大于等于6位");
+		}
+	}
+	
+	function checkWpNull(){
+		if($("#wp").val() == null || $("#wp").val() == ''){
+			$("#tkpwd").html("不能为空");
+		}
+		if($("#wp").val().length != 6){
+			$("#tkpwd").html("大于等于6位");
+		}
+	}
+	
+	//判断新密码两次输入的相同性
+	function checkTwoNewPwd(){
+		if($("#wp").val() == $("#wp2").val()){
+			alert("新密码和旧密码不能一致！");
+			return false;
+		}
+		if($("#wp2").val() == null || $("#wp2").val() == ''){
+			$("#tkpwd2").html("不能为空");
+		}
+		if($("#wp2").val().length != 6){
+			$("#tkpwd2").html("大于等于6位");
+		}
+		if($("#wp1").val() != $("#wp2").val()){
+			alert("两次输入的新密码不一致！");
+			return false;
+		}
+		
+		$.ajax({
+			type:'post',
+			url:'/p2p_project/member/updateTkPwd',
+			data:{
+				id:$("#hid").val(),
+				pwd:$("#wp2").val()
+			},
+			dataType:'json',
+			success:function(data){
+				if(data == 1){
+					$(".tikuanpwd").hide();
+					alert("提款密码修改完毕！");
+					window.location.reload();
+				}else{
+					alert("提款密码修改失败！");
+				}
+			}
+		});		
+	}
+
+	//检查是否设置提款密码
+	function checkPwd(){
+		$.ajax({
+			type:'post',
+			url:'/p2p_project/member/checkTkpwd',
+			data:{
+				id:$("#hid").val()
+			},
+			dataType:'json',
+			success:function(data){
+				var p="";
+				var a="";
+				if(data == 1){//已绑定
+					p+="<p style='font-size: 1px; color:green'>已设置</p>";
+					a+="<a href='#' class='renzheng' onclick='funTkPwd2()'>修改</a>";
+				}
+				if(data == 0){//未绑定
+					p+="<p style='font-size: 1px; color:red'>未设置</p>";
+					a+="<a href='#' class='renzheng' onclick='funTkPwd()'>修改</a>";
+				}
+				$("#ptk").append(p);
+				$("#atk").append(a);
+			}
+		});		
+	}
+	
+</script>
+<!-- 未设置提款密码的情况下 -->
+<div class="tikuanpwd" style="display:none;position:absolute;left:40%;top:50%;width: 500px;">
 <form action="" method="post">
 	<table width="100%" cellspacing="0" cellpadding="0" bgcolor="#F9F9F9" class="yj">
 	<tr bgcolor="#333333"><td style="color:#FFFFFF;width: 230px"><font size="5">设置提款密码</font></td>
-	<td align="right" style="color:#FFFFFF">
-	<input type="button" onclick="funClose()"style="background:#333333;color:#FFFFFF" value="&nbsp;X&nbsp;" class="but">
+	<td align="right" style="color:#FFFFFF" colspan="2">
+	<input type="button" onclick="CloseTkPwd()"style="background:#333333;color:#FFFFFF" value="&nbsp;X&nbsp;" class="but">
 	</td></tr>
-	<tr><td align="right">提款密码：</td><td><input type="text" id="" name=""></td></tr>
-	<tr><td align="right">确认提款密码：</td><td><input type="text" id="" name=""></td></tr>
-	<tr><td align="center" colspan="2">
-	<a onclick="" href="javascript:;" class="renzheng">确认</a>
+	
+	<tr>
+	<td align="right">提款密码：</td>
+	<td><input type="password" id="wp1" name="wp1"></td>
+	<td align="left"><font size="1" color="red"><span id="tkpwd1"></span></font></td>
+	</tr>
+	<tr>
+	<td align="right">确认提款密码：</td>
+	<td><input type="password" id="wp2" name="wp2" onclick="checkNull()"></td>
+	<td align="left"><font size="1" color="red"><span id="tkpwd2"></span></font></td>
+	</tr>
+	
+	<tr><td align="center" colspan="3">
+	<input type="button" onclick="checkTwoNewPwd()" value="确认">
+	</td></tr>
+	</table>
+	</form>
+</div>
+<!-- 已设置提款密码的情况下 -->
+<div class="tikuanpwd2" style="display:none;position:absolute;left:40%;top:50%;width: 500px;">
+<form action="" method="post">
+	<table width="100%" cellspacing="0" cellpadding="0" bgcolor="#F9F9F9" class="yj">
+	<tr bgcolor="#333333"><td style="color:#FFFFFF;width: 230px"><font size="5">设置提款密码</font></td>
+	<td align="right" style="color:#FFFFFF" colspan="2">
+	<input type="button" onclick="CloseTkPwd2()"style="background:#333333;color:#FFFFFF" value="&nbsp;X&nbsp;" class="but">
+	</td></tr>
+		<tr>
+	<td align="right">旧的提款密码：</td>
+	<td><input type="password" id="wp" name="wp"></td>
+	<td align="left"><font size="1" color="red"><span id="tkpwd"></span></font></td>
+	</tr>
+	<tr>
+	<tr>
+	<td align="right">提款密码：</td>
+	<td><input type="password" id="wp1" name="wp1" onclick="checkWpNull()"></td>
+	<td align="left"><font size="1" color="red"><span id="tkpwd1"></span></font></td>
+	</tr>
+	<tr>
+	<td align="right">确认提款密码：</td>
+	<td><input type="password" id="wp2" name="wp2" onclick="checkNull()"></td>
+	<td align="left"><font size="1" color="red"><span id="tkpwd2"></span></font></td>
+	</tr>
+	
+	<tr><td align="center" colspan="3">
+	<input type="button" onclick="checkTwoNewPwd()" value="确认">
 	</td></tr>
 	</table>
 	</form>
@@ -821,7 +1163,36 @@ border-color:#333333;
 							
 
 		<!-- --------------------------------------------我要提款----------------------------------------------------- -->
+		<script type="text/javascript">
+		//点击按钮触发  查询银行和银行卡号
+		function tkCard(){
+			ajaxTk();
+		}
+		function ajaxTk(){
+			$.ajax({
+				type:"post",
+				url:"/p2p_project/member_bankcards/listmb",
+				data:"id="+$("#hid").val(),
+				dataType:"json",
+				success:function(data){
+					showTk(data);
+				}
+			});
+		}
+		function showTk(data){
+			var str="";
+			var meid="";
+			for(var i=0;i<data.length;i++){
+				str+="<strong>"+data[i].type+"-"+data[i].card_no+"</strong>";
+				meid+="<p>"+data[i].member.id+"</p>";
+			}
+			$("#tkCard1").append(str);
+			$("#tkCard2").append(meid);
+		}
+		
 
+		
+		</script>
 		<div class="admin-right" style="display: none">
 			<div class="tbConBox">
 				<div class="tab">
@@ -838,8 +1209,10 @@ border-color:#333333;
 							</tr>
 							<tr>
 								<td align="right">提款银行卡：</td>
-								<td><strong >工商银行-4367548974335648512</strong> <input
-									type="hidden" id="withdrawBankCard" value="4367548974335648512"></td>
+								<td>
+								<strong id="tkCard1"></strong>
+								<div style="display: none"><p id="tkCard2"></p></div>
+								</td>
 							</tr>
 							<tr>
 								<td align="right">提款金额：</td>

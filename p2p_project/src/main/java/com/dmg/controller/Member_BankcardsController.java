@@ -85,13 +85,14 @@ public class Member_BankcardsController {
 	@ResponseBody
 	public String checkBank(HttpServletRequest request){
 		System.out.println("");
-		String i = request.getParameter("id");//user的id
+		String i = request.getParameter("id");//member的id
 		System.out.println("userID:"+i);
 		//通过userID得到memberID
 		int ii=Integer.valueOf(i);
-		int id = memberDao.correct(ii);
-		System.out.println("通过userID得到memberID:"+id);
-		String flag = member_BankcardsService.checkMember_bankcards(id);
+		//int id = memberDao.correctTwo(ii);
+
+		//System.out.println("通过userID得到memberID:"+id);
+		String flag = member_BankcardsService.checkMember_bankcards(ii);
 		return flag;
 	}
 	//用户绑卡操作
@@ -127,8 +128,9 @@ public class Member_BankcardsController {
 		member_bankcards.setType(type);
 		//通过userID得到memberID
 		int ii=Integer.valueOf(i);
-		int id = memberDao.correct(ii);
-		Member member= memberDao.getMemberId(id);
+		System.out.println("bank----:"+ii);
+		//int id = memberDao.correct(ii);
+		Member member= memberDao.getMemberId(ii);
 		member_bankcards.setMember(member);
 		//将绑卡信息写入数据库
 		boolean flag = member_BankcardsService.saveBankCard(member_bankcards);

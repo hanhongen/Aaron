@@ -20,10 +20,20 @@ public class Member_accountService {
 		return list;
 	}
 	
+	/**
+	 * 账户可用余额
+	 * 投资金额(元)
+	 * 累计收益(元)
+	 * 冻结金额(元)
+	 * 所查表：member_account(成员账户表)
+	 */
+	public Member_account listma(int id){
+		Member_account member_account = member_accountDao.listma(id);
+		return member_account;
+	}
 	
 	public List<Member_account> listMember_account(int id){
-		List<Member_account> list = member_accountDao.listMember_account(id);
-		return list;
+		return member_accountDao.listMember_account(id);
 	}
 	
 	//鏍规嵁id淇敼璐︽埛鍙敤浣欓锛屾洿鏂版湰鏉℃暟鎹慨鏀规椂闂�

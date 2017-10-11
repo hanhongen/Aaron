@@ -125,15 +125,6 @@ public class Subject_purchase_recordController {
 		model.addAttribute("id", mid);
 		model.addAttribute("user_name", user_name);
 		
-		/**
-		 * 账户可用余额
-		 * 投资金额(元)
-		 * 累计收益(元)
-		 * 冻结金额(元)
-		 * 所查表：member_account(成员账户表)
-		 */
-		List<Member_account> ma=member_accountService.listMember_account(mid);
-		model.addAttribute("ma", ma);
 		
 //		HttpSession session = request.getSession();
 //		session.setAttribute("SPRid", id);

@@ -105,6 +105,91 @@ public class MemberController {
 		}
 		return str;
 	}
+	//检查手机号是否绑定
+	@RequestMapping(value="checkPhone",method=RequestMethod.POST)
+	@ResponseBody
+	public String checkPhone(HttpServletRequest request){
+		System.out.println("checkPhone-start");
+		String i = request.getParameter("id");
+		int id = Integer.valueOf(i);
+		System.out.println("checkPhoneID:"+id);
+		String check = memberService.checkPhone(id);
+		System.out.println("checkPhone-stop");
+		return check;
+	}
 	
+	//绑定手机号
+	@RequestMapping(value="bdPhone",method=RequestMethod.POST)
+	@ResponseBody
+	public String bdPhone(HttpServletRequest request){
+		System.out.println("bdPhone-start");
+		String i = request.getParameter("id");
+		String phone = request.getParameter("phone");
+		int id = Integer.valueOf(i);
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		String time = sdf.format(new Date().getTime());
 
+		
+		boolean flag=memberService.bdPhone(id, phone,time);
+		String str="";
+		if (flag == true) {
+			str="1";
+		} else {
+			str="0";
+		}
+		System.out.println("bdPhone-stop");
+		return str;
+	}
+
+	//修改密码
+	@RequestMapping(value="updatePwd",method=RequestMethod.POST)
+	@ResponseBody
+	public String updatePwd(HttpServletRequest request){
+		String i=request.getParameter("id");
+		int id=Integer.valueOf(i);
+		String pwd=request.getParameter("pwd");
+		String str="";
+		boolean flag=memberService.updatePwd(id, pwd);
+		if (flag == true) {
+			str="1";
+		} else {
+			str="0";
+		}
+		return str;
+	}
+	
+	//检查提款密码是否设置
+	@RequestMapping(value="checkTkpwd",method=RequestMethod.POST)
+	@ResponseBody
+	public String checkTkpwd(HttpServletRequest request){
+		System.out.println("checkTkpwd-start");
+		String i = request.getParameter("id");
+		int id = Integer.valueOf(i);
+		System.out.println("checkTkpwdID:"+id);
+		String check = memberService.checkTkpwd(id);
+		System.out.println("checkTkpwd-stop");
+		return check;
+	}
+	
+	//修改提款密码
+	@RequestMapping(value="updateTkPwd",method=RequestMethod.POST)
+	@ResponseBody
+	public String updateTkPwd(HttpServletRequest request){
+		String i=request.getParameter("id");
+		int id=Integer.valueOf(i);
+		String pwd=request.getParameter("pwd");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		String time = sdf.format(new Date().getTime());
+
+		String str="";
+		boolean flag=memberService.updateTkPwd(id, pwd, time);
+		if (flag == true) {
+			str="1";
+		} else {
+			str="0";
+		}
+		return str;
+	}
+	
 }
