@@ -164,8 +164,13 @@ $(document).ready(function(){
 			var h3 = "";
 			var h4 = "";
 			var h5 = "";
+			var aaa = a.useable_balance;
+			var b = a.invest_amount;
+			var c = a.totl_profit;
+			var d=aaa+b+c;
+			alert(a);
 			h1 += "<h2>"+a.useable_balance+"</h2>"; 
-			h2 += "<h2>暂无</h2>";
+			h2 += "<h2>"+d+"</h2>";
 			h3 += "<h2>"+a.invest_amount+"</h2>"; 
 			h4 += "<h2>"+a.totl_profit+"</h2>"; 
 			h5 += "<h2>"+a.imuseale_balance+"</h2>"; 
@@ -1214,7 +1219,6 @@ $(document).ready(function(){
 		}
 		
 		function mytk(){
-			alert("mytk");
 			$.ajax({
 				type:'post',
 				url:'/p2p_project/member_account/tkAmountUpdate',
@@ -1227,10 +1231,15 @@ $(document).ready(function(){
 				success:function(data){
 					if(data==1){
 						alert("提款成功！");
-						return false;
+						window.location.reload();
 					}
 					if(data==0){
 						alert("提款密码验证错误！");
+						return false;
+					}
+					if(data==2){
+						alert("提款失败！");
+						return false;
 					}
 				}
 					

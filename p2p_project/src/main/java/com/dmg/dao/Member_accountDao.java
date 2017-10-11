@@ -138,17 +138,24 @@ public class Member_accountDao {
 	}
 	//提款
 	public boolean tkAmountUpdate(int id,double amount){
+		System.out.println("tkAmountUpdateID:"+id);
 		Session session = getSession();
 		Member member=memberDao.getMemberId(id);
-		Member_account member_account = new Member_account();
+		Member_account member_account = listma(id);
+		System.out.println("Useable_balance:"+member_account.getUseable_balance());
+		System.out.println("Useable_balance:"+Double.valueOf(member_account.getUseable_balance()));
+		boolean flag;
 		//账户余额必须大于提款金额，提款功能才能实现
-		if (Double.valueOf(member_account.getUseable_balance())>=amount) {
+		if (amount < Double.valueOf(member_account.getUseable_balance())) {
 			System.out.println("账户余额必须大于提款金额，提款功能才能实现");
 			member_account.setUseable_balance(Double.valueOf(member_account.getUseable_balance())-amount);
 			member_account.setMember(member);
 			session.update(member_account);
+			flag=true;
+		}else{
+			flag=false;
 		}
-		return true;
+		return flag;
 	}
 
 }
