@@ -7,6 +7,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import com.dmg.bean.Member;
 import com.dmg.bean.Member_account;
 
 @Component
@@ -66,16 +68,18 @@ public class Member_accountDao {
 			}
 			return 0;		
 		}
-		//判断用户是否绑定银行卡
-//		public int ifnull(int idd){
-//			Session session = getSession();
-//			Member_account ma= (Member_account) session.get(Member_account.class, idd);			
-//			if (ma.equals("")) {
-//				return 0;
-//			} else {
-//				return 1;
-//			}
-//		}
+		//判断用户是否存在成员账户信息
+		public boolean ifnull(int idd){
+			Session session = getSession();
+			Member_account ma= (Member_account) session.get(Member_account.class, idd);		
+			boolean flag;
+			if (ma == null) {
+				flag=true;
+			} else {
+				flag=false;
+			}
+			return flag;
+		}
 		
 	public int getById(int id){
 		Session session = getSession();
@@ -90,12 +94,13 @@ public class Member_accountDao {
 		//String hql="update Member_account set useable_balance+="+amount+",update_date="+ud+" where member="+id;
 		System.out.println("ud:"+ud);
 		System.out.println("充值金额amount:"+amount);
+		System.out.println("充值完成后 id："+idd);
 		//根据user的id得出member的id
-		int id=memberDao.correct(idd);
+		//int id=memberDao.correct(idd);
 		//根据member的id得到Member_account的id
-		int i_d=getById(id);
-		System.out.println("top_upAmount userid--"+idd);
-		System.out.println("top_upAmount memberid--"+id);
+		int i_d=getById(idd);
+		//System.out.println("top_upAmount userid--"+idd);
+		System.out.println("top_upAmount memberid--"+idd);
 		System.out.println("top_upAmount Member_account--"+i_d);
 		Session session = getSession();
 		Member_account member_account = (Member_account) session.get(Member_account.class, i_d);
@@ -107,6 +112,14 @@ public class Member_accountDao {
 		member_account.setUpdate_date(ud);
 		session.update(member_account);
 		return true;
+	}
+	//如果充值时数据库不存在数据那么久创建保存数据
+	public void accnull(int idd){
+		Session session = getSession();
+		Member member=memberDao.getMemberId(idd);
+		Member_account member_account = new Member_account();
+		member_account.setMember(member);
+		session.save(member_account);
 	}
 	
 }

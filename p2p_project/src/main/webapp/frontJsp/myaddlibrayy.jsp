@@ -128,6 +128,7 @@ border-color:#333333;
 </table>
 <script type="text/javascript">
 $(document).ready(function(){
+	alert($("#hid").val());
 	$.ajax({
 		type:'post',
 		url:'/p2p_project/member_account/selectAmount',

@@ -107,6 +107,7 @@ public class Member_deposit_recordController {
 		HttpSession session = request.getSession();
 		//参数取自Member_BankcardsController
 		String hid= (String) session.getAttribute("idd"); 
+		System.out.println("hid:"+hid);
 		int idd=Integer.valueOf(hid);
 		int s=member_accountService.listid(idd);
 		System.out.println("s="+s);
@@ -115,6 +116,16 @@ public class Member_deposit_recordController {
 			//返回用户未绑卡的信息
 			model.addAttribute("msg", 0);
 		}
+		
+		boolean flag=member_accountService.ifnull(idd);
+		if (flag == true) {
+			System.out.println("创建成员账户信息");
+			member_accountService.accnull(idd);
+			System.out.println("创建成员账户信息成功");
+		}else{
+			System.out.println("创建成员账户信息失败");
+		}
+		
 		//将富友充值页面金额写入支付宝付款信息页面
 		model.addAttribute("fee", fee);
 		return "alipay/index";
