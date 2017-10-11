@@ -43,16 +43,16 @@ public class Subject_purchase_recordController {
 	@RequestMapping("/listSubject_purchase_records/{id}/{user_name}")
 	public String listSubject_purchase_records(Model model,@PathVariable("id")int id,@PathVariable("user_name")String user_name,HttpServletRequest request){
 		System.out.println("listSubject_purchase_records---------------------------------");
-		//这里得id为user表的id
+		//杩欓噷寰梚d涓簎ser琛ㄧ殑id
 		System.out.println("listSubject_purchase_records--"+id);		
 		System.out.println("listSubject_purchase_records--"+user_name);
-		//投资记录
+		//鎶曡祫璁板綍
 		List<Subject_purchase_record> listSPR = subject_purchase_recordService.listSubject_purchase_record(id);
-		//查询个人投资记录的次数
+		//鏌ヨ涓汉鎶曡祫璁板綍鐨勬鏁�
 		int count = subject_purchase_recordService.countSubject_purchase_record(id);
-		//标的订单表
+		//鏍囩殑璁㈠崟琛�
 		List<Subject_order_record> listsor = subject_order_recordService.listSubject_order_record(id);
-		//标的订单表记录数
+		//鏍囩殑璁㈠崟琛ㄨ褰曟暟
 		int count2 = subject_order_recordService.countSubject_order_record(id);
 		
 		model.addAttribute("listSPR", listSPR);
@@ -61,59 +61,60 @@ public class Subject_purchase_recordController {
 		model.addAttribute("listsor", listsor);
 		model.addAttribute("count2", count2);
 		/**
-		 * 投资记录
+		 * 鎶曡祫璁板綍
 		 */
 		Date date = new Date();
-		double dayCount = 0;//天数
-		double earnings = 0;//收益
-		String result = "";//格式化后的收益数字
+		double dayCount = 0;//澶╂暟
+		double earnings = 0;//鏀剁泭
+		String result = "";//鏍煎紡鍖栧悗鐨勬敹鐩婃暟瀛�
 		for (Subject_purchase_record s : listSPR) {
-			String start_date = s.getSubject().getStart_date();//开始时间
-			String end_date = s.getSubject().getEnd_date();//结束时间
-			System.out.println("投资记录标的开始时间："+start_date);
-			System.out.println("投资记录标的结束时间："+end_date);
-			double time1=(double)date.parse(start_date);//开始时间
-			double time2=(double)date.parse(end_date);
+//			String start_date = s.getSubject().getStart_date();//寮�濮嬫椂闂�
+//			String end_date = s.getSubject().getEnd_date();//缁撴潫鏃堕棿
+//			System.out.println("鎶曡祫璁板綍鏍囩殑寮�濮嬫椂闂达細"+start_date);
+//			System.out.println("鎶曡祫璁板綍鏍囩殑缁撴潫鏃堕棿锛�"+end_date);
+//			double time1=(double)date.parse(start_date);//寮�濮嬫椂闂�
+//			double time2=(double)date.parse(end_date);
+			//int period=s.getSubject().getPeriod();
 			
-			dayCount = (Math.abs(time2 - time1))/1000/60/60/24;//得到两个日期之间相隔的天数
-			double amount= s.getAmount();//金额
-			System.out.println("投资记录金额："+amount);
-			double year_rate= s.getSubject().getYear_rate();//年化率
-			System.out.println("投资记录年化率："+s.getSubject().getYear_rate());
+			dayCount =s.getSubject().getPeriod(); //寰楀埌涓や釜鏃ユ湡涔嬮棿鐩搁殧鐨勫ぉ鏁�
+			double amount= s.getAmount();//閲戦
+			System.out.println("鎶曡祫璁板綍閲戦锛�"+amount);
+			double year_rate= s.getSubject().getYear_rate();//骞村寲鐜�
+			System.out.println("鎶曡祫璁板綍骞村寲鐜囷細"+s.getSubject().getYear_rate());
 			earnings = amount*(year_rate/100)/365*dayCount;//lm.amount*lm.subject.year_rate/365*dayCount
-			result = String.format("%.2f", earnings);//将earnings保留两位小数
+			result = String.format("%.2f", earnings);//灏唀arnings淇濈暀涓や綅灏忔暟
 			s.setResult(result);
-			System.out.println("投资记录-"+s.getSubject().getName()+"天数为："+dayCount+"天");
-			System.out.println("dayCount:"+dayCount+"天");
-			System.out.println("投资记录收益:"+result);
+			System.out.println("鎶曡祫璁板綍-"+s.getSubject().getName()+"澶╂暟涓猴細"+dayCount+"澶�");
+			System.out.println("dayCount:"+dayCount+"澶�");
+			System.out.println("鎶曡祫璁板綍鏀剁泭:"+result);
 			
 		}
 		/**
-		 * 预约记录
+		 * 棰勭害璁板綍
 		 */
 		Date date2 = new Date();
-		double dayCount2 = 0;//天数
-		double earnings2 = 0;//收益
-		String result2 = "";//格式化后的收益数字
+		double dayCount2 = 0;//澶╂暟
+		double earnings2 = 0;//鏀剁泭
+		String result2 = "";//鏍煎紡鍖栧悗鐨勬敹鐩婃暟瀛�
 		for (Subject_order_record s : listsor) {
-			String start_date = s.getSubject().getStart_date();//开始时间
-			String end_date = s.getSubject().getEnd_date();//结束时间
-			System.out.println("预约记录标的开始时间："+start_date);
-			System.out.println("预约记录标的结束时间："+end_date);
-			double time1=(double)date.parse(start_date);//开始时间
-			double time2=(double)date.parse(end_date);
+//			String start_date = s.getSubject().getStart_date();//寮�濮嬫椂闂�
+//			String end_date = s.getSubject().getEnd_date();//缁撴潫鏃堕棿
+//			System.out.println("棰勭害璁板綍鏍囩殑寮�濮嬫椂闂达細"+start_date);
+//			System.out.println("棰勭害璁板綍鏍囩殑缁撴潫鏃堕棿锛�"+end_date);
+//			double time1=(double)date.parse(start_date);//寮�濮嬫椂闂�
+//			double time2=(double)date.parse(end_date);
 			
-			dayCount = (Math.abs(time2 - time1))/1000/60/60/24;//得到两个日期之间相隔的天数
-			double amount= s.getAmount();//金额
-			System.out.println("预约记录金额："+amount);
-			double year_rate= s.getSubject().getYear_rate();//年化率
-			System.out.println("预约记录年化率："+s.getSubject().getYear_rate());
+			dayCount =s.getSubject().getPeriod(); //寰楀埌涓や釜鏃ユ湡涔嬮棿鐩搁殧鐨勫ぉ鏁�
+			double amount= s.getAmount();//閲戦
+			System.out.println("棰勭害璁板綍閲戦锛�"+amount);
+			double year_rate= s.getSubject().getYear_rate();//骞村寲鐜�
+			System.out.println("棰勭害璁板綍骞村寲鐜囷細"+s.getSubject().getYear_rate());
 			earnings = amount*(year_rate/100)/365*dayCount;//lm.amount*lm.subject.year_rate/365*dayCount
-			result = String.format("%.2f", earnings);//将earnings保留两位小数
+			result = String.format("%.2f", earnings);//灏唀arnings淇濈暀涓や綅灏忔暟
 			s.setResult(result);
-			System.out.println("预约记录-"+s.getSubject().getName()+"天数为："+dayCount+"天");
-			System.out.println("dayCount:"+dayCount+"天");
-			System.out.println("预约记录收益:"+result);
+			System.out.println("棰勭害璁板綍-"+s.getSubject().getName()+"澶╂暟涓猴細"+dayCount+"澶�");
+			System.out.println("dayCount:"+dayCount+"澶�");
+			System.out.println("棰勭害璁板綍鏀剁泭:"+result);
 			
 		}
 		
@@ -121,11 +122,11 @@ public class Subject_purchase_recordController {
 		model.addAttribute("user_name", user_name);
 		
 		/**
-		 * 账户可用余额
-		 * 投资金额(元)
-		 * 累计收益(元)
-		 * 冻结金额(元)
-		 * 所查表：member_account(成员账户表)
+		 * 璐︽埛鍙敤浣欓
+		 * 鎶曡祫閲戦(鍏�)
+		 * 绱鏀剁泭(鍏�)
+		 * 鍐荤粨閲戦(鍏�)
+		 * 鎵�鏌ヨ〃锛歮ember_account(鎴愬憳璐︽埛琛�)
 		 */
 		List<Member_account> ma=member_accountService.listMember_account(id);
 		model.addAttribute("ma", ma);

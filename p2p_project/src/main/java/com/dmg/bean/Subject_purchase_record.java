@@ -9,22 +9,22 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class Subject_purchase_record {  //(��Ĺ����)
+public class Subject_purchase_record {  //(锟斤拷墓锟斤拷锟斤拷)
 
 	private int id;  //id
-	private String serial_number;  //流水号
-	private double amount;  //购买金额
-	private String deal_ip;  //交易ip
-	private Subject subject;  //标的Id
-	private Member member;  //会员ID
-	private int delflag;  //是否删除
-	private String create_date;//添加时间  
-	private String update_date;//修改时间
-	private double interest;  //结算利息
-	private int ispayment;  //是否还款', 0 未还款 1 还款
-	private int pay_interest_times;  // 购买某个标的次数
-	private int last_profit_day;//最后计息日', 还剩多少天
-	private String bonus_info;//红包金额信息（app端实际投资额度+红包额度）
+	private String serial_number;  //娴佹按鍙�
+	private double amount;  //璐拱閲戦
+	private String deal_ip;  //浜ゆ槗ip
+	private Subject subject;  //鏍囩殑Id
+	private Member member;  //浼氬憳ID
+	private int delflag;  //鏄惁鍒犻櫎
+	private String create_date;//娣诲姞鏃堕棿  
+	private String update_date;//淇敼鏃堕棿
+	private double interest;  //缁撶畻鍒╂伅
+	private int ispayment;  //鏄惁杩樻', 0 鏈繕娆� 1 杩樻
+	private int pay_interest_times;  // 璐拱鏌愪釜鏍囩殑娆℃暟
+	private int last_profit_day;//鏈�鍚庤鎭棩', 杩樺墿澶氬皯澶�
+	private String bonus_info;//绾㈠寘閲戦淇℃伅锛坅pp绔疄闄呮姇璧勯搴�+绾㈠寘棰濆害锛�
 	private String result;
 	
 	public String getResult() {
@@ -89,6 +89,8 @@ public class Subject_purchase_record {  //(��Ĺ����)
 	public void setCreate_date(String create_date) {
 		this.create_date = create_date;
 	}
+	
+	
 	public String getUpdate_date() {
 		return update_date;
 	}

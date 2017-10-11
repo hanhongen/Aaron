@@ -72,4 +72,19 @@ public class ProductCenterDao {
 		return hql;
 	}
 	
+	//查询标的总金额
+	public double SumSubject(int id) {
+		Session session=getSession();
+		String sql1="select count(*) from Subject_purchase_record where subject_id="+id;
+		String sql2="select sum(amount) from Subject_purchase_record where subject_id="+id;
+		int num=0;
+		double sum1=0;
+		Object obj=(Object) session.createSQLQuery(sql1).list().get(0);
+		num=Integer.parseInt(obj.toString());
+		if(num>0) {
+			sum1=(Double)session.createSQLQuery(sql2).list().get(0);
+		}
+		return sum1;
+	}
+	
 }

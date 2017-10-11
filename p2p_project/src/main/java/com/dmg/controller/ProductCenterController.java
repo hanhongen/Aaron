@@ -70,6 +70,7 @@ public class ProductCenterController {
 		map.put("s1", s1);
 		map.put("s2", s2);
 		List<Subject> list = productCenterService.showSubject(map);
+		//double sum1=productCenterService.SumSubject(id);
 		// List<Subject_order_record>
 		// subjectRecord=productCenterService.showSubjectRecord();
 		model.addAttribute("list", list);

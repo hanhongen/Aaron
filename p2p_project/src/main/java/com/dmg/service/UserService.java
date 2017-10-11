@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.dmg.bean.Subject;
 import com.dmg.bean.User_role;
 import com.dmg.bean.Member;
+import com.dmg.bean.Member_account;
 import com.dmg.bean.Push_notice;
 import com.dmg.bean.Users;
 import com.dmg.dao.UserDao;
@@ -32,8 +33,14 @@ public class UserService {
 		return userDao.showSubject();
 	}
 	
-	public void save(Users users) {
-		userDao.save(users);
+	public void saveUsers(Users users) {
+		userDao.saveUsers(users);
+	}
+	public void saveMember(Member member) {
+		userDao.saveMember(member);
+	}
+	public void saveMemberAccount(Member_account member_account) {
+		userDao.saveMemberAccount(member_account);
 	}
 	
 	public Users getUsers(String mobile_phone,String password) {

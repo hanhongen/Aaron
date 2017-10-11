@@ -38,6 +38,8 @@ public class ProductCenterService {
 	public void saveSubject(Subject subject) {
 		productCenterDao.saveSubject(subject);
 	}
-	
+	public double SumSubject(int id) {
+		return productCenterDao.SumSubject(id);
+	}
 	
 }

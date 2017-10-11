@@ -10,12 +10,12 @@
 <%@ page import="com.alipay.api.request.*"%>
 <%
 	//获得初始化的AlipayClient
-	AlipayClient alipayClient = new DefaultAlipayClient(AlipayConfig.gatewayUrl, AlipayConfig.app_id, AlipayConfig.merchant_private_key, "json", AlipayConfig.charset, AlipayConfig.alipay_public_key, AlipayConfig.sign_type);
+	AlipayClient alipayClient = new DefaultAlipayClient(AlipayConfig2.gatewayUrl, AlipayConfig2.app_id, AlipayConfig2.merchant_private_key, "json", AlipayConfig2.charset, AlipayConfig2.alipay_public_key, AlipayConfig2.sign_type);
 	
 	//设置请求参数
 	AlipayTradePagePayRequest alipayRequest = new AlipayTradePagePayRequest();
-	alipayRequest.setReturnUrl(AlipayConfig.return_url);
-	alipayRequest.setNotifyUrl(AlipayConfig.notify_url);
+	alipayRequest.setReturnUrl(AlipayConfig2.return_url);
+	alipayRequest.setNotifyUrl(AlipayConfig2.notify_url);
 	
 	//商户订单号，商户网站订单系统中唯一订单号，必填
 	String out_trade_no = new String(request.getParameter("WIDout_trade_no").getBytes("ISO-8859-1"),"UTF-8");

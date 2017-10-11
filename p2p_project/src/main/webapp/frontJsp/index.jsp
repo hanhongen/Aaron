@@ -85,7 +85,7 @@
 				src="/p2p_project/frontStyle/images/logo.jpg" height="52" alt="" /></a>
 			<div class="fr righ">
 				<ul class="nav clearfix">
-					<li><a rel="nofollow" href="" class="one">首页</a></li>
+					<li><a rel="nofollow" href="/p2p_project/user/index" class="one">首页</a></li>
 
 					
 					<li style="display: none;"><a href="" ></a></li>
@@ -281,7 +281,7 @@
 								<div class="fr" data-status=""
 									style="position: relative; top: -10px;">
 									<div class="btn-box">
-										<a href="/Project/CommonDetail/11737" target="_blank"
+										<a target="_blank"
 											class="btn btn-primary btn-3d">立即投资</a>
 
 									</div>
@@ -412,9 +412,13 @@
 								</div>
 								<div class="fr" data-status="">
 									<div class="btn-box">
-
+										<c:if test="${empty user}">
+										  <a href="/p2p_project/frontJsp/login.jsp" target="_blank"
+											class="btn btn-primary btn-3d">立即登录</a>
+										</c:if>
+										<c:if test="${!empty user}">
 										<a href="/p2p_project/toInvestment/buySubject/${s.id}" target="_blank"
-											class="btn btn-primary btn-3d">立即投资</a>
+											class="btn btn-primary btn-3d">立即投资</a></c:if>
 
 									</div>
 								</div>

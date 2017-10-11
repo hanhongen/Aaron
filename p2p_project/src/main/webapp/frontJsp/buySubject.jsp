@@ -30,7 +30,7 @@
 
 </head>
 <body>
-
+<body class="index_niwo holiday_bg">
 <div class="niwdoawi_top mw_1180">
 		<div class="header w1190 clearfix">
 			<div class="fl tel">
@@ -43,12 +43,20 @@
 			</div>
 			<div class="fr login clearfix">
 
-				<div class='login_bt'>
+				<c:if test="${empty user}">
+				  <div class='login_bt'>
 					<a href="/p2p_project/frontJsp/login.jsp" id="login" rel="nofollow"
 						class="fff">登录</a> <a href="/p2p_project/frontJsp/register.jsp"
 						rel="nofollow" class="fff">注册</a>
 				</div>
-
+				</c:if>
+				<c:if test="${!empty user}">
+				<div class='login_bt'>
+				  <font color="white">欢迎您：${user.user_name }&nbsp;|</font>
+				  <a href="/p2p_project/user/outlogin"><font color="white">注销</font></a>
+				  <a href="/p2p_project/user/feedBacks/${user.id}"><font color="white">意见反馈</font></a>
+				</div>
+				</c:if>
 				<dl>
 					<dt>
 						<a href="" rel="nofollow" class="txnone"
@@ -68,7 +76,9 @@
 					</dd>
 				</dl>
 				<div class="community">
-					<a href="/p2p_project/backJsp/indexback.jsp" target="_blank" rel="nofollow" class="fc_white">进入后台</a>
+				<c:if test="${user.id==1}">
+				   <a href="/p2p_project/user/indexback/${user.id}" target="_blank" rel="nofollow" class="fc_white">进入后台</a>
+				</c:if>
 				</div>
 			</div>
 		</div>
@@ -81,27 +91,21 @@
 				src="/p2p_project/frontStyle/images/logo.jpg" height="52" alt="" /></a>
 			<div class="fr righ">
 				<ul class="nav clearfix">
-					<li><a rel="nofollow" href="" class="one">首页</a></li>
-					<li class="two"><a href="" class="two"
-						id="cp_two">我要投资</a>
-						<dl class="cp_two">
-							<dd>
-								<a href="/p2p_project/frontJsp/product_center.jsp">固收类理财</a>
-							</dd>
-							<dd>
-								<a href="">私募资金</a>
-							</dd>
-							<dd>
-								<a href="">海外配置</a>
-							</dd>
-							<dd>
-								<a href="">股权基金</a>
-							</dd>
-						</dl></li>
-					<li class="rela"><a href="" class="one">盈+商学院</a>
+					<li><a rel="nofollow" href="/p2p_project/user/index" class="one">首页</a></li>
+
+					
+					<li style="display: none;"><a href="" ></a></li>
+					<li class="rela"><a href="/p2p_project/toInvestment/showSubject" class="one">我要投资</a>
 					</li>
-					<li class="rela"><a href="" class="one">我的加法库</a>
-					</li>
+					
+					<li class="rela"><a href="/p2p_project/frontJsp/frontnews.jsp" class="one">盈+商学院</a></li>
+					
+					<c:if test="${!empty user.id}">
+					<li class="rela"><a href="/p2p_project/subject_purchase_record/listSubject_purchase_records/${user.id}/${user.user_name }" class="one">我的加法库</a></li>
+					</c:if>
+					<c:if test="${empty user.id}">
+					<li class="rela"><a href="/p2p_project/frontJsp/login.jsp" class="one">我的加法库</a></li>
+					</c:if>
 					<li class="rela"><a href="/p2p_project/frontJsp/about.jsp"
 						 class="one">关于我们 </a></li>
 				</ul>
@@ -112,9 +116,12 @@
 	
 	<div class="proMain">
     <div class="conTit">
-        <span><a style="color:#9d8440;" href="/p2p_project/toInvestment/showSubject">其他标的</a></span>
+        <span><button style="border: 0px;background-color: 
+#F2F1EF;" onclick="javascript:history.back(-1)">其他标的</button></span>
         <h2><em>￥</em>${sb.name}</h2>
     </div>
+    <form action="/p2p_project/toInvestment/toPay" method="post">
+    <input type="hidden" name="subject_id" value="${sb.id}">
     <table class="conTable" width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr>
             <td class="txtInfo">
@@ -131,29 +138,30 @@
                     <p>投资期限(天)</p>
                 </div>
             </td>
-            <td width="360" rowspan="2" align="center" ; valign="middle" height="320">
+            <td width="360" rowspan="2" align="center" valign="middle" height="320">
+            
                 <div class="tbBox">
                     <input type="hidden" id="account" value="">
                     <h2>${sum}</h2>
                     <p>已投金额(元)</p>
                     <div class="li4" style=""><span id="checkmoney" style="color: red;"></span></div>
                     <div class="tit">
-                    	<span class="fr">
-                            <a style="color:#2695d5" href="/p2p_project/frontJsp/login.jsp">登录</a>后可见
-						</span>
-                        <h2>账户余额</h2>
-                        <div id="count">预期所得收益<i data-num="0.000822" id="num">0</i>元
-                        </div>
+                        <h2>账户余额：￥<font color="red">${money}</font> 元</h2>
                     </div>
-                    <input id="mytext" class="txt" name="totalFee" type="text"
-                           placeholder="起投金额100元以上">
+                    <input id="buysub" class="txt" name="buysub" type="number"
+                           placeholder="起投金额${sb.floor_amount}元以上" required;>
                         <span style="float: right;margin-top: -40px;position: relative; line-height: 40px; padding: 0 10px;color: #f00;"
                               id="addMoney"></span>
                     <p class="preBox">
                         <input type="checkbox" id="registerRule" class="registerRule" checked="checked"><span
                             class="fl">同意<a href="/web/syxy" target="_black">《产品协议》</a></span>
                     </p>
-                    <button class="submit" style="background-color:" readonly>确认抢购</button>
+                    <c:if test="${money<sb.floor_amount}">
+                      <button class="submit" style="background-color:gray;" readonly>确认抢购</button>
+                    </c:if>
+                    <c:if test="${money>sb.floor_amount}">
+                      <button type="submit" class="submit" style="background-color:red;">确认抢购</button>
+                    </c:if>
                 </div>
             </td>
         </tr>
@@ -163,7 +171,7 @@
                     <li class="info">
                         <p>计息日期：<font color="#00baff">${sb.create_date}</font></p>
                         <p>还款方式：<font color="#00baff">${sb.refund_way==0?"分期付款":"一次性还本付息"}</font></p>
-                        <p>资金到账日：<font color="#00baff">1至2</font>
+                        <p>资金到账日：<font color="#00baff">${sb.period}天后</font>
                         
                         </p>
                     </li>
@@ -175,7 +183,7 @@
             </td>
         </tr>
     </table>
-
+</form>
     <div class="tbConBox">
         <div class="tab">
             <a class="select" href="#1">关于基金</a>

@@ -44,12 +44,20 @@
 			</div>
 			<div class="fr login clearfix">
 
-				<div class='login_bt'>
+				<c:if test="${empty user}">
+				  <div class='login_bt'>
 					<a href="/p2p_project/frontJsp/login.jsp" id="login" rel="nofollow"
 						class="fff">登录</a> <a href="/p2p_project/frontJsp/register.jsp"
 						rel="nofollow" class="fff">注册</a>
 				</div>
-
+				</c:if>
+				<c:if test="${!empty user}">
+				<div class='login_bt'>
+				  <font color="white">欢迎您：${user.user_name }&nbsp;|</font>
+				  <a href="/p2p_project/user/outlogin"><font color="white">注销</font></a>
+				  <a href="/p2p_project/user/feedBacks/${user.id}"><font color="white">意见反馈</font></a>
+				</div>
+				</c:if>
 				<dl>
 					<dt>
 						<a href="" rel="nofollow" class="txnone"
@@ -69,7 +77,9 @@
 					</dd>
 				</dl>
 				<div class="community">
-					<a href="/p2p_project/backJsp/indexback.jsp" target="_blank" rel="nofollow" class="fc_white">进入后台</a>
+				<c:if test="${user.id==1}">
+				   <a href="/p2p_project/user/indexback/${user.id}" target="_blank" rel="nofollow" class="fc_white">进入后台</a>
+				</c:if>
 				</div>
 			</div>
 		</div>
@@ -82,27 +92,21 @@
 				src="/p2p_project/frontStyle/images/logo.jpg" height="52" alt="" /></a>
 			<div class="fr righ">
 				<ul class="nav clearfix">
-					<li><a rel="nofollow" href="" class="one">首页</a></li>
-					<li class="two"><a href="" class="two"
-						id="cp_two">我要投资</a>
-						<dl class="cp_two">
-							<dd>
-								<a href="/p2p_project/frontJsp/product_center.jsp">固收类理财</a>
-							</dd>
-							<dd>
-								<a href="">私募资金</a>
-							</dd>
-							<dd>
-								<a href="">海外配置</a>
-							</dd>
-							<dd>
-								<a href="">股权基金</a>
-							</dd>
-						</dl></li>
-					<li class="rela"><a href="" class="one">盈+商学院</a>
+					<li><a rel="nofollow" href="/p2p_project/user/index" class="one">首页</a></li>
+
+					
+					<li style="display: none;"><a href="" ></a></li>
+					<li class="rela"><a href="/p2p_project/toInvestment/showSubject" class="one">我要投资</a>
 					</li>
-					<li class="rela"><a href="" class="one">我的加法库</a>
-					</li>
+					
+					<li class="rela"><a href="/p2p_project/frontJsp/frontnews.jsp" class="one">盈+商学院</a></li>
+					
+					<c:if test="${!empty user.id}">
+					<li class="rela"><a href="/p2p_project/subject_purchase_record/listSubject_purchase_records/${user.id}/${user.user_name }" class="one">我的加法库</a></li>
+					</c:if>
+					<c:if test="${empty user.id}">
+					<li class="rela"><a href="/p2p_project/frontJsp/login.jsp" class="one">我的加法库</a></li>
+					</c:if>
 					<li class="rela"><a href="/p2p_project/frontJsp/about.jsp"
 						 class="one">关于我们 </a></li>
 				</ul>
@@ -192,8 +196,15 @@
 						<li class="four">
 								
 						</li>
+						
 						<li class="five"> 
+						<input type="hidden" value="${user.id}" name="uid">
+						<c:if test="${!empty user}">
 							<button type="submit" class="abtn" onclick="action='/p2p_project/toInvestment/buySubject/${li.id}'">购买</button>
+						</c:if>
+						<c:if test="${empty user}">
+							<button class="abtn" onclick="action='/p2p_project/frontJsp/login.jsp'">立即登录</button>
+						</c:if>
 						</li>
 					</ul>
 					

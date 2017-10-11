@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.dmg.bean.Member;
+import com.dmg.bean.Member_account;
 import com.dmg.bean.News;
 
 import com.dmg.bean.Subject;
@@ -74,10 +76,10 @@ public class UserController {
 
 	// 锟斤拷台锟斤拷页
 	@RequestMapping("/indexback/{id}")
-	public String indexback(Model model, @PathVariable("id") int id,HttpServletRequest request) {
+	public String indexback(Model model, @PathVariable("id") int id, HttpServletRequest request) {
 		Users user = userService.getUsersById(id);
 		model.addAttribute("user", user);
-		//wo de jia fa ku myaddlibrayy.jsp
+		// wo de jia fa ku myaddlibrayy.jsp
 		HttpSession session = request.getSession();
 		session.setAttribute("user", user);
 		return "backJsp/indexback";
@@ -85,21 +87,47 @@ public class UserController {
 
 	// 锟矫伙拷注锟斤拷
 	@RequestMapping("/register")
-	public String saveUser(Users users) {
+	public String saveUser(Users users, @RequestParam(required = false) String user_name,
+			@RequestParam(required = false)String mobile_phone, @RequestParam(required = false) String password) {
 		users.setStatus(0);
 		users.setIdentity(3);
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		SimpleDateFormat sdf1 = new SimpleDateFormat("yyyyMMddhhmmss");
 		String date = sdf.format(new Date());
+		String str=sdf1.format(new Date());
 		users.setCreate_date(date);
-		User_role ur=userService.getRoleByid(3);
+		User_role ur = userService.getRoleByid(3);
 		users.setUser_role(ur);
-		userService.save(users);
+		// 用户基本表
+		Member member = new Member();
+		member.setName(user_name);
+		member.setPassword(password);
+		member.setMobile_phone(mobile_phone);
+		member.setStatus(0);
+		member.setCreate_date(date);
+		member.setInvitationcode(str);
+		member.setUser(users);
+		//成员账户表
+		Member_account ma=new Member_account();
+		ma.setUseable_balance(0.0);
+		ma.setImuseale_balance(0.0);
+		ma.setTotl_profit(0.0);
+		ma.setCreate_date(date);
+		ma.setBonus_amount(0.0);
+		ma.setInvest_amount(0.0);
+		ma.setDelflag(0);
+		ma.setBbin_amount(1000);
+		ma.setMember(member);
+		
+		userService.saveUsers(users);
+		userService.saveMember(member);
+		userService.saveMemberAccount(ma);
 		return "frontJsp/login";
 	}
 
 	// 锟斤拷陆
 	@RequestMapping("login")
-	public String login(@RequestParam(required = false) String mobile_phone,
+	public String login(HttpSession session, @RequestParam(required = false) String mobile_phone,
 			@RequestParam(required = false) String password, Model model) {
 		String flag = "";
 		if (mobile_phone != null && password != null) {
@@ -111,7 +139,7 @@ public class UserController {
 				List<Subject> sub = userService.showSubject();
 				model.addAttribute("sub", sub);
 				flag = "redirect:/user/index";
-				model.addAttribute("user", user);
+				session.setAttribute("user", user);
 				flag = this.index(model);
 			}
 		}

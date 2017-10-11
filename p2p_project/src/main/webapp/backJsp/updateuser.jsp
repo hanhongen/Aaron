@@ -211,7 +211,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<td>
 								  角    色：<select id="identity" name="identity" style="width: 150px;height: 25px">
 									<c:forEach items="${list }" var="r">
-									  <option value="${r.id}" />${r.cname}
+									  <option value="${r.id}" ${users.user_role.id==r.id?"selected":"" }/>${r.cname}
 									  
 									</c:forEach>
 								  </select>

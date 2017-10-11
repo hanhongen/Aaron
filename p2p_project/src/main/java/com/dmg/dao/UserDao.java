@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 import com.dmg.bean.Subject;
 import com.dmg.bean.User_role;
 import com.dmg.bean.Member;
+import com.dmg.bean.Member_account;
 import com.dmg.bean.Push_notice;
 import com.dmg.bean.Users;
 
@@ -49,9 +50,17 @@ public class UserDao {
 		return num;
 	}
 	
-	public void save(Users users) {
+	public void saveUsers(Users users) {
 		Session session=getsession();
 		session.save(users);
+	}
+	public void saveMember(Member member) {
+		Session session=getsession();
+		session.save(member);
+	}
+	public void saveMemberAccount(Member_account member_account) {
+		Session session=getsession();
+		session.save(member_account);
 	}
 	
 	public Users getUsers(String mobile_phone,String password) {

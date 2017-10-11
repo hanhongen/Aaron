@@ -263,7 +263,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<td>类型</td>
 								<td>名称</td>
 								<td>标的总金额</td>
-								<td>已投总金额</td>
 								<td>投资期限</td>
 								<td>起投金额</td>
 								<td>年化收益</td>
@@ -275,12 +274,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<c:forEach items="${list}" var="p" varStatus="stat">
 								<tr class="text-center" bgcolor="#f7f7f7">
 									<td>${stat.index+1 }</td>
-									
 									<td>${p.serial_no }</td>
 									<td><c:if test="${p.type==0}">固收类</c:if> <c:if
 											test="${p.type==1}">P2P车贷</c:if></td>
 									<td>${p.name}</td>
-									<td></td>
 									<td>${p.amount}</td>
 									<td>${p.period}天</td>
 									<td>${p.floor_amount}</td>
@@ -301,7 +298,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 			</div>
 		</div>
-
+<script type="text/javascript">
+ $.ajax({
+	 type:"post",
+	 url:"/p2p_project/product/sumsubject",
+	 date:""
+ });
+</script>
 
 		<!-- Nav CSS -->
 		<link href="/p2p_project/backStyle/css/custom.css" rel="stylesheet">
