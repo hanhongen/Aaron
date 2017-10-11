@@ -128,7 +128,6 @@ border-color:#333333;
 </table>
 <script type="text/javascript">
 $(document).ready(function(){
-	alert($("#hid").val());
 	$.ajax({
 		type:'post',
 		url:'/p2p_project/member_account/selectAmount',
@@ -137,16 +136,18 @@ $(document).ready(function(){
 		},
 		dataType:'json',
 		success:function(data){
+			//var obj = JSON.parse(data);
+			var a = data;
 			var h1 = "";
 			var h2 = "";
 			var h3 = "";
 			var h4 = "";
 			var h5 = "";
-			h1 += "<h2>"+data.useable_balance+"</h2>"; 
+			h1 += "<h2>"+a.useable_balance+"</h2>"; 
 			h2 += "<h2>暂无</h2>";
-			h3 += "<h2>"+data.invest_amount+"</h2>"; 
-			h4 += "<h2>"+data.totl_profit+"</h2>"; 
-			h5 += "<h2>"+data.imuseale_balance+"</h2>"; 
+			h3 += "<h2>"+a.invest_amount+"</h2>"; 
+			h4 += "<h2>"+a.totl_profit+"</h2>"; 
+			h5 += "<h2>"+a.imuseale_balance+"</h2>"; 
 			$("#h1").append(h1);
 			$("#h2").append(h2);
 			$("#h3").append(h3);
@@ -159,11 +160,11 @@ $(document).ready(function(){
 </script>
 <div class="countBox">
     <ul>
-        <li><h2 id="h1">0</h2><p>账户可用余额(元)<a href="javascript:;" class="iconfont">&#xe619;<span>账户可用余额</span><i></i></a></p></li>
-        <li><h2 id="h2">0</h2><p>账户总资产(元)<a href="javascript:;" class="iconfont">&#xe619;<span>可用余额+投资金额+累计收益</span><i></i></a></p></li>
-        <li><h2 id="h3" style="color:#9d8440">0</h2><p>投资金额(元)<a href="javascript:;" class="iconfont">&#xe619;<span>投资中资金</span><i></i></a></p></li>
-        <li><h2 id="h4" style="color:#9d8440">0</h2><p>累计收益(元)<a href="javascript:;" class="iconfont">&#xe619;<span>累计收益</span><i></i></a></p></li>
-        <li><h2 id="h5" style="color:#9d8440">0</h2><p>冻结金额(元)<a href="javascript:;" class="iconfont">&#xe619;<span>冻结金额</span><i></i></a></p></li>
+        <li><h2 id="h1"></h2><p>账户可用余额(元)<a href="javascript:;" class="iconfont">&#xe619;<span>账户可用余额</span><i></i></a></p></li>
+        <li><h2 id="h2"></h2><p>账户总资产(元)<a href="javascript:;" class="iconfont">&#xe619;<span>可用余额+投资金额+累计收益</span><i></i></a></p></li>
+        <li><h2 id="h3" style="color:#9d8440"></h2><p>投资金额(元)<a href="javascript:;" class="iconfont">&#xe619;<span>投资中资金</span><i></i></a></p></li>
+        <li><h2 id="h4" style="color:#9d8440"></h2><p>累计收益(元)<a href="javascript:;" class="iconfont">&#xe619;<span>累计收益</span><i></i></a></p></li>
+        <li><h2 id="h5" style="color:#9d8440"></h2><p>冻结金额(元)<a href="javascript:;" class="iconfont">&#xe619;<span>冻结金额</span><i></i></a></p></li>
     </ul>
     <a href="#" class="cz">充值</a>
     <a href="#" class="tk">提款</a>
@@ -1191,7 +1192,29 @@ $(document).ready(function(){
 			$("#tkCard2").append(meid);
 		}
 		
-
+		function mytk(){
+			alert("mytk");
+			$.ajax({
+				type:'post',
+				url:'/p2p_project/member_account/tkAmountUpdate',
+				data:{
+					id:$("#hid").val(),
+					amount:$("#wAmount").val(),
+					pwd:$("#wPwd").val()
+				},
+				dataType:'json',
+				success:function(data){
+					if(data==1){
+						alert("提款成功！");
+						return false;
+					}
+					if(data==0){
+						alert("提款密码验证错误！");
+					}
+				}
+					
+			});
+		}
 		
 		</script>
 		<div class="admin-right" style="display: none">
@@ -1205,10 +1228,6 @@ $(document).ready(function(){
 						<table class="txTable" width="100%" border="0" cellspacing="0"
 							cellpadding="0">
 							<tr>
-								<td width="140" align="right">账户余额：</td>
-								<td><strong>0</strong>元</td>
-							</tr>
-							<tr>
 								<td align="right">提款银行卡：</td>
 								<td>
 								<strong id="tkCard1"></strong>
@@ -1217,20 +1236,17 @@ $(document).ready(function(){
 							</tr>
 							<tr>
 								<td align="right">提款金额：</td>
-								<td><input class="tytxt" type="text" id="withdrawAmount"
+								<td><input class="tytxt" type="number" id="wAmount"
 									style="width: 250px"></td>
 							</tr>
-
 							<tr>
 								<td align="right">提款密码：</td>
-								<td><a href="javascript:;"
-									onclick="$('#setWithdrawPWModel').modal(); return false;">设置提款密码</a>
-
-								</td>
+								<td><input class="tytxt" type="password" id="wPwd"
+									style="width: 250px"></td>
 							</tr>
 							<tr>
 								<td>&nbsp;</td>
-								<td><button class="tybutton" id="withdrawConfirm">提交</button></td>
+								<td><button class="tybutton" id="withdrawConfirm" onclick="mytk()">提交</button></td>
 							</tr>
 						</table>
 					</div>

@@ -122,8 +122,6 @@ public class Member_deposit_recordController {
 			System.out.println("创建成员账户信息");
 			member_accountService.accnull(idd);
 			System.out.println("创建成员账户信息成功");
-		}else{
-			System.out.println("创建成员账户信息失败");
 		}
 		
 		//将富友充值页面金额写入支付宝付款信息页面

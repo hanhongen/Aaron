@@ -54,4 +54,8 @@ public class Member_accountService {
 	public boolean ifnull(int idd){
 		return member_accountDao.ifnull(idd);
 	}
+	//提款
+	public boolean tkAmountUpdate(int id,double amount){
+		return member_accountDao.tkAmountUpdate(id, amount);
+	}
 }
