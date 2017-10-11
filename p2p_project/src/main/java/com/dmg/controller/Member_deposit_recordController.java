@@ -194,7 +194,7 @@ public class Member_deposit_recordController {
 			//根据商户订单号修改充值记录表的状态为付款完成
 			member_deposit_recordSevice.updateStatus(out_trade_no);
 			//再根据用户id增加成员账户表的可用余额并修改update_date（修改时间）的值
-			//参数取自Member_BankcardsController
+			//参数取自Member_BankcardsController,id为user的id
 			String hid= (String) session.getAttribute("idd"); 
 			int id=Integer.valueOf(hid);
 			System.out.println("Payment_is_completed-id:"+id);

@@ -37,9 +37,17 @@ public class Member_BankcardsService {
 	}
 	
 	//通过id查询银行卡类型，查询银行卡卡号
-		public List<Member_bankcards> listMember_bankcards(int id){
-			List<Member_bankcards> list = member_BankcardsDao.listMember_bankcards(id);
-			return list;
-		}
-	
+	public List<Member_bankcards> listMember_bankcards(int id){
+		List<Member_bankcards> list = member_BankcardsDao.listMember_bankcards(id);
+		return list;
+	}
+	//检查是否绑卡
+	public String checkMember_bankcards(int id){
+		String flag = member_BankcardsDao.checkMember_bankcards(id);
+		return flag;
+	}
+	//保存绑卡信息
+	public boolean saveBankCard(Member_bankcards member_bankcards){
+		return member_BankcardsDao.saveBankCard(member_bankcards);
+	}
 }

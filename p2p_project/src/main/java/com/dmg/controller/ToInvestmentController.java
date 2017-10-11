@@ -42,15 +42,12 @@ public class ToInvestmentController {
 		String subno=(String) session.getAttribute("subno");
 		String money1=(String) session.getAttribute("submoney");
 		double submoney=Double.valueOf(money1);
-		String sub1=(String) session.getAttribute("sub1");
-		double sum1=Double.valueOf(sub1);
-		String num1=(String) session.getAttribute("num");
-		int num=Integer.valueOf(num1);
-		//
-		String sid1=(String) session.getAttribute("sid");
-		int sid=Integer.valueOf(sid1);
-		String mid1=(String) session.getAttribute("mid");
-		int mid=Integer.valueOf(mid1);
+		double sum1=(Double) session.getAttribute("sub1");
+		int num=(Integer) session.getAttribute("num");
+		int sid=(Integer) session.getAttribute("sid");
+		int mid=(Integer) session.getAttribute("mid");
+		System.out.println("subno="+subno+" ,submoney="+submoney+" ,sum1="+sum1+" ,num="+num+" ,sid="+sid+" ,mid="+mid);
+		
 		Subject subject=toInvestmentService.getSubjectById(sid);
 		Member member=toInvestmentService.getMemberByid(mid);
 		//修改订单表的状态
@@ -76,7 +73,7 @@ public class ToInvestmentController {
 		toInvestmentService.addsubject_purchase_record(spr);
 		
 		//修改member_account表中的余额
-		Member_account ma=new Member_account();
+		Member_account ma=toInvestmentService.getMemberAccountBymid(mid);
 		ma.setUseable_balance(ma.getUseable_balance()-submoney);
 		toInvestmentService.updateMember_account(ma);
 		return "frontJsp/myaddlibrayy";
@@ -126,9 +123,9 @@ public class ToInvestmentController {
 		
 		//购买次数
 		int num=toInvestmentService.buySubCount(member.getId());
-		
+		String money2=String.valueOf(submoney);
 		session.setAttribute("subno", subno);
-		session.setAttribute("submoney", submoney);
+		session.setAttribute("submoney", money2);
 		session.setAttribute("sid", sid);
 		session.setAttribute("mid", member.getId());
 		session.setAttribute("sub1", sub1);

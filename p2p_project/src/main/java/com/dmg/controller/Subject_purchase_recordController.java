@@ -41,19 +41,33 @@ public class Subject_purchase_recordController {
 	}
 	
 	@RequestMapping("/listSubject_purchase_records/{id}/{user_name}")
-	public String listSubject_purchase_records(Model model,@PathVariable("id")int id,@PathVariable("user_name")String user_name,HttpServletRequest request){
+	public String listSubject_purchase_records(Model model,@PathVariable("id")int uid,@PathVariable("user_name")String user_name,HttpServletRequest request){
 		System.out.println("listSubject_purchase_records---------------------------------");
 		//杩欓噷寰梚d涓簎ser琛ㄧ殑id
-		System.out.println("listSubject_purchase_records--"+id);		
+		//这里得id为user表的id
+		System.out.println("listSubject_purchase_records--"+uid);		
 		System.out.println("listSubject_purchase_records--"+user_name);
-		//鎶曡祫璁板綍
-		List<Subject_purchase_record> listSPR = subject_purchase_recordService.listSubject_purchase_record(id);
-		//鏌ヨ涓汉鎶曡祫璁板綍鐨勬鏁�
-		int count = subject_purchase_recordService.countSubject_purchase_record(id);
-		//鏍囩殑璁㈠崟琛�
-		List<Subject_order_record> listsor = subject_order_recordService.listSubject_order_record(id);
-		//鏍囩殑璁㈠崟琛ㄨ褰曟暟
-		int count2 = subject_order_recordService.countSubject_order_record(id);
+//		//鎶曡祫璁板綍
+//		List<Subject_purchase_record> listSPR = subject_purchase_recordService.listSubject_purchase_record(id);
+//		//鏌ヨ涓汉鎶曡祫璁板綍鐨勬鏁�
+//		int count = subject_purchase_recordService.countSubject_purchase_record(id);
+//		//鏍囩殑璁㈠崟琛�
+//		List<Subject_order_record> listsor = subject_order_recordService.listSubject_order_record(id);
+//		//鏍囩殑璁㈠崟琛ㄨ褰曟暟
+//		int count2 = subject_order_recordService.countSubject_order_record(id);
+		//该方法解决一些历史遗留的问题，使用user表的id，在member中查询出member表的id，以此解决问题
+		int mid=memberService.correct(uid);
+		
+		System.out.println("通过user的id："+uid+"查询出member表的id为:"+mid);
+		
+		//投资记录
+		List<Subject_purchase_record> listSPR = subject_purchase_recordService.listSubject_purchase_record(mid);
+		//查询个人投资记录的次数
+		int count = subject_purchase_recordService.countSubject_purchase_record(mid);
+		//标的订单表
+		List<Subject_order_record> listsor = subject_order_recordService.listSubject_order_record(mid);
+		//标的订单表记录数
+		int count2 = subject_order_recordService.countSubject_order_record(mid);
 		
 		model.addAttribute("listSPR", listSPR);
 		model.addAttribute("count", count);
@@ -118,18 +132,12 @@ public class Subject_purchase_recordController {
 			
 		}
 		
-		model.addAttribute("id", id);
+		model.addAttribute("id", mid);
 		model.addAttribute("user_name", user_name);
 		
-		/**
-		 * 璐︽埛鍙敤浣欓
-		 * 鎶曡祫閲戦(鍏�)
-		 * 绱鏀剁泭(鍏�)
-		 * 鍐荤粨閲戦(鍏�)
-		 * 鎵�鏌ヨ〃锛歮ember_account(鎴愬憳璐︽埛琛�)
-		 */
-		List<Member_account> ma=member_accountService.listMember_account(id);
-		model.addAttribute("ma", ma);
+		
+//		List<Member_account> ma=member_accountService.listMember_account(id);
+//		model.addAttribute("ma", ma);
 		
 //		HttpSession session = request.getSession();
 //		session.setAttribute("SPRid", id);

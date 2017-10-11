@@ -113,9 +113,10 @@ public class ToInvestmentDao {
 	
 	public Subject_order_record getSorBySno(String sno) {
 		Session session=getSession();
-		String sql="select * from subject_order_record where serial_number="+sno;
+		String sql="select id from subject_order_record where serial_number="+sno;
 		Object obj=session.createSQLQuery(sql).list().get(0);
-		Subject_order_record sor=(Subject_order_record) obj;
+		int id=(int) obj;
+		Subject_order_record sor=(Subject_order_record) session.get(Subject_order_record.class, id);
 		return sor;
 	}
 	
@@ -127,9 +128,10 @@ public class ToInvestmentDao {
 	
 	public Member_trade_record getMemberTradeRecordBySno(String sno) {
 		Session session=getSession();
-		String sql="select * from member_trade_record where trade_no="+sno;
+		String sql="select id from member_trade_record where trade_no="+sno;
 		Object obj=session.createSQLQuery(sql).list().get(0);
-		Member_trade_record mtr=(Member_trade_record) obj;
+		int id=(int) obj;
+		Member_trade_record mtr=(Member_trade_record) session.get(Member_trade_record.class, id);
 		return mtr;
 	}
 	
@@ -162,5 +164,14 @@ public class ToInvestmentDao {
 		Session session=getSession();
 		session.update(ma);
 		session.flush();
+	}
+	
+	public Member_account getMemberAccountBymid(int mid) {
+		Session session=getSession();
+		String sql="select id from member_account where member_id="+mid;
+		Object obj=session.createSQLQuery(sql).list().get(0);
+		int id=(int) obj;
+		Member_account ma=(Member_account) session.get(Member_account.class, id);
+		return ma;
 	}
 }

@@ -27,10 +27,10 @@ public class AlipayConfig2 {
     public static String alipay_public_key = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArEaB4uCxly8eZjUmlBF3S8v1UaZQncqz3jFTBiKJI9GLGckQtNUMOy4rk6RqU/0xGoiKSB1PHS2n8ui1tUQBnWXfGkinHZEw9Fmh6xRFgRs+U8q1V60VQbU4A3ynUNdi8FmOKYq6zoUsr6eWXooa8rtgSiHvhY7Z/vwN1KzREH0fw2czDYRjak/Ne+PismLKOyI6i/06UeeWlX7B6Iic/6sv/N2eLnGJqtx3ALhhX0bsG7yja/+Plukkex77ECEmlwNjSkX2B+LLodJ4B/xFx/EofM4S2mELZ0IGPNR+tuhgglVV5f+rKzvsW59NYSOZ03oZt+Fy5kxfvsXj196W0wIDAQAB";
 
 	// 服务器异步通知页面路径  需http://格式的完整路径，不能加?id=123这类自定义参数，必须外网可以正常访问
-	public static String notify_url = "http://工程公网访问地址/alipay.trade.page.pay-JAVA-UTF-8/notify_url.jsp";
+	public static String notify_url = "http://工程公网访问地址/alipay.trade.page.pay-JAVA-UTF-8/notify_url2.jsp";
 	//
 	// 页面跳转同步通知页面路径 需http://格式的完整路径，不能加?id=123这类自定义参数，必须外网可以正常访问
-	public static String return_url = "http://localhost:8080/p2p_project/toInvestment/Pay_is_completed";
+	public static String return_url = "http://localhost/p2p_project/toInvestment/Pay_is_completed";
 	//http://工程公网访问地址/alipay.trade.page.pay-JAVA-UTF-8/return_url.jsp
 	// 签名方式
 	public static String sign_type = "RSA2";

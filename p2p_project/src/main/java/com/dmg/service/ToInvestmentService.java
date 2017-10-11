@@ -87,4 +87,8 @@ public class ToInvestmentService {
 	public void updateMember_account(Member_account ma) {
 		toInvestmentDao.updateMember_account(ma);
 	}
+	
+	public Member_account getMemberAccountBymid(int mid) {
+		return toInvestmentDao.getMemberAccountBymid(mid);
+	}
 }

@@ -78,11 +78,26 @@ public class Member_BankcardsDao {
 		String hql="from Member_bankcards mb where mb.member.id="+id;
 		Session session = getSession();
 		List<Member_bankcards> list = session.createQuery(hql).list();
-		for (Member_bankcards m : list) {
-			System.out.println("银行类型："+m.getType()+",卡号："+m.getCard_no());
-		}
-		
 		return list;
+	}
+	//检查用户是否绑卡
+	public String checkMember_bankcards(int id){
+		String hql="from Member_bankcards mb where mb.member.id="+id;
+		Session session = getSession();
+		List<Member_bankcards> list = session.createQuery(hql).list();
+		String flag;
+		if (!list.isEmpty()) {
+			flag="1";
+		} else {
+			flag="0";
+		}
+		return flag;
+	}
+	//保存绑卡信息
+	public boolean saveBankCard(Member_bankcards member_bankcards){
+		Session session = getSession();
+		session.save(member_bankcards);
+		return true;
 	}
 	
 }
