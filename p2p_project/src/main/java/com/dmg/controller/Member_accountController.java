@@ -65,14 +65,19 @@ public class Member_accountController {
 		Member member = memberService.getMemberId(id);
 		System.out.println("Withdraw_password:"+member.getWithdraw_password());
 		String str="";
-		if (member.getWithdraw_password() == pwd) {
+		if (member.getWithdraw_password().equals(pwd)) {
 			int amo = Integer.valueOf(am);
 			double amount = Double.valueOf(amo);
-			member_accountService.tkAmountUpdate(id, amount);
-			System.out.println("提款成功！");
-			str="1";
+			boolean flag = member_accountService.tkAmountUpdate(id, amount);
+			if (flag == true) {
+				System.out.println("提款成功！");
+				str="1";
+			}else{
+				System.out.println("提款失败！");
+				str="2";
+			}
 		} else {
-			System.out.println("提款失败！");
+			System.out.println("提款密码错误,提款失败！");
 			str="0";
 		}
 		return str;
