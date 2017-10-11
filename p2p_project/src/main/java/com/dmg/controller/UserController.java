@@ -63,10 +63,10 @@ public class UserController {
 	@RequestMapping("/index")
 	public String index(Model model) {
 		List<Subject> sub = userService.showSubject();
-		SimpleDateFormat sdf = new SimpleDateFormat("MM");
-		String mon = sdf.format(new Date());
+//		SimpleDateFormat sdf = new SimpleDateFormat("MM");
+//		String mon = sdf.format(new Date());
 		model.addAttribute("sub", sub);
-		model.addAttribute("mon", mon);
+		//model.addAttribute("mon", mon);
 		List<Push_notice> push_notices = userService.listpush();
 		model.addAttribute("push_notices", push_notices);
 		List<News> list = Newsservice.list();

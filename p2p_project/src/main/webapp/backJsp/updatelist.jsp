@@ -246,7 +246,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </tr>
 <tr align="center">
  <td colspan="2">
-  <input type="submit" value="提交">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" value="取消 " onclick="fun2()">
+  <input type="submit" value="提交">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <input type="submit" value="取消 " onclick="action='/p2p_project/news/listnews/${users}'">
 </td>
 </tr>
 </table>

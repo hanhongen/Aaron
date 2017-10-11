@@ -214,7 +214,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</tr>
 								<tr>
 									<td><input type="submit" value="提交"> <input
-										type="submit" value="关闭" onclick="action='/p2p_project/news_type/news_typelist'"></td>
+										type="submit" value="关闭" onclick="action='/p2p_project/news_type/news_typelist/${users}'"></td>
 								</tr>
 							</thead>
 						</table>

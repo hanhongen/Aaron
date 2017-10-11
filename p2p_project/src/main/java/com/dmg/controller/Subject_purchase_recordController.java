@@ -132,7 +132,7 @@ public class Subject_purchase_recordController {
 			
 		}
 		
-		model.addAttribute("id", mid);
+		model.addAttribute("id", uid);
 		model.addAttribute("user_name", user_name);
 		
 		

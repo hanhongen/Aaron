@@ -372,7 +372,8 @@
 			
 				<div class="cont-bd dq-cont-bd" style="position: relative;">
 					<ul id="DQPrj" class="prj-box cf dq-prj-box">
-					
+					<form mehtod="post">
+					<input type="hidden" name="uid" value="${user.id}">
 					<c:forEach items="${sub}" var="s">
 						<li class="prj-box-item zr-box">
 						
@@ -430,6 +431,7 @@
 							
 						</li>
 						</c:forEach>
+						</form>
 					</ul>
 				</div>
 			</div>

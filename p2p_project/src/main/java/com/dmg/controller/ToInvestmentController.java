@@ -19,10 +19,15 @@ import com.dmg.bean.Member;
 import com.dmg.bean.Member_account;
 import com.dmg.bean.Member_tally;
 import com.dmg.bean.Member_trade_record;
+import com.dmg.bean.News;
+import com.dmg.bean.Push_notice;
 import com.dmg.bean.Subject;
 import com.dmg.bean.Subject_order_record;
 import com.dmg.bean.Subject_purchase_record;
 import com.dmg.bean.Users;
+import com.dmg.dao.MemberDao;
+import com.dmg.service.Newsservice;
+import com.dmg.service.Subject_purchase_recordService;
 import com.dmg.service.ToInvestmentService;
 import com.dmg.service.UserService;
 
@@ -32,10 +37,15 @@ public class ToInvestmentController {
 
 	@Autowired
 	private ToInvestmentService toInvestmentService;
+	@Autowired
+	private UserService userService;
+	@Autowired
+	private Newsservice Newsservice;
+	
 	
 	//支付完成
 	@RequestMapping("/Pay_is_completed")
-	public String Pay_is_completed(HttpServletRequest request) {
+	public String Pay_is_completed(Model model,HttpServletRequest request) {
 		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		System.out.println("支付完成");
 		HttpSession session=request.getSession();
@@ -76,7 +86,15 @@ public class ToInvestmentController {
 		Member_account ma=toInvestmentService.getMemberAccountBymid(mid);
 		ma.setUseable_balance(ma.getUseable_balance()-submoney);
 		toInvestmentService.updateMember_account(ma);
-		return "frontJsp/myaddlibrayy";
+		
+		List<Subject> sub = userService.showSubject();
+		model.addAttribute("sub", sub);
+		//model.addAttribute("mon", mon);
+		List<Push_notice> push_notices = userService.listpush();
+		model.addAttribute("push_notices", push_notices);
+		List<News> list = Newsservice.list();
+		model.addAttribute("list", list);
+		return "frontJsp/index";
 	}
 	
 	//生成订单表
@@ -152,6 +170,7 @@ public class ToInvestmentController {
 	// 购买
 	@RequestMapping("/buySubject/{id}")
 	public String buySubject(Model model, @RequestParam(required = false) int uid, @PathVariable("id") int id) {
+		System.out.println("uid="+uid);
 		Subject subject = toInvestmentService.getSubjectById(id);
 		int count = toInvestmentService.countByPeople(id);
 		double sum = toInvestmentService.countMoney(id);
