@@ -9,19 +9,19 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class Member_account {  //(³ÉÔ±ÕË»§±í)  
+public class Member_account {  //(ï¿½ï¿½Ô±ï¿½Ë»ï¿½ï¿½ï¿½)  
 
 	private int id;  //id
-	private Member member;  //ÓÃ»§ID 
-	private double useable_balance;  //¿ÉÓÃÓà¶î  
-	private double imuseale_balance;  //¶³½áÓà¶î 
-	private double totl_profit;  //ÀÛ¼ÆÊÕÒæ  
-	private String create_date;  //´´½¨Ê±¼ä 
-	private String update_date;  // ÐÞ¸ÄÊ±¼ä 
-	private double bonus_amount;  //ºì°ü½ð¶î 
-	private double invest_amount;  //Í¶×Ê×Ü¶î   
-	private int delflag;  // Ä¬ÈÏÎª0
-	private double bbin_amount;  //ÌåÑé½ð  
+	private Member member;  //ï¿½Ã»ï¿½ID 
+	private double useable_balance;  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  
+	private double imuseale_balance;  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	private double totl_profit;  //ï¿½Û¼ï¿½ï¿½ï¿½ï¿½ï¿½  
+	private String create_date;  //ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ 
+	private String update_date;  // ï¿½Þ¸ï¿½Ê±ï¿½ï¿½ 
+	private double bonus_amount;  //ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	private double invest_amount;  //Í¶ï¿½ï¿½ï¿½Ü¶ï¿½   
+	private int delflag;  // Ä¬ï¿½ï¿½Îª0
+	private double bbin_amount;  //ï¿½ï¿½ï¿½ï¿½ï¿½  
 	
 	@Id
 	@GeneratedValue
@@ -92,6 +92,13 @@ public class Member_account {  //(³ÉÔ±ÕË»§±í)
 	}
 	public void setBbin_amount(double bbin_amount) {
 		this.bbin_amount = bbin_amount;
+	}
+	@Override
+	public String toString() {
+		return "Member_account [id=" + id + ", member=" + member + ", useable_balance=" + useable_balance
+				+ ", imuseale_balance=" + imuseale_balance + ", totl_profit=" + totl_profit + ", create_date="
+				+ create_date + ", update_date=" + update_date + ", bonus_amount=" + bonus_amount + ", invest_amount="
+				+ invest_amount + ", delflag=" + delflag + ", bbin_amount=" + bbin_amount + "]";
 	}
 	
 	

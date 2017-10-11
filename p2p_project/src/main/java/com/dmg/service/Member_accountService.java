@@ -46,4 +46,16 @@ public class Member_accountService {
 	public int listid(int idd){
 		return member_accountDao.listid(idd);
 	}
+	//如果充值时数据库不存在数据那么久创建保存数据
+	public void accnull(int idd){
+		member_accountDao.accnull(idd);
+	}
+	//判断用户是否存在成员账户信息
+	public boolean ifnull(int idd){
+		return member_accountDao.ifnull(idd);
+	}
+	//提款
+	public boolean tkAmountUpdate(int id,double amount){
+		return member_accountDao.tkAmountUpdate(id, amount);
+	}
 }
